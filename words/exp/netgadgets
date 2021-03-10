@@ -1,0 +1,14 @@
+ActivitySurrogateDisableTypeCheck
+ActivitySurrogateSelector
+AxHostState
+ClaimsIdentity
+DataSet
+RolePrincipal
+SessionSecurityToken
+SessionViewStateHistoryItem
+TextFormattingRunProperties
+TypeConfuseDelegate
+TypeConfuseDelegateMono
+WindowsClaimsIdentity
+WindowsIdentity
+WindowsPrincipal

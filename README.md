@@ -1,0 +1,91 @@
+# Crimson
+
+> Crimson is a tool that automates some of the Pentester or Bug Bounty Hunter tasks. It uses many open source tools, most of them are available for download from github.
+
+<p align="center">
+  <img src="crimson_logo.png" />
+</p>
+
+#### It consists of three partially interdependent modules:
+* crimson_recon   - automates the process of domain reconnaissance.
+* crimson_target  - automates the process of directories reconnaissance.
+* crimson_exploit - automates the process of bug founding.
+
+
+#### :small_red_triangle_down:crimson_recon
+> This module can help you if you have to test big infrastructure or you are trying to earn some bounties in *.scope.com domain. It includes many web scraping and bruteforcing tools.
+
+#### :small_red_triangle_down:crimson_target
+> This module covers one particular domain chosen by you for testing. It uses a lot of vulnerability scanners, web scrapers and bruteforcing tools.
+
+#### :small_red_triangle_down:crimson_exploit
+> This module uses a number of tools to automate the search for certain bugs in a list of urls.
+## Installation
+Tested on Linux Mint and Kali Linux.
+```bash
+git clone https://github.com/Karmaz95/crimson.git 
+cd crimson
+chmod +x install.sh
+./install.sh
+```
+
+## Usage
+##### :diamonds: First module needs `domain name` to work properly, f.e. `google.com` :diamonds:
+
+```bash
+./crimson_recon "domain.com"
+```
+##### :diamonds: Second module needs `subdomain name`. You can additionally put `authorization cookie` :diamonds:
+```bash
+./crimson_target -d "example.domain.com" -c "Cookie: auth1=123;"
+```
+##### :diamonds: Third module needs `subdomain name` with your `collaborator` and `vps ip`. You can additionally put `authorization cookie` :diamonds:
+```bash
+./crimson_exploit -D "example.domain.com" c "Cookie: auth1=123;" -d "collaborator.com" -i "ip"
+```
+##### :diamonds: Before starting the script run the listener on your vps machine on port 80 :diamonds:
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## LIST OF UTILIZED TOOLS
+* [nmap](https://github.com/nmap/nmap)
+* [masscan](https://github.com/robertdavidgraham/masscan)
+* [Amass](https://github.com/OWASP/Amass)
+* [subfinder](https://github.com/projectdiscovery/subfinder)
+* [massdns](https://github.com/blechschmidt/massdns)
+* [assetfinder](https://github.com/tomnomnom/assetfinder)
+* [Paramspider](https://github.com/devanshbatham/ParamSpider)
+* [dnsx](https://github.com/projectdiscovery/dnsx)
+* [getallurls](https://github.com/lc/gau)
+* [waybackurls](https://github.com/tomnomnom/waybackurls)
+* [CorsMe](https://github.com/Shivangx01b/CorsMe)
+* [subjack](https://github.com/haccer/subjack)
+* [EyeWitness](https://github.com/FortyNorthSecurity/EyeWitness)
+* [wfuzz](https://github.com/xmendez/wfuzz)
+* [ffuf](https://github.com/ffuf/ffuf)
+* [webtech](https://github.com/ShielderSec/webtech)
+* [WhatWeb](https://github.com/urbanadventurer/WhatWeb)
+* [nikto](https://github.com/sullo/nikto)
+* [wapiti](https://github.com/wapiti-scanner/wapiti)
+* [gospider](https://github.com/jaeles-project/gospider)
+* [hakrawler](https://github.com/hakluke/hakrawler)
+* [galer](https://github.com/dwisiswant0/galer)
+* [getJS](https://github.com/003random/getJS)
+* [qsreplace](https://github.com/tomnomnom/qsreplace)
+* [httpx](https://github.com/encode/httpx)
+* [zile](https://github.com/xyele/zile)
+* [wafw00f](https://github.com/EnableSecurity/wafw00f)
+* [relative-url-extractor](https://github.com/jobertabma/relative-url-extractor)
+* [XSStrike](https://github.com/s0md3v/XSStrike)
+* [Smuggler](https://github.com/defparam/smuggler)
+* [hbh-header-abuse-test.py](https://gist.github.com/ndavison/298d11b3a77b97c908d63a345d3c624d)
+* [broken-link-checker](https://github.com/stevenvachon/broken-link-checker)
+* [sqlmap](http://sqlmap.org/)
+* [CRLFuzz](https://github.com/dwisiswant0/crlfuzz)
+* [ysoserial](https://github.com/frohoff/ysoserial)
+* [ysoserial.net](https://github.com/frohoff/ysoserial)
+
+
+## LICENSE
+> This program is free software: you can redistribute it and/or modify it under the terms of the [Apache license](https://choosealicense.com/licenses/apache-2.0/). Crimson and any contributions are Copyright © by Karol Mazurek 2020-2021.

