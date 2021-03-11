@@ -28,7 +28,12 @@ cd crimson
 chmod +x install.sh
 ./install.sh
 ```
-
+Add below line to your .bashrc / .zshrc etc.
+```bash
+export GOPATH=$HOME/go
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$PATH"
+```
+Install BurpSuite
 ## Usage
 ##### :diamonds: First module needs `domain name` to work properly, f.e. `google.com` :diamonds:
 
@@ -85,7 +90,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 * [CRLFuzz](https://github.com/dwisiswant0/crlfuzz)
 * [ysoserial](https://github.com/frohoff/ysoserial)
 * [ysoserial.net](https://github.com/frohoff/ysoserial)
-
+* [altdns](https://github.com/infosec-au/altdns)
 
 ## LICENSE
 > This program is free software: you can redistribute it and/or modify it under the terms of the [Apache license](https://choosealicense.com/licenses/apache-2.0/). Crimson and any contributions are Copyright © by Karol Mazurek 2020-2021.
