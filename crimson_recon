@@ -151,9 +151,11 @@ echo -e "\033[0;31m [+]\033[0m PROXY SUBDOMAINS TO BURP"
 cat status_live.txt | grep -v "XXX" | cut -d "\"" -f 2 > proxy.txt
 wfuzz -L -Z -z file,proxy.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z
 
+### CHECK ZONETRANSFER
+dnsrecon -d $DOMAIN -a
+
 ### PRINT RESULTS
 echo -e "\033[0;31m [+]\033[0m RESULTS: "
-cat status_live.txt | grep http | grep -v XXX | grep -v Pycurl
 echo "\n\nCheck: \n\t - subjack.txt \n\t - cors_scan.txt \n\t - status_live.txt \n\t - BURP & EyeWitness"
 scite subjack.txt cors_scan.txt status_live.txt
 
