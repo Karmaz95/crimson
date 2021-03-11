@@ -7,6 +7,7 @@
 # 1. Third level domain enumeration.
 # 2. Add all features from crimson_notes.
 # 3. Add altns mutations after checking for live and brute again.
+# 4. Add nuclei
 ### FUNCTIONS:
 #
 # 1. SUBDOMAIN ENUMERATION
