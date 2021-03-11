@@ -92,5 +92,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 * [ysoserial.net](https://github.com/frohoff/ysoserial)
 * [altdns](https://github.com/infosec-au/altdns)
 
+
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="karmaz95" data-color="#FF5F5F" data-emoji=""  data-font="Comic" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+
 ## LICENSE
 > This program is free software: you can redistribute it and/or modify it under the terms of the [Apache license](https://choosealicense.com/licenses/apache-2.0/). Crimson and any contributions are Copyright © by Karol Mazurek 2020-2021.
