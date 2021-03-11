@@ -240,6 +240,10 @@ wafw00f $domain | tail -n +16 | tee -a recon.txt
 echo [CORS] --------------------------------------------------------- | tee -a recon.txt
 cat ffuf.txt | CorsMe -t 70 -header $cookie | tail -n+11 | tee -a recon.txt 
 
+### GET PARAMETER BRUTEFORCING
+echo -e "\033[0;31m [+]\033[0m START ARJUN ON ffuf.txt"
+arjun -i ffuf.txt -oT exp/arjun.txt -q
+
 ### DIG SECRETS FROM all_source_code/ SAVE COLORED OUTPUT = apikeys.txt
 grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|password|pinning|secret|SHA256|SharedPreferences|superuser|token|X509TrustManager" all_source_code/ --color=always > apikeys.txt
 

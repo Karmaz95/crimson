@@ -64,13 +64,16 @@ mkdir $HOME/bounty/$DOMAIN -p
 cd $HOME/bounty/$DOMAIN
 
 ### SCRAPING DOMAINS && BRUTEFORCING DOMAINS
+echo -e "\033[0;31m [+]\033[0m SUBDOMAINS SCRAPING"
 curl -s https://crt.sh/?q=$DOMAIN | grep $DOMAIN | grep TD | sed 's/<BR>.*$//g' | sed 's/<\/TD>.*$//' | sed 's/<TD>//g' | sed 's/\*.//g' | sed 's/ //g' | grep -v "TDclass" | sort -u > crt.txt
 amass enum --passive -d $DOMAIN -o amass.txt
 subfinder -silent -recursive -d $DOMAIN | tee subfinder.txt
+echo -e "\033[0;31m [+]\033[0m SUBDOMAINS BRUTEFORCING"
 $HOME/tools/massdns/scripts/subbrute.py $HOME/tools/CRIMSON/words/dns $DOMAIN | $HOME/tools/massdns/bin/massdns -r ~/tools/massdns/lists/resolvers.txt -t A -o S -w massdns.txt
 cat massdns.txt | cut -d " " -f 1 | sed 's/\.[^.]*$//' > brute_dns.txt
 
 ### ASSETFINDER FROM TOMNOMNOM
+echo -e "\033[0;31m [+]\033[0m START WEBSPIDERS"
 assetfinder --subs-only $DOMAIN | tee -a assetfinder.txt
 
 ### SPIDER 1 = paramspider.txt
@@ -81,9 +84,11 @@ cat paramspider.txt | unfurl -u domains > subdomains_paramspider.txt
 sort -u assetfinder.txt subdomains_paramspider.txt amass.txt subfinder.txt brute_dns.txt crt.txt > ~/bounty/$DOMAIN/subdomains.txt
 
 ### CHECK FOR LIVE from subdomains.txt
+echo -e "\033[0;31m [+]\033[0m CHECK FOR LIVE SUBDOMAINS"
 cat subdomains.txt | dnsx -o live1.txt
 
 ### MAKE MUTATIONS OF BRUTEFORCED DOMAINS AND REMOVE DUPLICATED FROM PREVIOUS ENUMERATION
+echo -e "\033[0;31m [+]\033[0m MUTATE LIVE SUBDOMAINS"
 altdns -w $HOME/tools/CRIMSON/words/dns-altdns.txt -i live1.txt -o altdns_temp.txt
 cat $HOME/tools/CRIMSON/words/dns | sed "s/$/\.$domain/" > ddns.txt
 awk 'FNR==NR {a[$0]++; next} !($0 in a)' ddns.txt altdns_temp.txt > not_duplicated_altdns
@@ -91,11 +96,13 @@ awk 'FNR==NR {a[$0]++; next} !($0 in a)' subdomains.txt not_duplicated_altdns > 
 awk 'FNR==NR {a[$0]++; next} !($0 in a)' live1.txt not_duplicated_altdns2 > altdns.txt
 
 ### BRUTE FORCE MUTATED WORDLIST
+echo -e "\033[0;31m [+]\033[0m CHECK MUTATED SUBDOMAINS FOR LIVE SUBDOMAINS"
 cat altdns.txt | dnsx -o live2.txt
 sort -u live1.txt live2.txt > live.txt
 rm live1.txt live2.txt altdns_temp.txt not_duplicated_altnds not_duplicated_altnds2 ddns.txt
 
 ### SPIDER 2 = gau.txt
+echo -e "\033[0;31m [+]\033[0m START SPIDERS AGAIN WITH ENUMERATED SUBDOMAINS"
 cat live.txt | get-all-urls -subs | tee -a gau.txt
 cat gau.txt | unfurl -u domains > subs_gau.txt
 sort -u subs_gau.txt live.txt > live2.txt
@@ -114,30 +121,37 @@ cat waybackurls.txt gau.txt paramspider.txt | qsreplace -a > urls.txt
 rm waybackurls.txt paramspider.txt gau.txt
 
 ### CHECK FOR CORS MISSCONFIGURATION && DOMAIN TAKEOVER
-python3 ~/tools/CORScanner/cors_scan.py -i live.txt -t 100 |tee cors_scan.txt
+echo -e "\033[0;31m [+]\033[0m CHECK CORS"
+cat live.txt | CorsMe -t 100 | tail -n+11 | tee cors_scan.txt
+echo -e "\033[0;31m [+]\033[0m CHECK DOMAIN TAKEOVER"
 subjack -w live.txt -t 100 -timeout 30 -o subjack.txt -ssl -a
 
 ### SCREENSHOOTS FROM DOMAINS
+echo -e "\033[0;31m [+]\033[0m MAKE SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
 ~/tools/EyeWitness/Python/EyeWitness.py -f ~/bounty/$DOMAIN/live.txt -d screens
 
 ### ADD urls.txt TO BURPSUITE
+echo -e "\033[0;31m [+]\033[0m PROXY ulrs.txt FROM SPIDERS"
 cat urls.txt | grep $DOMAIN |grep http | sort -u > proxy.txt
 wfuzz -L -Z -z file,proxy.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z
 
 ### PORT SCANING ALL DOMAINS
 #echo asdqwe123 | sudo -S -E ~/tools/port_scan.sh
 
-### CHECK STATUS CODE OF ALL DOMAINS 
+### CHECK STATUS CODE OF ALL DOMAINS
+echo -e "\033[0;31m [+]\033[0m CHECK STATUS CODE OF ENUMERATED LIVE SUBDOMAINS"
 cat live.txt | sed "s/^/http:\/\//" >> temp_live.txt
 cat live.txt | sed "s/^/https:\/\//" >> temp_live.txt
 wfuzz -f status_live.txt,raw -Z -z file,temp_live.txt -z file,$HOME/tools/CRIMSON/words/blank FUZZFUZ2Z
 rm temp_live.txt
 
 ### PROXY DOMAINS TO BURP
+echo -e "\033[0;31m [+]\033[0m PROXY SUBDOMAINS TO BURP"
 cat status_live.txt | grep -v "XXX" | cut -d "\"" -f 2 > proxy.txt
 wfuzz -L -Z -z file,proxy.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z
 
 ### PRINT RESULTS
+echo -e "\033[0;31m [+]\033[0m RESULTS: "
 cat status_live.txt | grep http | grep -v XXX | grep -v Pycurl
 echo "\n\nCheck: \n\t - subjack.txt \n\t - cors_scan.txt \n\t - status_live.txt \n\t - BURP & EyeWitness"
 scite subjack.txt cors_scan.txt status_live.txt
