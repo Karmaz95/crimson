@@ -47,7 +47,7 @@ go get github.com/hakluke/hakrawler
 ### ARJUN
 git clone https://github.com/s0md3v/Arjun.git
 cd Arjun
-sudo python3 setup.py install
+python3 setup.py install
 cd ..
 ### SMUGGLER
 git clone https://github.com/defparam/smuggler
@@ -63,6 +63,8 @@ git clone https://github.com/RenwaX23/XSSTRON
 cd XSSTRON
 npm install
 npm start
+### DALFOX
+GO111MODULE=on go get -v github.com/hahwul/dalfox/v2
 ### WAYBACKURLS
 go get github.com/tomnomnom/waybackurls
 ### UNFURL
@@ -82,13 +84,13 @@ go get github.com/003random/getJS
 ### LINKFINDER
 git clone https://github.com/GerbenJavado/LinkFinder.git
 cd LinkFinder
-sudo python setup.py install
+python setup.py install
 pip3 install -r requirements.txt
 cd ..
 ### TPLMAP 
 git clone https://github.com/epinna/tplmap.git
 cd tplmap
-sudo pip install -r requirements.txt
+pip install -r requirements.txt
 cd ..
 ### CRLFUZZ
 GO111MODULE=on go get -v github.com/dwisiswant0/crlfuzz/cmd/crlfuzz
