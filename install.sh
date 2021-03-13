@@ -58,19 +58,11 @@ git clone https://github.com/s0md3v/XSStrike.git
 cd XSStrike
 pip install -r requirements.txt
 cd ..
-### ORALYZER
-git clone https://github.com/r0075h3ll/Oralyzer.git
-cd Oralyzer
-pip install -r requirements.txt
-cd ..
 ### XSSTRON
 git clone https://github.com/RenwaX23/XSSTRON
 cd XSSTRON
 npm install
 npm start
-### JWTEXPLOITER
-# https://github.com/DontPanicO/jwtXploiter.git
-sudo pip install jwtxploiter
 ### WAYBACKURLS
 go get github.com/tomnomnom/waybackurls
 ### UNFURL
@@ -109,8 +101,8 @@ cd ..
 ### WHATWEB
 git clone https://github.com/urbanadventurer/WhatWeb.git
 cd WhatWeb
-sudo make install
-sudo bundle install
+make install
+bundle install
 cd ..
 ### WEBTECH
 pip install webtech
@@ -144,6 +136,9 @@ wget https://jitpack.io/com/github/frohoff/ysoserial/master-SNAPSHOT/ysoserial-m
 pip3 install search-that-hash
 ### ALTDNS
 pip install py-altdns
+### JWT-TOOL
+git clone https://github.com/ticarpi/jwt_tool
+python3 -m pip install termcolor cprint pycryptodomex requests
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  

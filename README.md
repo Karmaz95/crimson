@@ -91,6 +91,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 * [ysoserial](https://github.com/frohoff/ysoserial)
 * [ysoserial.net](https://github.com/frohoff/ysoserial)
 * [altdns](https://github.com/infosec-au/altdns)
+* [jwt-tool](https://github.com/ticarpi/jwt_tool)
 
 
 ## LICENSE
