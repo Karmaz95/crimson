@@ -2,7 +2,7 @@
 sudo rm /etc/apt/preferences.d/nosnap.pref
 sudo apt update -y
 sudo apt dist-upgrade -y
-sudo apt install ruby ruby-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon python3 python3-dnspython pv -y
+sudo apt install ruby ruby-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon python3 python3-dnspython pv scite -y
 sudo gem install bundler json mongo
 sudo apt install python3-pip 
 sudo add-apt-repository universe

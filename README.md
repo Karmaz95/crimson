@@ -46,7 +46,7 @@ Install BurpSuite
 ```
 ##### :diamonds: Third module needs `subdomain name` with your `collaborator` and `vps ip`. You can additionally put `authorization cookie` :diamonds:
 ```bash
-./crimson_exploit -D "example.domain.com" c "Cookie: auth1=123;" -d "collaborator.com" -i "ip"
+./crimson_exploit -D "example.domain.com" -c "Cookie: auth1=123;" -d "collaborator.com" -i "ip"
 ```
 ##### :diamonds: Before starting the script run the listener on your vps machine on port 80 :diamonds:
 

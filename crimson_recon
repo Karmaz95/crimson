@@ -70,7 +70,7 @@ curl -s https://crt.sh/?q=$DOMAIN | grep $DOMAIN | grep TD | sed 's/<BR>.*$//g' 
 amass enum --passive -d $DOMAIN -o amass.txt
 subfinder -silent -recursive -d $DOMAIN | tee subfinder.txt
 echo -e "\033[0;31m [+]\033[0m SUBDOMAINS BRUTEFORCING"
-$HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $DOMAIN -w massdns.txt
+$HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $DOMAIN -w brute_dns.txt
 # OLD BEST BRUTE TECHNIQUE
 #$HOME/tools/massdns/scripts/subbrute.py $HOME/tools/CRIMSON/words/dns $DOMAIN | $HOME/tools/massdns/bin/massdns -r $HOME/tools/massdns/lists/resolvers.txt -t A -o S -w massdns.txt
 #cat massdns.txt | cut -d " " -f 1 | sed 's/\.[^.]*$//' > brute_dns.txt
