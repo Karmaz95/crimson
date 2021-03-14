@@ -2,7 +2,7 @@
 sudo rm /etc/apt/preferences.d/nosnap.pref
 sudo apt update -y
 sudo apt dist-upgrade -y
-sudo apt install ruby ruby-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon -y
+sudo apt install ruby ruby-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon python3 python3-dnspython pv -y
 sudo gem install bundler json mongo
 sudo apt install python3-pip 
 sudo add-apt-repository universe
@@ -137,10 +137,12 @@ wget https://jitpack.io/com/github/frohoff/ysoserial/master-SNAPSHOT/ysoserial-m
 ### SEARCH THAT HASH
 pip3 install search-that-hash
 ### ALTDNS
-pip install py-altdns
+pip install py-altdns shodan
 ### JWT-TOOL
 git clone https://github.com/ticarpi/jwt_tool
 python3 -m pip install termcolor cprint pycryptodomex requests
+### PUREDNS
+git clone https://github.com/d3mondev/puredns.git
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  

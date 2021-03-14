@@ -70,21 +70,23 @@ curl -s https://crt.sh/?q=$DOMAIN | grep $DOMAIN | grep TD | sed 's/<BR>.*$//g' 
 amass enum --passive -d $DOMAIN -o amass.txt
 subfinder -silent -recursive -d $DOMAIN | tee subfinder.txt
 echo -e "\033[0;31m [+]\033[0m SUBDOMAINS BRUTEFORCING"
-$HOME/tools/massdns/scripts/subbrute.py $HOME/tools/CRIMSON/words/dns $DOMAIN | $HOME/tools/massdns/bin/massdns -r ~/tools/massdns/lists/resolvers.txt -t A -o S -w massdns.txt
-cat massdns.txt | cut -d " " -f 1 | sed 's/\.[^.]*$//' > brute_dns.txt
+$HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $DOMAIN -w massdns.txt
+# OLD BEST BRUTE TECHNIQUE
+#$HOME/tools/massdns/scripts/subbrute.py $HOME/tools/CRIMSON/words/dns $DOMAIN | $HOME/tools/massdns/bin/massdns -r $HOME/tools/massdns/lists/resolvers.txt -t A -o S -w massdns.txt
+#cat massdns.txt | cut -d " " -f 1 | sed 's/\.[^.]*$//' > brute_dns.txt
 
 ### ASSETFINDER FROM TOMNOMNOM
 echo -e "\033[0;31m [+]\033[0m START WEBSPIDERS"
 assetfinder --subs-only $DOMAIN | tee -a assetfinder.txt
 
 ### SPIDER 1 = paramspider.txt
-python3 ~/tools/ParamSpider/paramspider.py -d $DOMAIN --output ./paramspider.txt --level high
+python3 $HOME/tools/ParamSpider/paramspider.py -d $DOMAIN --output ./paramspider.txt --level high
 cat paramspider.txt | unfurl -u domains > subdomains_paramspider.txt
 
 ### MERGE SUBDOMAIN LISTS
-sort -u assetfinder.txt subdomains_paramspider.txt amass.txt subfinder.txt brute_dns.txt crt.txt > ~/bounty/$DOMAIN/subdomains.txt
+sort -u assetfinder.txt subdomains_paramspider.txt amass.txt subfinder.txt brute_dns.txt crt.txt > $HOME/bounty/$DOMAIN/subdomains.txt
 
-### CHECK FOR LIVE from subdomains.txt
+### CHECK FOR LIVE - RESOLVE subdomains.txt
 echo -e "\033[0;31m [+]\033[0m CHECK FOR LIVE SUBDOMAINS"
 cat subdomains.txt | dnsx -o live1.txt
 
@@ -94,16 +96,20 @@ altdns -w $HOME/tools/CRIMSON/words/dns-altdns.txt -i live1.txt -o altdns_temp.t
 cat $HOME/tools/CRIMSON/words/dns | sed "s/$/\.$domain/" > ddns.txt
 awk 'FNR==NR {a[$0]++; next} !($0 in a)' ddns.txt altdns_temp.txt > not_duplicated_altdns
 awk 'FNR==NR {a[$0]++; next} !($0 in a)' subdomains.txt not_duplicated_altdns > not_duplicated_altdns2
-awk 'FNR==NR {a[$0]++; next} !($0 in a)' live1.txt not_duplicated_altdns2 > altdns.txt
+awk 'FNR==NR {a[$0]++; next} !($0 in a)' live1.txt not_duplicated_altdns2 > altdns_with_domain_name
+cat altdns_with_domain_name | sed "s/\.$DOMAIN//g" > altdns.txt
 
 ### BRUTE FORCE MUTATED WORDLIST
 echo -e "\033[0;31m [+]\033[0m CHECK MUTATED SUBDOMAINS FOR LIVE SUBDOMAINS"
-cat altdns.txt | dnsx -o live2.txt
+$HOME/tools/puredns/puredns bruteforce altdns.txt $DOMAIN -w brute2.txt
+
+### CHECK LIVE FROM BRUTEFORCE OF MUTATED WORDLIST
+cat brute2.txt | dnsx -o live2.txt
 sort -u live1.txt live2.txt > live.txt
-rm live1.txt live2.txt altdns_temp.txt not_duplicated_altnds not_duplicated_altnds2 ddns.txt
+rm live1.txt live2.txt altdns_temp.txt not_duplicated_altnds not_duplicated_altnds2 ddns.txt altdns_with_domain_name altdns.txt brute2.txt
 
 ### SPIDER 2 = gau.txt
-echo -e "\033[0;31m [+]\033[0m START SPIDERS AGAIN WITH ENUMERATED SUBDOMAINS"
+echo -e "\033[0;31m [+]\033[0m GATHER URLS"
 cat live.txt | get-all-urls -subs | tee -a gau.txt
 cat gau.txt | unfurl -u domains > subs_gau.txt
 sort -u subs_gau.txt live.txt > live2.txt
@@ -129,7 +135,7 @@ subjack -w live.txt -t 100 -timeout 30 -o subjack.txt -ssl -a
 
 ### SCREENSHOOTS FROM DOMAINS
 echo -e "\033[0;31m [+]\033[0m MAKE SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
-~/tools/EyeWitness/Python/EyeWitness.py -f ~/bounty/$DOMAIN/live.txt -d screens
+$HOME/tools/EyeWitness/Python/EyeWitness.py -f $HOME/bounty/$DOMAIN/live.txt -d screens
 
 ### ADD urls.txt TO BURPSUITE
 echo -e "\033[0;31m [+]\033[0m PROXY ulrs.txt FROM SPIDERS"
@@ -137,7 +143,7 @@ cat urls.txt | grep $DOMAIN |grep http | sort -u > proxy.txt
 wfuzz -L -Z -z file,proxy.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z
 
 ### PORT SCANING ALL DOMAINS
-#echo asdqwe123 | sudo -S -E ~/tools/port_scan.sh
+#echo asdqwe123 | sudo -S -E $HOME/tools/port_scan.sh
 
 ### CHECK STATUS CODE OF ALL DOMAINS
 echo -e "\033[0;31m [+]\033[0m CHECK STATUS CODE OF ENUMERATED LIVE SUBDOMAINS"
@@ -166,7 +172,6 @@ rm crt.txt amass.txt assetfinder.txt brute_dns.txt geckodriver.log massdns.txt s
 ### GO TO https://httpstatus.io/ + LIVE.TXT
 ### -S = take the pass from input -E use exported variable from user terminal
 # echo asdqwe123 | sudo -S -E $HOME/tools/port_scan.sh
-
 
 ### GREP 2/3/4 LEVEL DOMAINS
 # grep -P '^(?:[a-z0-9]+.){1}[^.]*$'	2nd level domains only

@@ -93,6 +93,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 * [altdns](https://github.com/infosec-au/altdns)
 * [jwt-tool](https://github.com/ticarpi/jwt_tool)
 * [dalfox](https://github.com/hahwul/dalfox)
+* [unfurl](https://github.com/tomnomnom/unfurl)
+* [puredns](https://github.com/d3mondev/puredns)
+
 
 ## LICENSE
 > This program is free software: you can redistribute it and/or modify it under the terms of the [Apache license](https://choosealicense.com/licenses/apache-2.0/). Crimson and any contributions are Copyright © by Karol Mazurek 2020-2021.
