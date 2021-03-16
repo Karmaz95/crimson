@@ -8,7 +8,7 @@
 
 #### It consists of three partially interdependent modules:
 * crimson_recon   - automates the process of domain reconnaissance.
-* crimson_target  - automates the process of directories reconnaissance.
+* crimson_target  - automates the process of urls reconnaissance.
 * crimson_exploit - automates the process of bug founding.
 
 
@@ -31,7 +31,7 @@ chmod +x install.sh
 Add below line to your .bashrc / .zshrc etc.
 ```bash
 export GOPATH=$HOME/go
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$HOME/tools:$PATH"
 ```
 Install BurpSuite
 ## Usage
@@ -49,6 +49,9 @@ Install BurpSuite
 ./crimson_exploit -D "example.domain.com" -c "Cookie: auth1=123;" -d "collaborator.com" -i "ip"
 ```
 ##### :diamonds: Before starting the script run the listener on your vps machine on port 80 :diamonds:
+
+## Extras
+There are some useful tools in the scripts directory that I have written that are worth checking out.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
