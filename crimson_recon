@@ -32,7 +32,8 @@
 # 7. urls.txt			- ALL SPIDERS URLS IN ONE
 # 8. status_live.txt		- HTTPS / HTTPS SUBDOMAINS STATUS
 # 9. ldns-walk.txt		- DOMAINS FROM DNSSEC
-# 10. subdomainizer.txt
+# 10. subdomainizer.txt		- API KEYS / MORE SUBDOMAINS
+# 11. hosthunter.txt		- VIRTUAL HOSTNAMES
 #
 ### WORKFLOW
 # 0. *Comment out VHOST SECTION if you want to resolve ips and get vhostnames.
