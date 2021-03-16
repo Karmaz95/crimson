@@ -96,8 +96,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 * [unfurl](https://github.com/tomnomnom/unfurl)
 * [puredns](https://github.com/d3mondev/puredns)
 * [sudomy](https://github.com/Screetsec/Sudomy)
-* [Sublist3r](https://github.com/aboul3la/Sublist3r)
-
+* [anew](https://github.com/tomnomnom/anew.git)
 
 ## LICENSE
 > This program is free software: you can redistribute it and/or modify it under the terms of the [Apache license](https://choosealicense.com/licenses/apache-2.0/). Crimson and any contributions are Copyright © by Karol Mazurek 2020-2021.
