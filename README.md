@@ -33,13 +33,16 @@ Add below line to your .bashrc / .zshrc etc.
 export GOPATH=$HOME/go
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$HOME/tools:$PATH"
 ```
-Install BurpSuite
+Install Burp Suite
 ## Usage
 ##### :diamonds: First module needs `domain name` to work properly, f.e. `google.com` :diamonds:
 
 ```bash
 ./crimson_recon "domain.com"
+
 ```
+If you are interested in how this module works, I encourage you to study the source code. I tried to describe in the comments how the individual tools work. Additionally, I encourage you to read my article at medium: ```https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-i-574fd9dce53e```
+
 ##### :diamonds: Second module needs `subdomain name`. You can additionally put `authorization cookie` :diamonds:
 ```bash
 ./crimson_target -d "example.domain.com" -c "Cookie: auth1=123;"
