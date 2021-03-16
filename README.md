@@ -95,6 +95,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 * [dalfox](https://github.com/hahwul/dalfox)
 * [unfurl](https://github.com/tomnomnom/unfurl)
 * [puredns](https://github.com/d3mondev/puredns)
+* [sudomy](https://github.com/Screetsec/Sudomy)
+* [Sublist3r](https://github.com/aboul3la/Sublist3r)
 
 
 ## LICENSE

@@ -2,7 +2,7 @@
 sudo rm /etc/apt/preferences.d/nosnap.pref
 sudo apt update -y
 sudo apt dist-upgrade -y
-sudo apt install ruby ruby-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon python3 python3-dnspython pv scite -y
+sudo apt install ruby ruby-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon python3 python3-dnspython pv scite ldnsutils -y
 sudo gem install bundler json mongo
 sudo apt install python3-pip 
 sudo add-apt-repository universe
@@ -143,6 +143,17 @@ git clone https://github.com/ticarpi/jwt_tool
 python3 -m pip install termcolor cprint pycryptodomex requests
 ### PUREDNS
 git clone https://github.com/d3mondev/puredns.git
+### SUDOMY
+git clone --recursive https://github.com/screetsec/Sudomy.git
+python3 -m pip install -r Sudomy/requirements.txt
+### SUBDOMAINIZER
+git clone https://github.com/nsonaniya2010/SubDomainizer.git
+pip3 install -r SubDomainizer/requirements.txt
+### HOSTHUNTER
+git clone https://github.com/SpiderLabs/HostHunter.git
+pip3 install -r HostHunter/requirements.txt
+### ANEW
+go get -u github.com/tomnomnom/anew
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  

@@ -4,20 +4,22 @@
 #
 #
 ### TO DO:
-# 1. Third level domain enumeration.
-# 2. Add all features from crimson_notes.
-# 3. Add altns mutations after checking for live and brute again.
-# 4. Add nuclei
+# Add nuclei CVE scan
+# Add better printer
+# Test subdomainizer output
+#
 ### FUNCTIONS:
 #
 # 1. SUBDOMAIN ENUMERATION
-# 2. CHECKING LIVE DOMAINS
-# 3. LOOKING FOR DOMAIN HIJACKING
-# 4. MAKING SCREENS
-# 5. LOOKING FOR CORS MISCONFIGURATIONS
-# 6. RESOLVE IP ADDRESSES OF DOMAINS 
-# 7. MASS SCANN ALL IP ADDRESSES
-# 8. SPIDER URLS
+# 2. LIVE CHECK
+# 3. TAKEOVER CHECK
+# 4. SCREENSHOTS
+# 5. CORS CHECK
+# 6. IP RESOLVE
+# 7. OPENED PORTS SCAN
+# 8. URLS SCRAPING
+# 9. API KEYS SCRAPING
+# 10.
 #
 ### LISTS:
 #
@@ -29,16 +31,17 @@
 # 6. cors_scan.txt		- VULNS
 # 7. urls.txt			- ALL SPIDERS URLS IN ONE
 # 8. status_live.txt		- HTTPS / HTTPS SUBDOMAINS STATUS
+# 9. ldns-walk.txt		- DOMAINS FROM DNSSEC
+# 10. subdomainizer.txt
 #
 ### WORKFLOW
-# 0. *Comment out portscan below if u want to scann all ports of all domains. 
-# 1. Start Burp
+# 0. *Comment out VHOST SECTION if you want to resolve ips and get vhostnames.
+# 1. Start Burp Suite
 #	- Create new project - example.domain.com
 #	- Turn off interception
 # 2. Start this script.
-# 3. Check the output listed above (LISTS).
-# 4. Select the target domain and start crimson_target module.
-# 5. *Eventually proxy urls.txt and status_live.txt with additional headers and listener ON.
+# 3. Check the output listed above (LISTS)
+# 4. Select single domain and start crimson_target module
 ###
 
 echo -e "\033[0;31m
@@ -57,41 +60,52 @@ echo "Usage: ./crimson_recon example.domain.com"
 exit  1
 fi
 
-### REMEMBER ABOUT BURP WITH PROPER SCOPE
+### REMINDER OF BURP SUITE 
 echo -e "BURP SCOPE: .*\."$(echo $1 | sed "s/\./\\\./")"$"
 read -rsp $'RUN BURP AND ADD SCOPE...\n' -n1 key
+
+### CREATTING PROPER DIRECTORY
 export DOMAIN=$1
 mkdir $HOME/bounty/$DOMAIN -p
 cd $HOME/bounty/$DOMAIN
 
-### SCRAPING DOMAINS && BRUTEFORCING DOMAINS
+
+### STARTING PASSIVE ENUMERATION
 echo -e "\033[0;31m [+]\033[0m SUBDOMAINS SCRAPING"
+# crt.txt
 curl -s https://crt.sh/?q=$DOMAIN | grep $DOMAIN | grep TD | sed 's/<BR>.*$//g' | sed 's/<\/TD>.*$//' | sed 's/<TD>//g' | sed 's/\*.//g' | sed 's/ //g' | grep -v "TDclass" | sort -u > crt.txt
+# amass.txt
 amass enum --passive -d $DOMAIN -o amass.txt
+# subfinder.txt
 subfinder -silent -recursive -d $DOMAIN | tee subfinder.txt
+# sudomy.txt
+cd $HOME/tools/Sudomy/sudomy; ./sudomy -d $DOMAIN --no-probe -o $DOMAIN
+cd $HOME/bounty/$DOMAIN
+cat $HOME/tools/Sudomy/$DOMAIN/Sudomy-Output/$DOMAIN/subdomain.txt >> sudomy.txt
+rm -rf $HOME/tools/Sudomy/$DOMAIN/Sudomy-Output/$DOMAIN
+# assetfinder.txt
+assetfinder --subs-only $DOMAIN | tee -a assetfinder.txt
+# paramspider.txt subdomains_paramspider.txt
+python3 $HOME/tools/ParamSpider/paramspider.py -d $DOMAIN --output ./paramspider.txt --level high
+cat paramspider.txt | unfurl -u domains > subdomains_paramspider.txt
+
+### STARTING 1ST BRUTEFORCE => puredsn1.txt
 echo -e "\033[0;31m [+]\033[0m SUBDOMAINS BRUTEFORCING"
-$HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $DOMAIN -w brute_dns.txt
+$HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $DOMAIN -w puredns1.txt
 # OLD BEST BRUTE TECHNIQUE
 #$HOME/tools/massdns/scripts/subbrute.py $HOME/tools/CRIMSON/words/dns $DOMAIN | $HOME/tools/massdns/bin/massdns -r $HOME/tools/massdns/lists/resolvers.txt -t A -o S -w massdns.txt
 #cat massdns.txt | cut -d " " -f 1 | sed 's/\.[^.]*$//' > brute_dns.txt
 
-### ASSETFINDER FROM TOMNOMNOM
-echo -e "\033[0;31m [+]\033[0m START WEBSPIDERS"
-assetfinder --subs-only $DOMAIN | tee -a assetfinder.txt
+### MERGING SUBDOMAIN LISTS = subdomains.txt
+sort -u assetfinder.txt subdomains_paramspider.txt amass.txt subfinder.txt puredns1.txt crt.txt sudomy.txt > $HOME/bounty/$DOMAIN/subdomains.txt
+rm assetfinder.txt subdomains_paramspider.txt amass.txt subfinder.txt puredns1.txt crt.txt sudomy.txt
 
-### SPIDER 1 = paramspider.txt
-python3 $HOME/tools/ParamSpider/paramspider.py -d $DOMAIN --output ./paramspider.txt --level high
-cat paramspider.txt | unfurl -u domains > subdomains_paramspider.txt
-
-### MERGE SUBDOMAIN LISTS
-sort -u assetfinder.txt subdomains_paramspider.txt amass.txt subfinder.txt brute_dns.txt crt.txt > $HOME/bounty/$DOMAIN/subdomains.txt
-
-### CHECK FOR LIVE - RESOLVE subdomains.txt
-echo -e "\033[0;31m [+]\033[0m CHECK FOR LIVE SUBDOMAINS"
+### CHECKING FOR LIVE DOMAINS = live1.txt
+echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE SUBDOMAINS"
 cat subdomains.txt | dnsx -o live1.txt
 
-### MAKE MUTATIONS OF BRUTEFORCED DOMAINS AND REMOVE DUPLICATED FROM PREVIOUS ENUMERATION
-echo -e "\033[0;31m [+]\033[0m MUTATE LIVE SUBDOMAINS"
+### MAKING MUTATIONS FROM ENUMERATED SUBDOMAINS = altnds.txt
+echo -e "\033[0;31m [+]\033[0m MUTATING LIVE SUBDOMAINS"
 altdns -w $HOME/tools/CRIMSON/words/dns-altdns.txt -i live1.txt -o altdns_temp.txt
 cat $HOME/tools/CRIMSON/words/dns | sed "s/$/\.$domain/" > ddns.txt
 awk 'FNR==NR {a[$0]++; next} !($0 in a)' ddns.txt altdns_temp.txt > not_duplicated_altdns
@@ -99,79 +113,126 @@ awk 'FNR==NR {a[$0]++; next} !($0 in a)' subdomains.txt not_duplicated_altdns > 
 awk 'FNR==NR {a[$0]++; next} !($0 in a)' live1.txt not_duplicated_altdns2 > altdns_with_domain_name
 cat altdns_with_domain_name | sed "s/\.$DOMAIN//g" > altdns.txt
 
-### BRUTE FORCE MUTATED WORDLIST
-echo -e "\033[0;31m [+]\033[0m CHECK MUTATED SUBDOMAINS FOR LIVE SUBDOMAINS"
-$HOME/tools/puredns/puredns bruteforce altdns.txt $DOMAIN -w brute2.txt
+### STARTING 2ND BRUTEFORCE WITH MUTATED WORDLIST = puredns2.txt
+echo -e "\033[0;31m [+]\033[0m CHECKING MUTATED LIST FOR LIVE SUBDOMAINS"
+$HOME/tools/puredns/puredns bruteforce altdns.txt $DOMAIN -w puredns2.txt
 
-### CHECK LIVE FROM BRUTEFORCE OF MUTATED WORDLIST
+### CHECKING LIVE DOMAINS FROM BRUTEFORCE OF MUTATED WORDLIST = live1.txt
 cat brute2.txt | dnsx -o live2.txt
+
+### MERGING live1.txt AND live2.txt = live.txt
 sort -u live1.txt live2.txt > live.txt
+
+### CLEARING LOGS 
 rm live1.txt live2.txt altdns_temp.txt not_duplicated_altnds not_duplicated_altnds2 ddns.txt altdns_with_domain_name altdns.txt brute2.txt
 
-### SPIDER 2 = gau.txt
-echo -e "\033[0;31m [+]\033[0m GATHER URLS"
+### SCRAPING THE INTERNET FOR URLS = gau.txt
+echo -e "\033[0;31m [+]\033[0m GATHERING URLS"
 cat live.txt | get-all-urls -subs | tee -a gau.txt
 cat gau.txt | unfurl -u domains > subs_gau.txt
 sort -u subs_gau.txt live.txt > live2.txt
 mv live2.txt live.txt
 rm subs_gau.txt
 
-### SPIDER 3 = waybackurls.txt
+### SCRAPING THE INTERNET FR URLS = waybackurls.txt
 cat live.txt | waybackurls | tee -a waybackurls.txt
 cat waybackurls.txt | unfurl -u domains > subs_waybackurls.txt
 sort -u subs_waybackurls.txt live.txt > live2.txt
 mv live2.txt live.txt
 rm subs_waybackurls.txt
 
-### MERGE SPIDERS = urls.txt
+### MERGING SPIDERS = urls.txt
 cat waybackurls.txt gau.txt paramspider.txt | qsreplace -a > urls.txt
 rm waybackurls.txt paramspider.txt gau.txt
 
-### CHECK FOR CORS MISSCONFIGURATION && DOMAIN TAKEOVER
-echo -e "\033[0;31m [+]\033[0m CHECK CORS"
+### LOOKING FOR SUBDOMAINS AND SECRETS IN URLS = subdomainizer.txt
+echo -e "\033[0;31m [+]\033[0m GATHERING NEW SUBDOMAINS AND API KEYS"
+python3 SubDomainizer.py -san same -k -g -l urls.txt -o subdomainizer.txt
+
+### GETTING SUBDOMAINS FROM subdomainizer.txt AND CHECKING FOR LIVE = live.txt
+cat subdomainizer.txt | grep $DOMAIN | dnsx -o live3.txt
+cat live3.txt | anew live.txt
+rm live3.txt
+
+### --- VHOST SECTION --- ###
+### RESOLVING IP FROM live.txt = ip.txt
+#echo -e "\033[0;31m [+]\033[0m RESOVLING IP ADRESSES"
+#for domain in $(cat $HOME/bounty/$DOMAIN/live.txt);do echo "[+] $domain" >> $HOME/bounty/$DOMAIN/ip.txt && dig +short $domain >> $HOME/bounty/$DOMAIN/ip.txt ;done
+
+### FILTERING ip.txt = filtered_ip.txt
+#cat $HOME/bounty/$DOMAIN/ip.txt | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | sort -u > $HOME/bounty/$DOMAIN/filtered_ip.txt
+
+### DISCOVERING VIRTUAL HOSTNAMES && ADD THEM TO live.txt = hosthunter.txt
+#python3 $HOME/tools/HostHunter/hosthunter.py filtered_ip.txt -b -f txt -o hosthunter.txt
+
+### SCANNING filtered_ip.txt FOR OPENED PORTS = ports.txt
+#for ip in $(cat $HOME/bounty/$DOMAIN/filtered_ip.txt);do masscan -p1-65535 --max-rate 1000 $ip >> $HOME/bounty/$DOMAIN/ports.txt ; done
+
+### CHECKING FOR CORS MISSCONFIGURATION && DOMAIN TAKEOVER
+echo -e "\033[0;31m [+]\033[0m CHECKING CORS"
 cat live.txt | CorsMe -t 100 | tail -n+11 | tee cors_scan.txt
-echo -e "\033[0;31m [+]\033[0m CHECK DOMAIN TAKEOVER"
+echo -e "\033[0;31m [+]\033[0m CHECKING DOMAIN TAKEOVER"
 subjack -w live.txt -t 100 -timeout 30 -o subjack.txt -ssl -a
 
-### SCREENSHOOTS FROM DOMAINS
-echo -e "\033[0;31m [+]\033[0m MAKE SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
+### MAKING SCREENSHOOTS FROM ENUERATED LIVE DOMAINS
+echo -e "\033[0;31m [+]\033[0m MAKING SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
 $HOME/tools/EyeWitness/Python/EyeWitness.py -f $HOME/bounty/$DOMAIN/live.txt -d screens
 
-### ADD urls.txt TO BURPSUITE
-echo -e "\033[0;31m [+]\033[0m PROXY ulrs.txt FROM SPIDERS"
+### PROXING urls.txt TO BURP SUITE
+echo -e "\033[0;31m [+]\033[0m PROXING ulrs.txt TO BRUP SUITE"
 cat urls.txt | grep $DOMAIN |grep http | sort -u > proxy.txt
 wfuzz -L -Z -z file,proxy.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z
 
-### PORT SCANING ALL DOMAINS
-#echo asdqwe123 | sudo -S -E $HOME/tools/port_scan.sh
-
-### CHECK STATUS CODE OF ALL DOMAINS
-echo -e "\033[0;31m [+]\033[0m CHECK STATUS CODE OF ENUMERATED LIVE SUBDOMAINS"
+### CHECKING STATUS CODE OF ALL DOMAINS = status_live.txt
+echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF ENUMERATED LIVE SUBDOMAINS"
 cat live.txt | sed "s/^/http:\/\//" >> temp_live.txt
 cat live.txt | sed "s/^/https:\/\//" >> temp_live.txt
 wfuzz -f status_live.txt,raw -Z -z file,temp_live.txt -z file,$HOME/tools/CRIMSON/words/blank FUZZFUZ2Z
 rm temp_live.txt
 
-### PROXY DOMAINS TO BURP
-echo -e "\033[0;31m [+]\033[0m PROXY SUBDOMAINS TO BURP"
+### PROXING DOMAINS TO BURP = proxy.txt
+echo -e "\033[0;31m [+]\033[0m PROXING SUBDOMAINS TO BURP"
 cat status_live.txt | grep -v "XXX" | cut -d "\"" -f 2 > proxy.txt
 wfuzz -L -Z -z file,proxy.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z
 
-### CHECK ZONETRANSFER
-dnsrecon -d $DOMAIN -a
+### CHECKING ZONETRANSFER = dnsrecon.txt
+echo -e "\033[0;31m [+]\033[0m CHECKING ZONE TRANSFER"
+dnsrecon -d $DOMAIN -a | tee -a dnsrecon.txt
 
-### PRINT RESULTS
+### DNSSEC RECON = ldns-walk.txt
+echo -e "\033[0;31m [+]\033[0m CHECKING DNSSEC MISONFIGURATIONS"
+ldns-walk $DOMAIN | tee -a ldns-walk.txt
+
+### THRID LEVEL SUBDOMAINS BRUTE-FORCE
+echo -e "\033[0;31m [+]\033[0m STARTING 3RDLEVEL ENUMERATION"
+mkdir 3rdlevel
+for subdomain in $(cat live.txt); do $HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $subdomain -w 3rdlevel/$subdomain.txt ;done
+sort -u 3rdlevel/* > 3rdlevel.txt
+cat 3rdlevel.txt | dnsx -o 3rdlevel_live.txt
+rm -rf 3rdlevel/ 3rdlevel.txt
+
+### PRINTING RESULTS
 echo -e "\033[0;31m [+]\033[0m RESULTS: "
-echo "\n\nCheck: \n\t - subjack.txt \n\t - cors_scan.txt \n\t - status_live.txt \n\t - BURP & EyeWitness"
-scite subjack.txt cors_scan.txt status_live.txt
+echo -e "--------"
+echo -e "\033[0;31m [+]\033[0m DOMAIN TAKEOVER:"
+cat subjack.txt
+echo -e "\033[0;31m [+]\033[0m CORS MISCONFIGURATIONS:"
+cat cors_scan.txt
+echo -e "\033[0;31m [+]\033[0m ZONE TRANSFER:"
+cat dnsrecon.txt
+echo -e "\033[0;31m [+]\033[0m DNSSEC RECON:"
+cat ldns-walk.txt
+echo -e "\033[0;31m [+]\033[0m 3rd LEVEL SUBDOMAINS:"
+cat 3rdleve.txt
+echo -e "--------"
+echo "\n\nCheck: \n\t - status_live.txt \n\t - BURP & EyeWitness"
+scite status_live.txt 
 
-### CLEAR THE DIRECTORY
-rm crt.txt amass.txt assetfinder.txt brute_dns.txt geckodriver.log massdns.txt subfinder.txt
+### CLEARING THE DIRECTORY
+rm geckodriver.log proxy.txt
 
 ### CHECK STATUS CODE HERE TOO
 ### GO TO https://httpstatus.io/ + LIVE.TXT
-### -S = take the pass from input -E use exported variable from user terminal
-# echo asdqwe123 | sudo -S -E $HOME/tools/port_scan.sh
 
 ### GREP 2/3/4 LEVEL DOMAINS
 # grep -P '^(?:[a-z0-9]+.){1}[^.]*$'	2nd level domains only
