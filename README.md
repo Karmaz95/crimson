@@ -73,7 +73,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 * [waybackurls](https://github.com/tomnomnom/waybackurls)
 * [CorsMe](https://github.com/Shivangx01b/CorsMe)
 * [subjack](https://github.com/haccer/subjack)
-* [EyeWitness](https://github.com/FortyNorthSecurity/EyeWitness)
+* [gowitness](https://github.com/sensepost/gowitness)
 * [wfuzz](https://github.com/xmendez/wfuzz)
 * [ffuf](https://github.com/ffuf/ffuf)
 * [webtech](https://github.com/ShielderSec/webtech)
@@ -106,6 +106,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 * [anew](https://github.com/tomnomnom/anew.git)
 * [SubDomainizer](https://github.com/nsonaniya2010/SubDomainizer)
 * [HostHunter](https://github.com/SpiderLabs/HostHunter/)
+* [hsecscan](https://github.com/riramar/hsecscan)
 
 
 ## LICENSE

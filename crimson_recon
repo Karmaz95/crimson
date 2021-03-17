@@ -25,7 +25,7 @@
 # 2. ip.txt			- ALL IPS
 # 3. ports.txt			- OPENED PORTS
 # 4. subjack.txt		- VULNS
-# 5. Screens			- STATUS + SCREENS
+# 5. screenshots		- STATUS + SCREENS
 # 6. cors_scan.txt		- VULNS
 # 7. urls.txt			- ALL SPIDERS URLS IN ONE
 # 8. status_live.txt		- HTTPS / HTTPS SUBDOMAINS STATUS
@@ -175,7 +175,10 @@ subjack -w live.txt -t 100 -timeout 30 -o subjack.txt -ssl -a
 
 ### MAKING SCREENSHOOTS FROM ENUERATED LIVE DOMAINS
 echo -e "\033[0;31m [+]\033[0m MAKING SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
-$HOME/tools/EyeWitness/Python/EyeWitness.py -f $HOME/bounty/$DOMAIN/live.txt -d screens
+gowitness file -f live.txt
+
+### OLD EYEWITNESS
+#$HOME/tools/EyeWitness/Python/EyeWitness.py -f $HOME/bounty/$DOMAIN/live.txt -d screens
 
 ### PROXING urls.txt TO BURP SUITE
 echo -e "\033[0;31m [+]\033[0m PROXING ulrs.txt TO BRUP SUITE"
@@ -210,6 +213,9 @@ sort -u 3rdlevel/* > 3rdlevel.txt
 cat 3rdlevel.txt | dnsx -o 3rdlevel_live.txt
 rm -rf 3rdlevel/ 3rdlevel.txt
 
+### CLEARING THE DIRECTORY
+rm proxy.txt
+
 ### PRINTING RESULTS
 echo -e "\033[0;31m [+]\033[0m RESULTS: "
 echo -e "--------"
@@ -224,14 +230,9 @@ cat ldns-walk.txt
 echo -e "\033[0;31m [+]\033[0m 3rd LEVEL SUBDOMAINS:"
 cat 3rdleve.txt
 echo -e "--------"
-echo "\n\nCheck: \n\t - status_live.txt \n\t - BURP & EyeWitness"
-scite status_live.txt 
-
-### CLEARING THE DIRECTORY
-rm geckodriver.log proxy.txt
-
-### CHECK STATUS CODE HERE TOO
-### GO TO https://httpstatus.io/ + LIVE.TXT
+echo "\n\nCheck: \n\t - status_live.txt \n\t - BURP \n\t - gowitness"
+google-chrome http://localhost:7171/table/
+gowitness report server
 
 ### GREP 2/3/4 LEVEL DOMAINS
 # grep -P '^(?:[a-z0-9]+.){1}[^.]*$'	2nd level domains only
@@ -240,5 +241,3 @@ rm geckodriver.log proxy.txt
 # grep -P '^(?:[a-z0-9]+.){2,3}[^.]*$'	3rd to 4th level domains only
 # grep -P '^(?:[a-z0-9]+.){3,}[^.]*$'	4th level domains or higher
 ###
-
-

@@ -31,11 +31,8 @@ cd massdns
 make
 sudo cp bin/massdns /usr/bin/massdns
 cd ..
-### EYEWITNESS
-git clone https://github.com/FortyNorthSecurity/EyeWitness.git
-cd EyeWitness
-sudo Python/setup/setup.sh
-cd ..
+### GOWITNESS
+go get -u github.com/sensepost/gowitness
 ### HTTPROBE
 go get -u github.com/tomnomnom/httprobe
 ### CORSME
@@ -154,6 +151,8 @@ git clone https://github.com/SpiderLabs/HostHunter.git
 pip3 install -r HostHunter/requirements.txt
 ### ANEW
 go get -u github.com/tomnomnom/anew
+### HSECSCAN
+pip install hsecscan
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  
