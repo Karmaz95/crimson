@@ -70,38 +70,41 @@ mkdir $HOME/bounty/$DOMAIN -p
 cd $HOME/bounty/$DOMAIN
 
 
-### STARTING PASSIVE ENUMERATION
+### STARTING PASSIVE ENUMERATION = subdomains.txt
 echo -e "\033[0;31m [+]\033[0m SUBDOMAINS SCRAPING"
 # crt.txt
 curl -s https://crt.sh/?q=$DOMAIN | grep $DOMAIN | grep TD | sed 's/<BR>.*$//g' | sed 's/<\/TD>.*$//' | sed 's/<TD>//g' | sed 's/\*.//g' | sed 's/ //g' | grep -v "TDclass" | sort -u > crt.txt
+cat crt.txt | anew subdomains.txt
+rm crt.txt
 # amass.txt
 amass enum --passive -d $DOMAIN -o amass.txt
+cat amass.txt | anew subdomains.txt
+rm amass.txt
 # subfinder.txt
 subfinder -silent -recursive -d $DOMAIN | tee subfinder.txt
+cat subfinder.txt | anew subdomains.txt
+rm subfinder.txt
 # sudomy.txt
-cd $HOME/tools/Sudomy/sudomy; ./sudomy -d $DOMAIN --no-probe -o $DOMAIN
+cd $HOME/tools/Sudomy; ./sudomy -d $DOMAIN --no-probe -o $DOMAIN
 cd $HOME/bounty/$DOMAIN
-cat $HOME/tools/Sudomy/$DOMAIN/Sudomy-Output/$DOMAIN/subdomain.txt >> sudomy.txt
+cat $HOME/tools/Sudomy/$DOMAIN/Sudomy-Output/$DOMAIN/subdomain.txt | anew subdomains.txt
 rm -rf $HOME/tools/Sudomy/$DOMAIN/Sudomy-Output/$DOMAIN
 # assetfinder.txt
 assetfinder --subs-only $DOMAIN | tee -a assetfinder.txt
+cat assetfinder.txt | anew subdomains.txt
+rm assetfinder.txt
 # paramspider.txt subdomains_paramspider.txt
 python3 $HOME/tools/ParamSpider/paramspider.py -d $DOMAIN --output ./paramspider.txt --level high
-cat paramspider.txt | unfurl -u domains > subdomains_paramspider.txt
+cat paramspider.txt | unfurl -u domains | anew subdomains.txt
 
 ### DOWNLOADING UP TO DATE LIST WITH RESOLVERS
 wget https://raw.githubusercontent.com/BonJarber/fresh-resolvers/main/resolvers.txt
 
-### STARTING 1ST BRUTEFORCE => puredsn1.txt
+### STARTING 1ST BRUTEFORCE => subdomains.txt
 echo -e "\033[0;31m [+]\033[0m SUBDOMAINS BRUTEFORCING"
 $HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $DOMAIN -w puredns1.txt -r resolvers.txt -l 250
-# OLD BEST BRUTE TECHNIQUE
-#$HOME/tools/massdns/scripts/subbrute.py $HOME/tools/CRIMSON/words/dns $DOMAIN | $HOME/tools/massdns/bin/massdns -r $HOME/tools/massdns/lists/resolvers.txt -t A -o S -w massdns.txt
-#cat massdns.txt | cut -d " " -f 1 | sed 's/\.[^.]*$//' > brute_dns.txt
-
-### MERGING SUBDOMAIN LISTS = subdomains.txt
-sort -u assetfinder.txt subdomains_paramspider.txt amass.txt subfinder.txt puredns1.txt crt.txt sudomy.txt > $HOME/bounty/$DOMAIN/subdomains.txt
-rm assetfinder.txt subdomains_paramspider.txt amass.txt subfinder.txt puredns1.txt crt.txt sudomy.txt
+cat puredns1.txt | anew subdomains.txt
+rm puredns1.txt
 
 ### CHECKING FOR LIVE DOMAINS = live1.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE SUBDOMAINS"
