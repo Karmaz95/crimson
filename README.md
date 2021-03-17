@@ -107,6 +107,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 * [SubDomainizer](https://github.com/nsonaniya2010/SubDomainizer)
 * [HostHunter](https://github.com/SpiderLabs/HostHunter/)
 * [hsecscan](https://github.com/riramar/hsecscan)
+* [fresh-resolvers](https://raw.githubusercontent.com/BonJarber/fresh-resolvers/)
 
 
 ## LICENSE

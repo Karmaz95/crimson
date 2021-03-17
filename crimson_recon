@@ -35,6 +35,7 @@
 #
 ### WORKFLOW
 # 0. *Comment out VHOST SECTION if you want to resolve ips and get vhostnames.
+# 0. *Comment out 3RDLEVEL section if you want to bruteforce 3rdlevel subdomains.
 # 1. Start Burp Suite
 #	- Create new project - example.domain.com
 #	- Turn off interception
@@ -88,9 +89,12 @@ assetfinder --subs-only $DOMAIN | tee -a assetfinder.txt
 python3 $HOME/tools/ParamSpider/paramspider.py -d $DOMAIN --output ./paramspider.txt --level high
 cat paramspider.txt | unfurl -u domains > subdomains_paramspider.txt
 
+### DOWNLOADING UP TO DATE LIST WITH RESOLVERS
+wget https://raw.githubusercontent.com/BonJarber/fresh-resolvers/main/resolvers.txt
+
 ### STARTING 1ST BRUTEFORCE => puredsn1.txt
 echo -e "\033[0;31m [+]\033[0m SUBDOMAINS BRUTEFORCING"
-$HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $DOMAIN -w puredns1.txt
+$HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $DOMAIN -w puredns1.txt -r resolvers.txt -l 250
 # OLD BEST BRUTE TECHNIQUE
 #$HOME/tools/massdns/scripts/subbrute.py $HOME/tools/CRIMSON/words/dns $DOMAIN | $HOME/tools/massdns/bin/massdns -r $HOME/tools/massdns/lists/resolvers.txt -t A -o S -w massdns.txt
 #cat massdns.txt | cut -d " " -f 1 | sed 's/\.[^.]*$//' > brute_dns.txt
@@ -114,7 +118,7 @@ cat altdns_with_domain_name | sed "s/\.$DOMAIN//g" > altdns.txt
 
 ### STARTING 2ND BRUTEFORCE WITH MUTATED WORDLIST = puredns2.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING MUTATED LIST FOR LIVE SUBDOMAINS"
-$HOME/tools/puredns/puredns bruteforce altdns.txt $DOMAIN -w puredns2.txt
+$HOME/tools/puredns/puredns bruteforce altdns.txt $DOMAIN -w puredns2.txt -r resolvers.txt -l 250 
 
 ### CHECKING LIVE DOMAINS FROM BRUTEFORCE OF MUTATED WORDLIST = live1.txt
 cat brute2.txt | dnsx -o live2.txt
@@ -205,16 +209,17 @@ dnsrecon -d $DOMAIN -a | tee -a dnsrecon.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING DNSSEC MISONFIGURATIONS"
 ldns-walk $DOMAIN | tee -a ldns-walk.txt
 
-### THRID LEVEL SUBDOMAINS BRUTE-FORCE
-echo -e "\033[0;31m [+]\033[0m STARTING 3RDLEVEL ENUMERATION"
-mkdir 3rdlevel
-for subdomain in $(cat live.txt); do $HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $subdomain -w 3rdlevel/$subdomain.txt ;done
-sort -u 3rdlevel/* > 3rdlevel.txt
-cat 3rdlevel.txt | dnsx -o 3rdlevel_live.txt
-rm -rf 3rdlevel/ 3rdlevel.txt
+### --- 3RDLEVEL SECTION --- ###
+### THRID LEVEL SUBDOMAINS BRUTE-FORCE = 3rdlevel_live.txt
+#echo -e "\033[0;31m [+]\033[0m STARTING 3RDLEVEL ENUMERATION"
+#mkdir 3rdlevel
+#for subdomain in $(cat live.txt); do $HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $subdomain -w 3rdlevel/$subdomain.txt -r resolvers.txt -l 250 ;done
+#sort -u 3rdlevel/* > 3rdlevel.txt
+#cat 3rdlevel.txt | dnsx -o 3rdlevel_live.txt
+#rm -rf 3rdlevel/ 3rdlevel.txt
 
 ### CLEARING THE DIRECTORY
-rm proxy.txt
+rm proxy.txt resolvers.txt
 
 ### PRINTING RESULTS
 echo -e "\033[0;31m [+]\033[0m RESULTS: "
