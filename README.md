@@ -42,12 +42,8 @@ Install Burp Suite
 
 ```
 * If you are interested in how this module works, I encourage you to study the source code. I tried to describe in the comments how the individual tools work. 
-* Additionally, you can learn more by reading my article at medium: 
-
-```bash
-https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-i-574fd9dce53e
-
-```
+* Additionally, you can learn more by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-i-574fd9dce53e)
+ 
 ##### :diamonds: Second module needs `subdomain name`. You can additionally put `authorization cookie` :diamonds:
 ```bash
 ./crimson_target -d "example.domain.com" -c "Cookie: auth1=123;"
