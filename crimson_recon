@@ -105,7 +105,7 @@ rm assetfinder.txt subdomains_paramspider.txt amass.txt subfinder.txt puredns1.t
 
 ### CHECKING FOR LIVE DOMAINS = live1.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE SUBDOMAINS"
-cat subdomains.txt | dnsx -o live1.txt
+cat subdomains.txt | dnsx -o live1.txt -r resolvers.txt
 
 ### MAKING MUTATIONS FROM ENUMERATED SUBDOMAINS = altnds.txt
 echo -e "\033[0;31m [+]\033[0m MUTATING LIVE SUBDOMAINS"
@@ -121,13 +121,13 @@ echo -e "\033[0;31m [+]\033[0m CHECKING MUTATED LIST FOR LIVE SUBDOMAINS"
 $HOME/tools/puredns/puredns bruteforce altdns.txt $DOMAIN -w puredns2.txt -r resolvers.txt -l 250 
 
 ### CHECKING LIVE DOMAINS FROM BRUTEFORCE OF MUTATED WORDLIST = live1.txt
-cat brute2.txt | dnsx -o live2.txt
+cat puredns2.txt | dnsx -o live2.txt -r resolvers.txt
 
 ### MERGING live1.txt AND live2.txt = live.txt
 sort -u live1.txt live2.txt > live.txt
 
 ### CLEARING LOGS 
-rm live1.txt live2.txt altdns_temp.txt not_duplicated_altnds not_duplicated_altnds2 ddns.txt altdns_with_domain_name altdns.txt brute2.txt
+rm live1.txt live2.txt altdns_temp.txt not_duplicated_altnds not_duplicated_altnds2 ddns.txt altdns_with_domain_name altdns.txt puredns2.txt
 
 ### SCRAPING THE INTERNET FOR URLS = gau.txt
 echo -e "\033[0;31m [+]\033[0m GATHERING URLS"
@@ -153,7 +153,7 @@ echo -e "\033[0;31m [+]\033[0m GATHERING NEW SUBDOMAINS AND API KEYS"
 python3 SubDomainizer.py -san same -k -g -l urls.txt -o subdomainizer.txt
 
 ### GETTING SUBDOMAINS FROM subdomainizer.txt AND CHECKING FOR LIVE = live.txt
-cat subdomainizer.txt | grep $DOMAIN | dnsx -o live3.txt
+cat subdomainizer.txt | grep $DOMAIN | dnsx -o live3.txt -r resolvers.txt
 cat live3.txt | anew live.txt
 rm live3.txt
 
@@ -171,18 +171,17 @@ rm live3.txt
 ### SCANNING filtered_ip.txt FOR OPENED PORTS = ports.txt
 #for ip in $(cat $HOME/bounty/$DOMAIN/filtered_ip.txt);do masscan -p1-65535 --max-rate 1000 $ip >> $HOME/bounty/$DOMAIN/ports.txt ; done
 
-### CHECKING FOR CORS MISSCONFIGURATION && DOMAIN TAKEOVER
+### CHECKING FOR CORS MISSCONFIGURATION = cors_scan.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING CORS"
 cat live.txt | CorsMe -t 100 | tail -n+11 | tee cors_scan.txt
+
+### CHECKING SUBDOMAIN TAKEOVER = subjack.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING DOMAIN TAKEOVER"
 subjack -w live.txt -t 100 -timeout 30 -o subjack.txt -ssl -a
 
-### MAKING SCREENSHOOTS FROM ENUERATED LIVE DOMAINS
+### MAKING SCREENSHOOTS FROM ENUERATED LIVE DOMAINS = screenshots/
 echo -e "\033[0;31m [+]\033[0m MAKING SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
 gowitness file -f live.txt
-
-### OLD EYEWITNESS
-#$HOME/tools/EyeWitness/Python/EyeWitness.py -f $HOME/bounty/$DOMAIN/live.txt -d screens
 
 ### PROXING urls.txt TO BURP SUITE
 echo -e "\033[0;31m [+]\033[0m PROXING ulrs.txt TO BRUP SUITE"
@@ -201,7 +200,7 @@ echo -e "\033[0;31m [+]\033[0m PROXING SUBDOMAINS TO BURP"
 cat status_live.txt | grep -v "XXX" | cut -d "\"" -f 2 > proxy.txt
 wfuzz -L -Z -z file,proxy.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z
 
-### CHECKING ZONETRANSFER = dnsrecon.txt
+### CHECKING ZONE TRANSFER = dnsrecon.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING ZONE TRANSFER"
 dnsrecon -d $DOMAIN -a | tee -a dnsrecon.txt
 
