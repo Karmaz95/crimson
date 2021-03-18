@@ -129,7 +129,15 @@ cat puredns2.txt | dnsx -t 100 -silent -r resolvers.txt -o live2.txt
 sort -u live1.txt live2.txt > live.txt
 
 ### CLEARING LOGS 
-rm live1.txt live2.txt altdns_temp.txt not_duplicated_altnds not_duplicated_altnds2 ddns.txt altdns_with_domain_name altdns.txt puredns2.txt
+rm live1.txt 
+rm live2.txt 
+rm altdns_temp.txt 
+rm not_duplicated_altnds 
+rm not_duplicated_altnds2 
+rm ddns.txt 
+rm altdns_with_domain_name 
+rm altdns.txt 
+rm puredns2.txt
 
 ### SCRAPING THE INTERNET FOR URLS = gau.txt
 echo -e "\033[0;31m [+]\033[0m GATHERING URLS"
@@ -152,7 +160,7 @@ sed -i '/^$/d' urls.txt
 rm waybackurls.txt paramspider.txt gau.txt
 
 ### CHECK FOR LIVE LINKS (it will be used only in this module) = httpx_urls.txt
-cat urls.txt | httpx -t 100 -silent -o httpx_urls.txt
+cat urls.txt | httpx -silent -o httpx_urls.txt
 
 ### LOOKING FOR SUBDOMAINS AND SECRETS IN URLS = subdomainizer.txt
 echo -e "\033[0;31m [+]\033[0m GATHERING NEW SUBDOMAINS AND cat API KEYS"
@@ -196,7 +204,7 @@ gowitness file -f live.txt
 
 ### PROXING urls.txt TO BURP SUITE
 echo -e "\033[0;31m [+]\033[0m PROXING ulrs.txt TO BRUP SUITE"
-cat urls.txt | grep $DOMAIN |grep http | sort -u > proxy.txt
+cat httpx_urls.txt | grep $DOMAIN |grep http | sort -u > proxy.txt
 wfuzz -L -Z -z file,proxy.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z
 
 ### CHECKING STATUS CODE OF ALL DOMAINS = status_live.txt
@@ -229,7 +237,9 @@ ldns-walk $DOMAIN | tee -a ldns-walk.txt
 #rm -rf 3rdlevel/ 3rdlevel.txt
 
 ### CLEARING THE DIRECTORY
-rm proxy.txt resolvers.txt
+rm proxy.txt 
+rm resolvers.txt 
+rm error_requests.txt
 
 ### PRINTING RESULTS
 echo -e "\033[0;31m [+]\033[0m RESULTS: "
@@ -247,7 +257,7 @@ cat 3rdleve.txt
 echo -e "--------"
 echo "\n\nCheck: \n\t - status_live.txt \n\t - BURP \n\t - gowitness"
 google-chrome http://localhost:7171/table/
-gowitness report server
+gowitness server report
 
 ### GREP 2/3/4 LEVEL DOMAINS
 # grep -P '^(?:[a-z0-9]+.){1}[^.]*$'	2nd level domains only
