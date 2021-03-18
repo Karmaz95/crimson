@@ -160,7 +160,7 @@ sed -i '/^$/d' urls.txt
 rm waybackurls.txt paramspider.txt gau.txt
 
 ### CHECK FOR LIVE LINKS (it will be used only in this module) = httpx_urls.txt
-cat urls.txt | httpx -silent -o httpx_urls.txt
+cat urls.txt | httpx -threads 50 -silent -o httpx_urls.txt
 
 ### LOOKING FOR SUBDOMAINS AND SECRETS IN URLS = subdomainizer.txt
 echo -e "\033[0;31m [+]\033[0m GATHERING NEW SUBDOMAINS AND cat API KEYS"
