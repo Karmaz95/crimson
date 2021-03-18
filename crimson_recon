@@ -69,6 +69,8 @@ export DOMAIN=$1
 mkdir $HOME/bounty/$DOMAIN -p
 cd $HOME/bounty/$DOMAIN
 
+### DOWNLOADING UP TO DATE LIST WITH RESOLVERS
+wget https://raw.githubusercontent.com/BonJarber/fresh-resolvers/main/resolvers.txt
 
 ### STARTING PASSIVE ENUMERATION = subdomains.txt
 echo -e "\033[0;31m [+]\033[0m SUBDOMAINS SCRAPING"
@@ -77,7 +79,7 @@ curl -s https://crt.sh/?q=$DOMAIN | grep $DOMAIN | grep TD | sed 's/<BR>.*$//g' 
 cat crt.txt | anew subdomains.txt
 rm crt.txt
 # amass.txt
-amass enum --passive -d $DOMAIN -o amass.txt
+amass enum --passive -d $DOMAIN -o amass.txt -rf resolvers.txt
 cat amass.txt | anew subdomains.txt
 rm amass.txt
 # subfinder.txt
@@ -97,9 +99,6 @@ rm assetfinder.txt
 python3 $HOME/tools/ParamSpider/paramspider.py -d $DOMAIN --output ./paramspider.txt --level high
 cat paramspider.txt | unfurl -u domains | anew subdomains.txt
 
-### DOWNLOADING UP TO DATE LIST WITH RESOLVERS
-wget https://raw.githubusercontent.com/BonJarber/fresh-resolvers/main/resolvers.txt
-
 ### STARTING 1ST BRUTEFORCE => subdomains.txt
 echo -e "\033[0;31m [+]\033[0m SUBDOMAINS BRUTEFORCING"
 $HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $DOMAIN -w puredns1.txt -r resolvers.txt -l 250
@@ -108,9 +107,9 @@ rm puredns1.txt
 
 ### CHECKING FOR LIVE DOMAINS = live1.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE SUBDOMAINS"
-cat subdomains.txt | dnsx -o live1.txt -r resolvers.txt
+cat subdomains.txt | dnsx -t 100 -silent -r resolvers.txt -o live1.txt
 
-### MAKING MUTATIONS FROM ENUMERATED SUBDOMAINS = altnds.txt
+### MAKING MUTATIONS FROM ENUMERATED SUBDOMAINS (EXCLUDE ALL SUBDOMAINS ENUMERATED TILL NOW) = altnds.txt
 echo -e "\033[0;31m [+]\033[0m MUTATING LIVE SUBDOMAINS"
 altdns -w $HOME/tools/CRIMSON/words/dns-altdns.txt -i live1.txt -o altdns_temp.txt
 cat $HOME/tools/CRIMSON/words/dns | sed "s/$/\.$domain/" > ddns.txt
@@ -123,8 +122,8 @@ cat altdns_with_domain_name | sed "s/\.$DOMAIN//g" > altdns.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING MUTATED LIST FOR LIVE SUBDOMAINS"
 $HOME/tools/puredns/puredns bruteforce altdns.txt $DOMAIN -w puredns2.txt -r resolvers.txt -l 250 
 
-### CHECKING LIVE DOMAINS FROM BRUTEFORCE OF MUTATED WORDLIST = live1.txt
-cat puredns2.txt | dnsx -o live2.txt -r resolvers.txt
+### CHECKING LIVE DOMAINS FROM BRUTEFORCE OF MUTATED WORDLIST = live2.txt
+cat puredns2.txt | dnsx -t 100 -silent -r resolvers.txt -o live2.txt
 
 ### MERGING live1.txt AND live2.txt = live.txt
 sort -u live1.txt live2.txt > live.txt
@@ -147,16 +146,20 @@ sort -u subs_waybackurls.txt live.txt > live2.txt
 mv live2.txt live.txt
 rm subs_waybackurls.txt
 
-### MERGING SPIDERS = urls.txt
+### MERGING SPIDERS IN ONE BIG LIST WITH A LOT BROKEN LINKS (it will be used in later modules) = urls.txt
 cat waybackurls.txt gau.txt paramspider.txt | qsreplace -a > urls.txt
+sed -i '/^$/d' urls.txt
 rm waybackurls.txt paramspider.txt gau.txt
 
+### CHECK FOR LIVE LINKS (it will be used only in this module) = httpx_urls.txt
+cat urls.txt | httpx -t 100 -silent -o httpx_urls.txt
+
 ### LOOKING FOR SUBDOMAINS AND SECRETS IN URLS = subdomainizer.txt
-echo -e "\033[0;31m [+]\033[0m GATHERING NEW SUBDOMAINS AND API KEYS"
-python3 SubDomainizer.py -san same -k -g -l urls.txt -o subdomainizer.txt
+echo -e "\033[0;31m [+]\033[0m GATHERING NEW SUBDOMAINS AND cat API KEYS"
+python3 $HOME/tools/SubDomainizer/SubDomainizer.py -san same -k -l httpx_urls.txt -o subdomainizer.txt
 
 ### GETTING SUBDOMAINS FROM subdomainizer.txt AND CHECKING FOR LIVE = live.txt
-cat subdomainizer.txt | grep $DOMAIN | dnsx -o live3.txt -r resolvers.txt
+cat subdomainizer.txt | grep $DOMAIN | dnsx -t 100 -silent -r resolvers.txt -o live3.txt
 cat live3.txt | anew live.txt
 rm live3.txt
 
@@ -180,7 +183,12 @@ cat live.txt | CorsMe -t 100 | tail -n+11 | tee cors_scan.txt
 
 ### CHECKING SUBDOMAIN TAKEOVER = subjack.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING DOMAIN TAKEOVER"
-subjack -w live.txt -t 100 -timeout 30 -o subjack.txt -ssl -a
+subjack -w live.txt -t 20 -timeout 30 -o subjack1.txt -ssl -a
+cat subjack1.txt > subjack.txt
+rm subjack1.txt
+subjack -w live.txt -t 20 -timeout 30 -o subjack2.txt -a
+cat subjack2.txt >> subjack.txt
+rm subjack2.txt
 
 ### MAKING SCREENSHOOTS FROM ENUERATED LIVE DOMAINS = screenshots/
 echo -e "\033[0;31m [+]\033[0m MAKING SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
