@@ -5,7 +5,6 @@
 #
 ### TO DO: 
 # 1. add payload identification
-# 2. Sqli and xss payloads to OOB
 ### FUNCTIONS:
 # 1. TEST URLS FOR OUT-OF-BAND EXPLOITATION.
 # 2. TEST RCE
