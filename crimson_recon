@@ -257,7 +257,7 @@ cat 3rdleve.txt
 echo -e "--------"
 echo "\n\nCheck: \n\t - status_live.txt \n\t - BURP \n\t - gowitness"
 google-chrome http://localhost:7171/table/
-gowitness server report
+gowitness serve report
 
 ### GREP 2/3/4 LEVEL DOMAINS
 # grep -P '^(?:[a-z0-9]+.){1}[^.]*$'	2nd level domains only
