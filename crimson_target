@@ -4,7 +4,6 @@
 # ADD TLS/SSL VULN SCANNERS
 # ADD BRUTESPRAY 
 # Make better printer
-#
 ### FUNCTIONS
 #
 # 1. FULL RANGE PORT SCAN && NSE ON OPENED PORTS
@@ -108,6 +107,10 @@ curl -O http://vpn.scopely.com/robots.txt | tee -a recon.txt
 echo "[SITEMAP 443] ---------------------------------------------------------" | tee -a recon.txt
 curl -k -O https://vpn.scopely.com/robots.txt | tee -a recon.txt
 
+### CHECKING WAF >> recon.txt
+echo [WAFW00F] --------------------------------------------------------- | tee -a recon.txt
+wafw00f $domain | tail -n +16 | tee -a recon.txt
+
 ### IDENTIFY TECHNOLOGY 1 >> recon.txt
 echo "[WEBTECH] ---------------------------------------------------------" | tee -a recon.txt
 webtech -u http://$domain | tee -a recon.txt
@@ -118,6 +121,7 @@ echo "[WHATWEB] ---------------------------------------------------------" | tee
 $HOME/tools/WhatWeb/whatweb -a 3 $domain -H $cookie | tee -a recon.txt
 
 ### VULN SCAN 1 >> recon.txt
+# Perform a brute-force attack to uncover known and potentially dangerous scripts on the web server.
 nl=$'\n'
 cr=$'\r'
 echo "[NITKO 443] ---------------------------------------------------------" | tee -a recon.txt
@@ -126,12 +130,22 @@ echo "[NIKTO 80] ---------------------------------------------------------" | te
 $HOME/tools/nikto/program/nikto.pl -host http://$domain -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
 
 ### VULN SCAN 2 >> recon.txt
-echo "[WAPITI 80] ---------------------------------------------------------" | tee -a recon.txt 
-wapiti --no-bugreport -u http://$domain -o wapiti -f txt -H $cookie -m "backup,blindsql,buster,cookieflags,crlf,csp,csrf,exec,file,htaccess,http_headers,methods,permanentxss,redirect,shellshock,sql,wapp,xss"
+# Looking for: 
+#	backup files
+# 	cookie flags
+#	crlf vuln
+#	csp
+#	file handling vulns
+#	bypass weak htaccess conf
+#	header security
+#	methods 
+#	shellshock vuln
+echo "[WAPITI 80] ---------------------------------------------------------" | tee -a recon.txt
+wapiti --no-bugreport -u http://$domain -o wapiti -f txt -H $cookie -m "backup,cookieflags,crlf,csp,csrf,file,htaccess,http_headers,methods,shellshock"
 cat wapiti | tail -n+8 >> recon.txt
 rm wapiti
 echo "[WAPITI 443] ---------------------------------------------------------" | tee -a recon.txt
-wapiti --no-bugreport --verify-ssl 0 -u https://$domain -o wapiti -f txt -H $cookie -m "backup,blindsql,buster,cookieflags,crlf,csp,csrf,exec,file,htaccess,http_headers,methods,permanentxss,redirect,shellshock,sql,wapp,xss,"
+wapiti --no-bugreport --verify-ssl 0 -u https://$domain -o wapiti -f txt -H $cookie -m "backup,cookieflags,crlf,csp,csrf,file,htaccess,http_headers,methods,shellshock"
 cat wapiti | tail -n+8 >> recon.txt
 rm wapiti
 
@@ -227,6 +241,11 @@ rm temp1.txt
 ### PROXY ALL BRUTEFORCED DIRECTORIES TO BURP > status_dir.txt
 wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H $cookie FUZZFUZ2Z
 
+### BACKUP CHECKER HERE < status_dir.txt > bck files.txt
+# Get all 
+
+### JWTHACK -if cookie starts from ey...
+
 ### EXTRACT UNIQUE QUERIES > exp/params.txt
 cat status_params.txt | grep -v "C=404 " | grep http | grep -v "Pycurl" | cut -d "\"" -f2 | sort -u | qsreplace -a > exp/params.txt
 
@@ -236,10 +255,6 @@ cat temp_without_slash | sed "s/$/\//" > temp_with_slash
 cat ffuf.txt | grep "\/$" >> temp_with_slash
 sort -u temp_with_slash > exp/dirs.txt
 rm temp_with_slash temp_without_slash
-
-### CHECKING WAF >> recon.txt
-echo [WAFW00F] --------------------------------------------------------- | tee -a recon.txt
-wafw00f $domain | tail -n +16 | tee -a recon.txt
 
 ### CORS MISCONFIGURATION SCAN >> recon.txt
 echo [CORS] --------------------------------------------------------- | tee -a recon.txt
