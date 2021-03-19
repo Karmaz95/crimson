@@ -73,6 +73,7 @@ then
 else
 
 ### PREPARE DIRECTORIES AND VARIABLES
+echo -e "\033[0;31m [+]\033[0m PREPARING DIRECTORIES AND VARIABLES"
 export domain=$domain
 export DOMAIN=`tldextract $domain | cut -d " " -f 2-3 | sed "s/\ /\./"`
 export TARGET=`dig +short $domain`
@@ -103,9 +104,12 @@ $HOME/tools/CRIMSON/scripts/sitemap.sh https://$domain | tee -a recon.txt
 
 ### GET THE CONTENT OF ROBOTS IF EXISTS >> recon.txt
 echo "[ROBOTS 80] ---------------------------------------------------------" | tee -a recon.txt
-curl -O http://vpn.scopely.com/robots.txt | tee -a recon.txt
-echo "[SITEMAP 443] ---------------------------------------------------------" | tee -a recon.txt
-curl -k -O https://vpn.scopely.com/robots.txt | tee -a recon.txt
+curl -O http://vpn.scopely.com/robots.txt
+cat robots.txt >> recon.txt
+echo "[ROBOTS 443] ---------------------------------------------------------" | tee -a recon.txt
+curl -k -O https://vpn.scopely.com/robots.txt
+cat robots.txt >> recon.txt
+rm robots.txt
 
 ### CHECKING WAF >> recon.txt
 echo [WAFW00F] --------------------------------------------------------- | tee -a recon.txt
@@ -126,7 +130,7 @@ nl=$'\n'
 cr=$'\r'
 echo "[NITKO 443] ---------------------------------------------------------" | tee -a recon.txt
 $HOME/tools/nikto/program/nikto.pl -host https://$domain -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
-echo "[NIKTO 80] ---------------------------------------------------------" | tee -a recon.txt
+echo "[NIKTO 80] ----------------------------------------------------------" | tee -a recon.txt
 $HOME/tools/nikto/program/nikto.pl -host http://$domain -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
 
 ### VULN SCAN 2 >> recon.txt
@@ -140,7 +144,7 @@ $HOME/tools/nikto/program/nikto.pl -host http://$domain -useragent "Mozilla/5.0 
 #	header security
 #	methods 
 #	shellshock vuln
-echo "[WAPITI 80] ---------------------------------------------------------" | tee -a recon.txt
+echo "[WAPITI 80] ----------------------------------------------------------" | tee -a recon.txt
 wapiti --no-bugreport -u http://$domain -o wapiti -f txt -H $cookie -m "backup,cookieflags,crlf,csp,csrf,file,htaccess,http_headers,methods,shellshock"
 cat wapiti | tail -n+8 >> recon.txt
 rm wapiti
@@ -170,45 +174,56 @@ hakrawler -url $domain -depth 4 -linkfinder -insecure -wayback -usewayback -urls
 galer -u http://$domain -s >> urls.txt
 
 ### MERGE SPIDERS AND DELETE DUPLICATES >> urls.txt
+echo -e "\033[0;31m [+]\033[0m MERGING SPIDERS RESULTS"
 cat ../urls.txt | grep $domain | anew urls.txt 
 sort urls.txt | qsreplace -a > temp1.txt
 mv temp1.txt urls.txt
 rm temp1.txt
 
 ### CHECK STATUS OF URLS WITH QUERIES && PROXY TO BURP > status_params.txt
+echo -e "\033[0;31m [+]\033[0m PROXING QUERIES TO BURP"
 cat urls.txt | grep "?" > temp/temp_params.txt
-wfuzz -f status_params.txt,raw -L -Z -z file,temp/temp_params.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H $cookie FUZZFUZ2Z
+wfuzz -f status_params.txt,raw -L -Z -z file,temp/temp_params.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H $cookie FUZZFUZ2Z > /dev/null 2>&1
 
 ### GET NEW ENDPOINTS FROM SPIDERS AND ADD THEM TO WORDLIST FOR DIRECOTRY BRUTEFORCING > custom_dir.txt
+echo -e "\033[0;31m [+]\033[0m GATHERING NEW PATHS FROM SPIDERS RESULTS"
 cat urls.txt | unfurl paths > temp1.txt
 sort -u temp1.txt $HOME/tools/CRIMSON/words/dir > $HOME/tools/CRIMSON/words/custom_dir.txt
 rm temp1.txt
 
 ### DIRECTORY BRUTEFORCING > status_ffuf.txt
+echo -e "\033[0;31m [+]\033[0m STARTING DIRECTORY BRUTEFORCING"
 ffuf -w $HOME/words/custom_dir.txt -u https://$domain/FUZZ -mc all -fc 400 -H $cookie | tee temp1.txt
 cat temp1.txt |sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g" | sed "s/.//" > status_ffuf.txt
+rm temp1.txt
 
 ### REMOVE TRASH RESPONSES FROM PREVIOUS SCAN > ffuf.txt
+echo -e "\033[0;31m [+]\033[0m REMOVING TRASH RESPONSES FROM status_ffuf.txt"
 python $HOME/tools/CRIMSON/scripts/clever_ffuf.py
-cat temp_ffuf.txt | cut -d " " -f 1 > ffuf.txt
+sort -u temp_ffuf.txt | cut -d " " -f 1 > ffuf.txt
 rm temp_ffuf.txt
 
 ### GATHER ALL SOURCE CODE FROM ffuf.txt AND STORE IT IN DIRECTORY > all_source_code/
+echo -e "\033[0;31m [+]\033[0m GATHERING SOURCE CODE OF BRUTE-FORCED SITES"
 for url in $(cat ffuf.txt); do echo $url && curl -k -s $url -H $cookie -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
 
 ### GET LINKS TO JS FILES AND PREPARE IT FOR EXPLOIT MODULE > exp/jsfiles.txt
+echo -e "\033[0;31m [+]\033[0m GATHERING .js LINKS"
 cat urls.txt ffuf.txt | getJS --complete --nocolors -H $cookie | grep "^http" >> exp/jsfiles.txt
 
 ### GET LINKS TO JS FILES FROM urls.txt > exp/jsfiles.txt
-cat urls.txt | grep "\.js$" | grep "^http" anew exp/jsfiles.txt
+cat urls.txt | grep "\.js$" | grep "^http" | anew exp/jsfiles.txt
 
 ### CHECK FOR LIVE JS LINKS
-httpx -l exp/jsfiles.txt -H $cookie >> exp/jsfiles.txt
+echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE .js LINKS"
+httpx -silent -l exp/jsfiles.txt -H $cookie >> exp/jsfiles.txt
 
 ### GATHER SOURCE CODE FROM JS LINKS AND STORE IT IN >> all_source_code/
+echo -e "\033[0;31m [+]\033[0m GATHERING SOURCE CODE FROM LIVE .js LINKS"
 for url in $(cat exp/jsfiles.txt); do echo $url && curl -k -s $url -H $cookie -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
 
 ### DIG API KEYS / ENDPOINTS ETC. > zile.txt
+echo -e "\033[0;31m [+]\033[0m GATHERING API KEYS && NEW PATHS"
 cd all_source_code
 python3 $HOME/tools/zile/zile.py --file >> ../temp/temp_zile.txt
 cd ..
@@ -221,32 +236,37 @@ awk '!seen[$0]++' temp/temp_zile_endpoints.txt >> extracted.txt
 ### MUTATE URLS && CHECK IF THERE ARE NO DUPLICATES WITH ffuf.txt > new_endpoints.txt
 for line in $(cat extracted.txt); do echo http://$domain$line >> temp/temp_new.txt; done
 for line in $(cat extracted.txt); do echo https://$domain$line >> temp/temp_new.txt; done
+rm extracted.txt
 awk '!seen[$0]++' temp/temp_new.txt > temp/temp_new_endpoints.txt
 sort ffuf.txt temp/temp_new_endpoints.txt | uniq -d > temp/temp_duplicates.txt
 grep -v -x -f temp/temp_duplicates.txt temp/temp_new_endpoints.txt > new_endpoints.txt
 
 ### CHECK STATUS OF NEW URLS > status_new_endpoints.txt
-wfuzz -f status_new_endpoints.txt,raw -L -Z -z file,new_endpoints.txt -z file,$HOME/tools/CRIMSON/words/blank -H $cookie FUZZFUZ2Z
+echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF NEW PATHS"
+wfuzz -f status_new_endpoints.txt,raw -L -Z -z file,new_endpoints.txt -z file,$HOME/tools/CRIMSON/words/blank -H $cookie FUZZFUZ2Z > /dev/null 2>&1
+rm new_endpoints.txt
 
 ### REMOVE 400 && 404 RESPONSES
-cat status_new_endpoints.txt | grep "http" | grep -E "C=400  |C=404  " -v | grep -v "Pycurl" | cut -d "\"" -f2 > temp1.txt
-
-### ADD http://$domain AND https://$domain EVEN IF THEY ARE 404/400/X status code >> ffuf.txt
-echo "http://$domain\nhttps://$domain" >> ffuf.txt
+cat status_new_endpoints.txt | grep "http" | grep -E "C=400  |C=404  " -v | grep -v "Pycurl" | cut -d "\"" -f2 > filtered_new_endpoints.txt
 
 ### MERGE ffuf.txt WITH NEW ENDPOINTS >> ffuf.txt
-cat temp1.txt | anew ffuf.txt
-rm temp1.txt
+echo -e "\033[0;31m [+]\033[0m ADDING LIVE PATHS TO ffuf.txt"
+cat filtered_new_endpoints.txt | anew ffuf.txt
+rm filtered_new_endpoints.txt
+
+### ADD http://$domain AND https://$domain EVEN IF THEY ARE 404/400/X status code >> ffuf.txt
+echo "http://$domain\nhttps://$domain" | anew ffuf.txt
 
 ### PROXY ALL BRUTEFORCED DIRECTORIES TO BURP > status_dir.txt
-wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H $cookie FUZZFUZ2Z
+echo -e "\033[0;31m [+]\033[0m PROXING ALL DIRECTORIES && FILES TO BURP SUITE"
+wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H $cookie FUZZFUZ2Z > /dev/null 2>&1
 
 ### BACKUP CHECKER HERE < status_dir.txt > bck files.txt
-# Get all 
-
-### JWTHACK -if cookie starts from ey...
+echo -e "\033[0;31m [+]\033[0m CHECKING EXISTANCE OF BRUTEFORCED FILES BACKUPS"
+# ffuf_files x BCK_EXT
 
 ### EXTRACT UNIQUE QUERIES > exp/params.txt
+echo -e "\033[0;31m [+]\033[0m PREPARING FILES FOR crimson_exploit MODULE"
 cat status_params.txt | grep -v "C=404 " | grep http | grep -v "Pycurl" | cut -d "\"" -f2 | sort -u | qsreplace -a > exp/params.txt
 
 ### PREAPRE DIRECTORIES FOR EXPLOIT MODULE > exp/dirs.txt
@@ -257,14 +277,17 @@ sort -u temp_with_slash > exp/dirs.txt
 rm temp_with_slash temp_without_slash
 
 ### CORS MISCONFIGURATION SCAN >> recon.txt
-echo [CORS] --------------------------------------------------------- | tee -a recon.txt
+echo "[CORS] ---------------------------------------------------------" | tee -a recon.txt
 cat ffuf.txt | CorsMe -t 70 -header $cookie | tail -n+11 | tee -a recon.txt 
 
 ### GET PARAMETER BRUTEFORCING > exp/arjun.txt
-echo -e "\033[0;31m [+]\033[0m START ARJUN ON ffuf.txt"
-arjun -i ffuf.txt -oT exp/arjun.txt -q --headers $cookie
+echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON ffuf.txt"
+arjun -i ffuf.txt -oT exp/arjun.txt -q --headers $cookie 
 
 ### DIG SECRETS FROM all_source_code/ SAVE COLORED OUTPUT > apikeys.txt
 grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|password|pinning|secret|SHA256|SharedPreferences|superuser|token|X509TrustManager" all_source_code/ --color=always > apikeys.txt
+
+### CLEAR LOGS
+rm error_requests.txt
 
 fi
