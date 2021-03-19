@@ -76,17 +76,17 @@ print(" OTHER   : " + str(status_odd_c) + " (" + str(round((status_odd_c / statu
 print(" ---------------- ")
 
 ### MAIN FUNCTIONALITY
-if (status_200_c / status_all_c) < 0.45:   
+if (status_200_c / status_all_c) < 0.3:   
     final_list.extend(status_200)
-if (status_301_c / status_all_c) < 0.45:
+if (status_301_c / status_all_c) < 0.01:
     final_list.extend(status_301)
-if (status_302_c / status_all_c) < 0.45:
+if (status_302_c / status_all_c) < 0.01:
     final_list.extend(status_302)
-if (status_401_c / status_all_c) < 0.45:
+if (status_401_c / status_all_c) < 0.01:
     final_list.extend(status_401)
-if (status_403_c / status_all_c) < 0.2:
+if (status_403_c / status_all_c) < 0.01:
     final_list.extend(status_403)
-if (status_404_c / status_all_c) < 0.15:
+if (status_404_c / status_all_c) < 0.01:
     final_list.extend(status_404)
 final_list.extend(status_odd)
 
