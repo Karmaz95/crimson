@@ -66,27 +66,27 @@ status_odd_c = len(status_odd)
 print(" DIR BRUTE STATUS ")
 print(" ---------------- ")
 print(" TOTAL   : " + str(status_all_c))
-print(" 200     : " + str(status_200_c) + " (" + str(round((status_200_c / status_all_c),2)) + "%)")
-print(" 301     : " + str(status_301_c) + " (" + str(round((status_301_c / status_all_c),2)) + "%)")
-print(" 302     : " + str(status_302_c) + " (" + str(round((status_302_c / status_all_c),2)) + "%)")
-print(" 401     : " + str(status_401_c) + " (" + str(round((status_401_c / status_all_c),2)) + "%)")
-print(" 403     : " + str(status_403_c) + " (" + str(round((status_403_c / status_all_c),2)) + "%)")
-print(" 404     : " + str(status_404_c) + " (" + str(round((status_404_c / status_all_c),2)) + "%)")
-print(" OTHER   : " + str(status_odd_c) + " (" + str(round((status_odd_c / status_all_c),2)) + "%)")
+print(" 200     : " + str(status_200_c) + " (" + str(round((status_200_c / status_all_c),3)) + "%)")
+print(" 301     : " + str(status_301_c) + " (" + str(round((status_301_c / status_all_c),3)) + "%)")
+print(" 302     : " + str(status_302_c) + " (" + str(round((status_302_c / status_all_c),3)) + "%)")
+print(" 401     : " + str(status_401_c) + " (" + str(round((status_401_c / status_all_c),3)) + "%)")
+print(" 403     : " + str(status_403_c) + " (" + str(round((status_403_c / status_all_c),3)) + "%)")
+print(" 404     : " + str(status_404_c) + " (" + str(round((status_404_c / status_all_c),3)) + "%)")
+print(" OTHER   : " + str(status_odd_c) + " (" + str(round((status_odd_c / status_all_c),3)) + "%)")
 print(" ---------------- ")
 
 ### MAIN FUNCTIONALITY
 if (status_200_c / status_all_c) < 0.3:   
     final_list.extend(status_200)
-if (status_301_c / status_all_c) < 0.01:
+if (status_301_c / status_all_c) < 0.001:
     final_list.extend(status_301)
-if (status_302_c / status_all_c) < 0.01:
+if (status_302_c / status_all_c) < 0.001:
     final_list.extend(status_302)
-if (status_401_c / status_all_c) < 0.01:
+if (status_401_c / status_all_c) < 0.001:
     final_list.extend(status_401)
-if (status_403_c / status_all_c) < 0.01:
+if (status_403_c / status_all_c) < 0.001:
     final_list.extend(status_403)
-if (status_404_c / status_all_c) < 0.01:
+if (status_404_c / status_all_c) < 0.001:
     final_list.extend(status_404)
 final_list.extend(status_odd)
 
