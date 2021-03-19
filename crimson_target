@@ -84,7 +84,7 @@ cd $HOME/bounty/$DOMAIN/$domain
 
 if [ -z $cookie ]
 then
-	cookie="Cookie: _ga=23489yfdshbfji324987sfdnik4327fdnskdfh834";
+	cookie="Cookie: _ga=23489yfdshbfji324987sfdnik4327fdnskdfh834;";
 else
 	cookie=$cookie;
 fi
@@ -270,7 +270,7 @@ echo -e "\033[0;31m [+]\033[0m PREPARING FILES FOR crimson_exploit MODULE"
 cat status_params.txt | grep -v "C=404 " | grep http | grep -v "Pycurl" | cut -d "\"" -f2 | sort -u | qsreplace -a > exp/params.txt
 
 ### PREAPRE DIRECTORIES FOR EXPLOIT MODULE > exp/dirs.txt
-cat ffuf.txt | grep -v "\/$" > temp_without_slash
+cat ffuf.txt | grep -v -e "\.png\|\.js\|\.gif\|\.jpg\|\.png\|\.css" | grep -v "\/$" > temp_without_slash
 cat temp_without_slash | sed "s/$/\//" > temp_with_slash
 cat ffuf.txt | grep "\/$" >> temp_with_slash
 sort -u temp_with_slash > exp/dirs.txt
@@ -278,16 +278,17 @@ rm temp_with_slash temp_without_slash
 
 ### CORS MISCONFIGURATION SCAN >> recon.txt
 echo "[CORS] ---------------------------------------------------------" | tee -a recon.txt
-cat ffuf.txt | CorsMe -t 70 -header $cookie | tail -n+11 | tee -a recon.txt 
-
-### GET PARAMETER BRUTEFORCING > exp/arjun.txt
-echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON ffuf.txt"
-arjun -i ffuf.txt -oT exp/arjun.txt -q --headers $cookie 
+cat ffuf.txt | CorsMe -t 70 -header $cookie -output corsme.txt > /dev/null 2>&1
+cat corsme.txt >> recon.txt
+rm corsme.txt
+rm error_requests.txt
 
 ### DIG SECRETS FROM all_source_code/ SAVE COLORED OUTPUT > apikeys.txt
+echo -e "\033[0;31m [+]\033[0m CHECKING SECRETS IN GATHERED SOURCE CODE"
 grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|password|pinning|secret|SHA256|SharedPreferences|superuser|token|X509TrustManager" all_source_code/ --color=always > apikeys.txt
 
-### CLEAR LOGS
-rm error_requests.txt
+### GET PARAMETER BRUTEFORCING > exp/arjun.txt
+echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON ffuf.txt - IT WILL TAKE A WHILE..."
+arjun -i ffuf.txt -oT exp/arjun.txt -q --headers $cookie 
 
 fi

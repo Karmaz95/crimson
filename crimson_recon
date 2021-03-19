@@ -187,8 +187,7 @@ rm live3.txt
 
 ### CHECKING FOR CORS MISSCONFIGURATION = cors_scan.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING CORS"
-cat live.txt | CorsMe -t 100 | tail -n+11 | tee cors_scan.txt
-
+cat live.txt | -output cors_scan.txt > /dev/null 2>&1
 ### CHECKING SUBDOMAIN TAKEOVER = subjack.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING DOMAIN TAKEOVER"
 subjack -w live.txt -t 20 -timeout 30 -o subjack1.txt -ssl -a
