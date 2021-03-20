@@ -158,7 +158,7 @@ echo -e "\033[0;31m [+]\033[0m START SPIDERS"
 gospider -q -r -w -a --sitemap -c 10 -s  https://$domain -H $cookie >> urls.txt
 
 ### SPIDER 2 >> urls.txt
-python3 $HOME/tools/ParamSpider/paramspider.py -d $domain --output ./paramspider.txt --level high
+python3 $HOME/tools/ParamSpider/paramspider.py -d $domain --output ./paramspider.txt --level high > /dev/null 2>&1
 cat urls.txt ../paramspider.txt | grep http | sort -u | grep $domain >> urls.txt
 
 ### SPIDER 3 >> urls.txt
