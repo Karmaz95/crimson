@@ -12,9 +12,10 @@
 #
 ###
 
-import sys, getopt, requests, re
+import sys, getopt, requests, re, urllib3
 from collections import Counter
 from http.cookies import SimpleCookie
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 ### OPTIONS ---
 argument_list = sys.argv[1:]
@@ -59,8 +60,29 @@ def check_backup_file(wordlist1, wordlist2, cookies, headers):
     s = requests.Session()
     s.cookies.update(cookies)
     s.headers.update(headers)
-    # KARMAZ - finished here, validates  r1:r2
-    print wordlist2[0]
+    r1 = s.get(wordlist1[0], allow_redirects=True, verify=False)
+    print r1.status_code
+    print r1.headers
+    #print r1.text
+    print r1.ok
+    #print r1.content
+    print r1.is_permanent_redirect
+    print r1.is_redirect
+    print r1.links
+    print r1.reason
+    print r1.url
+    print ("======================")
+    r2 = s.get(wordlist2[0], allow_redirects=True, verify=False)
+    print r2.status_code
+    print r2.headers
+    #print r2.text
+    print r2.ok
+    #print r2.content
+    print r2.is_permanent_redirect
+    print r2.is_redirect
+    print r2.links
+    print r2.reason
+    print r2.url
 
 ### OPTIONS ---
 headers = {}
