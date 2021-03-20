@@ -68,9 +68,7 @@ def check_backup_file(wordlist1, wordlist2, cookies, headers):
     #print r1.content
     print r1.is_permanent_redirect
     print r1.is_redirect
-    print r1.links
     print r1.reason
-    print r1.url
     print ("======================")
     r2 = s.get(wordlist2[0], allow_redirects=True, verify=False)
     print r2.status_code
@@ -78,11 +76,21 @@ def check_backup_file(wordlist1, wordlist2, cookies, headers):
     #print r2.text
     print r2.ok
     #print r2.content
-    print r2.is_permanent_redirect
     print r2.is_redirect
-    print r2.links
     print r2.reason
     print r2.url
+    
+    r2 = s.get(wordlist2[0], allow_redirects=True, verify=False)
+    # If backup file is permanently redirected step into next check.
+   
+    if not r2.is_permanent_redirect:
+        # If 
+        r1 = s.get(wordlist1[0], allow_redirects=True, verify=False)
+        # If status code of r2 is the same as r1, or status code of r2 is equal 200 step into next check.
+        if r2.status_code == r1.status_code or r2.stauts_code == 200:
+            # If Content-Length or the r2 is not the same, step into next check.
+            if r2.headers['Content-Length'] != r1.headers['Content-Length']:
+                pass
 
 ### OPTIONS ---
 headers = {}
