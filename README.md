@@ -108,7 +108,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 * [HostHunter](https://github.com/SpiderLabs/HostHunter/)
 * [fresh-resolvers](https://raw.githubusercontent.com/BonJarber/fresh-resolvers/)
 * [wpscan](https://github.com/wpscanteam/wpscan)
-
+* [FuzzHTTPBypass](https://github.com/carlospolop/fuzzhttpbypass)
 
 ## LICENSE
 > This program is free software: you can redistribute it and/or modify it under the terms of the [Apache license](https://choosealicense.com/licenses/apache-2.0/). Crimson and any contributions are Copyright © by Karol Mazurek 2020-2021.

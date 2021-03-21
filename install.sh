@@ -153,6 +153,8 @@ pip3 install -r HostHunter/requirements.txt
 go get -u github.com/tomnomnom/anew
 ### WPSCAN
 gem install wpscan
+### FuzzHTTPBypass
+git clone https://github.com/carlospolop/fuzzhttpbypass.git
 ### CRIMSON LIBS
 pip install future
 ### METASPLOIT

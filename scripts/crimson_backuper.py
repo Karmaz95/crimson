@@ -10,7 +10,7 @@
 ###
 #
 # USAGE EXAMPLE:
-#
+#   python crimson_backuper.py -w urls.txt -c "Cookie: auth1=qwe; auth2=asd;" -H "asd=1" -H "qwe=2" -e BCK_EXT
 ###
 
 import sys, getopt, requests, re, urllib3
