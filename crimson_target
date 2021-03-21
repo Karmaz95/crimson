@@ -80,7 +80,7 @@ mkdir $HOME/bounty/$DOMAIN/$domain/exp
 mkdir $HOME/bounty/$DOMAIN/$domain/all_source_code
 cd $HOME/bounty/$DOMAIN/$domain   
 
-if [[ ! -z ${cookie} ]];
+if [[ -z ${cookie} ]];
 then
 	cookie="Cookie: _ga=23489yfdshbfji324987sfdnik4327fdnskdfh834;";
 else
