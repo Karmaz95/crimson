@@ -3,6 +3,10 @@
 ### CREATED BY KARMAZ
 #
 #
+### TO DO:
+#
+# 1. Add MIME type check.
+#
 ### FUNCTIONS:
 #
 # 1. CHECK BACKUPS OF KNOWN FILES
@@ -44,53 +48,42 @@ def import_wordlist(wordlist_filepath):
         new_wordlist = [",".join(line.split(",")).strip() for line in f.readlines()]
     return new_wordlist
 
-def import_cookies(cookie_data):
+def import_cookies(cookie):
     '''Importing cookies from header f.e. "Cookie: auth1=qwe; auth2=asd;" '''
-    cookie = SimpleCookie()
-    cookie.load(cookie)
-    cookies = dict((key, morsel.value) for key, morsel in cookie.items())
+    cookies = {}
+    #cookie_header = cookie.split(":")[0]
+    cookie_values = cookie.split(":")[1].split(";")[:-1]
+    for q in cookie_values:
+        cookies.update(dict([q.lstrip().split("=")]))
     return cookies
 
 def combine_wordlists(wordlist1, wordlist2):
     '''Join strings one by one from array1 with array2'''
     return [w1 + w2 for w1 in wordlist1 for w2 in wordlist2]
 
-def check_backup_file(wordlist1, wordlist2, cookies, headers):
+def check_backup_file(urls, backups, cookies, headers):
     '''Combine urls with extension wordlist and check for backup files'''
     s = requests.Session()
     s.cookies.update(cookies)
     s.headers.update(headers)
-    r1 = s.get(wordlist1[0], allow_redirects=True, verify=False)
-    print r1.status_code
-    print r1.headers
-    #print r1.text
-    print r1.ok
-    #print r1.content
-    print r1.is_permanent_redirect
-    print r1.is_redirect
-    print r1.reason
-    print ("======================")
-    r2 = s.get(wordlist2[0], allow_redirects=True, verify=False)
-    print r2.status_code
-    print r2.headers
-    #print r2.text
-    print r2.ok
-    #print r2.content
-    print r2.is_redirect
-    print r2.reason
-    print r2.url
-    
-    r2 = s.get(wordlist2[0], allow_redirects=True, verify=False)
-    # If backup file is permanently redirected step into next check.
-   
-    if not r2.is_permanent_redirect:
-        # If 
-        r1 = s.get(wordlist1[0], allow_redirects=True, verify=False)
-        # If status code of r2 is the same as r1, or status code of r2 is equal 200 step into next check.
-        if r2.status_code == r1.status_code or r2.stauts_code == 200:
-            # If Content-Length or the r2 is not the same, step into next check.
-            if r2.headers['Content-Length'] != r1.headers['Content-Length']:
-                pass
+    for url in urls:
+        for backup in backups:
+            r2 = s.get(backup, allow_redirects=True, verify=False)
+            # Check if r2 is not permanently redirected, if not send r1.
+            if not r2.is_permanent_redirect:
+                r1 = s.get(url, allow_redirects=True, verify=False)
+                # If status code of r2 is the same as r1, or status code of r2 is equal 200 step into next check.
+                if r2.status_code == r1.status_code or r2.status_code == 200:
+                    # If Content-Length or the r2 is not the same as r1 step ino next check.
+                    if r2.headers["Content-Length"] != r1.headers["Content-Length"]:
+                        # If there is not a redirection step into next check.
+                        if r2.status_code != 301 or r2.status_code != 302:
+                            # If there are no reflection, the backup file has been found, either way there is a path/host reflection - check for xss.
+                            if r2.url not in r2.text:
+                                print("\033[0;31m [+]\033[0m BACKUP FILE FOUND AT: " + r2.url)
+                            else:
+                                print("\033[0;31m [+]\033[0m REFLECTION FOUND AT: " + r2.ulr)
+
 
 ### OPTIONS ---
 headers = {}
@@ -109,8 +102,9 @@ if __name__ == '__main__':
     try:
         urls = import_wordlist(list_of_urls)
         extensions = import_wordlist(list_of_extensions)
-        cookies = import_cookies(cookies)
         backups = combine_wordlists(urls, extensions)
+        if cookies:
+            cookies = import_cookies(cookies)
         check_backup_file(urls, backups, cookies, headers)
     except:
         helper()

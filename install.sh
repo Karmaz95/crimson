@@ -153,6 +153,8 @@ pip3 install -r HostHunter/requirements.txt
 go get -u github.com/tomnomnom/anew
 ### WPSCAN
 gem install wpscan
+### CRIMSON LIBS
+pip install future
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  
