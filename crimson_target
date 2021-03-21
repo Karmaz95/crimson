@@ -1,7 +1,5 @@
 #!/bin/bash
 # TO DO:
-# TRANSFER: VULNERABILITY SCANNERS TO 3RD MODULE ( nikto / wapiti )
-# ADD BRUTESPRAY 
 # Make better printer
 ### FUNCTIONS
 #
@@ -16,6 +14,7 @@
 # 9. PREPARE params.txt FOR EXPLOIT MODULE
 # 10. PREPARE dirs.txt FOR EXPLOIT MODULE
 # 11. CHECK WAF
+# 12. CHECK BACKUP FILES
 #
 ### LISTS:
 #
