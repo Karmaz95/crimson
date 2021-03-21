@@ -155,6 +155,8 @@ go get -u github.com/tomnomnom/anew
 gem install wpscan
 ### FuzzHTTPBypass
 git clone https://github.com/carlospolop/fuzzhttpbypass.git
+### SITEMAP-URLS
+git clone https://github.com/yuriyyakym/sitemap-urls.git
 ### CRIMSON LIBS
 pip install future
 ### METASPLOIT

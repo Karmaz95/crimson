@@ -99,9 +99,9 @@ rm nmap.txt
 
 ### GET THE CONTENT OF SITEMAP IF EXISTS >> recon.txt
 echo "[SITEMAP 80] ---------------------------------------------------------" | tee -a recon.txt
-$HOME/tools/CRIMSON/scripts/sitemap.sh http://$domain | tee -a recon.txt
+$HOME/tools/sitemap-urls/sitemap-urls.sh http://$domain | tee -a recon.txt
 echo "[SITEMAP 443] ---------------------------------------------------------" | tee -a recon.txt
-$HOME/tools/CRIMSON/scripts/sitemap.sh https://$domain | tee -a recon.txt
+$HOME/tools/sitemap-urls/sitemap-urls.sh https://$domain | tee -a recon.txt
 
 ### GET THE CONTENT OF ROBOTS IF EXISTS >> recon.txt
 echo "[ROBOTS 80] ---------------------------------------------------------" | tee -a recon.txt
@@ -113,7 +113,7 @@ cat robots.txt >> recon.txt
 rm robots.txt
 
 ### CHECKING WAF >> recon.txt
-echo [WAFW00F] --------------------------------------------------------- | tee -a recon.txt
+echo "[WAFW00F] ---------------------------------------------------------" | tee -a recon.txt
 wafw00f $domain | tail -n +16 | tee -a recon.txt
 
 ### IDENTIFY TECHNOLOGY 1 >> recon.txt
@@ -136,7 +136,6 @@ $HOME/tools/nikto/program/nikto.pl -host http://$domain -useragent "Mozilla/5.0 
 
 ### VULN SCAN 2 >> recon.txt
 # Looking for: 
-#	backup files
 # 	cookie flags
 #	crlf vuln
 #	csp
@@ -146,11 +145,11 @@ $HOME/tools/nikto/program/nikto.pl -host http://$domain -useragent "Mozilla/5.0 
 #	methods 
 #	shellshock vuln
 echo "[WAPITI 80] ----------------------------------------------------------" | tee -a recon.txt
-wapiti --no-bugreport -u http://$domain -o wapiti -f txt -H $cookie -m "backup,cookieflags,crlf,csp,csrf,file,htaccess,http_headers,methods,shellshock"
+wapiti --no-bugreport -u http://$domain -o wapiti -f txt -H $cookie -m "cookieflags,crlf,csp,csrf,file,htaccess,http_headers,methods,shellshock"
 cat wapiti | tail -n+8 >> recon.txt
 rm wapiti
 echo "[WAPITI 443] ---------------------------------------------------------" | tee -a recon.txt
-wapiti --no-bugreport --verify-ssl 0 -u https://$domain -o wapiti -f txt -H $cookie -m "backup,cookieflags,crlf,csp,csrf,file,htaccess,http_headers,methods,shellshock"
+wapiti --no-bugreport --verify-ssl 0 -u https://$domain -o wapiti -f txt -H $cookie -m "2cookieflags,crlf,csp,csrf,file,htaccess,http_headers,methods,shellshock"
 cat wapiti | tail -n+8 >> recon.txt
 rm wapiti
 
@@ -177,7 +176,7 @@ galer -u http://$domain -s >> urls.txt
 ### MERGE SPIDERS AND DELETE DUPLICATES >> urls.txt
 echo -e "\033[0;31m [+]\033[0m MERGING SPIDERS RESULTS"
 cat ../urls.txt | grep $domain | anew urls.txt 
-sort urls.txt | qsreplace -a > temp1.txt
+cat urls.txt | qsreplace -a > temp1.txt
 mv temp1.txt urls.txt
 rm temp1.txt
 
@@ -262,9 +261,9 @@ echo "http://$domain\nhttps://$domain" | anew ffuf.txt
 echo -e "\033[0;31m [+]\033[0m PROXING ALL DIRECTORIES && FILES TO BURP SUITE"
 wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H $cookie FUZZFUZ2Z > /dev/null 2>&1
 
-### BACKUP CHECKER HERE < status_dir.txt > bck files.txt
+### CHECK FOR BACKUP FILES > backups.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING EXISTANCE OF BRUTEFORCED FILES BACKUPS"
-python $HOME/tools/CRIMSON/scripts/crimson_backuper.py -w ffuf.txt -e $HOME/tools/CRIMSON/words/BCK_EXT -c $cookie
+python $HOME/tools/CRIMSON/scripts/crimson_backuper.py -w ffuf.txt -e $HOME/tools/CRIMSON/words/BCK_EXT -c $cookie | tee -a backups.txt
 
 ### EXTRACT UNIQUE QUERIES > exp/params.txt
 echo -e "\033[0;31m [+]\033[0m PREPARING FILES FOR crimson_exploit MODULE"
@@ -288,7 +287,7 @@ rm error_requests.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING SECRETS IN GATHERED SOURCE CODE"
 grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|password|pinning|secret|SHA256|SharedPreferences|superuser|token|X509TrustManager" all_source_code/ --color=always > apikeys.txt
 
-### GET PARAMETER BRUTEFORCING > exp/arjun.txt
+### GET PARAMETER NAMES BY BRUTEFORCING THEM > exp/arjun.txt
 echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON ffuf.txt - IT WILL TAKE A WHILE..."
 arjun -i ffuf.txt -oT exp/arjun.txt -q --headers $cookie 
 
