@@ -35,17 +35,17 @@ final_list = []
 my_file = open("status_ffuf.txt", "r")
 for line in my_file:
     status_all.append(line.rstrip())
-    if "Status: 200" in line:
+    if "\"status\":200" in line:
         status_200.append(line.rstrip())
-    elif "Status: 301" in line:
+    elif "\"status\":301" in line:
         status_301.append(line.rstrip())
-    elif "Status: 302" in line:
+    elif "\"status\":302" in line:
         status_302.append(line.rstrip())
-    elif "Status: 401" in line:
+    elif "\"status\":401" in line:
         status_401.append(line.rstrip())
-    elif "Status: 403" in line:
+    elif "\"status\":403" in line:
         status_403.append(line.rstrip())
-    elif "Status: 404" in line:
+    elif "\"status\":404" in line:
         status_404.append(line.rstrip())
     else:
         status_odd.append(line.rstrip())
