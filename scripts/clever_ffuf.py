@@ -18,7 +18,6 @@ import re, os
 
 # GET THE TARGET DOMAIN
 target_domain = os.getenv("domain")
-print(target_domain)
 
 # ARRAYS WITH LINES OF STATUS CODE
 status_all = []
@@ -78,22 +77,24 @@ print(" ---------------- ")
 ### MAIN FUNCTIONALITY
 if (status_200_c / status_all_c) < 0.3:   
     final_list.extend(status_200)
-if (status_301_c / status_all_c) < 0.001:
+elif (status_301_c / status_all_c) < 0.001:
     final_list.extend(status_301)
-if (status_302_c / status_all_c) < 0.001:
+elif (status_302_c / status_all_c) < 0.001:
     final_list.extend(status_302)
-if (status_401_c / status_all_c) < 0.001:
+elif (status_401_c / status_all_c) < 0.001:
     final_list.extend(status_401)
-if (status_403_c / status_all_c) < 0.001:
+elif (status_403_c / status_all_c) < 0.001:
     final_list.extend(status_403)
-if (status_404_c / status_all_c) < 0.001:
+elif (status_404_c / status_all_c) < 0.001:
     final_list.extend(status_404)
-final_list.extend(status_odd)
+else:
+    final_list.extend(status_odd)
+
 
 ### SAVE THE OUTPUT TO A FILE => temp_ffuf.txt
 output_file = open("temp_ffuf.txt","w")
 for line in final_list:
-    output_file.write("https://" + target_domain + "/" + line + "\n")
+    output_file.write(line)
 
 output_file.close()
 
@@ -112,4 +113,4 @@ with open("status_ffuf.txt", "r") as my_file:
         print(key.strip(), count)
         result[re.search(r"Status: (\d{3})", key).group(1)] = count
     print(result)
-'''
+for line in final_list:'''
