@@ -34,21 +34,21 @@ final_list = []
 ### LOOP THROUGH FUFF FILE AND COUNT STUFF
 my_file = open("status_ffuf.txt", "r")
 for line in my_file:
-    status_all.append(line.rstrip())
+    status_all.append(line.rstrip().split("\"")[3])
     if "\"status\":200" in line:
-        status_200.append(line.rstrip())
+        status_200.append(line.rstrip().split("\"")[3])
     elif "\"status\":301" in line:
-        status_301.append(line.rstrip())
+        status_301.append(line.rstrip().split("\"")[3])
     elif "\"status\":302" in line:
-        status_302.append(line.rstrip())
+        status_302.append(line.rstrip().split("\"")[3])
     elif "\"status\":401" in line:
-        status_401.append(line.rstrip())
+        status_401.append(line.rstrip().split("\"")[3])
     elif "\"status\":403" in line:
-        status_403.append(line.rstrip())
+        status_403.append(line.rstrip().split("\"")[3])
     elif "\"status\":404" in line:
-        status_404.append(line.rstrip())
+        status_404.append(line.rstrip().split("\"")[3])
     else:
-        status_odd.append(line.rstrip())
+        status_odd.append(line.rstrip().split("\"")[3])
 
 my_file.close()
 
