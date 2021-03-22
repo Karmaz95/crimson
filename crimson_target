@@ -29,7 +29,7 @@
 # 8) status_dir.txt
 # 9) exp/params.txt
 # 10) exp/dirs.txt
-#
+# 11) backups.txt
 ### WORKFLOW
 # 0. Start Burp
 #	- Create new project - www.example.domain.com
