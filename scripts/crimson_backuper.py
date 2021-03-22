@@ -73,8 +73,8 @@ def check_backup_file(urls, extensions, cookies, headers):
             print("\tbackup:" + backup)
             # Check if r2 is not permanently redirected, if not send r1.
             if not r2.is_permanent_redirect:
-                # If status code of r2 is the same as r1, or status code of r2 is equal 200 step into next check and if there is not a redirection step into next check.
-                if r2.status_code == r1.status_code or r2.status_code == 200 and r2.status_code not in [301,302]:
+                # If status code of r2 is equal 200 step into next check.
+                if r2.status_code == 200:
                     # If Content-Length or the r2 is not the same as r1 step ino next check.
                     if r2.content != r1.content:
                         # If there are no reflection, the backup file has been found, either way there is a path/host reflection - check for xss.
@@ -105,7 +105,6 @@ if __name__ == '__main__':
     if show_help:
         helper()
     else:
-        print(1111)
         urls = load_wordlist(list_of_urls)
         extensions = load_wordlist(list_of_extensions)
         if cookies:

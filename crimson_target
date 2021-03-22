@@ -1,5 +1,6 @@
 #!/bin/bash
 # TO DO:
+# Make ffuf silent and add jq parsing.
 # Make better printer
 ### FUNCTIONS
 #
@@ -192,6 +193,8 @@ rm temp1.txt
 
 ### DIRECTORY BRUTEFORCING > status_ffuf.txt
 echo -e "\033[0;31m [+]\033[0m STARTING DIRECTORY BRUTEFORCING"
+# KARMAZ -  change to JSON and add jq parsing to get urls - remove strange filter. 
+# ffuf -w $HOME/words/custom_dir.txt -u https://$domain/FUZZ -mc all -fc 400 -H $cookie -o temp1.txt > /dev/null 2>&1
 ffuf -w $HOME/words/custom_dir.txt -u https://$domain/FUZZ -mc all -fc 400 -H $cookie | tee temp1.txt
 cat temp1.txt |sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g" | sed "s/.//" > status_ffuf.txt
 rm temp1.txt
