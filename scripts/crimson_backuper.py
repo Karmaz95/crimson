@@ -66,7 +66,6 @@ def check_backup_file(urls, extensions, cookies, headers):
     s.headers.update(headers)
     for url in urls:
         r1 = s.get(url, allow_redirects=True, verify=False)
-        print("url:" + url)
         for ext in extensions:
             backup = url + ext
             r2 = s.get(backup, allow_redirects=True, verify=False)
