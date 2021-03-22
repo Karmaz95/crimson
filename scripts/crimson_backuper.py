@@ -69,7 +69,6 @@ def check_backup_file(urls, extensions, cookies, headers):
         for ext in extensions:
             backup = url + ext
             r2 = s.get(backup, allow_redirects=True, verify=False)
-            print("\tbackup:" + backup)
             # Check if r2 is not permanently redirected, if not send r1.
             if not r2.is_permanent_redirect:
                 # If status code of r2 is equal 200 step into next check.
