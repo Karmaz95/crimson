@@ -159,12 +159,13 @@ cat waybackurls.txt gau.txt paramspider.txt | qsreplace -a > urls.txt
 sed -i '/^$/d' urls.txt
 rm waybackurls.txt paramspider.txt gau.txt
 
-### CHECK FOR LIVE LINKS (it will be used only in this module) = httpx_urls.txt
+### CHECK FOR LIVE LINKS (to proxy only valid urls) > urls.txt
 cat urls.txt | httpx -threads 50 -silent -o httpx_urls.txt
+mv httpx_urls.txt > urls.txt
 
 ### LOOKING FOR SUBDOMAINS AND SECRETS IN URLS = subdomainizer.txt
 echo -e "\033[0;31m [+]\033[0m GATHERING NEW SUBDOMAINS AND cat API KEYS"
-python3 $HOME/tools/SubDomainizer/SubDomainizer.py -san same -k -l httpx_urls.txt -o subdomainizer.txt
+python3 $HOME/tools/SubDomainizer/SubDomainizer.py -san same -k -l live.txt -o subdomainizer.txt
 
 ### GETTING SUBDOMAINS FROM subdomainizer.txt AND CHECKING FOR LIVE = live.txt
 cat subdomainizer.txt | grep $DOMAIN | dnsx -t 100 -silent -r resolvers.txt -o live3.txt
@@ -203,7 +204,7 @@ gowitness file -f live.txt
 
 ### PROXING urls.txt TO BURP SUITE
 echo -e "\033[0;31m [+]\033[0m PROXING ulrs.txt TO BRUP SUITE"
-cat httpx_urls.txt | grep $DOMAIN |grep http | sort -u > proxy.txt
+cat urls.txt | grep $DOMAIN |grep http | sort -u > proxy.txt
 wfuzz -L -Z -z file,proxy.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z
 
 ### CHECKING STATUS CODE OF ALL DOMAINS = status_live.txt
