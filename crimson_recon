@@ -200,7 +200,7 @@ rm subjack2.txt
 
 ### MAKING SCREENSHOOTS FROM ENUERATED LIVE DOMAINS = screenshots/
 echo -e "\033[0;31m [+]\033[0m MAKING SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
-gowitness file -f live.txt
+gowitness file -f live.txt > /dev/null 2>&1
 
 ### PROXING urls.txt TO BURP SUITE
 echo -e "\033[0;31m [+]\033[0m PROXING ulrs.txt TO BRUP SUITE"
