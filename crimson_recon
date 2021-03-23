@@ -165,7 +165,7 @@ mv httpx_urls.txt > urls.txt
 
 ### LOOKING FOR SUBDOMAINS AND SECRETS IN URLS = subdomainizer.txt
 echo -e "\033[0;31m [+]\033[0m GATHERING NEW SUBDOMAINS AND cat API KEYS"
-python3 $HOME/tools/SubDomainizer/SubDomainizer.py -san same -k -l live.txt -o subdomainizer.txt
+python3 $HOME/tools/SubDomainizer/SubDomainizer.py -san same -k -l live.txt -o subdomainizer.txt > /dev/null 2>&1
 
 ### GETTING SUBDOMAINS FROM subdomainizer.txt AND CHECKING FOR LIVE = live.txt
 cat subdomainizer.txt | grep $DOMAIN | dnsx -t 100 -silent -r resolvers.txt -o live3.txt
