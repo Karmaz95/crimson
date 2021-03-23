@@ -9,9 +9,6 @@
 # 2. Count all responses
 # 3. Count responses per status code
 # 4. Check the rules.
-# 5. Rules:
-#       - Total count per status code cannot be bigger than 90% of all.
-#       - If the total count is bigger than 70 % merge all into one.
 #    
 ###
 import re, os

@@ -153,6 +153,11 @@ pip3 install -r HostHunter/requirements.txt
 go get -u github.com/tomnomnom/anew
 ### WPSCAN
 gem install wpscan
+### QUICKPRESS
+go get github.com/fatih/color
+git clone https://github.com/pownx/quickpress.git
+cd quickpress
+go build -o quickpress
 ### FuzzHTTPBypass
 git clone https://github.com/carlospolop/fuzzhttpbypass.git
 ### SITEMAP-URLS

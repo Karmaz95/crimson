@@ -5,6 +5,7 @@
 #
 ### TO DO: 
 # 1. add payload identification
+# 2. Add payload mutations
 ### FUNCTIONS:
 # 1. TEST URLS FOR OUT-OF-BAND EXPLOITATION.
 # 2. TEST RCE

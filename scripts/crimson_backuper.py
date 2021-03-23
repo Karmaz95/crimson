@@ -13,9 +13,7 @@
 #   python crimson_backuper.py -w urls.txt -c "Cookie: auth1=qwe; auth2=asd;" -H "asd=1" -H "qwe=2" -e BCK_EXT
 ###
 
-import sys, getopt, requests, re, urllib3
-from collections import Counter
-from http.cookies import SimpleCookie
+import sys, getopt, requests, urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 ### OPTIONS ---
@@ -38,7 +36,7 @@ def helper():
 ██╔══██╗██╔══██║██║     ██╔═██╗ ██║   ██║██╔═══╝ ██╔══╝  ██╔══██╗
 ██████╔╝██║  ██║╚██████╗██║  ██╗╚██████╔╝██║     ███████╗██║  ██║
 ╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝\033[0m""")
-    print("\nUSAGE: python crimson_backuper.py -w [wordlist_with_urls] -H [optional_headers] -h [show help]")
+    print("\nUSAGE: python crimson_backuper.py -w [wordlist_with_urls] -H [headers] -c [Cookie: a=1;] -h [show help]")
 
 def load_wordlist(wordlist_filepath):
     '''Importing wordlist line by line into an array'''

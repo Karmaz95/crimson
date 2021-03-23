@@ -83,7 +83,7 @@ cd $HOME/bounty/$DOMAIN/$domain
 
 if [[ -z ${cookie} ]];
 then
-	cookie="Cookie: _ga=23489yfdshbfji324987sfdnik4327fdnskdfh834;";
+	cookie="Cookie: a=1;";
 else
 	cookie=$cookie;
 fi
@@ -129,7 +129,7 @@ $HOME/tools/WhatWeb/whatweb -a 3 $domain -H $cookie | tee -a recon.txt
 # Perform a brute-force attack to uncover known and potentially dangerous scripts on the web server.
 nl=$'\n'
 cr=$'\r'
-echo "[NITKO 443] ---------------------------------------------------------" | tee -a recon.txt
+echo "[NIKTO 443] ---------------------------------------------------------" | tee -a recon.txt
 $HOME/tools/nikto/program/nikto.pl -host https://$domain -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
 echo "[NIKTO 80] ----------------------------------------------------------" | tee -a recon.txt
 $HOME/tools/nikto/program/nikto.pl -host http://$domain -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt

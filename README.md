@@ -111,6 +111,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 * [HostHunter](https://github.com/SpiderLabs/HostHunter/)
 * [fresh-resolvers](https://raw.githubusercontent.com/BonJarber/fresh-resolvers/)
 * [wpscan](https://github.com/wpscanteam/wpscan)
+* [quickpress](https://github.com/pownx/quickpress)
 * [FuzzHTTPBypass](https://github.com/carlospolop/fuzzhttpbypass)
 * [sitemap-urls](https://github.com/yuriyyakym/sitemap-urls)
 
