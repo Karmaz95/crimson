@@ -96,15 +96,16 @@ def edit_urls(list_of_urls,list_of_payloads):
 
 
 # SEND REQUESTS AND PRINT LOG
-def send_payloads_url(swapped_urls):
+def send_payloads_url(swapped_urls,list_of_headers):
     id = 0
     for url in swapped_urls:
         id+=1
-        requests.get(url, verify=False)
+        requests.get(url, verify=False, allow_redirects=True, headers=list_of_headers)
         print("ID: " + str(id) + " - TIME: " + str(datetime.now().time().strftime("%H:%M:%S")) + " - URL: " + url)
 
 
 ### OPTIONS ---
+list_of_headers={}
 for current_argument, current_value in arguments:
     if current_argument in ("-i", "--ip"):
         vps_ip = current_value
@@ -124,5 +125,5 @@ list_of_payloads = edit_payloads(vps_ip,domain_collab,file_with_payloads)
 # 2) Create list of urls with payloads
 swapped_urls = edit_urls(list_of_urls,list_of_payloads)
 # 3) Send requests and print the time 
-send_payloads_url(swapped_urls)
+send_payloads_url(swapped_urls, list_of_headers)
 
