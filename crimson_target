@@ -145,11 +145,11 @@ $HOME/tools/nikto/program/nikto.pl -host http://$domain -useragent "Mozilla/5.0 
 #	methods 
 #	shellshock vuln
 echo "[WAPITI 80] ----------------------------------------------------------" | tee -a recon.txt
-wapiti --no-bugreport -u http://$domain -o wapiti -f txt -H $cookie -m "cookieflags,crlf,csp,csrf,file,htaccess,http_headers,methods,shellshock"
+wapiti --no-bugreport -u http://$domain -o wapiti -f txt -m "cookieflags,crlf,csp,csrf,file,htaccess,http_headers,methods,shellshock"
 cat wapiti | tail -n+8 >> recon.txt
 rm wapiti
 echo "[WAPITI 443] ---------------------------------------------------------" | tee -a recon.txt
-wapiti --no-bugreport --verify-ssl 0 -u https://$domain -o wapiti -f txt -H $cookie -m "2cookieflags,crlf,csp,csrf,file,htaccess,http_headers,methods,shellshock"
+wapiti --no-bugreport --verify-ssl 0 -u https://$domain -o wapiti -f txt -m "2cookieflags,crlf,csp,csrf,file,htaccess,http_headers,methods,shellshock"
 cat wapiti | tail -n+8 >> recon.txt
 rm wapiti
 
