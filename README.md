@@ -114,6 +114,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 * [quickpress](https://github.com/pownx/quickpress)
 * [FuzzHTTPBypass](https://github.com/carlospolop/fuzzhttpbypass)
 * [sitemap-urls](https://github.com/yuriyyakym/sitemap-urls)
+* [DirDar](https://github.com/M4DM0e/DirDar)
+* [SecLists](https://github.com/danielmiessler/SecLists)
+* [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
 
 ## LICENSE
 > This program is free software: you can redistribute it and/or modify it under the terms of the [Apache license](https://choosealicense.com/licenses/apache-2.0/). Crimson and any contributions are Copyright © by Karol Mazurek 2020-2021.

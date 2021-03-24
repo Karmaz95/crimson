@@ -1,7 +1,7 @@
 #!/bin/bash
 # TO DO:
-# Make ffuf silent and add jq parsing.
 # Make better printer
+# Add https://github.com/Bo0oM/fuzz.txt/blob/master/extensions.txt to backuper
 ### FUNCTIONS
 #
 # 1. FULL RANGE PORT SCAN && NSE ON OPENED PORTS

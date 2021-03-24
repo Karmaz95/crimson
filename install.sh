@@ -164,6 +164,8 @@ git clone https://github.com/carlospolop/fuzzhttpbypass.git
 git clone https://github.com/yuriyyakym/sitemap-urls.git
 ### CRIMSON LIBS
 pip install future
+### DIRDAR
+go get -u github.com/m4dm0e/dirdar
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  
