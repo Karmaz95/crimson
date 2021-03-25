@@ -20,7 +20,7 @@
 
 #### :small_red_triangle_down:crimson_exploit
 > This module uses a number of tools to automate the search for certain bugs in a list of urls.
-## Installation
+# Installation
 Tested on Linux Mint and Kali Linux.
 ```bash
 git clone https://github.com/Karmaz95/crimson.git 
