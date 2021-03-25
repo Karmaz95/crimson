@@ -27,11 +27,11 @@ python crimson_mutator [list_with_payloads]
 > Opens urls in firefox for manual testing
 
 #### WORKFLOW
-* Create a "manual_payloads.txt" wordlist with payloads to use and place it in the same directory.
-* Start the ./crimson_opener.py  -u -l -o
-* Open single URL                -u https://url/FUZZ 
-* Open wordlist(with fuzzing)    -l [lists_with_urls/FUZZ] 
-* Open wordlist(without fuzzing) -o [list_with_urls]
+1. Create a "manual_payloads.txt" wordlist with payloads to use and place it in the same directory.
+2. Start the ./crimson_opener.py  -u -l -o
+3. Open single URL                -u https://url/FUZZ 
+4. Open wordlist(with fuzzing)    -l [lists_with_urls/FUZZ] 
+5. Open wordlist(without fuzzing) -o [list_with_urls]
 F.e: crimson_opener.py -u https://www.example.com/FUZZ
 ###
 ### Usage example:
@@ -58,6 +58,74 @@ python crimson_opener.py -o list_of_urls.txt
 4. add      (addons)    - this wordlist contains working payloads, it will be added at the end of `payloads.txt`
 
 ### WORKFLOW
-0. Create 4 wordlists as described above
-1. Start the script: python crimson_payloader
+1. Create 4 wordlists as described above
+2. Start the script: python crimson_payloader
+
+
+## :small_red_triangle_down:clever_ffuf
+
+> Reads the lines in `status_ffuf.txt` and remove trash responses based on an algorithm. Then store the output in `temp_ffuf.txt`
+
+### How to get proper format to use it:
+1. Make directory brutefrocing using `ffuf`:
+```bash
+ffuf -w custom_dir.txt -u https://$domain/FUZZ -mc all -fc 400 -H $cookie -o ffuf.json > /dev/null
+```
+2. Parse the json output using `jq`:
+```bash
+cat ffuf.json | jq -c '.results[] | {url:.url,status: .status}' > status_ffuf.txt
+```
+3. Run the `clever_ffuf`
+```bash
+python clever_ffuf.py
+```
+
+## :small_red_triangle_down:crimson_backuper
+
+> Check backups of bruteforced files by adding extensions to it.
+
+### Usage example:
+```bash
+python crimson_backuper.py -w urls.txt -c "Cookie: auth1=qwe; auth2=asd;" -H "asd=1" -H "qwe=2" -e extension_list.txt
+```
+
+## :small_red_triangle_down:rimson_deserializator
+
+> Tests for java deserialization flaws using `URLDS` or `JRMPClient` gadget chain.
+
+### Functions:
+* CHANGE get TO post METHOD
+* CREATE URLDNS OR JRMPClient PAYLOAD FOR JAVA DESERIALIZATION
+* SEND PAYLOAD INTERCHANGEABLY IN EVERY PARAMETER VALUE
+
+### Usage example:
+```bash
+python crimson_deserializator -l list_of_urls.txt -i "vps_ip" or -d "collaborator_domain" -H "Cookie: x=1; y=2;"
+```
+
+## :small_red_triangle_down:crimson_jsextractor
+
+> Bash script that automates process of new endpoints gathering. Uses `zile` and `relative-url-extractor`.
+
+### Usage example:
+* Single url:
+```bash
+./crimson_jsextractor.sh http://127.0.0.1:1234/aaa
+```
+* List of urls:
+```bash
+crimson_jsextractor.sh -l list_of_urls.txt
+```
+
+## :small_red_triangle_down:crimson_oobtester
+
+> Tests urls for out-of-bound interactions using oout-of-bound payloads
+
+### Usage example:
+* oob.txt could be found in `exp` directory in this repository.
+* oob.txt should contains payloads with `vps_ip` or `domain_collab` in lines to swap these values with given ip or domain
+* urls.txt should contains urls with queries to inject
+```bash
+python crimson_oobtester.py -i "10.10.10.11" -d "6jqzryc8olgv0qt732epxdxokfq5eu.collaborator.com" -p "oob.txt" -l "urls.txt"
+```
 

@@ -15,10 +15,10 @@
 ###
 # USAGE EXAMPLE:
 #   ./crimson_oobtester.py \
-#       -i "45.77.94.76" \
-#       -d "6jqzryc8olgv0qt732epxdxokfq5eu.collaborator.afine.com" \
-#       -p "/home/karmaz/words/exp/oob.txt" 
-#       -l "params.txt"
+#       -i "127.0.0.1" \
+#       -d "asd.burpsuite.collaborator" \
+#       -p "oob.txt" 
+#       -l "urls.txt"
 #
 # PAYLOAD LINE PROPER FORMAT:
 #   [payload]vps_ip
