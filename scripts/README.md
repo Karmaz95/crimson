@@ -47,3 +47,17 @@ python crimson_opener.py -l list_of_urls.txt
 ```bash
 python crimson_opener.py -o list_of_urls.txt
 ```
+
+## :small_red_triangle_down:crimson_payloader
+
+> Combine 4 wordlists into one "payloads.txt". It may be used to profiled attacks
+### Wordlists:
+1. affix    (breaker)   - this wordlist contains char or chars that break the syntax f.e. `' (single quote)`
+2. main     (payload)   - this wordlist contains core of your payload f.e. `or 1=1`
+3. suffix   (comment)   - this wordlist contains char or chars that are at the end of payload f.e. `# (hash sign)`
+4. add      (addons)    - this wordlist contains working payloads, it will be added at the end of `payloads.txt`
+
+### WORKFLOW
+0. Create 4 wordlists as described above
+1. Start the script: python crimson_payloader
+
