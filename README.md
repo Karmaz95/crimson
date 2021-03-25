@@ -58,12 +58,13 @@ Install Burp Suite
 ##### :diamonds: Before starting the script run the listener on your vps machine on port 80 :diamonds:
 
 # Extras
-There are some useful tools in the scripts directory that I have written that are worth checking out.
+> There are some useful tools in the scripts directory that I have written that are worth checking out.
 
 # Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+> Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 # LIST OF UTILIZED TOOLS
+> The following tools are used in "crimson". If you did not like my tool, then I encourage you to at least study the links below, they will definitely help you in your work.
 * [nmap](https://github.com/nmap/nmap)
 * [masscan](https://github.com/robertdavidgraham/masscan)
 * [Amass](https://github.com/OWASP/Amass)
