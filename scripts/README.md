@@ -1,4 +1,7 @@
-# MUTATOR
+# SCRIPTS
+> This directory contains scripts that I have written which are used in the `:small_red_triangle_down:crimson`:small_red_triangle_down:
+
+## MUTATOR
 
 > Mutate given wordlist with various techniques.
 
