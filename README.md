@@ -34,7 +34,7 @@ export GOPATH=$HOME/go
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$HOME/tools:$PATH"
 ```
 Install Burp Suite
-## Usage
+# Usage
 ##### :diamonds: First module needs `domain name` to work properly, f.e. `google.com` :diamonds:
 
 ```bash
@@ -57,13 +57,13 @@ Install Burp Suite
 ```
 ##### :diamonds: Before starting the script run the listener on your vps machine on port 80 :diamonds:
 
-## Extras
+# Extras
 There are some useful tools in the scripts directory that I have written that are worth checking out.
 
-## Contributing
+# Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## LIST OF UTILIZED TOOLS
+# LIST OF UTILIZED TOOLS
 * [nmap](https://github.com/nmap/nmap)
 * [masscan](https://github.com/robertdavidgraham/masscan)
 * [Amass](https://github.com/OWASP/Amass)
@@ -118,7 +118,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 * [SecLists](https://github.com/danielmiessler/SecLists)
 * [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
 
-## LICENSE
+# LICENSE
 > This program is free software: you can redistribute it and/or modify it under the terms of the [Apache license](https://choosealicense.com/licenses/apache-2.0/). Crimson and any contributions are Copyright © by Karol Mazurek 2020-2021.
 
 <a href="https://www.buymeacoffee.com/karmaz95" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
