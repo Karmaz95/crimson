@@ -89,7 +89,7 @@ python clever_ffuf.py
 python crimson_backuper.py -w urls.txt -c "Cookie: auth1=qwe; auth2=asd;" -H "asd=1" -H "qwe=2" -e extension_list.txt
 ```
 
-## :small_red_triangle_down:rimson_deserializator
+## :small_red_triangle_down:crimson_deserializator
 
 > Tests for java deserialization flaws using `URLDS` or `JRMPClient` gadget chain.
 
@@ -119,7 +119,7 @@ crimson_jsextractor.sh -l list_of_urls.txt
 
 ## :small_red_triangle_down:crimson_oobtester
 
-> Tests urls for out-of-bound interactions using oout-of-bound payloads
+> Tests urls for out-of-bound interactions using out-of-bound payloads
 
 ### Usage example:
 * oob.txt could be found in `exp` directory in this repository.
@@ -129,3 +129,35 @@ crimson_jsextractor.sh -l list_of_urls.txt
 python crimson_oobtester.py -i "10.10.10.11" -d "6jqzryc8olgv0qt732epxdxokfq5eu.collaborator.com" -p "oob.txt" -l "urls.txt"
 ```
 
+## :small_red_triangle_down:crimson_paramjuggler
+
+> This tool takes the URL and swap the argument for the given payload
+
+### Usage example:
+```bash
+python crimson_paramjuggler.py -u [url] -l [wordlist] -p [payload]
+```
+
+### Example swap of `http://url?a1=x&a2=y`
+```bash 
+http://url?a1=[payload]&a2=y
+http://url?a1=x&a2=[payload]
+```
+
+## :small_red_triangle_down:crimson_rewriter
+
+> Check if the `X-Rewrite-Url` or `X-Original-Url` header is supported
+
+### Usage example:
+```bash
+python crimson_rewriter.py -w wordlist_with_urls.txt -H custom:header -c "Cookie: a=1;"
+```
+
+## :small_red_triangle_down:crimson_templator
+
+> Test for SSTI injection with `7777` reflection based technique and `500` internal error based technique.
+
+### Usage example:
+```bash
+python crimson_templator.py -w urls.txt -c "Cookie: auth1=qwe; auth2=asd;" -H "asd=1" -H "qwe=2"
+```

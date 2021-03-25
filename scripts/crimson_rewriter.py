@@ -1,17 +1,12 @@
 # coding: utf-8
 #
+#
 ### CREATED BY KARMAZ
 #
-#
-### TO DO
-# 1. Add authorization bearer / cookie header
 ### FUNCTIONS
 #
 # 1. CHECK IF X-Original-Url AND X-Rewrite-Url IS HANDLED BY THE SERVER
 #
-### WORKFLOW
-# 0. Create wordlist with URLS - "all.txt"
-# 1. Start the script: python3 crimson_rewriter.py
 ###
 
 import sys, getopt, requests, urllib3
