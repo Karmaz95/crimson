@@ -2,15 +2,15 @@
 
 > This directory contains wordlists of words that I have collected from many different sources and filtered for `crimson`.
 
-* :small_red_triangle_down:exp directory
+* :small_red_triangle_down: exp directory
 
 > This directory contains wordlists for manual and automatic testing of various known vulnerailities.
 
-* :small_red_triangle_down:skeleton directory
+* :small_red_triangle_down: skeleton directory
 
 > This directory could help you build your own wordlist for directory brute-forcing.
 
-* :small_red_triangle_down:BCK_EXT
+* :small_red_triangle_down: BCK_EXT
 
 > This wordlist contains various extensions for `crimson_backuper`
 
