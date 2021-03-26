@@ -99,8 +99,11 @@ python crimson_backuper.py -w urls.txt -c "Cookie: auth1=qwe; auth2=asd;" -H "as
 * SEND PAYLOAD INTERCHANGEABLY IN EVERY PARAMETER VALUE
 
 ### Usage example:
+* You have to install ysoserial and place it in `$HOME/tools/ysoserial/ysoserial.jar`.
+* If you are using IP, open port 80 on your listener.
+* If you are using domain, start collaborator.
 ```bash
-python crimson_deserializator -l list_of_urls.txt -i "vps_ip" or -d "collaborator_domain" -H "Cookie: x=1; y=2;"
+python crimson_deserializator -w list_of_urls.txt -i "vps_ip" or -d "collaborator_domain" -H "h=123" -c "Cookie: a=1;"
 ```
 
 ## :small_red_triangle_down:crimson_jsextractor
