@@ -66,21 +66,29 @@ def check_backup_file(urls, extensions, cookies, headers):
     s.cookies.update(cookies)
     s.headers.update(headers)
     for url in tqdm(urls):
-        r1 = s.get(url, allow_redirects=True, verify=False)
+        try:
+            r1 = s.get(url, allow_redirects=True, verify=False, timeout=3)
+        except KeyboardInterrupt:
+            sys.exit()
+        except:
+            pass
         for ext in extensions:
             backup = url + ext
-            r2 = s.get(backup, allow_redirects=True, verify=False)
-            # Check if r2 is not permanently redirected, if not send r1.
-            if not r2.is_permanent_redirect:
+            try:
+                r2 = s.get(backup, allow_redirects=True, verify=False, timeout=3)
+                # Check if r2 is not permanently redirected, if not send r1.
                 # If status code of r2 is equal 200 step into next check.
-                if r2.status_code == 200:
-                    # If Content-Length or the r2 is not the same as r1 step ino next check.
-                    if r2.content != r1.content:
-                        # If there are no reflection, the backup file has been found, either way there is a path/host reflection - check for xss.
-                        if r2.url not in r2.text:
-                            backups_list.append("[+] BACKUP FILE FOUND AT: " + r2.url)
-                        else:
-                            backups_list.append("[+] REFLECTION FOUND AT: " + r2.ulr)
+                # If Content-Length or the r2 is not the same as r1 step ino next check.
+                # If there are no reflection, the backup file has been found, either way there is a path/host reflection - check for xss.
+                if not r2.is_permanent_redirect and r2.status_code == 200 and r2.content != r1.content:
+                    if r2.url not in r2.text:
+                        backups_list.append("[+] BACKUP FILE FOUND AT: " + r2.url)
+                    else:
+                        backups_list.append("[+] REFLECTION FOUND AT: " + r2.ulr)
+            except KeyboardInterrupt:
+                sys.exit()
+            except:
+                pass
     return backups_list
 
 

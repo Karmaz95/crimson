@@ -273,10 +273,6 @@ echo "http://$domain\nhttps://$domain" | anew ffuf.txt
 echo -e "\033[0;31m [+]\033[0m PROXING ALL DIRECTORIES && FILES TO BURP SUITE"
 wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H $cookie FUZZFUZ2Z > /dev/null 2>&1
 
-### CHECK FOR BACKUP FILES > backups.txt
-echo -e "\033[0;31m [+]\033[0m CHECKING EXISTANCE OF BRUTEFORCED FILES BACKUPS"
-python $HOME/tools/CRIMSON/scripts/crimson_backuper.py -w ffuf.txt -e $HOME/tools/CRIMSON/words/BCK_EXT -c $cookie -o backups.txt
-
 ### EXTRACT UNIQUE QUERIES > exp/params.txt
 echo -e "\033[0;31m [+]\033[0m PREPARING FILES FOR crimson_exploit MODULE"
 cat status_params.txt | grep -v "C=404 " | grep http | grep -v "Pycurl" | cut -d "\"" -f2 | sort -u | qsreplace -a > exp/params.txt
@@ -287,6 +283,11 @@ cat temp_without_slash | sed "s/$/\//" > temp_with_slash
 cat ffuf.txt | grep "\/$" >> temp_with_slash
 sort -u temp_with_slash > exp/dirs.txt
 rm temp_with_slash temp_without_slash
+
+### CHECK FOR BACKUP FILES > backups.txt
+echo -e "\033[0;31m [+]\033[0m CHECKING EXISTANCE OF BRUTEFORCED FILES BACKUPS"
+cat exp/dirs.txt | sed "s/.$//g" > temp_files.txt
+python $HOME/tools/CRIMSON/scripts/crimson_backuper.py -w temp_files.txt -e $HOME/tools/CRIMSON/words/BCK_EXT -c $cookie -o backups.txt
 
 ### CORS MISCONFIGURATION SCAN >> recon.txt
 echo "[CORS] ---------------------------------------------------------" | tee -a recon.txt
@@ -300,7 +301,8 @@ echo -e "\033[0;31m [+]\033[0m CHECKING SECRETS IN GATHERED SOURCE CODE"
 grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|password|pinning|secret|SHA256|SharedPreferences|superuser|token|X509TrustManager" all_source_code/ --color=always > apikeys.txt
 
 ### GET PARAMETER NAMES BY BRUTEFORCING THEM > exp/arjun.txt
-echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON ffuf.txt - IT WILL TAKE A WHILE..."
-arjun -i ffuf.txt -oT exp/arjun.txt -q --headers $cookie 
+echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON temp_files.txt - IT WILL TAKE A WHILE..."
+arjun -i temp_files.txt -oT exp/arjun.txt -q --headers $cookie 
+rm temp_files.txt
 
 fi
