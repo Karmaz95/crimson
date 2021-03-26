@@ -158,6 +158,15 @@ go get github.com/fatih/color
 git clone https://github.com/pownx/quickpress.git
 cd quickpress
 go build -o quickpress
+### WPLUGINSCANNER
+git clone --depth 1 https://github.com/linoskoczek/WPluginScanner
+cd WPluginScanner
+python3 crawlpopular.py
+python3 crawlall.py
+cd ..
+### WPBULLET
+git clone https://github.com/webarx-security/wpbullet wpbullet
+pip install -r wpbullet/requirements.txt
 ### FuzzHTTPBypass
 git clone https://github.com/carlospolop/fuzzhttpbypass.git
 ### SITEMAP-URLS

@@ -16,6 +16,7 @@
 # 10. PREPARE dirs.txt FOR EXPLOIT MODULE
 # 11. CHECK WAF
 # 12. CHECK BACKUP FILES
+# 13. CHECK CMS
 #
 ### LISTS:
 #
@@ -124,6 +125,12 @@ webtech -u https://$domain | tee -a recon.txt
 ### IDENTIFY TECHNOLOGY 2 >> recon.txt
 echo "[WHATWEB] ---------------------------------------------------------" | tee -a recon.txt
 $HOME/tools/WhatWeb/whatweb -a 3 $domain -H $cookie | tee -a recon.txt
+
+### CMS SCAN >> recon.txt
+echo "[CMSEEK] ---------------------------------------------------------" | tee -a recon.txt
+python3 $HOME/tools/CMSeeK/cmseek.py -u $domain --follow-redirect
+cat $HOME/tools/CMSeeK/Result/$domain/cms.json | jq . >> recon.txt
+rm -rf $HOME/tools/CMSeeK/Result/$domain/
 
 ### VULN SCAN 1 >> recon.txt
 # Perform a brute-force attack to uncover known and potentially dangerous scripts on the web server.
@@ -269,7 +276,7 @@ rm filtered_new_endpoints.txt
 ### ADD http://$domain AND https://$domain EVEN IF THEY ARE 404/400/X status code >> ffuf.txt
 echo "http://$domain\nhttps://$domain" | anew ffuf.txt
 
-### PROXY ALL BRUTEFORCED DIRECTORIES TO BURP > status_dir.txt
+### PROXY ALL BRUTEFORCED FILES AND DIRECTORIES TO BURP > status_dir.txt
 echo -e "\033[0;31m [+]\033[0m PROXING ALL DIRECTORIES && FILES TO BURP SUITE"
 wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H $cookie FUZZFUZ2Z > /dev/null 2>&1
 
@@ -277,16 +284,14 @@ wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,$HOME/tools/CRIMSON/w
 echo -e "\033[0;31m [+]\033[0m PREPARING FILES FOR crimson_exploit MODULE"
 cat status_params.txt | grep -v "C=404 " | grep http | grep -v "Pycurl" | cut -d "\"" -f2 | sort -u | qsreplace -a > exp/params.txt
 
-### PREAPRE DIRECTORIES FOR EXPLOIT MODULE > exp/dirs.txt
-cat ffuf.txt | grep -v -e "\.png\|\.js\|\.gif\|\.jpg\|\.png\|\.css" | grep -v "\/$" > temp_without_slash
-cat temp_without_slash | sed "s/$/\//" > temp_with_slash
-cat ffuf.txt | grep "\/$" >> temp_with_slash
-sort -u temp_with_slash > exp/dirs.txt
-rm temp_with_slash temp_without_slash
+### PREAPRE DIRECTORIES FOR EXPLOIT MODULE (filtering static content) > exp/dirs.txt
+cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -d "\"" -f2 | grep -v -e "Pycurl\|\.aac\|\.aiff\|\.ape\|\.au\|\.flac\|\.gsm\|\.it\|\.m3u\|\.m4a\|\.mid\|\.mod\|\.mp3\|\.mpa\|\.pls\|\.ra\|\.s3m\|\.sid\|\.wav\|\.wma\|\.xm\|\.ods\|\.xls\|\.xlsx\|\.csv\|\.ics\|\.vcf\|\.3dm\|\.3ds\|\.max\|\.bmp\|\.dds\|\.gif\|\.jpg\|\.jpeg\|\.png\|\.psd\|\.xcf\|\.tga\|\.thm\|\.tif\|\.tiff\|\.yuv\|\.ai\|\.eps\|\.ps\|\.svg\|\.dwg\|\.dxf\|\.gpx\|\.kml\|\.kmz\|\.webp\|\.3g2\|\.3gp\|\.aaf\|\.asf\|\.avchd\|\.avi\|\.drc\|\.flv\|\.m2v\|\.m4p\|\.m4v\|\.mkv\|\.mng\|\.mov\|\.mp2\|\.mp4\|\.mpe\|\.mpeg\|\.mpg\|\.mpv\|\.mxf\|\.nsv\|\.ogg\|\.ogv\|\.ogm\|\.qt\|\.rm\|\.rmvb\|\.roq\|\.srt\|\.svi\|\.vob\|\.webm\|\.wmv\|\.yuv\|\.7z\|\.a\|\.apk\|\.ar\|\.bz2\|\.cab\|\.cpio\|\.deb\|\.dmg\|\.egg\|\.gz\|\.iso\|\.jar\|\.lha\|\.mar\|\.pea\|\.rar\|\.rpm\|\.s7z\|\.shar\|\.tar\|\.tbz2\|\.tgz\|\.tlz\|\.war\|\.whl\|\.xpi\|\.zip\|\.zipx\|\.xz\|\.pak\|\.js\|\.jsmin\|\.css\|\.js\|\.jsx\|\.less\|\.scss\|\.wasm\|\.eot\|\.otf\|\.ttf\|\.woff\|\.woff2\|\.ppt\|\.odp\|\.doc\|\.docx\|\.ebook\|\.log\|\.md\|\.msg\|\.odt\|\.org\|\.pages\|\.pdf\|\.rtf\|\.rst\|\.tex\|\.txt\|\.wpd\|\.wps\|\.mobi\|\.epub\|\.azw1\|\.azw3\|\.azw4\|\.azw6\|\.azw\|\.cbr\|\.cbz" | sort -u > exp/dirs.txt
 
-### CHECK FOR BACKUP FILES ONLY FOR NOT {404|400|429} && NOT "/" AT THE END > backups.txt
+### PREPARE TEMPORARY FILE FOR BACKUPER AND ARJUN > temp_files.txt
+cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -d "\"" -f2 | grep -v -e "Pycurl\|\.woff\|\.svg\|\.png\|\.gif\|\.jpg\|\.png\|\.css\|\.mp3\|\.mp4" | sed "s/\/$//g" | sort -u | grep -v "^https://$domain$\|^http://$domain$" > temp_files.txt
+
+### CHECK FOR BACKUP FILES > backups.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING EXISTANCE OF BRUTEFORCED FILES BACKUPS"
-cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -d "\"" -f2 | grep -v "\.jpg\|\.png\|\.js\|\.svg\|\.woff\|\.css\|Pycurl" | sed "s/.$//g" | sort -u | grep -v "^https://$domain$\|^http://$domain$" > temp_files.txt
 python $HOME/tools/CRIMSON/scripts/crimson_backuper.py -w temp_files.txt -e $HOME/tools/CRIMSON/words/BCK_EXT -c $cookie -o backups.txt
 
 ### CORS MISCONFIGURATION SCAN >> recon.txt
@@ -303,6 +308,15 @@ grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|passwor
 ### GET PARAMETER NAMES BY BRUTEFORCING THEM > exp/arjun.txt
 echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON temp_files.txt - IT WILL TAKE A WHILE..."
 arjun -i temp_files.txt -oT exp/arjun.txt -q --headers $cookie 
+
+### REMOVE TEMPORARY FILE
 rm temp_files.txt
 
+echo "\033[0;31m [+]\033[0m CHECK:"
+echo "	- recon.txt"
+echo "	- status_dir.txt"
+echo "	- apikeys.txt"
+echo "	- backups.txt"
+echo "	- status_ffuf.txt!!!!!!"
+echo "	- exp/arjun.txt"
 fi
