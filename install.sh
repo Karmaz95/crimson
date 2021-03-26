@@ -163,7 +163,7 @@ git clone https://github.com/carlospolop/fuzzhttpbypass.git
 ### SITEMAP-URLS
 git clone https://github.com/yuriyyakym/sitemap-urls.git
 ### CRIMSON LIBS
-pip install future
+pip install future tqdm
 ### DIRDAR
 go get -u github.com/m4dm0e/dirdar
 ### METASPLOIT

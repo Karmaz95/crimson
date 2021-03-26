@@ -11,12 +11,12 @@
 
 import sys, getopt, requests, urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
+from tqdm import tqdm
 
 ### OPTIONS ---
 argument_list = sys.argv[1:]
-short_options = "w:c:H:e:h"
-long_options = ["wordlist", "cookies", "header", "extensions", "help"]
+short_options = "w:c:H:o:h"
+long_options = ["wordlist", "cookies", "header", "output", "help"]
 try:
     arguments, values = getopt.getopt(argument_list, short_options, long_options)
 except getopt.error as err:
@@ -27,13 +27,12 @@ except getopt.error as err:
 def helper():
     '''Print usage in case of wrong options or arguments being used'''
     print("""\033[0;31m
-
- ██████╗ ██████╗ ███████╗███╗   ██╗███████╗██████╗ 
-██╔═══██╗██╔══██╗██╔════╝████╗  ██║██╔════╝██╔══██╗
-██║   ██║██████╔╝█████╗  ██╔██╗ ██║█████╗  ██████╔╝
-██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║██╔══╝  ██╔══██╗
-╚██████╔╝██║     ███████╗██║ ╚████║███████╗██║  ██║
- ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝\033[0m""")
+██████╗ ███████╗██╗    ██╗██████╗ ██╗████████╗███████╗██████╗ 
+██╔══██╗██╔════╝██║    ██║██╔══██╗██║╚══██╔══╝██╔════╝██╔══██╗
+██████╔╝█████╗  ██║ █╗ ██║██████╔╝██║   ██║   █████╗  ██████╔╝
+██╔══██╗██╔══╝  ██║███╗██║██╔══██╗██║   ██║   ██╔══╝  ██╔══██╗
+██║  ██║███████╗╚███╔███╔╝██║  ██║██║   ██║   ███████╗██║  ██║
+╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝\033[0m""")
     print("\nUSAGE: python crimson_rewriter.py -w [wordlist_with_urls] -H [headers] -c [Cookie: a=1;] -h [show_help]")
 
 def load_wordlist(wordlist_filepath):
@@ -52,33 +51,34 @@ def import_cookies(cookie):
     return cookies
 
 def rewriter_check(urls,headers,cookies):
-    original = []
-    rewrite = []
-    print("[*] CURENTLY TESTING")
-    for url in urls:
+    output_list = []
+    print("\033[0;31m [+]\033[0m REWRITER PROGRESS")
+    for url in tqdm(urls):
         try:
-            print(url.rstrip())
             r1 = requests.get(url.rstrip(), verify=False)
             r2 = requests.get(url.rstrip(), verify=False, headers={'X-Original-Url':'/doesnotextist123'})
             r3 = requests.get(url.rstrip(), verify=False, headers={'X-Rewrite-Url':'/doesnotexist321'})
             if r1.status_code != r2.status_code:
-                original.append(url)
+                output_list.append("[+] ORIGINAL HEADER FOUND: " + r2.url)
             elif r1.status_code != r3.status_code:
-                rewrite.append(url)
+                output_list.append("[+] REWRITE HEADER FOUND: " + r1.url)
         except:
             pass
+    return output_list
 
-    print("[*] VULNERABLE\n")
-    print("[*] X-Rewrite-Url:\n")
-    print(*rewrite, sep='\n')
-    print("\n[*] X-Original-Url:\n")
-    print(*original, sep='\n')
+
+def logs_saver(logs_list, logs_name):
+    with open(logs_name, 'w') as f:
+        for log in logs_list:
+            print >> f, log
 
 
 ### OPTIONS ---
 headers = {}
 cookies ={}
 show_help = False
+try: logs_name
+except NameError: logs_name = None
 for current_argument, current_value in arguments:
     if current_argument in ("-w", "--wordlist"):
         list_of_urls = current_value
@@ -86,6 +86,8 @@ for current_argument, current_value in arguments:
         cookies = current_value
     elif current_argument in ("-H", "--header"):
         headers.update([current_value.split("=")])
+    elif current_argument in ("-o", "--output"):
+        output = current_value
     elif current_argument in ("-h", "--help"):
         show_help = True
 
@@ -98,4 +100,9 @@ if __name__ == '__main__':
         urls = load_wordlist(list_of_urls)
         if cookies:
             cookies = import_cookies(cookies)
-        rewriter_check(urls,headers,cookies)
+        output_list = rewriter_check(urls, headers, cookies)
+        if logs_name is not None:
+            logs_saver(output_list, logs_name)
+        else:
+            for element in output_list:
+                print(element.rstrip())

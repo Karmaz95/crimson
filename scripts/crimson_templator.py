@@ -22,11 +22,12 @@
 
 import sys, getopt, requests, urllib3, urlparse
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+from tqdm import tqdm
 
 ### OPTIONS ---
 argument_list = sys.argv[1:]
-short_options = "w:c:H:h"
-long_options = ["wordlist", "cookies", "header", "help"]
+short_options = "w:c:H:o:h"
+long_options = ["wordlist", "cookies", "header", "output", "help"]
 try:
     arguments, values = getopt.getopt(argument_list, short_options, long_options)
 except getopt.error as err:
@@ -84,6 +85,7 @@ def paramjuggler(url,payload):
 
 
 def check_ssti_string_based(urls, cookies, headers):
+    output_list = []
     armed_urls = []
     '''Swap parameter values in the URL string and check for string or internal error'''
     ssti_payloads_7777 = [
@@ -101,13 +103,15 @@ def check_ssti_string_based(urls, cookies, headers):
         for payload in ssti_payloads_7777:
             armed_urls += paramjuggler(url,payload)
     
-    for armed_url in armed_urls:   
+    for armed_url in tqdm(armed_urls):   
         r1 = s.get(armed_url, allow_redirects=True, verify=False)
         if "7777" in r1.text:
-            print("\033[0;31m [+]\033[0m 7777 INJECTION FOUND: " + r1.url)
+            output_list.append("[+] 7777 INJECTION FOUND: " + r1.url)
+    return output_list
 
 
 def check_ssti_error_based(urls, cookies, headers):
+    output_list = []
     armed_urls = []
     ssti_payloads_error = [
     "${7/0}",
@@ -124,16 +128,25 @@ def check_ssti_error_based(urls, cookies, headers):
         for payload in ssti_payloads_error:
             armed_urls += paramjuggler(url,payload)
     
-    for armed_url in armed_urls:
+    for armed_url in tqdm(armed_urls):
         r1 = s.get(armed_url, allow_redirects=True, verify=False)
-        if r1.status_code == 200:
-            print("\033[0;31m [+]\033[0m INTERNAL ERROR FOUND: " + r1.url)
+        if r1.status_code == 500:
+            output_list.append("[+] INTERNAL ERROR FOUND: " + r1.url)
+    return output_list
+
+
+def logs_saver(logs_list, logs_name):
+    with open(logs_name, 'w') as f:
+        for log in logs_list:
+            print >> f, log
 
 
 ### OPTIONS ---
 headers = {}
 cookies ={}
 show_help = False
+try: logs_name
+except NameError: logs_name = None
 for current_argument, current_value in arguments:
     if current_argument in ("-w", "--wordlist"):
         list_of_urls = current_value
@@ -141,6 +154,8 @@ for current_argument, current_value in arguments:
         cookies = current_value
     elif current_argument in ("-H", "--header"):
         headers.update([current_value.split("=")])
+    elif current_argument in ("-o", "--output"):
+        logs_name = current_value
     elif current_argument in ("-h", "--help"):
         show_help = True
 
@@ -152,6 +167,14 @@ if __name__ == '__main__':
         urls = load_wordlist(list_of_urls)
         if cookies:
             cookies = import_cookies(cookies)
-        print("\033[0;31m [+]\033[0m STARTING SSTI INJECTIONS\n")
-        check_ssti_string_based(urls, cookies, headers)
-        check_ssti_error_based(urls, cookies, headers)
+        print("\033[0;31m [+]\033[0m STARTING SSTI INJECTIONS")
+        print("\033[0;31m [++]\033[0m CHECKING STRING BASED INJECTIONS")
+        output_list = check_ssti_string_based(urls, cookies, headers)
+        print("\033[0;31m [++]\033[0m CHECKING ERROR BASED INJECTIONS")
+        output_list += check_ssti_error_based(urls, cookies, headers)
+        if logs_name is not None:
+            if output_list:
+                logs_saver(output_list, logs_name)
+        else:
+            for element in output_list:
+                print(element.rstrip())

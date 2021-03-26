@@ -15,11 +15,12 @@
 
 import sys, getopt, requests, urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+from tqdm import tqdm
 
 ### OPTIONS ---
 argument_list = sys.argv[1:]
-short_options = "w:c:H:e:h"
-long_options = ["wordlist", "cookies", "header", "extensions", "help"]
+short_options = "w:c:H:e:o:h"
+long_options = ["wordlist", "cookies", "header", "extensions", "output", "help"]
 try:
     arguments, values = getopt.getopt(argument_list, short_options, long_options)
 except getopt.error as err:
@@ -59,10 +60,12 @@ def combine_wordlists(wordlist1, wordlist2):
 
 def check_backup_file(urls, extensions, cookies, headers):
     '''Combine urls with extension wordlist and check for backup files'''
+    backups_list = []
+    print("\033[0;31m [+]\033[0m BACKUPER PROGRESS")
     s = requests.Session()
     s.cookies.update(cookies)
     s.headers.update(headers)
-    for url in urls:
+    for url in tqdm(urls):
         r1 = s.get(url, allow_redirects=True, verify=False)
         for ext in extensions:
             backup = url + ext
@@ -75,15 +78,24 @@ def check_backup_file(urls, extensions, cookies, headers):
                     if r2.content != r1.content:
                         # If there are no reflection, the backup file has been found, either way there is a path/host reflection - check for xss.
                         if r2.url not in r2.text:
-                            print("\033[0;31m [+]\033[0m BACKUP FILE FOUND AT: " + r2.url)
+                            backups_list.append("[+] BACKUP FILE FOUND AT: " + r2.url)
                         else:
-                            print("\033[0;31m [+]\033[0m REFLECTION FOUND AT: " + r2.ulr)
+                            backups_list.append("[+] REFLECTION FOUND AT: " + r2.ulr)
+    return backups_list
+
+
+def logs_saver(logs_list, logs_name):
+    with open(logs_name, 'w') as f:
+        for log in logs_list:
+            print >> f, log
 
 
 ### OPTIONS ---
 headers = {}
 cookies ={}
 show_help = False
+try: logs_name
+except NameError: logs_name = None
 for current_argument, current_value in arguments:
     if current_argument in ("-w", "--wordlist"):
         list_of_urls = current_value
@@ -93,6 +105,8 @@ for current_argument, current_value in arguments:
         headers.update([current_value.split("=")])
     elif current_argument in ("-e", "--extensions"):
         list_of_extensions = current_value
+    elif current_argument in ("-o", "--output"):
+        logs_name = current_value
     elif current_argument in ("-h", "--help"):
         show_help = True
 
@@ -105,4 +119,9 @@ if __name__ == '__main__':
         extensions = load_wordlist(list_of_extensions)
         if cookies:
             cookies = import_cookies(cookies)
-        check_backup_file(urls, extensions, cookies, headers)
+        backups_list = check_backup_file(urls, extensions, cookies, headers)
+        if logs_name is not None:
+            logs_saver(backups_list, logs_name)
+        else:
+            for backup in backups_list:
+                print(backup.rstrip())

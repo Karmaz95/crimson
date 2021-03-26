@@ -123,10 +123,10 @@ crimson_jsextractor.sh -l list_of_urls.txt
 
 ### Usage example:
 * oob.txt could be found in `exp` directory in this repository.
-* oob.txt should contains payloads with `vps_ip` or `domain_collab` in lines to swap these values with given ip or domain
+* oob.txt should contains payloads with `vps_ip` or `domain_collab` in lines to swap these values with given ip or domain f.e. `[payload]vps_ip`
 * urls.txt should contains urls with queries to inject
 ```bash
-python crimson_oobtester.py -i "10.10.10.11" -d "6jqzryc8olgv0qt732epxdxokfq5eu.collaborator.com" -p "oob.txt" -l "urls.txt"
+python crimson_oobtester.py -i "10.10.10.11" -d "6jqzryc8olgv0qt732epxdxokfq5eu.collaborator.com" -p "oob.txt" -w "urls.txt" -H "header=asd" -c "Cookie: cookie1=123; cookie2=123;" -o "output.txt"
 ```
 
 ## :small_red_triangle_down:crimson_paramjuggler
