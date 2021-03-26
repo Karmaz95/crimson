@@ -275,7 +275,7 @@ wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,$HOME/tools/CRIMSON/w
 
 ### CHECK FOR BACKUP FILES > backups.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING EXISTANCE OF BRUTEFORCED FILES BACKUPS"
-python $HOME/tools/CRIMSON/scripts/crimson_backuper.py -w ffuf.txt -e $HOME/tools/CRIMSON/words/BCK_EXT -c $cookie | tee -a backups.txt
+python $HOME/tools/CRIMSON/scripts/crimson_backuper.py -w ffuf.txt -e $HOME/tools/CRIMSON/words/BCK_EXT -c $cookie -o backups.txt
 
 ### EXTRACT UNIQUE QUERIES > exp/params.txt
 echo -e "\033[0;31m [+]\033[0m PREPARING FILES FOR crimson_exploit MODULE"
