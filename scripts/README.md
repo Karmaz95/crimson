@@ -153,7 +153,7 @@ http://url?a1=x&a2=[payload]
 
 ### Usage example:
 ```bash
-python crimson_rewriter.py -w wordlist_with_urls.txt -H custom=header -c "Cookie: a=1;"
+python crimson_rewriter.py -w wordlist_with_urls.txt -H "custom=header" -c "Cookie: a=1;"
 ```
 
 ## :small_red_triangle_down:crimson_templator
