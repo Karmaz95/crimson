@@ -24,6 +24,7 @@ status_302 = []
 status_401 = []
 status_403 = []
 status_404 = []
+status_429 = []
 status_odd = []
 final_list = []
 
@@ -43,6 +44,8 @@ for line in my_file:
         status_403.append(line.rstrip().split("\"")[3])
     elif "\"status\":404" in line:
         status_404.append(line.rstrip().split("\"")[3])
+    elif "\"status\":429" in line:
+        status_429.append(line.rstrip().split("\"")[3])
     else:
         status_odd.append(line.rstrip().split("\"")[3])
 
@@ -56,6 +59,7 @@ status_302_c = len(status_302)
 status_401_c = len(status_401)
 status_403_c = len(status_403)
 status_404_c = len(status_404)
+status_429_c = len(status_429)
 status_odd_c = len(status_odd)
 
 ### PRINT RESULTS
@@ -68,10 +72,13 @@ print(" 302     : " + str(status_302_c) + " (" + str(round((status_302_c / statu
 print(" 401     : " + str(status_401_c) + " (" + str(round((status_401_c / status_all_c),3)) + "%)")
 print(" 403     : " + str(status_403_c) + " (" + str(round((status_403_c / status_all_c),3)) + "%)")
 print(" 404     : " + str(status_404_c) + " (" + str(round((status_404_c / status_all_c),3)) + "%)")
+print(" 429     : " + str(status_429_c) + " (" + str(round((status_429_c / status_all_c),3)) + "%)")
 print(" OTHER   : " + str(status_odd_c) + " (" + str(round((status_odd_c / status_all_c),3)) + "%)")
 print(" ---------------- ")
 
 ### MAIN FUNCTIONALITY
+# Do not store:
+#   429 - too many requests
 if (status_200_c / status_all_c) < 0.3:   
     final_list.extend(status_200)
 elif (status_301_c / status_all_c) < 0.001:

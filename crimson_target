@@ -284,9 +284,9 @@ cat ffuf.txt | grep "\/$" >> temp_with_slash
 sort -u temp_with_slash > exp/dirs.txt
 rm temp_with_slash temp_without_slash
 
-### CHECK FOR BACKUP FILES > backups.txt
+### CHECK FOR BACKUP FILES ONLY FOR NOT {404|400|429} && NOT "/" AT THE END > backups.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING EXISTANCE OF BRUTEFORCED FILES BACKUPS"
-cat exp/dirs.txt | sed "s/.$//g" > temp_files.txt
+cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -d "\"" -f2 | grep -v "\.jpg\|\.png\|\.js\|\.svg\|\.woff\|\.css\|Pycurl" | sed "s/.$//g" | sort -u | grep -v "^https://$domain$\|^http://$domain$" > temp_files.txt
 python $HOME/tools/CRIMSON/scripts/crimson_backuper.py -w temp_files.txt -e $HOME/tools/CRIMSON/words/BCK_EXT -c $cookie -o backups.txt
 
 ### CORS MISCONFIGURATION SCAN >> recon.txt
