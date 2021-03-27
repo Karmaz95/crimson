@@ -175,6 +175,8 @@ git clone https://github.com/yuriyyakym/sitemap-urls.git
 pip install future tqdm
 ### DIRDAR
 go get -u github.com/m4dm0e/dirdar
+### XSRFPROBE
+pip install xsrfprobe
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  
