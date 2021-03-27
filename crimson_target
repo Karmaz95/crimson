@@ -104,10 +104,10 @@ else
 
     ### GET THE CONTENT OF ROBOTS IF EXISTS >> recon.txt
     echo "[ROBOTS 80] ---------------------------------------------------------" | tee -a recon.txt
-    curl -O http://vpn.scopely.com/robots.txt
+    curl -O http://$domain/robots.txt
     cat robots.txt >> recon.txt
     echo "[ROBOTS 443] ---------------------------------------------------------" | tee -a recon.txt
-    curl -k -O https://vpn.scopely.com/robots.txt
+    curl -k -O https://$domain/robots.txt
     cat robots.txt >> recon.txt
     rm robots.txt
 
