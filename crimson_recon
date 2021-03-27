@@ -162,7 +162,7 @@ rm waybackurls.txt paramspider.txt gau.txt
 
 ### CHECK FOR LIVE LINKS (to proxy only valid urls) > urls.txt
 cat urls.txt | httpx -threads 50 -silent -o httpx_urls.txt
-mv httpx_urls.txt > urls.txt
+mv httpx_urls.txt urls.txt
 
 ### LOOKING FOR SUBDOMAINS AND SECRETS IN URLS = subdomainizer.txt
 echo -e "\033[0;31m [+]\033[0m GATHERING NEW SUBDOMAINS AND cat API KEYS"
