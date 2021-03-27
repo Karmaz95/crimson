@@ -56,8 +56,8 @@ echo -e "\033[0;31m
 
 if [ -z $1 ]
 then
-echo "Usage: ./crimson_recon example.domain.com"
-exit  1
+	echo "Usage: ./crimson_recon example.domain.com"
+	exit  1
 fi
 
 ### REMINDER OF BURP SUITE 
