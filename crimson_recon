@@ -61,8 +61,8 @@ then
 fi
 
 ### REMINDER OF BURP SUITE 
-echo -e "BURP SCOPE: .*\."$(echo $1 | sed "s/\./\\\./")"$"
-read -rsp $'RUN BURP AND ADD SCOPE...\n' -n1 key
+echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(echo $1 | sed "s/\./\\\./")"$"
+read -rsp $'\tRUN BURP AND ADD SCOPE... THEN CLICK ENTER\n' -n1 key
 
 ### CREATTING PROPER DIRECTORY
 export DOMAIN=$1
@@ -126,7 +126,8 @@ $HOME/tools/puredns/puredns bruteforce altdns.txt $DOMAIN -w puredns2.txt -r res
 cat puredns2.txt | dnsx -t 100 -silent -r resolvers.txt -o live2.txt
 
 ### MERGING live1.txt AND live2.txt = live.txt
-sort -u live1.txt live2.txt > live.txt
+sort -u live1.txt  > live.txt
+sort -u live2.txt | anew live.txt
 
 ### CLEARING LOGS 
 rm live1.txt 
@@ -188,7 +189,7 @@ rm live3.txt
 
 ### CHECKING FOR CORS MISSCONFIGURATION = cors_scan.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING CORS"
-cat live.txt | -output cors_scan.txt > /dev/null 2>&1
+cat live.txt | CorsMe -t 70 -output cors_scan.txt > /dev/null 2>&1
 ### CHECKING SUBDOMAIN TAKEOVER = subjack.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING DOMAIN TAKEOVER"
 subjack -w live.txt -t 20 -timeout 30 -o subjack1.txt -ssl -a
