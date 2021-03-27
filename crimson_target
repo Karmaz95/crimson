@@ -82,11 +82,11 @@ mkdir $HOME/bounty/$DOMAIN/$domain/exp
 mkdir $HOME/bounty/$DOMAIN/$domain/all_source_code
 cd $HOME/bounty/$DOMAIN/$domain   
 
-if [[ -z ${cookie} ]];
+if [ -z "$cookie" ]
 then
-	cookie="Cookie: a=1;";
+    cookie="Cookie: a=1;";
 else
-	cookie=$cookie;
+    cookie=$cookie;
 fi
 
 ### RESOLVE IP AND SCAN OPENED PORTS > recon.txt
