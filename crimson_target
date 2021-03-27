@@ -84,9 +84,9 @@ cd $HOME/bounty/$DOMAIN/$domain
 
 if [ -z "$cookie" ]
 then
-    cookie="Cookie: a=1;";
+    export cookie="Cookie: a=1;";
 else
-    cookie=$cookie;
+    export cookie=$cookie;
 fi
 
 ### RESOLVE IP AND SCAN OPENED PORTS > recon.txt
