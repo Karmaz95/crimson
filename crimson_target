@@ -124,7 +124,7 @@ webtech -u https://$domain | tee -a recon.txt
 
 ### IDENTIFY TECHNOLOGY 2 >> recon.txt
 echo "[WHATWEB] ---------------------------------------------------------" | tee -a recon.txt
-$HOME/tools/WhatWeb/whatweb -a 3 $domain -H $cookie | tee -a recon.txt
+$HOME/tools/WhatWeb/whatweb -a 3 $domain -H "$cookie" | tee -a recon.txt
 
 ### CMS SCAN >> recon.txt
 echo "[CMSEEK] ---------------------------------------------------------" | tee -a recon.txt
@@ -181,7 +181,7 @@ waybackurls $domain >> urls.txt
 
 ### SPIDER 5 >> urls.txt
 echo -e "\033[0;31m [+]\033[0m SPIDER [5]"
-hakrawler -url $domain -depth 2 -linkfinder -insecure -wayback -usewayback -urls -subs -sitemap -robots -plain -js -headers $cookie >> urls.txt
+hakrawler -url $domain -depth 2 -linkfinder -insecure -wayback -usewayback -urls -subs -sitemap -robots -plain -js -headers "$cookie" >> urls.txt
 
 ### SPIDER 6 >> urls.txt
 echo -e "\033[0;31m [+]\033[0m SPIDER [6]"
@@ -197,7 +197,7 @@ rm temp1.txt
 ### CHECK STATUS OF URLS WITH QUERIES && PROXY TO BURP > status_params.txt
 echo -e "\033[0;31m [+]\033[0m PROXING QUERIES TO BURP"
 cat urls.txt | grep "?" > temp/temp_params.txt
-wfuzz -f status_params.txt,raw -L -Z -z file,temp/temp_params.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H $cookie FUZZFUZ2Z > /dev/null 2>&1
+wfuzz -f status_params.txt,raw -L -Z -z file,temp/temp_params.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
 
 ### GET NEW ENDPOINTS FROM SPIDERS AND ADD THEM TO WORDLIST FOR DIRECOTRY BRUTEFORCING > custom_dir.txt
 echo -e "\033[0;31m [+]\033[0m GATHERING NEW PATHS FROM SPIDERS RESULTS"
@@ -208,7 +208,7 @@ rm temp1.txt
 ### DIRECTORY BRUTEFORCING > status_ffuf.txt
 echo -e "\033[0;31m [+]\033[0m STARTING DIRECTORY BRUTEFORCING"
 echo "WORDLIST"
-ffuf -w $HOME/words/custom_dir.txt -u https://$domain/FUZZ -mc all -fc 400 -H $cookie -o ffuf.json > /dev/null
+ffuf -w $HOME/words/custom_dir.txt -u https://$domain/FUZZ -mc all -fc 400 -H "$cookie" -o ffuf.json > /dev/null
 cat ffuf.json | jq -c '.results[] | {url:.url,status: .status}' > status_ffuf.txt
 rm ffuf.json
 
@@ -220,11 +220,11 @@ rm temp_ffuf.txt
 
 ### GATHER ALL SOURCE CODE FROM ffuf.txt AND STORE IT IN DIRECTORY > all_source_code/
 echo -e "\033[0;31m [+]\033[0m GATHERING SOURCE CODE OF BRUTE-FORCED SITES"
-for url in $(cat ffuf.txt); do echo $url && curl -k -s $url -H $cookie -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
+for url in $(cat ffuf.txt); do echo $url && curl -k -s $url -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
 
 ### GET LINKS TO JS FILES AND PREPARE IT FOR EXPLOIT MODULE > exp/jsfiles.txt
 echo -e "\033[0;31m [+]\033[0m GATHERING .js LINKS"
-cat urls.txt ffuf.txt | getJS --complete --nocolors -H $cookie | grep "^http" >> exp/jsfiles.txt
+cat urls.txt ffuf.txt | getJS --complete --nocolors -H "$cookie" | grep "^http" >> exp/jsfiles.txt
 
 ### GET LINKS TO JS FILES FROM urls.txt > exp/jsfiles.txt
 cat urls.txt | grep "\.js$" | grep "^http" | anew exp/jsfiles.txt
@@ -235,11 +235,11 @@ mv 1 exp/jsfiles.txt
 
 ### CHECK FOR LIVE JS LINKS
 echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE .js LINKS"
-httpx -silent -l exp/jsfiles.txt -H $cookie >> exp/jsfiles.txt
+httpx -silent -l exp/jsfiles.txt -H "$cookie" >> exp/jsfiles.txt
 
 ### GATHER SOURCE CODE FROM JS LINKS AND STORE IT IN >> all_source_code/
 echo -e "\033[0;31m [+]\033[0m GATHERING SOURCE CODE FROM LIVE .js LINKS"
-for url in $(cat exp/jsfiles.txt); do echo $url && curl -k -s $url -H $cookie -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
+for url in $(cat exp/jsfiles.txt); do echo $url && curl -k -s $url -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
 
 ### DIG API KEYS / ENDPOINTS ETC. > zile.txt
 echo -e "\033[0;31m [+]\033[0m GATHERING API KEYS && NEW PATHS"
@@ -262,7 +262,7 @@ grep -v -x -f temp/temp_duplicates.txt temp/temp_new_endpoints.txt > new_endpoin
 
 ### CHECK STATUS OF NEW URLS > status_new_endpoints.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF NEW PATHS"
-wfuzz -f status_new_endpoints.txt,raw -L -Z -z file,new_endpoints.txt -z file,$HOME/tools/CRIMSON/words/blank -H $cookie FUZZFUZ2Z > /dev/null 2>&1
+wfuzz -f status_new_endpoints.txt,raw -L -Z -z file,new_endpoints.txt -z file,$HOME/tools/CRIMSON/words/blank -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
 rm new_endpoints.txt
 
 ### REMOVE 400 && 404 RESPONSES
@@ -278,7 +278,7 @@ echo "http://$domain\nhttps://$domain" | anew ffuf.txt
 
 ### PROXY ALL BRUTEFORCED FILES AND DIRECTORIES TO BURP > status_dir.txt
 echo -e "\033[0;31m [+]\033[0m PROXING ALL DIRECTORIES && FILES TO BURP SUITE"
-wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H $cookie FUZZFUZ2Z > /dev/null 2>&1
+wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
 
 ### EXTRACT UNIQUE QUERIES > exp/params.txt
 echo -e "\033[0;31m [+]\033[0m PREPARING FILES FOR crimson_exploit MODULE"
@@ -292,11 +292,11 @@ cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -d "\"" -f2
 
 ### CHECK FOR BACKUP FILES > backups.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING EXISTANCE OF BRUTEFORCED FILES BACKUPS"
-python $HOME/tools/CRIMSON/scripts/crimson_backuper.py -w temp_files.txt -e $HOME/tools/CRIMSON/words/BCK_EXT -c $cookie -o backups.txt
+python $HOME/tools/CRIMSON/scripts/crimson_backuper.py -w temp_files.txt -e $HOME/tools/CRIMSON/words/BCK_EXT -c "$cookie" -o backups.txt
 
 ### CORS MISCONFIGURATION SCAN >> recon.txt
 echo "[CORS] ---------------------------------------------------------" | tee -a recon.txt
-cat ffuf.txt | CorsMe -t 70 -header $cookie -output corsme.txt > /dev/null 2>&1
+cat ffuf.txt | CorsMe -t 70 -header "$cookie" -output corsme.txt > /dev/null 2>&1
 cat corsme.txt >> recon.txt
 rm corsme.txt
 rm error_requests.txt
@@ -307,7 +307,7 @@ grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|passwor
 
 ### GET PARAMETER NAMES BY BRUTEFORCING THEM > exp/arjun.txt
 echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON temp_files.txt - IT WILL TAKE A WHILE..."
-arjun -i temp_files.txt -oT exp/arjun.txt -q --headers $cookie 
+arjun -i temp_files.txt -oT exp/arjun.txt -q --headers "$cookie" 
 
 ### REMOVE TEMPORARY FILE
 rm temp_files.txt
