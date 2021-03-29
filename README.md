@@ -67,7 +67,7 @@ Install Burp Suite
 > The following tools are used in `crimson`. I encourage you to study the links below, they will definitely help you in your work.
 > Especially check `Burp Suite extensions`, because all gathered resources are proxied to Burp Suite, where they are further tested.
 
-### :diamonds:Domains enumeration:
+### :diamonds: Domains enumeration:
 * [Amass](https://github.com/OWASP/Amass)
 * [subfinder](https://github.com/projectdiscovery/subfinder)
 * [massdns](https://github.com/blechschmidt/massdns)
@@ -79,11 +79,11 @@ Install Burp Suite
 * [altdns](https://github.com/infosec-au/altdns)
 * [HostHunter](https://github.com/SpiderLabs/HostHunter/)
 
-### :diamonds:IP && ports:
+### :diamonds: IP && ports:
 * [nmap](https://github.com/nmap/nmap)
 * [masscan](https://github.com/robertdavidgraham/masscan)
 
-### :diamonds:URLs:
+### :diamonds: URLs:
 * [waybackurls](https://github.com/tomnomnom/waybackurls)
 * [Paramspider](https://github.com/devanshbatham/ParamSpider)
 * [getallurls](https://github.com/lc/gau)
@@ -98,13 +98,13 @@ Install Burp Suite
 * [zile](https://github.com/xyele/zile)
 * [relative-url-extractor](https://github.com/jobertabma/relative-url-extractor)
 
-### :diamonds:Target visualisation:
+### :diamonds: Target visualisation:
 * [webtech](https://github.com/ShielderSec/webtech)
 * [WhatWeb](https://github.com/urbanadventurer/WhatWeb)
 * [gowitness](https://github.com/sensepost/gowitness)
 * [wafw00f](https://github.com/EnableSecurity/wafw00f)
 
-### :diamonds:Bug finding:
+### :diamonds: Bug finding:
 * [nikto](https://github.com/sullo/nikto)
 * [wapiti](https://github.com/wapiti-scanner/wapiti)
 * [CorsMe](https://github.com/Shivangx01b/CorsMe)
@@ -123,24 +123,24 @@ Install Burp Suite
 * [dalfox](https://github.com/hahwul/dalfox)
 * [testssl.sh](https://testssl.sh/)
 
-### :diamonds:WordPress tools:
+### :diamonds: WordPress tools:
 * [wpscan](https://github.com/wpscanteam/wpscan)
 * [WPluginScanner](https://github.com/linoskoczek/WPluginScanner)
 * [quickpress](https://github.com/pownx/quickpress)
 * [wpBullet](https://github.com/webarx-security/wpbullet)
 
-### :diamonds:Additional tools:
+### :diamonds: Additional tools:
 * [qsreplace](https://github.com/tomnomnom/qsreplace)
 * [anew](https://github.com/tomnomnom/anew.git)
 * [unfurl](https://github.com/tomnomnom/unfurl)
 
-### :diamonds:Wordlists:
+### :diamonds: Wordlists:
 * [SecLists](https://github.com/danielmiessler/SecLists)
 * [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
 * [fresh-resolvers](https://raw.githubusercontent.com/BonJarber/fresh-resolvers/)
 
 
-### :diamonds:Burp Suite extensions:
+### :diamonds: Burp Suite extensions:
 * [ActiveScan++](https://portswigger.net/bappstore/3123d5b5f25c4128894d97ea1acc4976)
 * [UploadScanner](https://portswigger.net/bappstore/b2244cbb6953442cb3c82fa0a0d908fa)
 * [Wayback Machine](https://portswigger.net/bappstore/5c7c516c690345c19fbf55b2b2ebeb76)
