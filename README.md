@@ -1,6 +1,7 @@
 # Crimson
 
-> Crimson is a tool that automates some of the Pentester or Bug Bounty Hunter tasks. It uses many open source tools, most of them are available for download from github.
+> Crimson is a tool that automates some of the Pentester or Bug Bounty Hunter tasks.  
+> It uses many open source tools, most of them are available for download from github.
 
 <p align="center">
   <img src="crimson_logo.png" />
@@ -67,6 +68,7 @@ Install Burp Suite
 > The following tools are used in `crimson`. I encourage you to study the links below, they will definitely help you in your work.
 > Especially check `Burp Suite extensions`, because all gathered resources are proxied to Burp Suite, where they are further tested.
 
+
 ### :diamonds: Domains enumeration:
 * [Amass](https://github.com/OWASP/Amass)
 * [subfinder](https://github.com/projectdiscovery/subfinder)
@@ -79,9 +81,11 @@ Install Burp Suite
 * [altdns](https://github.com/infosec-au/altdns)
 * [HostHunter](https://github.com/SpiderLabs/HostHunter/)
 
+
 ### :diamonds: IP && ports:
 * [nmap](https://github.com/nmap/nmap)
 * [masscan](https://github.com/robertdavidgraham/masscan)
+
 
 ### :diamonds: URLs:
 * [waybackurls](https://github.com/tomnomnom/waybackurls)
@@ -97,12 +101,15 @@ Install Burp Suite
 * [httpx](https://github.com/encode/httpx)
 * [zile](https://github.com/xyele/zile)
 * [relative-url-extractor](https://github.com/jobertabma/relative-url-extractor)
+* [crimson_backuper](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_backuper.py)
+
 
 ### :diamonds: Target visualisation:
 * [webtech](https://github.com/ShielderSec/webtech)
 * [WhatWeb](https://github.com/urbanadventurer/WhatWeb)
 * [gowitness](https://github.com/sensepost/gowitness)
 * [wafw00f](https://github.com/EnableSecurity/wafw00f)
+
 
 ### :diamonds: Bug finding:
 * [nikto](https://github.com/sullo/nikto)
@@ -122,6 +129,11 @@ Install Burp Suite
 * [jwt-tool](https://github.com/ticarpi/jwt_tool)
 * [dalfox](https://github.com/hahwul/dalfox)
 * [testssl.sh](https://testssl.sh/)
+* [crimson_deserializator](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_deserializator.py)
+* [crimson_oobtester](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_oobtester.py)
+* [crimson_rewriter](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_rewriter.py)
+* [crimson_templator](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_templator.py)
+
 
 ### :diamonds: WordPress tools:
 * [wpscan](https://github.com/wpscanteam/wpscan)
@@ -129,10 +141,15 @@ Install Burp Suite
 * [quickpress](https://github.com/pownx/quickpress)
 * [wpBullet](https://github.com/webarx-security/wpbullet)
 
+
 ### :diamonds: Additional tools:
 * [qsreplace](https://github.com/tomnomnom/qsreplace)
 * [anew](https://github.com/tomnomnom/anew.git)
 * [unfurl](https://github.com/tomnomnom/unfurl)
+* [clever_ffuf](https://github.com/Karmaz95/crimson/blob/master/scripts/clever_ffuf.py)
+* [crimson_opener](https://github.com/Karmaz95/crimson/tree/master/scripts/crimson_opener)
+* [crimson_paramjuggler](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_paramjuggler.py)
+
 
 ### :diamonds: Wordlists:
 * [SecLists](https://github.com/danielmiessler/SecLists)
