@@ -218,7 +218,10 @@ else
 
     ### GATHER ALL SOURCE CODE FROM ffuf.txt AND STORE IT IN DIRECTORY > all_source_code/
     echo -e "\033[0;31m [+]\033[0m GATHERING SOURCE CODE OF BRUTE-FORCED SITES"
-    for url in $(cat ffuf.txt); do echo $url && curl -k -s $url -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
+    for url in $(cat ffuf.txt); do echo "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url" && curl -k -s $url -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
+
+    ### REMOVE EMPTY FILES IN all_source_code
+    for f in $(ls all_source_code/*); do [ -s $f ] || rm $f ;done
 
     ### GET LINKS TO JS FILES AND PREPARE IT FOR EXPLOIT MODULE > exp/jsfiles.txt
     echo -e "\033[0;31m [+]\033[0m GATHERING .js LINKS"
@@ -237,7 +240,10 @@ else
 
     ### GATHER SOURCE CODE FROM JS LINKS AND STORE IT IN >> all_source_code/
     echo -e "\033[0;31m [+]\033[0m GATHERING SOURCE CODE FROM LIVE .js LINKS"
-    for url in $(cat exp/jsfiles.txt); do echo $url && curl -k -s $url -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
+    for url in $(cat exp/jsfiles.txt); do echo "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url" && curl -k -s $url -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
+
+    ### REMOVE EMPTY FILES IN all_source_code
+    for f in $(ls all_source_code/*); do [ -s $f ] || rm $f ;done
 
     ### DIG API KEYS / ENDPOINTS ETC. > zile.txt
     echo -e "\033[0;31m [+]\033[0m GATHERING API KEYS && NEW PATHS"
@@ -307,8 +313,9 @@ else
     echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON temp_files.txt - IT WILL TAKE A WHILE..."
     arjun -i temp_files.txt -oT exp/arjun.txt -q --headers "$cookie" 
 
-    ### REMOVE TEMPORARY FILE
+    ### REMOVE TEMPORARY AND BLANK FILES  
     rm temp_files.txt
+    for f in $(ls); do [ -s $f ] || rm $f ;done
 
     echo "\033[0;31m [+]\033[0m CHECK:"
     echo "	- recon.txt"

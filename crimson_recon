@@ -241,6 +241,7 @@ ldns-walk $DOMAIN | tee -a ldns-walk.txt
 rm proxy.txt 
 rm resolvers.txt 
 rm error_requests.txt
+for f in $(ls); do [ -s $f ] || rm $f ;done
 
 ### PRINTING RESULTS
 echo -e "\033[0;31m [+]\033[0m RESULTS: "
@@ -257,7 +258,7 @@ echo -e "\033[0;31m [+]\033[0m 3rd LEVEL SUBDOMAINS:"
 cat 3rdleve.txt
 echo -e "--------"
 echo "\n\nCheck: \n\t - status_live.txt \n\t - BURP \n\t - gowitness"
-google-chrome http://localhost:7171/table/
+echo "google-chrome http://localhost:7171/table/"
 gowitness report serve
 
 ### GREP 2/3/4 LEVEL DOMAINS

@@ -2,7 +2,7 @@
 sudo rm /etc/apt/preferences.d/nosnap.pref
 sudo apt update -y
 sudo apt dist-upgrade -y
-sudo apt install ruby ruby-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon python3 python3-dnspython pv scite ldnsutils jq -y
+sudo apt install ruby ruby-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon python3 python3-dnspython pv scite ldnsutils jq testssl.sh -y
 sudo gem install bundler json mongo
 sudo apt install python3-pip 
 sudo add-apt-repository universe
@@ -55,11 +55,6 @@ git clone https://github.com/s0md3v/XSStrike.git
 cd XSStrike
 pip install -r requirements.txt
 cd ..
-### XSSTRON
-git clone https://github.com/RenwaX23/XSSTRON
-cd XSSTRON
-npm install
-npm start
 ### DALFOX
 GO111MODULE=on go get -v github.com/hahwul/dalfox/v2
 ### WAYBACKURLS
