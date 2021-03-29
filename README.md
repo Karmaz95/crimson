@@ -96,6 +96,7 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [getallurls](https://github.com/lc/gau)
 * [wfuzz](https://github.com/xmendez/wfuzz)
 * [ffuf](https://github.com/ffuf/ffuf)
+* [feroxbuster](https://github.com/epi052/feroxbuster)
 * [sitemap-urls](https://github.com/yuriyyakym/sitemap-urls)
 * [gospider](https://github.com/jaeles-project/gospider)
 * [hakrawler](https://github.com/hakluke/hakrawler)
@@ -105,7 +106,6 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [zile](https://github.com/xyele/zile)
 * [relative-url-extractor](https://github.com/jobertabma/relative-url-extractor)
 * [crimson_backuper](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_backuper.py)
-
 
 ### :diamonds: Target visualisation:
 * [webtech](https://github.com/ShielderSec/webtech)
@@ -131,6 +131,7 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [ysoserial.net](https://github.com/frohoff/ysoserial)
 * [jwt-tool](https://github.com/ticarpi/jwt_tool)
 * [dalfox](https://github.com/hahwul/dalfox)
+* [metasploit](https://github.com/rapid7/metasploit-framework)
 * [testssl.sh](https://testssl.sh/)
 * [crimson_deserializator](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_deserializator.py)
 * [crimson_oobtester](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_oobtester.py)
@@ -149,10 +150,13 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [qsreplace](https://github.com/tomnomnom/qsreplace)
 * [anew](https://github.com/tomnomnom/anew.git)
 * [unfurl](https://github.com/tomnomnom/unfurl)
+* [wine](https://www.winehq.org/)
+* [exploit-database](https://github.com/offensive-security/exploit-database.git)
+* [Search-That-Hash](https://github.com/HashPals/Search-That-Hash)
 * [clever_ffuf](https://github.com/Karmaz95/crimson/blob/master/scripts/clever_ffuf.py)
 * [crimson_opener](https://github.com/Karmaz95/crimson/tree/master/scripts/crimson_opener)
 * [crimson_paramjuggler](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_paramjuggler.py)
-
+* [tldextract](https://pypi.org/project/tldextract/)
 
 ### :diamonds: Wordlists:
 * [SecLists](https://github.com/danielmiessler/SecLists)

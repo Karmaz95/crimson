@@ -63,8 +63,6 @@ go get github.com/tomnomnom/waybackurls
 go get -u github.com/tomnomnom/unfurl
 ### QSREPLACE
 go get -u github.com/tomnomnom/qsreplace
-### DIRHUNT
-sudo pip3 install dirhunt
 ### wafw00f
 sudo apt install wafw00f -y
 ### DNSX
@@ -78,11 +76,6 @@ git clone https://github.com/GerbenJavado/LinkFinder.git
 cd LinkFinder
 python setup.py install
 pip3 install -r requirements.txt
-cd ..
-### TPLMAP 
-git clone https://github.com/epinna/tplmap.git
-cd tplmap
-pip install -r requirements.txt
 cd ..
 ### CRLFUZZ
 GO111MODULE=on go get -v github.com/dwisiswant0/crlfuzz/cmd/crlfuzz
@@ -162,8 +155,6 @@ cd ..
 ### WPBULLET
 git clone https://github.com/webarx-security/wpbullet wpbullet
 pip install -r wpbullet/requirements.txt
-### FuzzHTTPBypass
-git clone https://github.com/carlospolop/fuzzhttpbypass.git
 ### SITEMAP-URLS
 git clone https://github.com/yuriyyakym/sitemap-urls.git
 ### CRIMSON LIBS
