@@ -17,7 +17,8 @@
 > This module can help you if you have to test big infrastructure or you are trying to earn some bounties in *.scope.com domain. It includes many web scraping and bruteforcing tools.
 
 #### :small_red_triangle_down:crimson_target
-> This module covers one particular domain chosen by you for testing. It uses a lot of vulnerability scanners, web scrapers and bruteforcing tools.
+> This module covers one particular domain chosen by you for testing.  
+> It uses a lot of vulnerability scanners, web scrapers and bruteforcing tools.
 
 #### :small_red_triangle_down:crimson_exploit
 > This module uses a number of tools to automate the search for certain bugs in a list of urls.
@@ -34,7 +35,7 @@ Add below line to your .bashrc / .zshrc etc.
 export GOPATH=$HOME/go
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$HOME/tools:$PATH"
 ```
-Install Burp Suite
+Install Burp Suite and extensions listed below in section `Burp Suite extensions`.
 # Usage
 ##### :diamonds: First module needs `domain name` to work properly, f.e. `google.com` :diamonds:
 
@@ -42,14 +43,16 @@ Install Burp Suite
 ./crimson_recon "domain.com"
 
 ```
-* If you are interested in how this module works, I encourage you to study the source code. I tried to describe in the comments how the individual tools works. 
+* If you are interested in how this module works, I encourage you to study the source code.
+* I tried to describe in the comments how the individual tools works. 
 * Additionally, you can learn more about `crimson_recon` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-i-574fd9dce53e)
  
 ##### :diamonds: Second module needs `subdomain name`. You can additionally put `authorization cookie` :diamonds:
 ```bash
 ./crimson_target -d "example.domain.com" -c "Cookie: auth1=123;"
 ```
-* If you are interested in how this module works, I encourage you to study the source code. I tried to describe in the comments how the individual tools works.
+* If you are interested in how this module works, I encourage you to study the source code.
+* I tried to describe in the comments how the individual tools works.
 * Additionally, you can learn more about `crimson_target` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-ii-4336bd4ca73b?sk=ba289442112704cd71ac4a89e994fc8c)
 
 ##### :diamonds: Third module needs `subdomain name` with your `collaborator` and `vps ip`. You can additionally put `authorization cookie` :diamonds:
