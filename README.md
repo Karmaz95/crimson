@@ -123,7 +123,7 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [DirDar](https://github.com/M4DM0e/DirDar)
 * [XSStrike](https://github.com/s0md3v/XSStrike)
 * [Smuggler](https://github.com/defparam/smuggler)
-* [hbh-header-abuse-test.py](https://gist.github.com/ndavison/298d11b3a77b97c908d63a345d3c624d)
+* [hbh-header-abuse-test](https://gist.github.com/ndavison/298d11b3a77b97c908d63a345d3c624d)
 * [broken-link-checker](https://github.com/stevenvachon/broken-link-checker)
 * [sqlmap](http://sqlmap.org/)
 * [CRLFuzz](https://github.com/dwisiswant0/crlfuzz)
