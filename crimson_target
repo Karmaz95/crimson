@@ -291,12 +291,12 @@ else
     ### PREAPRE DIRECTORIES FOR EXPLOIT MODULE (filtering static content) > exp/dirs.txt
     cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -d "\"" -f2 | grep -v -e "Pycurl\|\.aac\|\.aiff\|\.ape\|\.au\|\.flac\|\.gsm\|\.it\|\.m3u\|\.m4a\|\.mid\|\.mod\|\.mp3\|\.mpa\|\.pls\|\.ra\|\.s3m\|\.sid\|\.wav\|\.wma\|\.xm\|\.ods\|\.xls\|\.xlsx\|\.csv\|\.ics\|\.vcf\|\.3dm\|\.3ds\|\.max\|\.bmp\|\.dds\|\.gif\|\.jpg\|\.jpeg\|\.png\|\.psd\|\.xcf\|\.tga\|\.thm\|\.tif\|\.tiff\|\.yuv\|\.ai\|\.eps\|\.ps\|\.svg\|\.dwg\|\.dxf\|\.gpx\|\.kml\|\.kmz\|\.webp\|\.3g2\|\.3gp\|\.aaf\|\.asf\|\.avchd\|\.avi\|\.drc\|\.flv\|\.m2v\|\.m4p\|\.m4v\|\.mkv\|\.mng\|\.mov\|\.mp2\|\.mp4\|\.mpe\|\.mpeg\|\.mpg\|\.mpv\|\.mxf\|\.nsv\|\.ogg\|\.ogv\|\.ogm\|\.qt\|\.rm\|\.rmvb\|\.roq\|\.srt\|\.svi\|\.vob\|\.webm\|\.wmv\|\.yuv\|\.7z\|\.a\|\.apk\|\.ar\|\.bz2\|\.cab\|\.cpio\|\.deb\|\.dmg\|\.egg\|\.gz\|\.iso\|\.jar\|\.lha\|\.mar\|\.pea\|\.rar\|\.rpm\|\.s7z\|\.shar\|\.tar\|\.tbz2\|\.tgz\|\.tlz\|\.war\|\.whl\|\.xpi\|\.zip\|\.zipx\|\.xz\|\.pak\|\.js\|\.jsmin\|\.css\|\.js\|\.jsx\|\.less\|\.scss\|\.wasm\|\.eot\|\.otf\|\.ttf\|\.woff\|\.woff2\|\.ppt\|\.odp\|\.doc\|\.docx\|\.ebook\|\.log\|\.md\|\.msg\|\.odt\|\.org\|\.pages\|\.pdf\|\.rtf\|\.rst\|\.tex\|\.txt\|\.wpd\|\.wps\|\.mobi\|\.epub\|\.azw1\|\.azw3\|\.azw4\|\.azw6\|\.azw\|\.cbr\|\.cbz" | sort -u > exp/dirs.txt
 
-    ### PREPARE TEMPORARY FILE FOR BACKUPER AND ARJUN > temp_files.txt
-    cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -d "\"" -f2 | grep -v -e "Pycurl\|\.woff\|\.svg\|\.png\|\.gif\|\.jpg\|\.png\|\.css\|\.mp3\|\.mp4" | sed "s/\/$//g" | sort -u | grep -v "^https://$domain$\|^http://$domain$" > temp_files.txt
+    ### PREPARE FILES WORDLIST FOR BACKUPER AND ARJUN > exp/files.txt
+    cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -d "\"" -f2 | grep -v -e "Pycurl\|\.woff\|\.svg\|\.png\|\.gif\|\.jpg\|\.png\|\.css\|\.mp3\|\.mp4" | sed "s/\/$//g" | sort -u | grep -v "^https://$domain$\|^http://$domain$" > exp/files.txt
 
     ### CHECK FOR BACKUP FILES > backups.txt
     echo -e "\033[0;31m [+]\033[0m CHECKING EXISTANCE OF BRUTEFORCED FILES BACKUPS"
-    python $HOME/tools/CRIMSON/scripts/crimson_backuper.py -w temp_files.txt -e $HOME/tools/CRIMSON/words/BCK_EXT -c "$cookie" -o backups.txt
+    python $HOME/tools/CRIMSON/scripts/crimson_backuper.py -w exp/files.txt -e $HOME/tools/CRIMSON/words/BCK_EXT -c "$cookie" -o backups.txt
 
     ### CORS MISCONFIGURATION SCAN >> recon.txt
     echo "[CORS] ---------------------------------------------------------" | tee -a recon.txt
@@ -307,14 +307,19 @@ else
 
     ### DIG SECRETS FROM all_source_code/ SAVE COLORED OUTPUT > apikeys.txt
     echo -e "\033[0;31m [+]\033[0m CHECKING SECRETS IN GATHERED SOURCE CODE"
-    grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|password|pinning|secret|SHA256|SharedPreferences|superuser|token|X509TrustManager" all_source_code/ --color=always > apikeys.txt
+    grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|password|pinning|secret|SHA256|SharedPreferences|superuser|token|X509TrustManager|google_api|google_api|google_captcha|google_oauth|amazon_aws_access_key_id|amazon_mws_auth_toke|amazon_aws_url|facebook_access_token|authorization_basic|authorization_bearer|authorization_api|mailgun_api_key|twilio_api_key|twilio_account_sid|twilio_app_sid|paypal_braintree_access_token|square_oauth_secret|square_access_token|stripe_standard_api|stripe_restricted_api|github_access_token|rsa_private_key|ssh_dsa_private_key|ssh_dc_private_key|pgp_private_block|json_web_token" all_source_code/ --color=always > apikeys.txt
+
+    ### ADD THIS python3 $HOME/tools/SecretFinder/SecretFinder.py -i all_source_code/
+    
+    ### CHECK API KEYS
+    echo "CHECK IF API KEY IS VALID HERE: https://github.com/streaak/keyhacks"
+    echo "GATHER API KEYS FROM GITHUB REPO: https://github.com/dxa4481/truffleHog/"
 
     ### GET PARAMETER NAMES BY BRUTEFORCING THEM > exp/arjun.txt
-    echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON temp_files.txt - IT WILL TAKE A WHILE..."
-    arjun -i temp_files.txt -oT exp/arjun.txt -q --headers "$cookie" 
+    echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON exp/files.txt - IT WILL TAKE A WHILE..."
+    arjun -i exp/files.txt -oT exp/arjun.txt -q --headers "$cookie" 
 
-    ### REMOVE TEMPORARY AND BLANK FILES  
-    rm temp_files.txt
+    ### REMOVE TEMPORARY AND BLANK FILES
     for f in $(ls); do [ -s $f ] || rm $f ;done
 
     echo "\033[0;31m [+]\033[0m CHECK:"
