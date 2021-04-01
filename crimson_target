@@ -292,11 +292,11 @@ else
     cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -d "\"" -f2 | grep -v -e "Pycurl\|\.aac\|\.aiff\|\.ape\|\.au\|\.flac\|\.gsm\|\.it\|\.m3u\|\.m4a\|\.mid\|\.mod\|\.mp3\|\.mpa\|\.pls\|\.ra\|\.s3m\|\.sid\|\.wav\|\.wma\|\.xm\|\.ods\|\.xls\|\.xlsx\|\.csv\|\.ics\|\.vcf\|\.3dm\|\.3ds\|\.max\|\.bmp\|\.dds\|\.gif\|\.jpg\|\.jpeg\|\.png\|\.psd\|\.xcf\|\.tga\|\.thm\|\.tif\|\.tiff\|\.yuv\|\.ai\|\.eps\|\.ps\|\.svg\|\.dwg\|\.dxf\|\.gpx\|\.kml\|\.kmz\|\.webp\|\.3g2\|\.3gp\|\.aaf\|\.asf\|\.avchd\|\.avi\|\.drc\|\.flv\|\.m2v\|\.m4p\|\.m4v\|\.mkv\|\.mng\|\.mov\|\.mp2\|\.mp4\|\.mpe\|\.mpeg\|\.mpg\|\.mpv\|\.mxf\|\.nsv\|\.ogg\|\.ogv\|\.ogm\|\.qt\|\.rm\|\.rmvb\|\.roq\|\.srt\|\.svi\|\.vob\|\.webm\|\.wmv\|\.yuv\|\.7z\|\.a\|\.apk\|\.ar\|\.bz2\|\.cab\|\.cpio\|\.deb\|\.dmg\|\.egg\|\.gz\|\.iso\|\.jar\|\.lha\|\.mar\|\.pea\|\.rar\|\.rpm\|\.s7z\|\.shar\|\.tar\|\.tbz2\|\.tgz\|\.tlz\|\.war\|\.whl\|\.xpi\|\.zip\|\.zipx\|\.xz\|\.pak\|\.js\|\.jsmin\|\.css\|\.js\|\.jsx\|\.less\|\.scss\|\.wasm\|\.eot\|\.otf\|\.ttf\|\.woff\|\.woff2\|\.ppt\|\.odp\|\.doc\|\.docx\|\.ebook\|\.log\|\.md\|\.msg\|\.odt\|\.org\|\.pages\|\.pdf\|\.rtf\|\.rst\|\.tex\|\.txt\|\.wpd\|\.wps\|\.mobi\|\.epub\|\.azw1\|\.azw3\|\.azw4\|\.azw6\|\.azw\|\.cbr\|\.cbz" | sort -u > exp/dirs.txt
 
     ### PREPARE FILES WORDLIST FOR BACKUPER AND ARJUN > exp/files.txt
-    cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -d "\"" -f2 | grep -v -e "Pycurl\|\.woff\|\.svg\|\.png\|\.gif\|\.jpg\|\.png\|\.css\|\.mp3\|\.mp4" | sed "s/\/$//g" | sort -u | grep -v "^https://$domain$\|^http://$domain$" > exp/files.txt
+    cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -d "\"" -f2 | grep -v -e "Pycurl\|\.woff\|\.svg\|\.png\|\.gif\|\.jpg\|\.png\|\.css\|\.mp3\|\.mp4" | sed "s/\/$//g" | sort -u | grep -v "^https://$domain$\|^http://$domain$" > files.txt
 
     ### CHECK FOR BACKUP FILES > backups.txt
     echo -e "\033[0;31m [+]\033[0m CHECKING EXISTANCE OF BRUTEFORCED FILES BACKUPS"
-    python $HOME/tools/CRIMSON/scripts/crimson_backuper.py -w exp/files.txt -e $HOME/tools/CRIMSON/words/BCK_EXT -c "$cookie" -o backups.txt
+    python $HOME/tools/CRIMSON/scripts/crimson_backuper.py -w files.txt -e $HOME/tools/CRIMSON/words/BCK_EXT -c "$cookie" -o backups.txt
 
     ### CORS MISCONFIGURATION SCAN >> recon.txt
     echo "[CORS] ---------------------------------------------------------" | tee -a recon.txt
@@ -317,16 +317,17 @@ else
 
     ### GET PARAMETER NAMES BY BRUTEFORCING THEM > exp/arjun.txt
     echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON exp/files.txt - IT WILL TAKE A WHILE..."
-    arjun -i exp/files.txt -oT exp/arjun.txt -q --headers "$cookie" 
+    arjun -i files.txt -oT arjun.txt -q --headers "$cookie" 
 
     ### REMOVE TEMPORARY AND BLANK FILES
     for f in $(ls); do [ -s $f ] || rm $f ;done
-
+    rm files.txt
+    
     echo "\033[0;31m [+]\033[0m CHECK:"
     echo "	- recon.txt"
     echo "	- status_dir.txt"
     echo "	- apikeys.txt"
     echo "	- backups.txt"
     echo "	- status_ffuf.txt!!!!!!"
-    echo "	- exp/arjun.txt"
+    echo "	- arjun.txt"
 fi
