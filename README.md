@@ -103,7 +103,7 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [galer](https://github.com/dwisiswant0/galer)
 * [getJS](https://github.com/003random/getJS)
 * [httpx](https://github.com/encode/httpx)
-* [zile](https://github.com/xyele/zile)
+* [zile](https://github.com/Karmaz95/crimson/tree/master/scripts/zile)
 * [relative-url-extractor](https://github.com/jobertabma/relative-url-extractor)
 * [crimson_backuper](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_backuper.py)
 
