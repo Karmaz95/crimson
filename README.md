@@ -55,9 +55,9 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * I tried to describe in the comments how the individual tools works.
 * Additionally, you can learn more about `crimson_target` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-ii-4336bd4ca73b?sk=ba289442112704cd71ac4a89e994fc8c)
 
-##### :diamonds: Third module needs `subdomain name` with your `collaborator` and `vps ip`. You can additionally put `authorization cookie` :diamonds:
+##### :diamonds: Third module needs `subdomain name` with your `collaborator` and `vps ip`. You can additionally put `authorization cookie` and if you want to fuzz all the urls use the `-x` flag. :diamonds:
 ```bash
-./crimson_exploit -D "example.domain.com" -c "Cookie: auth1=123;" -d "collaborator.com" -i "ip"
+./crimson_exploit -D "example.domain.com" -c "Cookie: auth1=123;" -d "collaborator.com" -i "ip" -x
 ```
 ##### :diamonds: Before starting the script run the listener on your vps machine on port 80 :diamonds:
 
