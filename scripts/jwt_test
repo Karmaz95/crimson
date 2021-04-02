@@ -1,6 +1,0 @@
-                   [-X EXPLOIT] [-ju JWKSURL] [-S SIGN] [-pr PRIVKEY] [-T]
-                   [-I] [-hc HEADERCLAIM] [-pc PAYLOADCLAIM] [-hv HEADERVALUE]
-                   [-pv PAYLOADVALUE] [-C] [-d DICT] [-p PASSWORD]
-                   [-kf KEYFILE] [-V] [-pk PUBKEY] [-jw JWKSFILE] [-Q QUERY]
-                   [jwt]
-[31mNo JWT provided[0m
