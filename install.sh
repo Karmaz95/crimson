@@ -89,9 +89,6 @@ bundle install
 cd ..
 ### WEBTECH
 pip install webtech
-### SEARCHSPLOIT
-git clone https://github.com/offensive-security/exploit-database.git
-mv exploit-database exploitdb
 ### GALLER
 GO111MODULE=on go get github.com/dwisiswant0/galer
 ### GOOGLE CHROME
