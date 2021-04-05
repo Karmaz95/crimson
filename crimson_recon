@@ -123,7 +123,7 @@ echo -e "\033[0;31m [+]\033[0m CHECKING MUTATED LIST FOR LIVE SUBDOMAINS"
 $HOME/tools/puredns/puredns bruteforce altdns.txt $DOMAIN -w puredns2.txt -r resolvers.txt -l 250 
 
 ### CHECKING LIVE DOMAINS FROM BRUTEFORCE OF MUTATED WORDLIST = live2.txt
-cat puredns2.txt | dnsx -t 100 -silent -r resolvers.txt -o live2.txt > /dev/null 2>&1
+cat puredns2.txt | dnsx -t 100 -silent -r resolvers.txt -o live2.txt > /dev/null
 
 ### MERGING live1.txt AND live2.txt = live.txt
 sort -u live1.txt  > live.txt
@@ -162,7 +162,7 @@ rm waybackurls.txt paramspider.txt gau.txt
 
 ### CHECK FOR LIVE LINKS (to proxy only valid urls) > urls.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE URLS"
-cat urls.txt | httpx -threads 50 -silent -o httpx_urls.txt > /dev/null 2>&1
+cat urls.txt | httpx -threads 50 -silent -o httpx_urls.txt > /dev/null
 mv httpx_urls.txt urls.txt
 
 ### LOOKING FOR SUBDOMAINS AND SECRETS IN URLS = subdomainizer.txt
@@ -190,7 +190,7 @@ rm live3.txt
 
 ### CHECKING FOR CORS MISSCONFIGURATION = cors_scan.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING CORS"
-cat live.txt | CorsMe -t 70 -output cors_scan.txt > /dev/null 2>&1
+cat live.txt | CorsMe -t 70 -output cors_scan.txt > /dev/null
 ### CHECKING SUBDOMAIN TAKEOVER = subjack.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING DOMAIN TAKEOVER"
 subjack -w live.txt -t 20 -timeout 30 -o subjack1.txt -ssl -a
