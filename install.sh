@@ -80,7 +80,7 @@ cd ..
 ### CRLFUZZ
 GO111MODULE=on go get -v github.com/dwisiswant0/crlfuzz/cmd/crlfuzz
 ### WAPITI
-https://github.com/wapiti-scanner/wapiti.git
+git clone https://github.com/wapiti-scanner/wapiti.git
 cd wapiti 
 sudo python setup.py install
 pip install wapiti3
