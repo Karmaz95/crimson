@@ -41,7 +41,6 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 
 ```bash
 ./crimson_recon "domain.com"
-
 ```
 * If you are interested in how this module works, I encourage you to study the source code.
 * I tried to describe in the comments how the individual tools works. 
@@ -59,6 +58,9 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 ```bash
 ./crimson_exploit -D "example.domain.com" -c "Cookie: auth1=123;" -d "collaborator.com" -i "ip" -x
 ```
+* If you are interested in how this module works, I encourage you to study the source code.
+* I tried to describe in the comments how the individual tools works.
+* Additionally, you can learn more about `crimson_exploit` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-iii-2823b16f38cc)
 ##### :diamonds: Before starting the script run the listener on your vps machine on port 80 :diamonds:
 
 # Extras
