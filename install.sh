@@ -146,6 +146,7 @@ go get github.com/fatih/color
 git clone https://github.com/pownx/quickpress.git
 cd quickpress
 go build -o quickpress
+cd ..
 ### WPLUGINSCANNER
 git clone --depth 1 https://github.com/linoskoczek/WPluginScanner
 cd WPluginScanner
