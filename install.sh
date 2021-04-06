@@ -4,10 +4,10 @@ sudo apt update -y
 sudo apt dist-upgrade -y
 sudo apt install ruby ruby-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon python3 python3-dnspython pv scite ldnsutils jq testssl.sh -y
 sudo gem install bundler json mongo
-sudo apt install python3-pip 
+sudo apt install python3-pip nodejs
 sudo add-apt-repository universe
 sudo apt update
-sudo apt install python2
+sudo apt install python2 build-essential
 sudo python2 get-pip.py
 mkdir $HOME/bounty
 mkdir -p $HOME/tools/CRIMSON/
