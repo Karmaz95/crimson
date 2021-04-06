@@ -70,7 +70,8 @@ mkdir $HOME/bounty/$DOMAIN -p
 cd $HOME/bounty/$DOMAIN
 
 ### DOWNLOADING UP TO DATE LIST WITH RESOLVERS
-wget https://raw.githubusercontent.com/BonJarber/fresh-resolvers/main/resolvers.txt
+echo -e "\033[0;31m [+]\033[0m DOWNLOADING FRESH RESOLVERS"
+wget https://raw.githubusercontent.com/BonJarber/fresh-resolvers/main/resolvers.txt > /dev/null 2>&1
 
 ### STARTING PASSIVE ENUMERATION = subdomains.txt
 echo -e "\033[0;31m [+]\033[0m SUBDOMAINS SCRAPING"

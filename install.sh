@@ -34,6 +34,8 @@ cd massdns
 make
 sudo cp bin/massdns /usr/bin/massdns
 cd ..
+### ASSETFINDER
+go get -u github.com/tomnomnom/assetfinder
 ### GOWITNESS
 go get -u github.com/sensepost/gowitness
 ### HTTPROBE
