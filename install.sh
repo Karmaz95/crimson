@@ -26,7 +26,7 @@ GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder
 ### PARAMSPIDER
 git clone https://github.com/devanshbatham/ParamSpider
 cd ParamSpider
-pip3 install -r requirements.txt
+python3 -m pip install -r requirements.txt
 cd ..
 ### MASSDNS
 git clone https://github.com/blechschmidt/massdns.git
@@ -80,7 +80,7 @@ go get github.com/003random/getJS
 git clone https://github.com/GerbenJavado/LinkFinder.git
 cd LinkFinder
 python setup.py install
-pip3 install -r requirements.txt
+python3 -m pip install -r requirements.txt
 cd ..
 ### CRLFUZZ
 GO111MODULE=on go get -v github.com/dwisiswant0/crlfuzz/cmd/crlfuzz
@@ -116,7 +116,7 @@ winetricks dotnet48
 mkdir ysoserial
 wget https://jitpack.io/com/github/frohoff/ysoserial/master-SNAPSHOT/ysoserial-master-SNAPSHOT.jar -O ysoserial/ysoserial.jar
 ### SEARCH THAT HASH
-pip3 install search-that-hash
+python3 -m pip install search-that-hash
 ### ALTDNS
 pip install py-altdns shodan
 ### JWT-TOOL
@@ -129,10 +129,10 @@ git clone --recursive https://github.com/screetsec/Sudomy.git
 python3 -m pip install -r Sudomy/requirements.txt
 ### SUBDOMAINIZER
 git clone https://github.com/nsonaniya2010/SubDomainizer.git
-pip3 install -r SubDomainizer/requirements.txt
+python3 -m pip install -r SubDomainizer/requirements.txt
 ### HOSTHUNTER
 git clone https://github.com/SpiderLabs/HostHunter.git
-pip3 install -r HostHunter/requirements.txt
+python3 -m pip install -r HostHunter/requirements.txt
 ### ANEW
 go get -u github.com/tomnomnom/anew
 ### WPSCAN
