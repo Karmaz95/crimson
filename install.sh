@@ -8,7 +8,6 @@ sudo apt install python3-pip
 sudo add-apt-repository universe
 sudo apt update
 sudo apt install python2
-curl https://bootstrap.pypa.io/2.7/get-pip.py --output get-pip.py
 sudo python2 get-pip.py
 mkdir $HOME/bounty
 mkdir -p $HOME/tools/CRIMSON/
