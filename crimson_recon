@@ -54,11 +54,23 @@ echo -e "\033[0;31m
 
 \033[0m"
 
-if [ -z $1 ]
-then
-	echo "Usage: ./crimson_recon example.domain.com"
-	exit  1
-fi
+
+fuzzing_on=0
+while getopts "D:x" OPTION; do
+    case $OPTION in
+    D)
+        export DOMAIN=$OPTARG
+        ;;
+    x)
+        fuzzing_on=1
+        ;;
+    *)
+        echo "Usage: ./crimson_recon -d example.domain.com"
+        exit 1
+        ;;
+    esac
+done
+
 
 ### REMINDER OF BURP SUITE 
 echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(echo $1 | sed "s/\./\\\./")"$"
@@ -100,46 +112,59 @@ rm assetfinder.txt
 python3 $HOME/tools/ParamSpider/paramspider.py -d $DOMAIN --output ./paramspider.txt --level high
 cat paramspider.txt | unfurl -u domains | anew subdomains.txt
 
-### STARTING 1ST BRUTEFORCE => subdomains.txt
-echo -e "\033[0;31m [+]\033[0m SUBDOMAINS BRUTEFORCING"
-$HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $DOMAIN -w puredns1.txt -r resolvers.txt -l 250
-cat puredns1.txt | anew subdomains.txt
-rm puredns1.txt
+### 1ST BRUTEFORCE ON -x
+if [ $fuzzing_on == 1 ]
+then
+	### STARTING 1ST BRUTEFORCE => subdomains.txt
+	echo -e "\033[0;31m [+]\033[0m SUBDOMAINS BRUTEFORCING"
+	$HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $DOMAIN -w puredns1.txt -r resolvers.txt -l 250
+	cat puredns1.txt | anew subdomains.txt
+	rm puredns1.txt
+fi
 
 ### CHECKING FOR LIVE DOMAINS = live1.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE SUBDOMAINS"
 cat subdomains.txt | dnsx -t 100 -silent -r resolvers.txt -o live1.txt
 
-### MAKING MUTATIONS FROM ENUMERATED SUBDOMAINS (EXCLUDE ALL SUBDOMAINS ENUMERATED TILL NOW) = altnds.txt
-echo -e "\033[0;31m [+]\033[0m MUTATING LIVE SUBDOMAINS"
-altdns -w $HOME/tools/CRIMSON/words/dns-altdns.txt -i live1.txt -o altdns_temp.txt
-cat $HOME/tools/CRIMSON/words/dns | sed "s/$/\.$domain/" > ddns.txt
-awk 'FNR==NR {a[$0]++; next} !($0 in a)' ddns.txt altdns_temp.txt > not_duplicated_altdns
-awk 'FNR==NR {a[$0]++; next} !($0 in a)' subdomains.txt not_duplicated_altdns > not_duplicated_altdns2
-awk 'FNR==NR {a[$0]++; next} !($0 in a)' live1.txt not_duplicated_altdns2 > altdns_with_domain_name
-cat altdns_with_domain_name | sed "s/\.$DOMAIN//g" > altdns.txt
 
-### STARTING 2ND BRUTEFORCE WITH MUTATED WORDLIST = puredns2.txt
-echo -e "\033[0;31m [+]\033[0m CHECKING MUTATED LIST FOR LIVE SUBDOMAINS"
-$HOME/tools/puredns/puredns bruteforce altdns.txt $DOMAIN -w puredns2.txt -r resolvers.txt -l 250 
+### 2ND BRUTEFORCE ON -x
+if [ $fuzzing_on == 1 ]
+then
+	### MAKING MUTATIONS FROM ENUMERATED SUBDOMAINS (EXCLUDE ALL SUBDOMAINS ENUMERATED TILL NOW) = altnds.txt
+	echo -e "\033[0;31m [+]\033[0m MUTATING LIVE SUBDOMAINS"
+	altdns -w $HOME/tools/CRIMSON/words/dns-altdns.txt -i live1.txt -o altdns_temp.txt
+	cat $HOME/tools/CRIMSON/words/dns | sed "s/$/\.$domain/" > ddns.txt
+	awk 'FNR==NR {a[$0]++; next} !($0 in a)' ddns.txt altdns_temp.txt > not_duplicated_altdns
+	awk 'FNR==NR {a[$0]++; next} !($0 in a)' subdomains.txt not_duplicated_altdns > not_duplicated_altdns2
+	awk 'FNR==NR {a[$0]++; next} !($0 in a)' live1.txt not_duplicated_altdns2 > altdns_with_domain_name
+	cat altdns_with_domain_name | sed "s/\.$DOMAIN//g" > altdns.txt
 
-### CHECKING LIVE DOMAINS FROM BRUTEFORCE OF MUTATED WORDLIST = live2.txt
-cat puredns2.txt | dnsx -t 100 -silent -r resolvers.txt -o live2.txt > /dev/null
+	### STARTING 2ND BRUTEFORCE WITH MUTATED WORDLIST = puredns2.txt
+	echo -e "\033[0;31m [+]\033[0m CHECKING MUTATED LIST FOR LIVE SUBDOMAINS"
+	$HOME/tools/puredns/puredns bruteforce altdns.txt $DOMAIN -w puredns2.txt -r resolvers.txt -l 250 
 
-### MERGING live1.txt AND live2.txt = live.txt
-sort -u live1.txt  > live.txt
-sort -u live2.txt | anew live.txt
+	### CHECKING LIVE DOMAINS FROM BRUTEFORCE OF MUTATED WORDLIST = live2.txt
+	cat puredns2.txt | dnsx -t 100 -silent -r resolvers.txt -o live2.txt > /dev/null
 
-### CLEARING LOGS 
-rm live1.txt 
-rm live2.txt 
-rm altdns_temp.txt 
-rm not_duplicated_altnds 
-rm not_duplicated_altnds2 
-rm ddns.txt 
-rm altdns_with_domain_name 
-rm altdns.txt 
-rm puredns2.txt
+	### MERGING live1.txt AND live2.txt = live.txt
+	sort -u live1.txt  > live.txt
+	sort -u live2.txt | anew live.txt
+
+	### CLEARING LOGS 
+	rm live1.txt 
+	rm live2.txt 
+	rm altdns_temp.txt 
+	rm not_duplicated_altnds 
+	rm not_duplicated_altnds2 
+	rm ddns.txt 
+	rm altdns_with_domain_name 
+	rm altdns.txt 
+	rm puredns2.txt
+else
+	sort -u live1.txt  > live.txt
+	rm live1.txt
+fi
+
 
 ### SCRAPING THE INTERNET FOR URLS = gau.txt
 echo -e "\033[0;31m [+]\033[0m GATHERING URLS"

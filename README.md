@@ -37,10 +37,10 @@ export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$HOME/tools:$PATH"
 ```
 Install Burp Suite and extensions listed below in section `Burp Suite extensions`.
 # Usage
-##### :diamonds: First module needs `domain name` to work properly, f.e. `google.com` :diamonds:
+##### :diamonds: First module needs `domain name` to work properly, f.e. `google.com` and `-x` flag if you want to brute force subdomains. :diamonds:
 
 ```bash
-./crimson_recon "domain.com"
+./crimson_recon -D "domain.com" -x
 ```
 * If you are interested in how this module works, I encourage you to study the source code.
 * I tried to describe in the comments how the individual tools works. 
