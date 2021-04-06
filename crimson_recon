@@ -281,9 +281,12 @@ cat dnsrecon.txt
 echo -e "\033[0;31m [+]\033[0m DNSSEC RECON:"
 cat ldns-walk.txt
 echo -e "\033[0;31m [+]\033[0m 3rd LEVEL SUBDOMAINS:"
-cat 3rdleve.txt
+cat 3rdlevel.txt
 echo -e "--------"
-echo "\n\nCheck: \n\t - status_live.txt \n\t - BURP \n\t - gowitness"
+echo "Check:"
+echo "	- status_live.txt" 
+echo "	- BURP"
+echo "	- gowitness"
 echo "google-chrome http://localhost:7171/table/"
 gowitness report serve
 
