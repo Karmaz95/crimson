@@ -64,7 +64,7 @@ fi
 echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(echo $1 | sed "s/\./\\\./")"$"
 read -rsp $'\tRUN BURP AND ADD SCOPE... THEN CLICK ENTER\n' -n1 key
 
-### CREATTING PROPER DIRECTORY
+### CREATING PROPER DIRECTORY
 export DOMAIN=$1
 mkdir $HOME/bounty/$DOMAIN -p
 cd $HOME/bounty/$DOMAIN

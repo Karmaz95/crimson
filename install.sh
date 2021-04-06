@@ -14,6 +14,9 @@ mkdir $HOME/bounty
 mkdir -p $HOME/tools/CRIMSON/
 cp -r * $HOME/tools/CRIMSON/
 cd $HOME/tools
+### WAPITI
+pip install wapiti3
+sudo apt install wapiti
 ### AMASS
 sudo snap install amass
 ### FFUF INSTALL
@@ -79,8 +82,6 @@ pip3 install -r requirements.txt
 cd ..
 ### CRLFUZZ
 GO111MODULE=on go get -v github.com/dwisiswant0/crlfuzz/cmd/crlfuzz
-### WAPITI
-pip install wapiti3
 ### WHATWEB
 git clone https://github.com/urbanadventurer/WhatWeb.git
 cd WhatWeb
