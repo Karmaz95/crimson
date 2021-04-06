@@ -8,6 +8,7 @@ sudo apt install python3-pip nodejs
 sudo add-apt-repository universe
 sudo apt update
 sudo apt install python2 build-essential
+sudo apt install npm
 sudo python2 get-pip.py
 mkdir $HOME/bounty
 mkdir -p $HOME/tools/CRIMSON/
