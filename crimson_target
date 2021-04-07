@@ -200,13 +200,13 @@ else
     ### GET NEW ENDPOINTS FROM SPIDERS AND ADD THEM TO WORDLIST FOR DIRECOTRY BRUTEFORCING > custom_dir.txt
     echo -e "\033[0;31m [+]\033[0m GATHERING NEW PATHS FROM SPIDERS RESULTS"
     cat urls.txt | unfurl paths > temp1.txt
-    sort -u temp1.txt $HOME/tools/CRIMSON/words/dir > $HOME/tools/CRIMSON/words/custom_dir.txt
+    sort -u $HOME/tools/CRIMSON/words/dir > $HOME/tools/CRIMSON/words/custom_dir.txt
+    sort -u temp1.txt | anew $HOME/tools/CRIMSON/words/custom_dir.txt
     rm temp1.txt
 
     ### DIRECTORY BRUTEFORCING > status_ffuf.txt
     echo -e "\033[0;31m [+]\033[0m STARTING DIRECTORY BRUTEFORCING"
-    echo "WORDLIST"
-    ffuf -w $HOME/words/custom_dir.txt -u https://$domain/FUZZ -mc all -fc 400 -H "$cookie" -o ffuf.json > /dev/null
+    ffuf -w $HOME/tools/CRIMSON/words/custom_dir.txt -u https://$domain/FUZZ -mc all -fc 400 -H "$cookie" -o ffuf.json > /dev/null
     cat ffuf.json | jq -c '.results[] | {url:.url,status: .status}' > status_ffuf.txt
     rm ffuf.json
 
@@ -240,7 +240,7 @@ else
 
     ### GATHER SOURCE CODE FROM JS LINKS AND STORE IT IN >> all_source_code/
     echo -e "\033[0;31m [+]\033[0m GATHERING SOURCE CODE FROM LIVE .js LINKS"
-    for url in $(cat exp/jsfiles.txt); do echo "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url" && curl -k -s $url -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
+    for url in $(cat exp/jsfiles.txt); do echo -e "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url" && curl -k -s $url -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
 
     ### REMOVE EMPTY FILES IN all_source_code
     for f in $(ls all_source_code/*); do [ -s $f ] || rm $f ;done
@@ -323,7 +323,7 @@ else
     for f in $(ls); do [ -s $f ] || rm $f ;done
     rm files.txt
     
-    echo "\033[0;31m [+]\033[0m CHECK:"
+    echo -e "\033[0;31m [+]\033[0m CHECK:"
     echo "	- recon.txt"
     echo "	- status_dir.txt"
     echo "	- apikeys.txt"
