@@ -317,7 +317,7 @@ else
 
     ### GET PARAMETER NAMES BY BRUTEFORCING THEM > exp/arjun.txt
     echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON exp/files.txt - IT WILL TAKE A WHILE..."
-    arjun -i files.txt -oT arjun.txt -q --headers "$cookie" 
+    python3 /home/karmaz/tools/Arjun/arjun/__main__.py -i files.txt -oT arjun.txt -q --headers "$cookie" 
 
     ### REMOVE TEMPORARY AND BLANK FILES
     for f in $(ls); do [ -s $f ] || rm $f ;done
