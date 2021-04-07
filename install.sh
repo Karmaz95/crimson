@@ -92,6 +92,9 @@ bundle install
 cd ..
 ### WEBTECH
 pip install webtech
+### GAU
+GO111MODULE=on go get -u -v github.com/lc/gau
+mv $HOME/go/bin/gau $HOME/go/bin/get-all-urls
 ### GALLER
 GO111MODULE=on go get github.com/dwisiswant0/galer
 ### GOOGLE CHROME
