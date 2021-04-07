@@ -14,6 +14,12 @@ mkdir $HOME/bounty
 mkdir -p $HOME/tools/CRIMSON/
 cp -r * $HOME/tools/CRIMSON/
 cd $HOME/tools
+### MASSCAN 
+sudo apt-get --assume-yes install git make gcc
+git clone https://github.com/robertdavidgraham/masscan
+cd masscan
+make
+make install
 ### WAPITI
 python3 -m pip install wapiti3
 sudo apt install wapiti
