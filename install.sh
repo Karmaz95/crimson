@@ -15,7 +15,7 @@ mkdir -p $HOME/tools/CRIMSON/
 cp -r * $HOME/tools/CRIMSON/
 cd $HOME/tools
 ### WAPITI
-pip install wapiti3
+python3 -m pip install wapiti3
 sudo apt install wapiti
 ### AMASS
 sudo snap install amass
