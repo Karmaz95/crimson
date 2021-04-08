@@ -65,7 +65,7 @@ while getopts "D:x" OPTION; do
         fuzzing_on=1
         ;;
     *)
-        echo "Usage: ./crimson_recon -d example.domain.com"
+        echo "Usage: ./crimson_recon -D example.domain.com"
         exit 1
         ;;
     esac
@@ -73,7 +73,7 @@ done
 
 
 ### REMINDER OF BURP SUITE 
-echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(echo $1 | sed "s/\./\\\./")"$"
+echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(echo $DOMAIN | sed "s/\./\\\./")"$"
 read -rsp $'\tRUN BURP AND ADD SCOPE... THEN CLICK ENTER\n' -n1 key
 
 ### CREATING PROPER DIRECTORY

@@ -121,7 +121,6 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [wapiti](https://github.com/wapiti-scanner/wapiti)
 * [CorsMe](https://github.com/Shivangx01b/CorsMe)
 * [subjack](https://github.com/haccer/subjack)
-* [XSRFPROBE](https://github.com/0xInfection/XSRFProbe)
 * [DirDar](https://github.com/M4DM0e/DirDar)
 * [XSStrike](https://github.com/s0md3v/XSStrike)
 * [Smuggler](https://github.com/defparam/smuggler)
