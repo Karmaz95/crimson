@@ -64,7 +64,7 @@ go get -u github.com/jaeles-project/gospider
 ### XSSTRIKE
 git clone https://github.com/s0md3v/XSStrike.git
 cd XSStrike
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 cd ..
 ### DALFOX
 GO111MODULE=on go get -v github.com/hahwul/dalfox/v2
@@ -164,11 +164,9 @@ pip install -r wpbullet/requirements.txt
 ### SITEMAP-URLS
 git clone https://github.com/yuriyyakym/sitemap-urls.git
 ### CRIMSON LIBS
-pip install future tqdm
+pip install future tqdm IPy
 ### DIRDAR
 go get -u github.com/m4dm0e/dirdar
-### XSRFPROBE
-pip install xsrfprobe
 ### HBH-HEADER-ABUSE
 git clone https://gist.github.com/298d11b3a77b97c908d63a345d3c624d.git hop-by-hop/
 ### METASPLOIT
