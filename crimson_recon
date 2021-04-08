@@ -191,8 +191,8 @@ cat urls.txt | httpx -threads 50 -silent -o httpx_urls.txt > /dev/null
 mv httpx_urls.txt urls.txt
 
 ### LOOKING FOR SUBDOMAINS AND SECRETS IN URLS = subdomainizer.txt
-echo -e "\033[0;31m [+]\033[0m GATHERING NEW SUBDOMAINS AND cat API KEYS"
-python3 $HOME/tools/SubDomainizer/SubDomainizer.py -k -l urls.txt -o subdomainizer.txt
+echo -e "\033[0;31m [+]\033[0m GATHERING SUBDOMAINS, API KEYS, URLS [SUBDOMAINIZER]"
+python3 $HOME/tools/SubDomainizer/SubDomainizer.py -k -l urls.txt -o subdomainizer.txt > /dev/null
 
 ### GETTING SUBDOMAINS FROM subdomainizer.txt AND CHECKING FOR LIVE = live.txt
 cat subdomainizer.txt | grep $DOMAIN | dnsx -t 100 -silent -r resolvers.txt -o live3.txt
@@ -227,7 +227,7 @@ rm subjack2.txt 2>/dev/null
 
 ### MAKING SCREENSHOOTS FROM ENUERATED LIVE DOMAINS = screenshots/
 echo -e "\033[0;31m [+]\033[0m MAKING SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
-gowitness file -f live.txt > /dev/null 2>&1
+gowitness file -f live.txt > /dev/null
 
 ### PROXING urls.txt TO BURP SUITE
 echo -e "\033[0;31m [+]\033[0m PROXING ulrs.txt TO BRUP SUITE"
@@ -248,11 +248,11 @@ wfuzz -L -Z -z file,proxy.txt -z file,$HOME/tools/CRIMSON/words/blank -p 127.0.0
 
 ### CHECKING ZONE TRANSFER = dnsrecon.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING ZONE TRANSFER"
-dnsrecon -d $DOMAIN -a | tee -a dnsrecon.txt
+dnsrecon -d $DOMAIN -a >> dnsrecon.txt
 
 ### DNSSEC RECON = ldns-walk.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING DNSSEC MISONFIGURATIONS"
-ldns-walk $DOMAIN | tee -a ldns-walk.txt
+ldns-walk $DOMAIN >> ldns-walk.txt
 
 ### --- 3RDLEVEL SECTION --- ###
 ### THRID LEVEL SUBDOMAINS BRUTE-FORCE = 3rdlevel_live.txt
@@ -264,30 +264,30 @@ ldns-walk $DOMAIN | tee -a ldns-walk.txt
 #rm -rf 3rdlevel/ 3rdlevel.txt
 
 ### CLEARING THE DIRECTORY
-rm proxy.txt 
-rm resolvers.txt 
-rm error_requests.txt
+rm proxy.txt 2>/dev/null
+rm resolvers.txt 2>/dev/null 
+rm error_requests.txt 2>/dev/null
 for f in $(ls); do [ -s $f ] || rm $f ;done
 
 ### PRINTING RESULTS
 echo -e "\033[0;31m [+]\033[0m RESULTS: "
-echo -e "--------"
+echo -e "-------------"
 echo -e "\033[0;31m [+]\033[0m DOMAIN TAKEOVER:"
-cat subjack.txt
+cat subjack.txt 2>/dev/null
 echo -e "\033[0;31m [+]\033[0m CORS MISCONFIGURATIONS:"
-cat cors_scan.txt
+cat cors_scan.txt 2>/dev/null
 echo -e "\033[0;31m [+]\033[0m ZONE TRANSFER:"
-cat dnsrecon.txt
+cat dnsrecon.txt 2>/dev/null
 echo -e "\033[0;31m [+]\033[0m DNSSEC RECON:"
-cat ldns-walk.txt
+cat ldns-walk.txt 2>/dev/null
 echo -e "\033[0;31m [+]\033[0m 3rd LEVEL SUBDOMAINS:"
-cat 3rdlevel.txt
-echo -e "--------"
+cat 3rdlevel.txt 2>/dev/null
+echo -e "-------------"
 echo "Check:"
 echo "	- status_live.txt" 
 echo "	- BURP"
 echo "	- gowitness"
-echo "google-chrome http://localhost:7171/table/"
+echo "			google-chrome http://localhost:7171/table/"
 gowitness report serve
 
 ### GREP 2/3/4 LEVEL DOMAINS
