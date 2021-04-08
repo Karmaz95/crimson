@@ -74,7 +74,7 @@ done
 
 ### REMINDER OF BURP SUITE 
 echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(echo $DOMAIN | sed "s/\./\\\./")"$"
-read -rsp $'\tRUN BURP AND ADD SCOPE... THEN CLICK ENTER\n' -n1 key
+read -rsp $'\tRUN BURP, TURN OFF INTERCEPTION AND ADD SCOPE... THEN CLICK ENTER\n' -n1 key
 
 ### CREATING PROPER DIRECTORY
 mkdir $HOME/bounty/$DOMAIN -p
@@ -219,11 +219,11 @@ cat live.txt | CorsMe -t 70 -output cors_scan.txt > /dev/null
 ### CHECKING SUBDOMAIN TAKEOVER = subjack.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING DOMAIN TAKEOVER"
 subjack -w live.txt -t 20 -timeout 30 -o subjack1.txt -ssl -a
-cat subjack1.txt > subjack.txt
-rm subjack1.txt
+cat subjack1.txt > subjack.txt 2>/dev/null
+rm subjack1.txt 2>/dev/null
 subjack -w live.txt -t 20 -timeout 30 -o subjack2.txt -a
-cat subjack2.txt >> subjack.txt
-rm subjack2.txt
+cat subjack2.txt >> subjack.txt 2>/dev/null
+rm subjack2.txt 2>/dev/null
 
 ### MAKING SCREENSHOOTS FROM ENUERATED LIVE DOMAINS = screenshots/
 echo -e "\033[0;31m [+]\033[0m MAKING SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
