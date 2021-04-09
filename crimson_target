@@ -312,7 +312,7 @@ else
 
     ### DIG SECRETS FROM all_source_code/ SAVE COLORED OUTPUT > apikeys.txt
     echo -e "\033[0;31m [+]\033[0m CHECKING SECRETS IN GATHERED SOURCE CODE"
-    grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|password|pinning|secret|SHA256|SharedPreferences|superuser|token|X509TrustManager|google_api|google_api|google_captcha|google_oauth|amazon_aws_access_key_id|amazon_mws_auth_toke|amazon_aws_url|facebook_access_token|authorization_basic|authorization_bearer|authorization_api|mailgun_api_key|twilio_api_key|twilio_account_sid|twilio_app_sid|paypal_braintree_access_token|square_oauth_secret|square_access_token|stripe_standard_api|stripe_restricted_api|github_access_tokenttp
+    grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|password|pinning|secret|SHA256|SharedPreferences|superuser|token|X509TrustManager|google_api|google_api|google_captcha|google_oauth|amazon_aws_access_key_id|amazon_mws_auth_toke|amazon_aws_url|facebook_access_token|authorization_basic|authorization_bearer|authorization_api|mailgun_api_key|twilio_api_key|twilio_account_sid|twilio_app_sid|paypal_braintree_access_token|square_oauth_secret|square_access_token|stripe_standard_api|stripe_restricted_api|github_access_tokenttp"
     echo "	- backups.txt"
     echo "	- status_ffuf.txt!!!!!!"
     echo "	- arjun.txt"
