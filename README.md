@@ -138,7 +138,7 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [crimson_oobtester](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_oobtester.py)
 * [crimson_rewriter](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_rewriter.py)
 * [crimson_templator](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_templator.py)
-
+* [shcheck](https://github.com/santoru/shcheck)
 
 ### :diamonds: WordPress tools:
 * [wpscan](https://github.com/wpscanteam/wpscan)

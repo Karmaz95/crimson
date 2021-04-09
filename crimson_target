@@ -130,14 +130,20 @@ else
     cat $HOME/tools/CMSeeK/Result/$domain/cms.json | jq . >> recon.txt
     rm -rf $HOME/tools/CMSeeK/Result/$domain/
 
+    ### CHECKING SECURITY HEADERS >> recon.txt
+    echo "[SHCHECK 80] ---------------------------------------------------------" | tee -a recon.txt
+    shcheck.py http://$domain/ -a "$cookie" | tail -n+8 >> recon.txt
+    echo "[SHCHECK 443] ---------------------------------------------------------" | tee -a recon.txt
+    shcheck.py https://$domain/ -a "$cookie" | tail -n+8 >> recon.txt
+
     ### VULN SCAN 1 >> recon.txt
     # Perform a brute-force attack to uncover known and potentially dangerous scripts on the web server.
     nl=$'\n'
     cr=$'\r'
     echo "[NIKTO 443] ---------------------------------------------------------" | tee -a recon.txt
-    $HOME/tools/nikto/program/nikto.pl -host https://$domain -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
+    $HOME/tools/nikto/program/nikto.pl -host https://$domain -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 2000 | tee -a recon.txt
     echo "[NIKTO 80] ----------------------------------------------------------" | tee -a recon.txt
-    $HOME/tools/nikto/program/nikto.pl -host http://$domain -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
+    $HOME/tools/nikto/program/nikto.pl -host http://$domain -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 2000 | tee -a recon.txt
 
     ### VULN SCAN 2 >> recon.txt
     # Looking for: 
@@ -146,15 +152,14 @@ else
     #	csp
     #	file handling vulns
     #	bypass weak htaccess conf
-    #	header security
     #	methods 
     #	shellshock vuln
     echo "[WAPITI 80] ----------------------------------------------------------" | tee -a recon.txt
-    wapiti --no-bugreport -u http://$domain -o wapiti -f txt -m "cookieflags,crlf,csp,csrf,file,htaccess,http_headers,methods,shellshock"
+    wapiti --no-bugreport -u http://$domain -o wapiti -f txt -m "cookieflags,crlf,csp,csrf,file,htaccess,methods,shellshock"
     cat wapiti | tail -n+8 >> recon.txt
     rm wapiti
     echo "[WAPITI 443] ---------------------------------------------------------" | tee -a recon.txt
-    wapiti --no-bugreport --verify-ssl 0 -u https://$domain -o wapiti -f txt -m "2cookieflags,crlf,csp,csrf,file,htaccess,http_headers,methods,shellshock"
+    wapiti --no-bugreport --verify-ssl 0 -u https://$domain -o wapiti -f txt -m "2cookieflags,crlf,csp,csrf,file,htaccess,methods,shellshock"
     cat wapiti | tail -n+8 >> recon.txt
     rm wapiti
 
