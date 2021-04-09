@@ -1,8 +1,9 @@
 #!/bin/bash
-# TO DO:
-# Make better printer
-# Add https://github.com/Bo0oM/fuzz.txt/blob/master/extensions.txt to backuper
-### FUNCTIONS
+#
+### CREATED BY KARMAZ
+#
+#
+### FUNCTIONS:
 #
 # 1. FULL RANGE PORT SCAN && NSE ON OPENED PORTS
 # 2. VULN SCANS
@@ -31,7 +32,9 @@
 # 9) exp/params.txt
 # 10) exp/dirs.txt
 # 11) backups.txt
+#
 ### WORKFLOW
+#
 # 0. Start Burp
 #	- Create new project - www.example.domain.com
 #	- Turn off interception
@@ -40,6 +43,7 @@
 # 3. Manually browse the application, click on all functionalities
 # 4. Copy whole target scope from Burp after manually browsing the target
 # 5. Paste it to exp/all.txt and run crimson_exploit
+#
 ###
 echo -e "\033[0;31m
  ██████╗██████╗ ██╗███╗   ███╗███████╗ ██████╗ ███╗   ██╗     ████████╗ █████╗ ██████╗  ██████╗ ███████╗████████╗
@@ -164,7 +168,7 @@ else
     rm wapiti
 
     ### SPIDER 1 > urls.txt
-    echo -e "\033[0;31m [+]\033[0m START SPIDERS"
+    echo -e "\033[0;31m [+]\033[0m STARTING SPIDERS"
     echo -e "\033[0;31m [+]\033[0m SPIDER [1]"
     gospider -q -r -w -a --sitemap -c 10 -s  https://$domain -H $cookie >> urls.txt
 
