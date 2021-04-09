@@ -27,7 +27,7 @@ sudo apt install wapiti
 ### AMASS
 sudo snap install amass
 ### CMSEEK
-git clone https://github.com/Tuhinshubhra/CMSeeK
+git clone https://github.com/Tuhinshubhra/CMSeeK.git
 cd CMSeeK
 python3 -m pip install -r requirements.txt
 cd ..
