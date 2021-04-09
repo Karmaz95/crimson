@@ -227,7 +227,7 @@ else
 
     ### GATHER ALL SOURCE CODE FROM ffuf.txt AND STORE IT IN DIRECTORY > all_source_code/
     echo -e "\033[0;31m [+]\033[0m GATHERING SOURCE CODE OF BRUTE-FORCED SITES"
-    for url in $(cat ffuf.txt); do echo "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url" && curl -k -s $url -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
+    for url in $(cat ffuf.txt); do echo -e "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url" && curl -k -s $url -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
 
     ### REMOVE EMPTY FILES IN all_source_code
     for f in $(ls all_source_code/*); do [ -s $f ] || rm $f ;done
@@ -316,7 +316,7 @@ else
 
     ### DIG SECRETS FROM all_source_code/ SAVE COLORED OUTPUT > apikeys.txt
     echo -e "\033[0;31m [+]\033[0m CHECKING SECRETS IN GATHERED SOURCE CODE"
-    grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|password|pinning|secret|SHA256|SharedPreferences|superuser|token|X509TrustManager|google_api|google_api|google_captcha|google_oauth|amazon_aws_access_key_id|amazon_mws_auth_toke|amazon_aws_url|facebook_access_token|authorization_basic|authorization_bearer|authorization_api|mailgun_api_key|twilio_api_key|twilio_account_sid|twilio_app_sid|paypal_braintree_access_token|square_oauth_secret|square_access_token|stripe_standard_api|stripe_restricted_api|github_access_tokenttp"
+    grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|password|pinning|secret|SHA256|SharedPreferences|superuser|token|X509TrustManager|google_api|google_api|google_captcha|google_oauth|amazon_aws_access_key_id|amazon_mws_auth_toke|amazon_aws_url|facebook_access_token|authorization_basic|authorization_bearer|authorization_api|mailgun_api_key|twilio_api_key|twilio_account_sid|twilio_app_sid|paypal_braintree_access_token|square_oauth_secret|square_access_token|stripe_standard_api|stripe_restricted_api|github_access_tokenttp" all_source_code/ --color=always > apikeys.txt
     echo "	- backups.txt"
     echo "	- status_ffuf.txt!!!!!!"
     echo "	- arjun.txt"

@@ -25,7 +25,7 @@
 # 2. ip.txt				- ALL IPS
 # 3. ports.txt			- OPENED PORTS
 # 4. subjack.txt		- VULNS
-# 5. screenshots		- STATUS + SCREENS
+# 5. screenshots 		- STATUS + SCREENS
 # 6. cors_scan.txt		- VULNS
 # 7. urls.txt			- ALL SPIDERS URLS IN ONE
 # 8. status_live.txt	- HTTPS / HTTPS SUBDOMAINS STATUS
