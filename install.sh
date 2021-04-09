@@ -20,11 +20,17 @@ git clone https://github.com/robertdavidgraham/masscan
 cd masscan
 make
 make install
+cd ..
 ### WAPITI
 python3 -m pip install wapiti3
 sudo apt install wapiti
 ### AMASS
 sudo snap install amass
+### CMSEEK
+git clone https://github.com/Tuhinshubhra/CMSeeK
+cd CMSeeK
+python3 -m pip install -r requirements.txt
+cd ..
 ### FFUF INSTALL
 go get -u github.com/ffuf/ffuf
 ### SUBFINDER
