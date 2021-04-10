@@ -4,11 +4,11 @@ sudo apt update -y
 sudo apt dist-upgrade -y
 sudo apt install ruby ruby-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon python3 python3-dnspython pv scite ldnsutils jq testssl.sh whatweb masscan wafw00f -y
 sudo gem install bundler json mongo
-sudo apt install python3-pip nodejs
+sudo apt install python3-pip nodejs -y
 sudo add-apt-repository universe
-sudo apt update
-sudo apt install python2 build-essential
-sudo apt install npm
+sudo apt update -y
+sudo apt install python2 build-essential -y
+sudo apt install npm -y
 sudo python2 get-pip.py
 mkdir $HOME/bounty
 mkdir -p $HOME/tools/CRIMSON/
@@ -16,7 +16,7 @@ cp -r * $HOME/tools/CRIMSON/
 cd $HOME/tools
 ### WAPITI
 python3 -m pip install wapiti3
-sudo apt install wapiti
+sudo apt install wapiti -y
 ### AMASS
 sudo snap install amass
 ### MASSDNS
