@@ -2,7 +2,7 @@
 sudo rm /etc/apt/preferences.d/nosnap.pref
 sudo apt update -y
 sudo apt dist-upgrade -y
-sudo apt install ruby ruby-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon python3 python3-dnspython pv scite ldnsutils jq testssl.sh -y
+sudo apt install ruby ruby-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon python3 python3-dnspython pv scite ldnsutils jq testssl.sh whatweb masscan wafw00f -y
 sudo gem install bundler json mongo
 sudo apt install python3-pip nodejs
 sudo add-apt-repository universe
@@ -14,18 +14,24 @@ mkdir $HOME/bounty
 mkdir -p $HOME/tools/CRIMSON/
 cp -r * $HOME/tools/CRIMSON/
 cd $HOME/tools
-### MASSCAN 
-sudo apt-get --assume-yes install git make gcc
-git clone https://github.com/robertdavidgraham/masscan
-cd masscan
-make
-make install
-cd ..
 ### WAPITI
 python3 -m pip install wapiti3
 sudo apt install wapiti
 ### AMASS
 sudo snap install amass
+### MASSDNS
+git clone https://github.com/blechschmidt/massdns.git
+cd massdns
+make
+sudo cp bin/massdns /usr/bin/massdns
+cd ..
+### GOOGLE CHROME
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+sudo apt update -y
+sudo apt install -y google-chrome-stable
+### BROKEN LINK CHECKER
+sudo npm install broken-link-checker -g
 ### CMSEEK
 git clone https://github.com/Tuhinshubhra/CMSeeK.git
 cd CMSeeK
@@ -39,12 +45,6 @@ GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder
 git clone https://github.com/devanshbatham/ParamSpider
 cd ParamSpider
 python3 -m pip install -r requirements.txt
-cd ..
-### MASSDNS
-git clone https://github.com/blechschmidt/massdns.git
-cd massdns
-make
-sudo cp bin/massdns /usr/bin/massdns
 cd ..
 ### ASSETFINDER
 go get -u github.com/tomnomnom/assetfinder
@@ -80,8 +80,6 @@ go get github.com/tomnomnom/waybackurls
 go get -u github.com/tomnomnom/unfurl
 ### QSREPLACE
 go get -u github.com/tomnomnom/qsreplace
-### wafw00f
-sudo apt install wafw00f -y
 ### DNSX
 GO111MODULE=on go get -v github.com/projectdiscovery/dnsx/cmd/dnsx
 ### JSBEAUTIFIER
@@ -96,12 +94,6 @@ python3 -m pip install -r requirements.txt
 cd ..
 ### CRLFUZZ
 GO111MODULE=on go get -v github.com/dwisiswant0/crlfuzz/cmd/crlfuzz
-### WHATWEB
-git clone https://github.com/urbanadventurer/WhatWeb.git
-cd WhatWeb
-make install
-bundle install
-cd ..
 ### WEBTECH
 pip install webtech
 ### GAU
@@ -109,15 +101,8 @@ GO111MODULE=on go get -u -v github.com/lc/gau
 mv $HOME/go/bin/gau $HOME/go/bin/get-all-urls
 ### GALLER
 GO111MODULE=on go get github.com/dwisiswant0/galer
-### GOOGLE CHROME
-wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-sudo apt update -y
-sudo apt install -y google-chrome-stable
 ### HTTPX
 GO111MODULE=on go get -v github.com/projectdiscovery/httpx/cmd/httpx
-### BROKEN LINK CHECKER
-sudo npm install broken-link-checker -g
 ### FEROXBUSTER
 curl -sL https://raw.githubusercontent.com/epi052/feroxbuster/master/install-nix.sh | bash
 ### TLDEXTRACT

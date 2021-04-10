@@ -126,7 +126,7 @@ else
 
     ### IDENTIFY TECHNOLOGY 2 >> recon.txt
     echo "[WHATWEB] ---------------------------------------------------------" | tee -a recon.txt
-    $HOME/tools/WhatWeb/whatweb -a 3 $domain -H "$cookie" | tee -a recon.txt
+    whatweb -a 3 $domain -H "$cookie" | tee -a recon.txt
 
     ### CMS SCAN >> recon.txt
     echo "[CMSEEK] ---------------------------------------------------------" | tee -a recon.txt
