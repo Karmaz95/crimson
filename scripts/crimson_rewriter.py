@@ -62,6 +62,8 @@ def rewriter_check(urls,headers,cookies):
                 output_list.append("[+] ORIGINAL HEADER FOUND: " + r2.url)
             elif r1.status_code != r3.status_code:
                 output_list.append("[+] REWRITE HEADER FOUND: " + r1.url)
+        except KeyboardInterrupt:
+            sys.exit(0)
         except:
             pass
     return output_list
