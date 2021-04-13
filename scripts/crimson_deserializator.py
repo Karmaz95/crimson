@@ -138,6 +138,7 @@ try:
             except KeyboardInterrupt:
                 sys.exit(0)
             except:
+                print(url)
                 pass
             payload_id += 1
     print("\033[0;31m[+][+]\033[0m CHECK FOR PINGs ON YOUR LISTENER")
