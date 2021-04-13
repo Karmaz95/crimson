@@ -33,9 +33,10 @@ argument_list = full_cmd_arguments[1:]
 short_options = "w:i:d:H:c:"
 long_options = ["wordlist", "vps_ip", "domain_collab", "header", "cookie"]
 try:
-        arguments, values = getopt.getopt(argument_list, short_options, long_options)
+    arguments, values = getopt.getopt(argument_list, short_options, long_options)
 except getopt.error as err:
-        sys.exit(2)
+    print(err)
+    sys.exit(2)
 ### --- (They will be iterated at the bottom of the screen ---
 
 
