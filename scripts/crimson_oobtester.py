@@ -109,12 +109,12 @@ def send_payloads_url(swapped_urls,headers, cookies):
     for url in tqdm(swapped_urls):
         id+=1
         try:
-            r = s.get(url, verify=False, allow_redirects=True)
+            s.get(url, verify=False, allow_redirects=True)
         except KeyboardInterrupt:
             sys.exit(0)
         except:
             pass
-        output_list.append("ID: " + str(id) + " - TIME: " + str(datetime.now().time().strftime("%H:%M:%S")) + " - " + r.status_code + " - URL: " + url)
+        output_list.append("ID: " + str(id) + " - TIME: " + str(datetime.now().time().strftime("%H:%M:%S")) + " - URL: " + url)
     return output_list
 
 
