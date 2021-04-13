@@ -105,7 +105,7 @@ def send_payload(URL,payload,data_to_post, headers, cookies):
                 r = s.post(url=URL, data=data_to_post, headers=headers)
             except:
                 pass
-            print(r.url)
+            print(URL + "DATA:" + data_do_post)
             data_to_post = dict(old_data)
 
 
