@@ -98,7 +98,7 @@ else:
 ### SAVE THE OUTPUT TO A FILE => temp_ffuf.txt
 output_file = open("temp_ffuf.txt","w")
 for line in final_list:
-    output_file.write(line)
+    output_file.write(line + "\n")
 
 output_file.close()
 

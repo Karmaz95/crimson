@@ -162,6 +162,10 @@ go get -u github.com/m4dm0e/dirdar
 git clone https://gist.github.com/298d11b3a77b97c908d63a345d3c624d.git hop-by-hop/
 ### SHCHECK
 python3 -m pip install shcheck
+### PROTOTYPE POLLUTION
+go get github.com/TwinProduction/go-color
+go get -u github.com/chromedp/chromedp
+# add pp.go
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  
