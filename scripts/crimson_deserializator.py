@@ -91,23 +91,15 @@ def send_payload(URL,payload,data_to_post, headers, cookies):
     elif count_of_params == 1:
         old_data = dict(data_to_post)
         data_to_post.update({data_to_post.keys()[0]:payload})
-        try:
-            r = s.post(url=URL, data=data_to_post)
-            print(r.url)
-        except:
-            print(URL + ": ERROR")
-            pass
+        r = s.post(url=URL, data=data_to_post)
+        print(URL)
         data_to_post = dict(old_data)
     else:
         for key in data_to_post:
             old_data = dict(data_to_post)
             data_to_post.update({key:payload})
-            try:
-                r = s.post(url=URL, data=data_to_post, headers=headers)
-                print(r.url)
-            except:
-                print(URL + ": ERROR")
-                pass
+            r = s.post(url=URL, data=data_to_post, headers=headers)
+            print(URL)
             data_to_post = dict(old_data)
 
 
