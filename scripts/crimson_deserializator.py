@@ -87,7 +87,7 @@ def send_payload(URL,payload,data_to_post, headers, cookies):
         count_of_params += 1
     
     if count_of_params == 0:
-        print(URL + " NO PARAMS")
+        print(URL + "Blank parameter value or no parameters")
         return
     elif count_of_params == 1:
         old_data = dict(data_to_post)
