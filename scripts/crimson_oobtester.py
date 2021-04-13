@@ -114,7 +114,7 @@ def send_payloads_url(swapped_urls,headers, cookies):
             sys.exit(0)
         except:
             pass
-        output_list.append("ID: " + str(id) + " - TIME: " + str(datetime.now().time().strftime("%H:%M:%S")) + " - URL: " + url)
+        output_list.append("ID: " + str(id) + " - TIME: " + str(datetime.now().time().strftime("%H:%M:%S")) + " - " + url.status_code + " - URL: " + url)
     return output_list
 
 
