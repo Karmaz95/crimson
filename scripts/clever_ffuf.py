@@ -79,20 +79,32 @@ print(" ---------------- ")
 ### MAIN FUNCTIONALITY
 # Do not store:
 #   429 - too many requests
+print(" AFTER CHANGE RESULTS ")
+print(" ---------------- ")
 if (status_200_c / status_all_c) < 0.3:   
     final_list.extend(status_200)
+    print(" 200     : " + str(status_200_c) + " (" + str(round((status_200_c / status_all_c),3)) + "%)")
 elif (status_301_c / status_all_c) < 0.001:
     final_list.extend(status_301)
+    print(" 301     : " + str(status_301_c) + " (" + str(round((status_301_c / status_all_c),3)) + "%)")
 elif (status_302_c / status_all_c) < 0.001:
     final_list.extend(status_302)
+    print(" 302     : " + str(status_302_c) + " (" + str(round((status_302_c / status_all_c),3)) + "%)")
 elif (status_401_c / status_all_c) < 0.001:
     final_list.extend(status_401)
+    print(" 401     : " + str(status_401_c) + " (" + str(round((status_401_c / status_all_c),3)) + "%)")
 elif (status_403_c / status_all_c) < 0.001:
     final_list.extend(status_403)
+    print(" 403     : " + str(status_403_c) + " (" + str(round((status_403_c / status_all_c),3)) + "%)")
 elif (status_404_c / status_all_c) < 0.001:
     final_list.extend(status_404)
+    print(" 404     : " + str(status_404_c) + " (" + str(round((status_404_c / status_all_c),3)) + "%)")
 else:
     final_list.extend(status_odd)
+    print(" OTHER   : " + str(status_odd_c) + " (" + str(round((status_odd_c / status_all_c),3)) + "%)"
+
+print(" TOTAL   : " + str(len(final_list)))
+print(" ---------------- ")
 
 
 ### SAVE THE OUTPUT TO A FILE => temp_ffuf.txt
