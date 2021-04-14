@@ -79,7 +79,7 @@ print(" ---------------- ")
 ### MAIN FUNCTIONALITY
 # Do not store:
 #   429 - too many requests
-print(" AFTER CHANGE RESULTS ")
+print("\n AFTER CHANGE RESULTS ")
 print(" ---------------- ")
 if (status_200_c / status_all_c) < 0.3:   
     final_list.extend(status_200)
