@@ -166,6 +166,9 @@ python3 -m pip install shcheck
 go get github.com/TwinProduction/go-color
 go get -u github.com/chromedp/chromedp
 # add pp.go
+### NUCLEI
+GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+nuclei -update-templates
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  

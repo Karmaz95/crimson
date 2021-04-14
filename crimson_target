@@ -309,7 +309,7 @@ else
 
     ### CORS MISCONFIGURATION SCAN >> recon.txt
     echo "[CORS] ---------------------------------------------------------" | tee -a recon.txt
-    cat ffuf.txt | CorsMe -t 70 -header "$cookie" -output corsme.txt > /dev/null 2>&1
+    cat ffuf.txt | CorsMe -t 50 -header "$cookie" -output corsme.txt > /dev/null 2>&1
     cat corsme.txt >> recon.txt
     rm corsme.txt
     rm error_requests.txt

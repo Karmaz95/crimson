@@ -54,6 +54,8 @@ def loop_over_file(list_of_payloads):
                 print("ID: " + str(i) + " - URL: " + url.rstrip().replace("FUZZ",payload.rstrip()))
                 ### ADJUST AS MUCH AS YOU WANT - depends on the internet connection
                 time.sleep(0.2)
+            except KeyboardInterrupt:
+                sys.exit(0)
             except:
                 pass
 
@@ -67,6 +69,8 @@ def just_open(urls_list):
                 open_in_webrowser(url.rstrip())
                 print("ID: " + str(i) + " - URL: " + url.rstrip())  
                 time.sleep(0.2)
+            except KeyboardInterrupt:
+                sys.exit(0)
             except:
                    pass
             

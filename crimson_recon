@@ -32,6 +32,7 @@
 # 9. ldns-walk.txt		- DOMAINS FROM DNSSEC
 # 10. subdomainizer.txt	- API KEYS / MORE SUBDOMAINS
 # 11. hosthunter.txt	- VIRTUAL HOSTNAMES
+# 12. nuclei.txt		- CVE SCAN
 #
 ### WORKFLOW
 #
@@ -175,7 +176,7 @@ sort -u subs_gau.txt live.txt > live2.txt
 mv live2.txt live.txt
 rm subs_gau.txt
 
-### SCRAPING THE INTERNET FR URLS = waybackurls.txt
+### SCRAPING THE INTERNET FOR URLS = waybackurls.txt
 cat live.txt | waybackurls >> waybackurls.txt
 cat waybackurls.txt | unfurl -u domains > subs_waybackurls.txt
 sort -u subs_waybackurls.txt live.txt > live2.txt
@@ -215,18 +216,6 @@ rm live3.txt
 ### SCANNING filtered_ip.txt FOR OPENED PORTS = ports.txt
 #for ip in $(cat $HOME/bounty/$DOMAIN/filtered_ip.txt);do masscan -p1-65535 --max-rate 1000 $ip >> $HOME/bounty/$DOMAIN/ports.txt ; done
 
-### CHECKING FOR CORS MISSCONFIGURATION = cors_scan.txt
-echo -e "\033[0;31m [+]\033[0m CHECKING CORS"
-cat live.txt | CorsMe -t 70 -output cors_scan.txt > /dev/null
-### CHECKING SUBDOMAIN TAKEOVER = subjack.txt
-echo -e "\033[0;31m [+]\033[0m CHECKING DOMAIN TAKEOVER"
-subjack -w live.txt -t 20 -timeout 30 -o subjack1.txt -ssl -a
-cat subjack1.txt > subjack.txt 2>/dev/null
-rm subjack1.txt 2>/dev/null
-subjack -w live.txt -t 20 -timeout 30 -o subjack2.txt -a
-cat subjack2.txt >> subjack.txt 2>/dev/null
-rm subjack2.txt 2>/dev/null
-
 ### MAKING SCREENSHOOTS FROM ENUERATED LIVE DOMAINS = screenshots/
 echo -e "\033[0;31m [+]\033[0m MAKING SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
 gowitness file -f live.txt > /dev/null
@@ -255,6 +244,22 @@ dnsrecon -d $DOMAIN -a >> dnsrecon.txt
 ### DNSSEC RECON = ldns-walk.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING DNSSEC MISONFIGURATIONS"
 ldns-walk $DOMAIN >> ldns-walk.txt
+
+### CHECKING FOR CORS MISSCONFIGURATION = cors_scan.txt
+echo -e "\033[0;31m [+]\033[0m CHECKING CORS"
+cat live.txt | CorsMe -t 50 -output cors_scan.txt > /dev/null
+
+### CHECKING SUBDOMAIN TAKEOVER = subjack.txt
+echo -e "\033[0;31m [+]\033[0m CHECKING DOMAIN TAKEOVER"
+subjack -w live.txt -t 20 -timeout 30 -o subjack1.txt -ssl -a
+cat subjack1.txt > subjack.txt 2>/dev/null
+rm subjack1.txt 2>/dev/null
+subjack -w live.txt -t 20 -timeout 30 -o subjack2.txt -a
+cat subjack2.txt >> subjack.txt 2>/dev/null
+rm subjack2.txt 2>/dev/null
+
+### NUCLEI CVE SCAN
+nuclei -l live.txt -t cves/ -o nuclei.txt --rate-limit 2
 
 ### --- 3RDLEVEL SECTION --- ###
 ### THRID LEVEL SUBDOMAINS BRUTE-FORCE = 3rdlevel_live.txt
