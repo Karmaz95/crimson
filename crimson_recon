@@ -94,24 +94,24 @@ curl -s https://crt.sh/?q=$DOMAIN | grep $DOMAIN | grep TD | sed 's/<BR>.*$//g' 
 cat crt.txt | anew subdomains.txt
 rm crt.txt
 # amass.txt
-amass enum --passive -d $DOMAIN -o amass.txt -rf resolvers.txt
+amass enum --passive -d $DOMAIN -o amass.txt -rf resolvers.txt > /dev/null
 cat amass.txt | anew subdomains.txt
 rm amass.txt
 # subfinder.txt
-subfinder -silent -recursive -d $DOMAIN | tee subfinder.txt
+subfinder -silent -recursive -d $DOMAIN -o subfinder.txt > /dev/null
 cat subfinder.txt | anew subdomains.txt
 rm subfinder.txt
 # sudomy.txt
-cd $HOME/tools/Sudomy; ./sudomy -d $DOMAIN --no-probe -o $DOMAIN
+cd $HOME/tools/Sudomy; ./sudomy -d $DOMAIN --no-probe -o $DOMAIN > /dev/null
 cd $HOME/bounty/$DOMAIN
 cat $HOME/tools/Sudomy/$DOMAIN/Sudomy-Output/$DOMAIN/subdomain.txt | anew subdomains.txt
 rm -rf $HOME/tools/Sudomy/$DOMAIN/Sudomy-Output/$DOMAIN
 # assetfinder.txt
-assetfinder --subs-only $DOMAIN | tee -a assetfinder.txt
+assetfinder --subs-only $DOMAIN >> assetfinder.txt
 cat assetfinder.txt | anew subdomains.txt
 rm assetfinder.txt
 # paramspider.txt subdomains_paramspider.txt
-python3 $HOME/tools/ParamSpider/paramspider.py -d $DOMAIN --output ./paramspider.txt --level high
+python3 $HOME/tools/ParamSpider/paramspider.py -d $DOMAIN --output ./paramspider.txt --level high > /dev/null
 cat paramspider.txt | unfurl -u domains | anew subdomains.txt
 
 ### 1ST BRUTEFORCE ON -x
