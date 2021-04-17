@@ -93,15 +93,15 @@ wget https://raw.githubusercontent.com/BonJarber/fresh-resolvers/main/resolvers.
 echo -e "\033[0;31m [+]\033[0m SUBDOMAINS SCRAPING"
 # crt.txt
 curl -s https://crt.sh/?q=$DOMAIN | grep $DOMAIN | grep TD | sed 's/<BR>.*$//g' | sed 's/<\/TD>.*$//' | sed 's/<TD>//g' | sed 's/\*.//g' | sed 's/ //g' | grep -v "TDclass" | sort -u > crt.txt
-cat crt.txt | anew subdomains.txt
+cat crt.txt | anew subdomains.txt > /dev/null
 rm crt.txt
 # amass.txt
 amass enum --passive -d $DOMAIN -o amass.txt -rf resolvers.txt > /dev/null
-cat amass.txt | anew subdomains.txt
+cat amass.txt | anew subdomains.txt > /dev/null
 rm amass.txt
 # subfinder.txt
 subfinder -silent -recursive -d $DOMAIN -o subfinder.txt > /dev/null
-cat subfinder.txt | anew subdomains.txt
+cat subfinder.txt | anew subdomains.txt > /dev/null
 rm subfinder.txt
 # sudomy.txt
 cd $HOME/tools/Sudomy; ./sudomy -d $DOMAIN --no-probe -o $DOMAIN > /dev/null
@@ -110,11 +110,11 @@ cat $HOME/tools/Sudomy/$DOMAIN/Sudomy-Output/$DOMAIN/subdomain.txt | anew subdom
 rm -rf $HOME/tools/Sudomy/$DOMAIN/Sudomy-Output/$DOMAIN
 # assetfinder.txt
 assetfinder --subs-only $DOMAIN >> assetfinder.txt
-cat assetfinder.txt | anew subdomains.txt
+cat assetfinder.txt | anew subdomains.txt > /dev/null
 rm assetfinder.txt
 # paramspider.txt subdomains_paramspider.txt
 python3 $HOME/tools/ParamSpider/paramspider.py -d $DOMAIN --output ./paramspider.txt --level high > /dev/null
-cat paramspider.txt | unfurl -u domains | anew subdomains.txt
+cat paramspider.txt | unfurl -u domains | anew subdomains.txt > /dev/null
 
 ### 1ST BRUTEFORCE ON -x
 if [ $fuzzing_on == 1 ]
@@ -201,7 +201,7 @@ python3 $HOME/tools/SubDomainizer/SubDomainizer.py -k -l urls.txt -o subdomainiz
 
 ### GETTING SUBDOMAINS FROM subdomainizer.txt AND CHECKING FOR LIVE = live.txt
 cat subdomainizer.txt | grep $DOMAIN | dnsx -t 100 -silent -r resolvers.txt -o live3.txt
-cat live3.txt | anew live.txt
+cat live3.txt | anew live.txt > /dev/null
 rm live3.txt
 
 ### --- VHOST SECTION --- ###
@@ -286,6 +286,13 @@ cat subjack.txt 2>/dev/null
 echo -e "\033[0;31m [+]\033[0m CORS MISCONFIGURATIONS:"
 cat cors_scan.txt 2>/dev/null
 echo -e "\033[0;31m [+]\033[0m ZONE TRANSFER:"
+zt=$(cat dnsrecon.txt | grep successful)
+if [ ! -z "$zt" ];
+then
+    echo "\033[0;31m [++]\033[0m ZONE TRANSFER WAS SUCCESSFUL! - check the dnsreon.txt";
+else
+    echo "\033[0;31m [++]\033[0m Zone Transfer not found.";
+fi
 cat dnsrecon.txt 2>/dev/null
 echo -e "\033[0;31m [+]\033[0m DNSSEC RECON:"
 cat ldns-walk.txt 2>/dev/null

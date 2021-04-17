@@ -86,11 +86,9 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [altdns](https://github.com/infosec-au/altdns)
 * [HostHunter](https://github.com/SpiderLabs/HostHunter/)
 
-
 ### :diamonds: IP && ports:
 * [nmap](https://github.com/nmap/nmap)
 * [masscan](https://github.com/robertdavidgraham/masscan)
-
 
 ### :diamonds: URLs:
 * [waybackurls](https://github.com/tomnomnom/waybackurls)
@@ -114,7 +112,8 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [WhatWeb](https://github.com/urbanadventurer/WhatWeb)
 * [gowitness](https://github.com/sensepost/gowitness)
 * [wafw00f](https://github.com/EnableSecurity/wafw00f)
-
+* [webanalyze](https://github.com/rverton/webanalyze)
+* [cf-check](https://github.com/dwisiswant0/cf-check)
 
 ### :diamonds: Bug finding:
 * [nikto](https://github.com/sullo/nikto)

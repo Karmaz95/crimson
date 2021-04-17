@@ -2,7 +2,7 @@
 sudo rm /etc/apt/preferences.d/nosnap.pref
 sudo apt update -y
 sudo apt dist-upgrade -y
-sudo apt install ruby ruby-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon python3 python3-dnspython pv xed ldnsutils jq testssl.sh whatweb masscan wafw00f -y
+sudo apt install ruby ruby-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon python3 python3-dnspython pv xed ldnsutils jq testssl.sh whatweb masscan wafw00f gobuster -y
 sudo gem install bundler json mongo
 sudo apt install python3-pip nodejs -y
 sudo add-apt-repository universe
@@ -169,6 +169,12 @@ go get -u github.com/chromedp/chromedp
 ### NUCLEI
 GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
 nuclei -update-templates
+### DNSPROBE
+GO111MODULE=on go get -v github.com/projectdiscovery/dnsprobe
+### WEBANALYZE
+go get -v -u github.com/rverton/webanalyze/cmd/webanalyze
+### CF-CHECK
+go get -u github.com/dwisiswant0/cf-check
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  
