@@ -101,7 +101,7 @@ elif (status_404_c / status_all_c) < 0.001:
     print(" 404     : " + str(status_404_c) + " (" + str(round((status_404_c / status_all_c),3)) + "%)")
 else:
     final_list.extend(status_odd)
-    print(" OTHER   : " + str(status_odd_c) + " (" + str(round((status_odd_c / status_all_c),3)) + "%)"
+    print(" OTHER   : " + str(status_odd_c) + " (" + str(round((status_odd_c / status_all_c),3)) + "%)")
 
 print(" TOTAL   : " + str(len(final_list)))
 print(" ---------------- ")
