@@ -76,7 +76,7 @@ done
 
 
 ### REMINDER OF BURP SUITE 
-echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(echo $DOMAIN | sed "s/\./\\\./")"$"
+echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(tldextract $DOMAIN | cut -d " " -f 2-3 | sed "s/\ /\./" | sed "s/\./\\\./")$
 read -rsp $'\tRUN BURP, TURN OFF INTERCEPTION AND ADD SCOPE... THEN CLICK ENTER\n' -n1 key
 
 ### CREATING PROPER DIRECTORY
