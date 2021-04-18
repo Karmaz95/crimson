@@ -21,23 +21,22 @@
 #
 ### LISTS:
 #
-# 1) recon.txt
-# 2) urls.txt
-# 3) status_params.txt
-# 4) zile.txt
-# 5) status_ffuf.txt ***** MAKE SURE U CHECKED IT AFTER BRUTE *****
-# 6) status_new_endpoints.txt
-# 7) ffuf.txt
-# 8) status_dir.txt
-# 9) exp/params.txt
-# 10) exp/dirs.txt
-# 11) backups.txt
+# 1) recon.txt          - FILE WITH RECON OUTPUT
+# 2) urls.txt           - FILE WITH GATHERED URLS
+# 3) status_params.txt  - STATUS CODES OF urls.txt
+# 4) ffuf.txt           - DIR BRUTEFORCING OUTPUT
+# 5) status_dir.txt     - STATUS CODE OF ffuf.txt
+# 9) exp/params.txt     - FILE PREPARED FOR crimson_exploit WITH PARAMS
+# 10) exp/dirs.txt      - FILE PREPARED FOR crimson_exploit WITH DIRECTORIES
+# 11) backups.txt       - POTENTIALLY BACKUP FILES 
+# 12) arjun.txt         - FILE WITH BRUTEFORCE PARAMETERS
 #
 ### WORKFLOW
 #
 # 0. Start Burp
 #	- Create new project - www.example.domain.com
 #	- Turn off interception
+#   - Make active scan for proxied urls only in scope
 # 1. Start the script
 # 2. Check the output listed above (LISTS)
 # 3. Manually browse the application, click on all functionalities
@@ -320,9 +319,20 @@ else
     ### GET PARAMETER NAMES BY BRUTEFORCING THEM > exp/arjun.txt
     echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON exp/files.txt - IT WILL TAKE A WHILE..."
     python3 /home/karmaz/tools/Arjun/arjun/__main__.py -i files.txt -oT arjun.txt -q --headers "$cookie"
-
-    echo -e "\033[0;31m [+]\033[0m CHECK:"
-    echo "	- backups.txt"
-    echo "	- status_ffuf.txt!!!!!!"
+    
+    ### CLEAR LOGS
+    rm files.txt
+    rm status_ffuf.txt
+    rm status_new_endpoints.txt
+   
+    echo -e "\033[0;31m [+]\033[0m 1. recon.txt :"
+    cat reon.txt
+    echo -e "\033[0;31m [+]\033[0m 2. zile.txt :"
+    cat zile.txt
+    echo -e "\033[0;31m [+]\033[0m 3. CHECK :"
+    echo "	- status_dir.txt"
+    echo "	- status_params.txt"
     echo "	- arjun.txt"
+    echo "  - backusp.txt"
+    echo "  - apikeys.txt"
 fi
