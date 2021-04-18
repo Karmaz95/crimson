@@ -128,8 +128,9 @@ fi
 
 ### CHECKING FOR LIVE DOMAINS = live1.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE SUBDOMAINS"
+echo -e "\033[0;31m==================================\033[0m"
 cat subdomains.txt | dnsx -t 100 -silent -r resolvers.txt -o live1.txt
-
+echo -e "\033[0;31m==================================\033[0m"
 
 ### 2ND BRUTEFORCE ON -x
 if [ $fuzzing_on == 1 ]
