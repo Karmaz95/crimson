@@ -139,6 +139,7 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [crimson_templator](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_templator.py)
 * [shcheck](https://github.com/santoru/shcheck)
 * [nuclei](https://github.com/projectdiscovery/nuclei)
+* [headi](https://github.com/mlcsec/headi)
 
 ### :diamonds: WordPress tools:
 * [wpscan](https://github.com/wpscanteam/wpscan)

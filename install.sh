@@ -175,6 +175,8 @@ GO111MODULE=on go get -v github.com/projectdiscovery/dnsprobe
 go get -v -u github.com/rverton/webanalyze/cmd/webanalyze
 ### CF-CHECK
 go get -u github.com/dwisiswant0/cf-check
+### HEADI
+go get github.com/mlcsec/headi
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  
