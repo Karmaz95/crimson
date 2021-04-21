@@ -232,14 +232,10 @@ else
 
     ### GET LINKS TO JS FILES AND PREPARE IT FOR EXPLOIT MODULE > exp/jsfiles.txt
     echo -e "\033[0;31m [+]\033[0m GATHERING .js LINKS"
-    cat urls.txt ffuf.txt | getJS --complete --nocolors -H "$cookie" | grep "^http" >> exp/jsfiles.txt
+    cat urls.txt ffuf.txt | getJS --complete --nocolors -H "$cookie" | grep "^http" | grep $DOMAIN | sed "s/\?.*//" | anew exp/jsfiles.txt
 
     ### GET LINKS TO JS FILES FROM urls.txt > exp/jsfiles.txt
-    cat urls.txt | grep "\.js$" | grep "^http" | anew exp/jsfiles.txt > /dev/null
-
-    ### REMOVE DUPLICATES
-    sort -u exp/jsfiles.txt > 1
-    mv 1 exp/jsfiles.txt
+    cat urls.txt | grep "\.js$" | grep "^http" | grep $DOMAIN | sed "s/\?.*//" | anew exp/jsfiles.txt > /dev/null
 
     ### CHECK FOR LIVE JS LINKS
     echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE .js LINKS"

@@ -30,10 +30,10 @@ cd crimson
 chmod +x install.sh
 ./install.sh
 ```
-Add below line to your .bashrc / .zshrc etc.
+Then add below line to your .bashrc / .zshrc etc.
 ```bash
 export GOPATH=$HOME/go
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$HOME/tools:$PATH"
+export PATH="$HOME/bin:$:$HOME/tools/codeql:$HOME/.local/bin:$HOME/go/bin:$PATH"
 ```
 Install Burp Suite and extensions listed below in section `Burp Suite extensions`.
 # Usage
@@ -141,6 +141,7 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [shcheck](https://github.com/santoru/shcheck)
 * [nuclei](https://github.com/projectdiscovery/nuclei)
 * [headi](https://github.com/mlcsec/headi)
+* [codeql](https://github.com/github/codeql-cli-binaries)
 
 ### :diamonds: WordPress tools:
 * [wpscan](https://github.com/wpscanteam/wpscan)
