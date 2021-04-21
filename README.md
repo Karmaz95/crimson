@@ -42,25 +42,19 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 ```bash
 ./crimson_recon -D "domain.com" -x
 ```
-* If you are interested in how this module works, I encourage you to study the source code.
-* I tried to describe in the comments how the individual tools works. 
-* Additionally, you can learn more about `crimson_recon` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-i-574fd9dce53e)
+* You can learn more about `crimson_recon` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-i-574fd9dce53e)
  
 ##### :diamonds: Second module needs `subdomain name`. You can additionally put `authorization cookie` :diamonds:
 ```bash
 ./crimson_target -d "example.domain.com" -c "Cookie: auth1=123;"
 ```
-* If you are interested in how this module works, I encourage you to study the source code.
-* I tried to describe in the comments how the individual tools works.
-* Additionally, you can learn more about `crimson_target` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-ii-4336bd4ca73b?sk=ba289442112704cd71ac4a89e994fc8c)
+* You can learn more about `crimson_target` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-ii-4336bd4ca73b?sk=ba289442112704cd71ac4a89e994fc8c)
 
 ##### :diamonds: Third module needs `subdomain name` with your `collaborator` and `vps ip`. You can additionally put `authorization cookie` and if you want to fuzz all the urls use the `-x` flag. :diamonds:
 ```bash
 ./crimson_exploit -D "example.domain.com" -c "Cookie: auth1=123;" -d "collaborator.com" -i "ip" -x
 ```
-* If you are interested in how this module works, I encourage you to study the source code.
-* I tried to describe in the comments how the individual tools works.
-* Additionally, you can learn more about `crimson_exploit` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-iii-2823b16f38cc)
+* You can learn more about `crimson_exploit` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-iii-2823b16f38cc)
 ##### :diamonds: Before starting the script run the listener on your vps machine on port 80 :diamonds:
 
 # Extras
