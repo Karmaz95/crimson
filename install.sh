@@ -165,7 +165,6 @@ python3 -m pip install shcheck
 ### PROTOTYPE POLLUTION
 go get github.com/TwinProduction/go-color
 go get -u github.com/chromedp/chromedp
-cp 
 ### NUCLEI
 GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
 nuclei -update-templates
@@ -184,6 +183,8 @@ cd $HOME/tools
 wget https://github.com/github/codeql-cli-binaries/releases/download/v2.5.1/codeql-linux64.zip
 unzip codeql-linux64.zip
 rm codeql-linux64.zip
+### SEMGREP
+python3 -m pip install semgrep
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  
