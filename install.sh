@@ -15,7 +15,7 @@ mkdir -p $HOME/tools/CRIMSON/
 cp -r * $HOME/tools/CRIMSON/
 cd $HOME/tools
 ### WAPITI
-python3 -m pip install wapiti3
+python3 -m pip install wapiti3 shodan
 sudo apt install wapiti -y
 ### AMASS
 sudo snap install amass
@@ -59,10 +59,7 @@ go get github.com/haccer/subjack
 ### HAKRAWLER
 go get github.com/hakluke/hakrawler
 ### ARJUN
-git clone https://github.com/s0md3v/Arjun.git
-cd Arjun
-python3 setup.py install
-cd ..
+python3 -m pip install arjun
 ### SMUGGLER
 git clone https://github.com/defparam/smuggler
 ### GOSPIDER

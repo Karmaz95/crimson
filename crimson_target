@@ -101,16 +101,16 @@ else
 
     ### GET THE CONTENT OF SITEMAP IF EXISTS >> recon.txt
     echo "[SITEMAP 80] ---------------------------------------------------------" | tee -a recon.txt
-    $HOME/tools/sitemap-urls/sitemap-urls.sh http://$domain | tee -a recon.txt
+    $HOME/tools/sitemap-urls/sitemap-urls.sh http://$domain >> recon.txt
     echo "[SITEMAP 443] ---------------------------------------------------------" | tee -a recon.txt
-    $HOME/tools/sitemap-urls/sitemap-urls.sh https://$domain | tee -a recon.txt
+    $HOME/tools/sitemap-urls/sitemap-urls.sh https://$domain >> recon.txt
 
     ### GET THE CONTENT OF ROBOTS IF EXISTS >> recon.txt
     echo "[ROBOTS 80] ---------------------------------------------------------" | tee -a recon.txt
-    curl -O http://$domain/robots.txt
+    curl -O http://$domain/robots.txt > /dev/null 2>&1
     cat robots.txt >> recon.txt
     echo "[ROBOTS 443] ---------------------------------------------------------" | tee -a recon.txt
-    curl -k -O https://$domain/robots.txt
+    curl -k -O https://$domain/robots.txt > /dev/null 2>&1
     cat robots.txt >> recon.txt
     rm robots.txt
 
@@ -314,7 +314,7 @@ else
 
     ### GET PARAMETER NAMES BY BRUTEFORCING THEM > exp/arjun.txt
     echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON exp/files.txt - IT WILL TAKE A WHILE..."
-    python3 /home/karmaz/tools/Arjun/arjun/__main__.py -i files.txt -oT arjun.txt -q --headers "$cookie"
+    arjun -i files.txt -oT arjun.txt -q --headers "$cookie"
     
     ### CLEAR LOGS
     rm files.txt
