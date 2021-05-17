@@ -144,9 +144,9 @@ else
     nl=$'\n'
     cr=$'\r'
     echo "[NIKTO 443] ---------------------------------------------------------" | tee -a recon.txt
-    $HOME/tools/nikto/program/nikto.pl -host https://$domain -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 2000 | tee -a recon.txt
+    $HOME/tools/nikto/program/nikto.pl -host https://$domain -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
     echo "[NIKTO 80] ----------------------------------------------------------" | tee -a recon.txt
-    $HOME/tools/nikto/program/nikto.pl -host http://$domain -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 2000 | tee -a recon.txt
+    $HOME/tools/nikto/program/nikto.pl -host http://$domain -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
 
     ### VULN SCAN 2 >> recon.txt
     # Looking for: 
