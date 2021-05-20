@@ -320,15 +320,16 @@ else
     rm files.txt
     rm status_ffuf.txt
     rm status_new_endpoints.txt
-   
+    for f in $(ls); do [ -s $f ] || rm $f ;done
+    
     echo -e "\033[0;31m [+]\033[0m 1. recon.txt :"
-    cat reon.txt
+    cat recon.txt
     echo -e "\033[0;31m [+]\033[0m 2. zile.txt :"
     cat zile.txt
     echo -e "\033[0;31m [+]\033[0m 3. CHECK :"
     echo "	- status_dir.txt"
     echo "	- status_params.txt"
     echo "	- arjun.txt"
-    echo "  - backusp.txt"
+    echo "  - backups.txt"
     echo "  - apikeys.txt"
 fi
