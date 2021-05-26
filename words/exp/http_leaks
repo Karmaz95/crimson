@@ -1,0 +1,502 @@
+<!DOCTYPE html SYSTEM "https://domain_collab/doctype">
+<html xmlns="http://www.w3.org/1999/xhtml" manifest="https://domain_collab/html-manifest">
+<head profile="https://domain_collab/head-profile">
+
+<!--
+%Base (check manually)
+-->
+<base href="https://domain_collab/base-href/">
+
+<!--
+%MSIE Imports
+-->
+<?IMPORT namespace="myNS" implementation="https://domain_collab/import-implementation" ?>
+<IMPORT namespace="myNS" implementation="https://domain_collab/import-implementation-2" />
+
+<!--
+%Redirects
+-->
+<meta http-equiv="refresh" content="10; url=https://domain_collab/meta-refresh">
+
+<!--  
+%CSP
+-->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; report-uri https://domain_collab/meta-csp-report-uri">
+<meta http-equiv="Content-Security-Policy-Report-Only" content="script-src 'self'; report-uri https://domain_collab/meta-csp-report-uri-2">
+
+<!-- 
+%Reading View
+-->
+<meta name="copyright" content="<img src='https://domain_collab/meta-name-copyright-reading-view'>">
+<meta name="displaydate" content="<img src='https://domain_collab/meta-name-displaydate-reading-view'>">
+<meta property="og:site_name" content="<img src='https://domain_collab/meta-property-reading-view'>">
+
+<!-- 
+%AppLink Web Fallback
+-->
+<meta property="al:web:url" content="https://domain_collab/meta-property-al-web-url">
+
+<!-- 
+%Pinned Websites
+-->
+<meta name="msapplication-config" content="https://domain_collab/meta-name-msa-config">
+<meta name="msapplication-badge" content="frequency=30; polling-uri=https://domain_collab/meta-name-msa-badge">
+<meta name="msapplication-notification" content="frequency=60;polling-uri=https://domain_collab/meta-name-msa-notification">
+<meta name="msapplication-square150x150logo" content="https://domain_collab/meta-name-msa-logo-1">
+<meta name="msapplication-square310x310logo" content="https://domain_collab/meta-name-msa-logo-2">
+<meta name="msapplication-square70x70logo" content="https://domain_collab/meta-name-msa-logo-3">
+<meta name="msapplication-wide310x150logo" content="https://domain_collab/meta-name-msa-logo-4">
+<meta name="msapplication-task" content="name=Leak;action-uri=https://domain_collab/meta-name-msa-task;icon-uri=https://domain_collab/meta-name-msa-task-icon">
+<meta name="msapplication-TileImage" content="https://domain_collab/meta-name-msa-tile-image">
+
+<!--
+%Conditional Comments
+-->
+<!--[if true]>
+<link href="https://domain_collab/conditional-comment-1" rel="stylesheet">
+<![endif]-->
+
+<!-- 
+%Links 
+-->
+<link rel="stylesheet" href="https://domain_collab/link-stylesheet" />
+<link rel="icon" href="https://domain_collab/link-icon" />
+<link rel="canonical" href="https://domain_collab/link-canonical" />
+<link rel="shortcut icon" href="https://domain_collab/link-shortcut-icon" />
+<link rel="import" href="https://domain_collab/link-import" />
+<link rel="dns-prefetch" href="https://domain_collab/link-dns-prefetch" />
+<link rel="preconnect" href="https://domain_collab/link-preconnect">
+<link rel="prefetch" href="https://domain_collab/link-prefetch" />
+<link rel="preload" href="https://domain_collab/link-preload" />
+<link rel="prerender" href="https://domain_collab/link-prerender" />
+
+<link rel="preload" as="font" href="https://domain_collab/link-preload-as-font" />
+<link rel="preload" as="image" href="https://domain_collab/link-preload-as-image" />
+<link rel="preload" as="image" imagesrcset=",,,,,https://domain_collab/link-preload-imagesrcset" />
+<link rel="preload" as="style" href="https://domain_collab/link-preload-as-style" />
+<link rel="preload" as="script" href="https://domain_collab/link-preload-as-script" />
+
+<link rel="search" href="https://domain_collab/link-search" />
+<!--
+Note that OpenSearch description URLs are ignored in Chrome if this file isn't placed in the webroot.
+Also, in Chrome, you won't see the request in the developer tools because the request happens in the privileged browser process.
+Use a network sniffer to detect it.
+-->
+
+<link rel="alternate" href="https://domain_collab/link-alternate" />
+<link rel="alternate" type="application/atom+xml" href="https://domain_collab/link-alternate-atom" /> 
+<link rel="alternate stylesheet" href="https://domain_collab/link-alternate-stylesheet" />
+<link rel="amphtml" href="https://domain_collab/link-amphtml">
+<link rel="appendix" href="https://domain_collab/link-appendix" />
+<link rel="apple-touch-icon-precomposed" href="https://domain_collab/link-apple-touch-icon-precomposed">
+<link rel="apple-touch-icon" href="https://domain_collab/link-apple-touch-icon">
+<link rel="apple-touch-startup-image" href="https://domain_collab/link-apple-touch-startup-image">
+<link rel="archives" href="https://domain_collab/link-archives" />
+<link rel="author" href="https://domain_collab/link-author" />
+<link rel="bookmark" href="https://domain_collab/link-bookmark" />
+<link rel="canonical" href="https://domain_collab/link-canonical">
+<link rel="chapter" href="https://domain_collab/link-chapter" />
+<link rel="chrome-webstore-item" href="https://domain_collab/link-chrome-webstore-item">
+<link rel="contents" href="https://domain_collab/link-contents" />
+<link rel="copyright" href="https://domain_collab/link-copyright" />
+<link rel="entry-content" href="https://domain_collab/link-entry-content" />
+<link rel="external" href="https://domain_collab/link-external" />
+<link rel="feedurl" href="https://domain_collab/link-feedurl" />
+<link rel="first" href="https://domain_collab/link-first" />
+<link rel="glossary" href="https://domain_collab/link-glossary" />
+<link rel="help" href="https://domain_collab/link-help" />
+<link rel="index" href="https://domain_collab/link-index" />
+<link rel="last" href="https://domain_collab/link-last" />
+<link rel="manifest" href="https://domain_collab/link-manifest" />
+<link rel="mask-icon" href="https://domain_collab/link-mask-icon" color="red">
+<link rel="next" href="https://domain_collab/link-next" />
+<link rel="offline" href="https://domain_collab/link-offline" />
+<link rel="P3Pv1" href="https://domain_collab/link-P3Pv1">
+<link rel="pingback" href="https://domain_collab/link-pingback" />
+<link rel="prev" href="https://domain_collab/link-prev" />
+<link rel="publisher" href="https://domain_collab/link-publisher">
+<link rel="search" type="application/opensearchdescription+xml" href="https://domain_collab/link-search-2" title="Search" /> 
+<link rel="sidebar" href="https://domain_collab/link-sidebar" />
+<link rel="start" href="https://domain_collab/link-start" />
+<link rel="section" href="https://domain_collab/link-section" />
+<link rel="subsection" href="https://domain_collab/link-subsection" />
+<link rel="subresource" href="https://domain_collab/link-subresource">
+<link rel="tag" href="https://domain_collab/link-tag" />
+<link rel="up" href="https://domain_collab/link-up" />
+</head>
+
+<!--
+%Body Background
+-->
+<body background="https://domain_collab/body-background">
+
+<!-- 
+%Links & Maps
+-->
+<a ping="https://domain_collab/a-ping" href="#">You have to click me</a>
+<img src="data:;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw" width="150" height="150" usemap="#map">
+<map name="map">
+  <area ping="https://domain_collab/area-ping" shape="rect" coords="0,0,150,150" href="#">
+</map> 
+<!-- 
+The ping attribute allows to send a HTTP request to an external IP or domain, 
+even if the link's HREF points somewhere else. The link has to be clicked though 
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-ping
+-->
+
+<!--
+%Table Background
+-->
+<table background="https://domain_collab/table-background">
+    <tr>
+        <td background="https://domain_collab/td-background"></td>
+    </tr>
+</table>
+
+<!--
+%Images
+-->
+<img src="https://domain_collab/img-src">
+<img dynsrc="https://domain_collab/img-dynsrc">
+<img lowsrc="https://domain_collab/img-lowsrc">
+<img src="data:image/svg+xml,<svg%20xmlns='%68ttp:%2f/www.w3.org/2000/svg'%20xmlns:xlink='%68ttp:%2f/www.w3.org/1999/xlink'><image%20xlink:hr%65f='%68ttps:%2f/domain_collab/svg-via-data'></image></svg>">
+
+<image src="https://domain_collab/image-src">
+<image href="https://domain_collab/image-href">
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<image href="https://domain_collab/svg-image-href">
+<image xlink:href="https://domain_collab/svg-image-xlink-href">
+</svg>
+
+<picture>
+    <source srcset="https://domain_collab/picture-source-srcset">
+</picture>
+<picture>
+    <img srcset="https://domain_collab/picture-img-srcset">
+</picture>
+<img srcset=",,,,,https://domain_collab/img-srcset">
+
+<img src="#" longdesc="https://domain_collab/img-longdesc">
+<!-- longdesc works on Firefox but requires right-click, "View Description" -->
+
+<!--
+%Forms
+-->
+<form action="https://domain_collab/form-action"></form>
+<form id="test"></form><button form="test" formaction="https://domain_collab/button-formaction">CLICKME</button>
+<input type="image" src="https://domain_collab/input-src" name="test" value="test">
+<isindex src="https://domain_collab/isindex-src" type="image">
+<isindex action="https://domain_collab/isindex-action"></isindex>
+<form id="test2"></form><isindex type="submit" formaction="https://domain_collab/isindex-formaction" form="test2"></isindex>
+<!--
+%Media
+-->
+<bgsound src="https://domain_collab/bgsound-src"></bgsound>
+<video src="https://domain_collab/video-src">
+  <track kind="subtitles" label="English subtitles" src="https://domain_collab/track-src" srclang="en" default></track>
+</video>
+<video controls>
+  <source src="https://domain_collab/video-source-src" type="video/mp4">
+</video>
+<audio src="https://domain_collab/audio-src"></audio>
+<audio controls>
+  <source src="https://domain_collab/audio-source-src" type="video/mp4">
+</audio>
+<video poster="https://domain_collab/video-poster" src="https://domain_collab/video-poster-2"></video>
+
+<!--
+%Object & Embed
+-->
+<object data="https://domain_collab/object-data"></object>
+<object type="text/x-scriptlet" data="https://domain_collab/object-data-x-scriptlet"></object>
+<object movie="https://domain_collab/object-movie" type="application/x-shockwave-flash"></object>
+<object movie="https://domain_collab/object-movie">
+    <param name="type" value="application/x-shockwave-flash"></param>
+</object>
+<object codebase="https://domain_collab/object-codebase"></object>
+<embed src="https://domain_collab/embed-src"></embed>
+<embed code="https://domain_collab/embed-code"></embed>
+<object classid="clsid:333C7BC4-460F-11D0-BC04-0080C7055A83">
+    <param name="DataURL" value="https://domain_collab/object-param-dataurl">
+</object>
+<object classid="clsid:6BF52A52-394A-11d3-B153-00C04F79FAA6">
+    <param name="URL" value="https://domain_collab/object-param-url">
+</object>
+  
+<!--
+%Portal
+-->
+<portal src="https://domain_collab/portal-src"></portal>
+
+<!--
+%Script
+-->
+<script src="https://domain_collab/script-src"></script>
+<svg><script href="https://domain_collab/svg-script-href"></script></svg>
+<svg><script xlink:href="https://domain_collab/svg-script-xlink-href"></script></svg>
+<script>
+//# sourceMappingURL=https://domain_collab/javascript-source-map
+</script>
+
+<!--
+%Frames
+-->
+<iframe src="https://domain_collab/iframe-src"></iframe>
+<iframe src="data:image/svg+xml,<svg%20xmlns='%68ttp:%2f/www.w3.org/2000/svg'%20xmlns:xlink='%68ttp:%2f/www.w3.org/1999/xlink'><image%20xlink:hr%65f='%68ttps:%2f/domain_collab/svg-via-data'></image></svg>"></iframe>
+<iframe srcdoc="<img src=https://domain_collab/iframe-srcdoc-img-src>"></iframe>
+<frameset>
+    <frame src="https://domain_collab/frame-src"></frame>
+</frameset>
+<iframe src="view-source:https://domain_collab/iframe-src-viewsource"></iframe>
+<iframe src="javascript:'&lt;img src=https://domain_collab/iframe-javascript-src&gt;'"></iframe>
+<iframe src="javascript:'&lt;iframe src=&quot;javascript:\&apos;&lt;img src=https://domain_collab/iframe-javascript-src-2&gt;\&apos;&quot;&gt;&lt;/iframe&gt;'"></iframe>
+<iframe src="javascript:atob('PGltZyBzcmM9Imh0dHBzOi8vbGVha2luZy52aWEvaWZyYW1lLWphdmFzY3JpcHQtc3JjLTMiPg==')"></iframe>
+
+<!-- 
+%Menu
+-->
+<p contextmenu="a">Right Click</p>
+<menu type="context" id="a">
+    <menuitem label="a" icon="https://domain_collab/menuitem-icon"></menuitem>
+</menu>
+
+<!--
+%CSS
+-->
+<style>
+    /*# sourceMappingURL=https://domain_collab/css-source-map */
+</style>
+<style>
+    @import 'https://domain_collab/css-import-string';
+    @import url(https://domain_collab/css-import-url);
+</style>
+<style>
+    a:after {content: url(https://domain_collab/css-after-content)}
+    a::after {content: url(https://domain_collab/css-after-content-2)}
+    a:before {content: url(https://domain_collab/css-before-content)}
+    a::before {content: url(https://domain_collab/css-before-content-2)}    
+</style>
+<a href="#">ABC</a>
+<style>
+    big {
+        list-style: url(https://domain_collab/css-list-style);
+        list-style-image: url(https://domain_collab/css-list-style-image);
+        background: url(https://domain_collab/css-background);
+        background-image: url(https://domain_collab/css-background-image);
+        border-image: url(https://domain_collab/css-border-image);
+        -moz-border-image: url(https://domain_collab/css--moz-border-image-alias);
+        -webkit-border-image: url(https://domain_collab/css--webkit-border-image-alias);
+        border-image-source: url(https://domain_collab/css-border-image-source);
+        shape-outside: url(https://domain_collab/css-shape-outside);
+        -webkit-shape-outside: url(https://domain_collab/css--webkit-shape-outside-alias);
+        -webkit-mask-image: url(https://domain_collab/css--webkit-mask-image);
+        -webkit-mask-box-image: url(https://domain_collab/css--webkit-mask-box-image);
+        -webkit-mask-box-image-source: url(https://domain_collab/css--webkit-mask-box-image-source);
+        cursor: url(https://domain_collab/css-cursor), auto;
+    }
+</style>
+<big>DEF</big>
+<style>
+    /* Basic font-face */
+    @font-face {
+        font-family: leak;
+        src: url(https://domain_collab/css-font-face-src);
+    }
+    
+    /* 
+    * Cross-browser font-face
+    * IE6-8 will use the EOT source, modern browsers will use WOFF(2) and fallback to TTF in case of error
+    * More info:
+    * http://www.paulirish.com/2009/bulletproof-font-face-implementation-syntax/
+    * http://caniuse.com/#search=eot
+    * http://caniuse.com/#search=woff2
+    * http://caniuse.com/#search=woff
+    * http://caniuse.com/#search=ttf
+    */
+    @font-face {
+      font-family: 'leak';
+      src: url('https://domain_collab/css-font-face-src-eot') format('eot'), url('https://domain_collab/css-font-face-src-woff') format('woff'), url('https://domain_collab/css-font-face-src-ttf') format('truetype');
+    }
+
+    big {
+        font-family: leak;
+    }
+</style>
+<big>GHI</big>
+<svg>
+    <style>
+        circle {
+            fill: url(https://domain_collab/svg-css-fill#foo);
+            mask: url(https://domain_collab/svg-css-mask#foo);
+            -webkit-mask: url(https://domain_collab/svg-css--webkit-mask#foo);
+            filter: url(https://domain_collab/svg-css-filter#foo);
+            clip-path: url(https://domain_collab/svg-css-clip-path#foo);
+        }
+    </style>
+    <circle r="40"></circle>
+</svg>
+<s foo="https://domain_collab/css-attr-notation">JKL</s>
+<style>
+    s {
+      --leak: url(https://domain_collab/css-variables);
+    }
+    s {
+      background: var(--leak);
+    }
+    s::after {
+      content: attr(foo url);
+    }    
+    s::before {
+      content: attr(notpresent, url(https://domain_collab/css-attr-fallback));
+    }
+</style>
+<style>
+    p#p1 {
+        background-image: \75 \72 \6C (https://domain_collab/css-escape-url-1);
+    }
+    p#p2 {
+        background-image: \000075\000072\00006C(https://domain_collab/css-escape-url-2);
+    }
+</style>
+<p id="p1">bla</p>
+<p id="p2">bla</p>
+
+<!--
+%Inline CSS
+-->
+<b style="
+        list-style: url(https://domain_collab/inline-css-list-style);
+        list-style-image: url&#40;https://domain_collab/inline-css-list-style-image&#41;;
+        background: url&#x28;https://domain_collab/inline-css-background&#x29;;
+        background-image: url&lpar;https://domain_collab/inline-css-background-image&rpar;;
+        border-image: url(https://domain_collab/inline-css-list-style-image);
+        -moz-border-image: url(https://domain_collab/inline-css--moz-background-image-alias);
+        -webkit-border-image: url(https://domain_collab/inline-css--webkit-background-image-alias);
+        border-image-source: url(https://domain_collab/inline-css-border-image-source);
+        shape-outside: url(https://domain_collab/inline-css-shape-outside);
+        -webkit-shape-outside: url(https://domain_collab/inline-css--webkit-shape-outside-alias);
+        -webkit-mask-image: url(https://domain_collab/inline-css--webkit-mask-image);
+        -webkit-mask-box-image: url(https://domain_collab/inline-css--webkit-mask-box-image);
+        -webkit-mask-box-image-source: url(https://domain_collab/inline-css--webkit-mask-box-image-source);
+        cursor: url(https://domain_collab/inline-css-cursor), auto;
+">MNO</b>
+
+<svg>
+<circle style="
+        fill: url(https://domain_collab/svg-inline-css-fill#foo);
+        mask: url(https://domain_collab/svg-inline-css-mask#foo);
+        -webkit-mask: url(https://domain_collab/svg-inline-css--webkit-mask#foo);
+        filter: url(https://domain_collab/svg-inline-css-filter#foo);
+        clip-path: url(https://domain_collab/svg-inline-css-clip-path#foo);
+"></circle>
+</svg>
+
+<!-- 
+%Exotic Inline CSS
+-->
+<div style="background: url() url() url() url() url(https://domain_collab/inline-css-multiple-backgrounds);"></div>
+<div style="behavior: url('https://domain_collab/inline-css-behavior');"></div>
+<div style="-ms-behavior: url('https://domain_collab/inline-css-behavior-2');"></div>
+<div style="background-image: image('https://domain_collab/inline-css-image-function')"></div>
+<div style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader( src='https://domain_collab/inline-css-filter-alpha', sizingMethod='scale');" ></div>
+<div style="filter:progid:DXImageTransform.Microsoft.ICMFilter(colorSpace='https://domain_collab/inline-css-filter-icm')"></div>
+
+<!--
+%Applet
+-->
+<applet code="Test" codebase="https://domain_collab/applet-codebase"></applet>
+<applet code="Test" archive="https://domain_collab/applet-archive"></applet>
+<applet code="Test" object="https://domain_collab/applet-object"></applet>
+
+<!--
+%SVG
+-->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="Gradient">
+      <stop offset="0" stop-color="white" stop-opacity="0" />
+      <stop offset="1" stop-color="white" stop-opacity="1" />
+    </linearGradient>
+    <mask id="Mask">
+      <rect x="0" y="0" width="200" height="200" fill="url(https://domain_collab/svg-fill)"  />
+    </mask>
+  </defs>
+  <rect x="0" y="0" width="200" height="200" fill="green" />
+  <rect x="0" y="0" width="200" height="200" fill="red" mask="url(https://domain_collab/svg-mask)" />
+</svg>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <image xmlns:xlink="http://www.w3.org/1999/xlink">
+        <set attributeName="xlink:href" begin="0s" to="https://domain_collab/svg-image-set" />
+    </image>
+</svg>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <image xmlns:xlink="http://www.w3.org/1999/xlink">
+        <animate attributeName="xlink:href" begin="0s" from="#" to="https://domain_collab/svg-image-animate" />
+    </image>
+</svg>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <feImage xlink:href="https://domain_collab/svg-feimage" />
+</svg>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <a xlink:href="https://domain_collab/svg-a-text/"><text transform="translate(0,20)">CLICKME</text></a>
+</svg>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <rect cursor="url(https://domain_collab/svg-cursor),auto" />
+</svg>
+
+<svg>
+    <font-face-uri xlink:href="https://domain_collab/svg-font-face-uri" />
+</svg>
+
+<!--
+%XSLT Stylesheets
+-->
+<?xml-stylesheet type="text/xsl" href="https://domain_collab/xslt-stylesheet" ?>
+
+<!--
+%Data Islands
+-->
+<xml src="https://domain_collab/xml-src" id="xml"></xml>
+<div datasrc="#xml" datafld="$text" dataformatas="html"></div>
+<script language="xml">
+    <!DOCTYPE html SYSTEM "https://domain_collab/script-doctype">
+</script>
+<xml>
+    <!DOCTYPE html SYSTEM "https://domain_collab/xml-doctype">
+</xml>
+
+<!-- 
+%VML
+-->
+<line xmlns="urn:schemas-microsoft-com:vml" style="behavior:url(#default#vml)">
+    <fill style="behavior:url(#default#vml)" src="https://domain_collab/vml-line-fill-src" />
+    <stroke style="behavior:url(#default#vml)" src="https://domain_collab/vml-line-stroke-src" />
+    <imageData style="behavior:url(#default#vml)" src="https://domain_collab/vml-line-imgdata-src" />
+</line>
+
+<vmlframe 
+    xmlns="urn:schemas-microsoft-com:vml" 
+    style="behavior:url(#default#vml);position:absolute;width:100%;height:100%" 
+    src="https://domain_collab/vmlframe-src#xss">
+</vmlframe>
+
+<line xmlns="urn:schemas-microsoft-com:vml" style="behavior:url(#default#vml)">
+    <imageData style="behavior:url(#default#vml)" o:href="https://domain_collab/vml-line-imgdata-href" />
+</line>
+
+<!--
+%MathML
+-->
+<math xlink:href="https://domain_collab/mathml-math">CLICKME</math>
+
+<math><mi xlink:href="https://domain_collab/mathml-mi">CLICKME</mi></math>
+
+</body>
+</html>
