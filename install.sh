@@ -2,7 +2,7 @@
 sudo rm /etc/apt/preferences.d/nosnap.pref
 sudo apt update -y
 sudo apt dist-upgrade -y
-sudo apt install ruby ruby-dev libpcap-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon python3 python3-dnspython pv xed ldnsutils jq testssl.sh whatweb masscan wafw00f gobuster -y
+sudo apt install composer ruby ruby-dev libpcap-dev libldns-dev golang python sqlmap mono-complete wine winetricks git snapd nmap wfuzz dnsrecon python3 python3-dnspython pv xed ldnsutils jq testssl.sh whatweb masscan wafw00f gobuster -y
 sudo gem install bundler json mongo
 sudo apt install python3-pip nodejs -y
 sudo add-apt-repository universe
