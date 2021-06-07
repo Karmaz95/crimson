@@ -83,7 +83,7 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 ### :diamonds: IP && ports:
 * [nmap](https://github.com/nmap/nmap)
 * [masscan](https://github.com/robertdavidgraham/masscan)
-* [naabu](https://github.com/projectdiscovery/naabu)
+* [rustscan](https://github.com/RustScan/RustScan.git)
 
 ### :diamonds: URLs:
 * [waybackurls](https://github.com/tomnomnom/waybackurls)

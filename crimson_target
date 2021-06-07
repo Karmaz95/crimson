@@ -78,7 +78,7 @@ else
     echo -e "\033[0;31m [+]\033[0m PREPARING DIRECTORIES AND VARIABLES"
     export domain=$domain
     export DOMAIN=`tldextract $domain | cut -d " " -f 2-3 | sed "s/\ /\./"`
-    export TARGET=`dig +short $domain`
+    export TARGET=`dig +short $domain | tr "\n" ","`
     mkdir $HOME/bounty/$DOMAIN/$domain/temp -p
     mkdir $HOME/bounty/$DOMAIN/$domain/exp
     mkdir $HOME/bounty/$DOMAIN/$domain/all_source_code
@@ -92,10 +92,11 @@ else
     
     ### RESOLVE IP AND SCAN OPENED PORTS > recon.txt
     echo "[NMAP] ---------------------------------------------------------" | tee -a recon.txt
-    echo TARGET: $TARGET | sed 's/\ /\n/g' | tee -a recon.txt
-    ports=$(nmap -p- --min-rate=1000 -T4 $TARGET | grep ^[0-9] | cut -d '/' -f 1 | sort -u | tr '\n' ',' | sed s/,$//)
-    echo PORTS : $ports | tee -a recon.txt
-    nmap -A -p $ports $TARGET -oG exp/nmap.gnmap -oN nmap.txt
+    echo TARGET: $TARGET | tee -a recon.txt
+    #ports=$(nmap -p- --min-rate=1000 -T4 $TARGET | grep ^[0-9] | cut -d '/' -f 1 | sort -u | tr '\n' ',' | sed s/,$//)
+    #echo PORTS : $ports | tee -a recon.txt
+    #nmap -A -p $ports $TARGET -oG exp/nmap.gnmap -oN nmap.txt
+    rustscan -a $TARGET --ulimit 5000 -- -n -A -Pn -oG exp/nmap.gnmap -oN nmap.txt  # --scan-order "Random"
     cat nmap.txt >> recon.txt
     rm nmap.txt
 

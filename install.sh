@@ -173,8 +173,6 @@ go get -v -u github.com/rverton/webanalyze/cmd/webanalyze
 go get -u github.com/dwisiswant0/cf-check
 ### HEADI
 go get github.com/mlcsec/headi
-### NAABU
-GO111MODULE=on go get -v github.com/projectdiscovery/naabu/v2/cmd/naabu
 ### CODEQL
 cd $HOME/tools
 wget https://github.com/github/codeql-cli-binaries/releases/download/v2.5.1/codeql-linux64.zip
@@ -182,6 +180,15 @@ unzip codeql-linux64.zip
 rm codeql-linux64.zip
 ### SEMGREP
 python3 -m pip install semgrep
+### RUST
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+### RUSTSCAN
+git clone https://github.com/RustScan/RustScan.git
+cd RustScan
+cargo build --release
+cd $HOME/.local/bin
+ln -s $HOME/tools/RustScan/target/release/rustscan rustscan
+cd $HOME/tools
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  
