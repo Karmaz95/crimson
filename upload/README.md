@@ -25,3 +25,7 @@
 * :small_red_triangle_down: normal.png
 
 > Casual png file for initial upload.
+
+* :small_red_triangle_down: PDF+PHP.pdf
+
+> Polyglot with php code which fortunately evaluate to: Hello world!
