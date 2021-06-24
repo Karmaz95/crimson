@@ -214,7 +214,7 @@ else
 
     ### DIRECTORY BRUTEFORCING > status_ffuf.txt
     echo -e "\033[0;31m [+]\033[0m STARTING DIRECTORY BRUTEFORCING"
-    ffuf -w $HOME/tools/CRIMSON/words/custom_dir.txt -u https://$domain/FUZZ -mc all -fc 400 -H "$cookie" -o ffuf.json > /dev/null
+    ffuf -w $HOME/tools/CRIMSON/words/custom_dir.txt -t 20 -u https://$domain/FUZZ -mc all -fc 400 -H "$cookie" -o ffuf.json > /dev/null
     cat ffuf.json | jq -c '.results[] | {url:.url,status: .status}' > status_ffuf.txt
     rm ffuf.json
 

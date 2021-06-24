@@ -191,6 +191,8 @@ ln -s $HOME/tools/RustScan/target/release/rustscan rustscan
 cd $HOME/tools
 ### EXTRACT.RB
 git clone https://github.com/jobertabma/relative-url-extractor.git
+### GMAPISCANNER
+git clone https://github.com/ozguralp/gmapsapiscanner.git
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  

@@ -137,7 +137,7 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [headi](https://github.com/mlcsec/headi)
 * [codeql](https://github.com/github/codeql-cli-binaries)
 * [semgrep](https://semgrep.dev/)
-
+* [gmapiscanner](https://github.com/ozguralp/gmapsapiscanner.git)
 
 ### :diamonds: WordPress tools:
 * [wpscan](https://github.com/wpscanteam/wpscan)
