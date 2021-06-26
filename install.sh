@@ -193,6 +193,8 @@ cd $HOME/tools
 git clone https://github.com/jobertabma/relative-url-extractor.git
 ### GMAPISCANNER
 git clone https://github.com/ozguralp/gmapsapiscanner.git
+### PYWHAT
+pip3 install pywhat
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  

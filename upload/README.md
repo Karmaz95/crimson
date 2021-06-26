@@ -2,17 +2,22 @@
 
 > This directory contains files for testing upload functionality.
 
-* :small_red_triangle_down: bilion_laughs.*
+* :small_red_triangle_down: DOS_bilion_laughs.*
 
-> DOS test with .yaml and .xml files 
+> [YAML example](https://dev.to/efrat19/the-billion-laughs-attack-yaml-anchors-explained-3767) 
+> [XML example](https://www.geeksforgeeks.org/xml-external-entity-xxe-and-billion-laughs-attack/)
+
+* :small_red_triangle_down: DOS_pixel_flood.jpg 
+
+> [Data compression bomb](https://hackerone.com/reports/390)
+
+* :small_red_triangle_down: DOS_txt.png
+
+> [zTXt chunk with zlib compression](https://hackerone.com/reports/454)
 
 * :small_red_triangle_down: cmd.zip
 
 > The decompressed files could be created in unexpected folders - after upload look for cmd.php
-
-* :small_red_triangle_down: pixel_flood_dos.jpg
-
-> DOS test with modified image size tag.  The app could try to allocate 4128062500 pixels into memory.  It allows flooding the memory and causing DoS 
 
 * :small_red_triangle_down: sympasswd.zip
 
