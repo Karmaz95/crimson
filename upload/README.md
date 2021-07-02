@@ -33,4 +33,4 @@
 
 * :small_red_triangle_down: PDF+PHP.pdf
 
-> Polyglot with php code which fortunately evaluate to: Hello world!
+> Polyglot with php code which fortunately evaluate to: RCE IS REAL
