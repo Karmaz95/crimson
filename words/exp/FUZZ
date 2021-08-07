@@ -1625,7 +1625,6 @@ Statement
 ; sysinfo
 | sysinfo
 tftp://0/
-Tyson Gay
 tz_offset
 /..%u2215
 /..%u2216

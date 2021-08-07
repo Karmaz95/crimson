@@ -25,7 +25,7 @@
 
 * :small_red_triangle_down: simple_backdoor.php
 
-> Just php simple backdoor
+> Just php simple backdoor.
 
 * :small_red_triangle_down: normal.png
 
@@ -33,4 +33,24 @@
 
 * :small_red_triangle_down: PDF+PHP.pdf
 
-> Polyglot with php code which fortunately evaluate to: RCE IS REAL
+> Polyglot with php code which fortunately evaluate to: RCE IS REAL.
+
+* :small_red_triangle_down: uber.gif
+
+> A GIF composed of 40k 1x1 images made Paperclip freeze until timeout.
+
+* :small_red_triangle_down: xssproject.swf
+
+> Make a website vulnerable to XSS if you can upload/include a SWF file into that website. 
+> Example 1 => /xssproject.swf?js=alert(document.domain); 
+> Example 2 => /xssproject.swf?js=try{alert(document.domain)}catch(e){ window.open(‘?js=history.go(-1)’,’_self’);}
+> Example 3 => /xssproject.swf?js=w=window.open(‘invalidfileinvalidfileinvalidfile’,’target’);setTimeout(‘alert(w.document.location);w.close();’,1);
+
+
+* :small_red_triangle_down: img_phpinfo.*
+
+> Described here: https://secgeek.net/bookfresh-vulnerability/
+
+* :small_red_triangle_down: eicar.com.txt
+
+> Test the response of computer antivirus (AV) programs.
