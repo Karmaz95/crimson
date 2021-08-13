@@ -262,7 +262,7 @@ cat subjack2.txt >> subjack.txt 2>/dev/null
 rm subjack2.txt 2>/dev/null
 
 ### NUCLEI CVE SCAN
-nuclei -l live.txt -t cves/ -o nuclei.txt --rate-limit 2
+nuclei -l live.txt -t cves/ -o nuclei.txt --rate-limit 2 -stats
 
 ### --- 3RDLEVEL SECTION --- ###
 ### THRID LEVEL SUBDOMAINS BRUTE-FORCE = 3rdlevel_live.txt
