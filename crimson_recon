@@ -314,3 +314,6 @@ gowitness report serve
 # grep -P '^(?:[a-z0-9]+.){2,3}[^.]*$'	3rd to 4th level domains only
 # grep -P '^(?:[a-z0-9]+.){3,}[^.]*$'	4th level domains or higher
 ###
+
+### Socks4 Proxies
+# https://proxyscrape.com/free-proxy-list

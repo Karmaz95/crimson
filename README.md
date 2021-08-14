@@ -158,6 +158,8 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [crimson_paramjuggler](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_paramjuggler.py)
 * [tldextract](https://pypi.org/project/tldextract/)
 * [PyWhat](https://github.com/bee-san/pyWhat)
+* [Ciphey](https://github.com/Ciphey/Ciphey)
+
 
 ### :diamonds: Wordlists:
 * [SecLists](https://github.com/danielmiessler/SecLists)

@@ -195,6 +195,8 @@ git clone https://github.com/jobertabma/relative-url-extractor.git
 git clone https://github.com/ozguralp/gmapsapiscanner.git
 ### PYWHAT
 pip3 install pywhat
+### CIPHEY
+python3 -m pip install ciphey --upgrade
 ### METASPLOIT
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall  
 chmod 755 msfinstall  

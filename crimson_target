@@ -333,5 +333,5 @@ else
     echo "	- arjun.txt"
     echo "  - backups.txt"
     echo "  - apikeys.txt"
-    echo "  - use pywhat for 'strange' findings"
+    echo "  - use pywhat && ciphey for 'strange' findings'"
 fi
