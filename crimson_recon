@@ -317,3 +317,15 @@ gowitness report serve
 
 ### Socks4 Proxies
 # https://proxyscrape.com/free-proxy-list
+
+### Manual nmap:
+# for line in $(cat ip_80); do nmap "$line" --script=http-enum -p80 -Pn -sV --max-rate=1 -oN ip_80.txt --append-output ;done
+# for line in $(cat ip_443); do nmap "$line" --script=ssl-heartbleed.nse -p443 -Pn -sV --max-rate=1 -oN ip_443.txt --append-output ;done 
+#  123.123.123.123
+# nmap -sV --script=smb* 123.123.123.123
+
+# A scan to search for DDOS reflection UDP services
+# nmap -sU -A -PN -n -pU:19,53,123,161 -script=ntp-monlist,dns-recursion,snmp-sysdescr 192.168.1.0/24
+
+# IP Address information
+# nmap --script=asn-query,whois,ip-geolocation-maxmind 123.123.123.123/24
