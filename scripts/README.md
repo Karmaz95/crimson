@@ -164,3 +164,13 @@ python crimson_rewriter.py -w wordlist_with_urls.txt -H "custom=header" -c "Cook
 ```bash
 python crimson_templator.py -w urls.txt -c "Cookie: auth1=qwe; auth2=asd;" -H "asd=1" -H "qwe=2"
 ```
+
+## :small_red_triangle_down:crimson_mass_nmap
+
+> For scanning a large number of IP:PORT services list.
+
+### Usage example (all.txt
+```bash
+# you need "all.txt" file in your working directory
+python crimson_mass_nmap
+```
