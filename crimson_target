@@ -326,7 +326,7 @@ else
     echo -e "\033[0;31m [+]\033[0m 1. recon.txt :"
     cat recon.txt
     echo -e "\033[0;31m [+]\033[0m 2. zile.txt :"
-    cat zile.txt
+    cat zile.txt | cut -d " " -f 2 | sed "s/^..//g" | sed "s/..$//g" | sort -u | sed "s/^.//" | sed "s/.$//"
     echo -e "\033[0;31m [+]\033[0m 3. CHECK :"
     echo "	- status_dir.txt"
     echo "	- status_params.txt"
