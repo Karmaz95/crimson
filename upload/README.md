@@ -57,3 +57,7 @@
 * :small_red_triangle_down: eicar.com.txt
 
 > Test the response of computer antivirus (AV) programs.
+
+* :small_red_triangle_down: formula_injections.txt
+
+> Excel formulas that will be executed when the user opens the file or when the user clicks on some link inside the excel sheet.

