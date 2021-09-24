@@ -55,7 +55,7 @@ echo -e "\033[0;31m
 \033[0m"
 
 rust_on=0
-while getopts "c:d:" OPTION; do
+while getopts "c:d:p" OPTION; do
     case $OPTION in
     c)
         cookie=$OPTARG

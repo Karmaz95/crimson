@@ -61,7 +61,7 @@ echo -e "\033[0;31m
 fuzzing_on=0
 vhost_on=0
 rust_on=0
-while getopts "D:x" OPTION; do
+while getopts "D:xvp" OPTION; do
     case $OPTION in
     D)
         export DOMAIN=$OPTARG
