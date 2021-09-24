@@ -3,8 +3,6 @@
 ### CREATED BY KARMAZ
 #
 #
-### TO DO:
-# Add nuclei CVE scan
 #
 ### FUNCTIONS:
 #
@@ -36,8 +34,6 @@
 #
 ### WORKFLOW
 #
-# 0. *Comment out VHOST SECTION if you want to resolve ips and get vhostnames.
-# 0. *Comment out 3RDLEVEL section if you want to bruteforce 3rdlevel subdomains.
 # 1. Start Burp Suite
 #	- Create new project - example.domain.com
 #	- Turn off interception
@@ -61,7 +57,9 @@ echo -e "\033[0;31m
 fuzzing_on=0
 vhost_on=0
 rust_on=0
-while getopts "D:xvp" OPTION; do
+third_level_on=0
+udp_scan_on=0
+while getopts "D:xvpbu" OPTION; do
     case $OPTION in
     D)
         export DOMAIN=$OPTARG
@@ -76,7 +74,7 @@ while getopts "D:xvp" OPTION; do
 		rust_on=1
 		;;
     *)
-        echo "Usage: ./crimson_recon -D example.domain.com"
+        echo "Usage: ./crimson_recon -D \"example.domain.com\" -x -v -p -b -u"
         exit 1
         ;;
     esac
@@ -233,8 +231,11 @@ fi
 ### --- PORT SCANNING SECTION --- ### -p
 if [ $rust_on == 1 ]
 then
-	### SCANNING filtered_ip.txt FOR OPENED PORTS = ports.txt
-	#for ip in $(cat $HOME/bounty/$DOMAIN/filtered_ip.txt);do masscan -p1-65535 --max-rate 1000 $ip >> $HOME/bounty/$DOMAIN/ports.txt ; done
+	if [ $udp_scan_on == 1 ]
+		### UDP SCANNING filtered_ip.txt FOR OPENED PORTS = udpnmap.txt -u
+		while IFS= read -r ip; do sudo nmap -sU $ip -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt ;done < $HOME/bounty/$DOMAIN/filtered_ip.txt
+	fi
+	### TCP SCANNING filtered_ip.txt FOR OPENED PORTS = nmap.txt
 	rustscan -a filtered_ip.txt --ulimit 5000 --scan-order="Random" -- -n -A -Pn --append-output -oN nmap.txt -oG nmap.gnmap | tee -a rustscan.txt
 fi
 
@@ -283,14 +284,17 @@ rm subjack2.txt 2>/dev/null
 ### NUCLEI CVE SCAN
 nuclei -l live.txt -t cves/ -o nuclei.txt --rate-limit 2 -stats
 
-### --- 3RDLEVEL SECTION --- ###
-### THRID LEVEL SUBDOMAINS BRUTE-FORCE = 3rdlevel_live.txt
-#echo -e "\033[0;31m [+]\033[0m STARTING 3RDLEVEL ENUMERATION"
-#mkdir 3rdlevel
-#for subdomain in $(cat live.txt); do $HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $subdomain -w 3rdlevel/$subdomain.txt -r resolvers.txt -l 250 ;done
-#sort -u 3rdlevel/* > 3rdlevel.txt
-#cat 3rdlevel.txt | dnsx -o 3rdlevel_live.txt
-#rm -rf 3rdlevel/ 3rdlevel.txt
+### --- 3RDLEVEL SECTION --- ### -b
+if [ $third_level_on == 1 ]
+then
+	### THRID LEVEL SUBDOMAINS BRUTE-FORCE = 3rdlevel_live.txt
+	echo -e "\033[0;31m [+]\033[0m STARTING 3RDLEVEL ENUMERATION"
+	mkdir 3rdlevel
+	while IFS= read -r subdomain; do $HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $subdomain -w 3rdlevel/$subdomain.txt -r resolvers.txt -l 250 ;done < live.txt
+	sort -u 3rdlevel/* > 3rdlevel.txt
+	cat 3rdlevel.txt | dnsx -o 3rdlevel_live.txt
+	rm -rf 3rdlevel/3rdlevel.txt
+fi
 
 ### CLEARING THE DIRECTORY
 rm proxy.txt 2>/dev/null
