@@ -159,7 +159,7 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [tldextract](https://pypi.org/project/tldextract/)
 * [PyWhat](https://github.com/bee-san/pyWhat)
 * [Ciphey](https://github.com/Ciphey/Ciphey)
-
+* [cswsh-scanner](https://github.com/ambalabanov/cswsh-scanner)
 
 ### :diamonds: Wordlists:
 * [SecLists](https://github.com/danielmiessler/SecLists)
