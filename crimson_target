@@ -234,7 +234,7 @@ else
 
     ### GATHER ALL SOURCE CODE FROM ffuf.txt AND STORE IT IN DIRECTORY > all_source_code/
     echo -e "\033[0;31m [+]\033[0m GATHERING SOURCE CODE OF BRUTE-FORCED SITES"
-    for url in $(cat ffuf.txt); do echo -e "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url" && curl -k -s "$url" -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/$(echo "$url" | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g") ;done
+    cat ffuf.txt | while read -r url; do echo -e "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url" && curl -k -s -D - "$url" -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/$(echo "$url" | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g") ;done
 
     ### REMOVE EMPTY FILES IN all_source_code
     for f in $(ls all_source_code/*); do [ -s $f ] || rm $f ;done
@@ -252,7 +252,8 @@ else
 
     ### GATHER SOURCE CODE FROM JS LINKS AND STORE IT IN >> all_source_code/
     echo -e "\033[0;31m [+]\033[0m GATHERING SOURCE CODE FROM LIVE .js LINKS"
-    for url in $(cat exp/jsfiles.txt); do echo -e "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url" && curl -k -s $url -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
+
+    cat exp/jsfiles.txt | while read -r url; do echo -e "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url" && curl -k -s $url -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" |js-beautify > all_source_code/`echo $url | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g"` ;done
 
     ### REMOVE EMPTY FILES IN all_source_code
     for f in $(ls all_source_code/*); do [ -s $f ] || rm $f ;done
