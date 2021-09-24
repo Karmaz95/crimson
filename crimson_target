@@ -54,6 +54,7 @@ echo -e "\033[0;31m
                                                                                                                  
 \033[0m"
 
+rust_on=0
 while getopts "c:d:" OPTION; do
     case $OPTION in
     c)
@@ -61,6 +62,9 @@ while getopts "c:d:" OPTION; do
         ;;
     d)
         domain=$OPTARG
+        ;;
+    p)
+        rust_on == 1
         ;;
     *)
         echo "Incorrect options provided"
@@ -90,16 +94,20 @@ else
         export cookie=$cookie;
     fi
     
-    ### RESOLVE IP AND SCAN OPENED PORTS > recon.txt
-    echo "[NMAP] ---------------------------------------------------------" | tee -a recon.txt
-    echo TARGET: $TARGET | tee -a recon.txt
-    #ports=$(nmap -p- --min-rate=1000 -T4 $TARGET | grep ^[0-9] | cut -d '/' -f 1 | sort -u | tr '\n' ',' | sed s/,$//)
-    #echo PORTS : $ports | tee -a recon.txt
-    #nmap -A -p $ports $TARGET -oG exp/nmap.gnmap -oN nmap.txt
-    rustscan -a $TARGET --ulimit 5000 -- -n -A -Pn --append-output -oG exp/nmap.gnmap -oN nmap.txt  # --scan-order "Random"
-    cat nmap.txt >> recon.txt
-    rm nmap.txt
-
+    ### --- PORT SCANNING SECTION --- ### -p
+    if [ $rust_on == 1 ]
+    then
+        ### RESOLVE IP AND SCAN OPENED PORTS > recon.txt
+        echo "[NMAP] ---------------------------------------------------------" | tee -a recon.txt
+        echo TARGET: $TARGET | tee -a recon.txt
+        #ports=$(nmap -p- --min-rate=1000 -T4 $TARGET | grep ^[0-9] | cut -d '/' -f 1 | sort -u | tr '\n' ',' | sed s/,$//)
+        #echo PORTS : $ports | tee -a recon.txt
+        #nmap -A -p $ports $TARGET -oG exp/nmap.gnmap -oN nmap.txt
+        rustscan -a $TARGET --ulimit 5000 -- -n -A -Pn --append-output -oG exp/nmap.gnmap -oN nmap.txt  # --scan-order "Random"
+        cat nmap.txt >> recon.txt
+        rm nmap.txt
+    fi
+    
     ### GET THE CONTENT OF SITEMAP IF EXISTS >> recon.txt
     echo "[SITEMAP 80] ---------------------------------------------------------" | tee -a recon.txt
     $HOME/tools/sitemap-urls/sitemap-urls.sh http://$domain >> recon.txt
