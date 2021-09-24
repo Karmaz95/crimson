@@ -73,6 +73,9 @@ while getopts "D:xvpbu" OPTION; do
 	p)
 		rust_on=1
 		;;
+	u)
+		udp_scan_on=1
+		;;
     *)
         echo "Usage: ./crimson_recon -D \"example.domain.com\" -x -v -p -b -u"
         exit 1
