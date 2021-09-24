@@ -70,10 +70,10 @@ while getopts "D:xvp" OPTION; do
         fuzzing_on=1
         ;;
     v)
-		vhost_on == 1
+		vhost_on=1
 		;;
 	p)
-		rust_on == 1
+		rust_on=1
 		;;
     *)
         echo "Usage: ./crimson_recon -D example.domain.com"

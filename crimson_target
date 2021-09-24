@@ -64,7 +64,7 @@ while getopts "c:d:p" OPTION; do
         domain=$OPTARG
         ;;
     p)
-        rust_on == 1
+        rust_on=1
         ;;
     *)
         echo "Incorrect options provided"
