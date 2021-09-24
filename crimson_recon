@@ -237,7 +237,7 @@ then
 	if [ $udp_scan_on == 1 ]
 	then
 		### UDP SCANNING filtered_ip.txt FOR OPENED PORTS = udpnmap.txt -u
-		while IFS= read -r ip; do sudo nmap -sU $ip -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt ;done < $HOME/bounty/$DOMAIN/filtered_ip.txt
+		while IFS= read -r ip; do sudo nmap -sU "$ip" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
 	fi
 	### TCP SCANNING filtered_ip.txt FOR OPENED PORTS = nmap.txt
 	rustscan -a filtered_ip.txt --ulimit 5000 --scan-order="Random" -- -n -A -Pn --append-output -oN nmap.txt -oG nmap.gnmap | tee -a rustscan.txt
@@ -294,7 +294,7 @@ then
 	### THRID LEVEL SUBDOMAINS BRUTE-FORCE = 3rdlevel_live.txt
 	echo -e "\033[0;31m [+]\033[0m STARTING 3RDLEVEL ENUMERATION"
 	mkdir 3rdlevel
-	while IFS= read -r subdomain; do $HOME/tools/puredns/puredns bruteforce $HOME/tools/CRIMSON/words/dns $subdomain -w 3rdlevel/$subdomain.txt -r resolvers.txt -l 250 ;done < live.txt
+	while IFS= read -r subdomain; do "$HOME"/tools/puredns/puredns bruteforce "$HOME"/tools/CRIMSON/words/dns "$subdomain" -w 3rdlevel/"$subdomain".txt -r resolvers.txt -l 250 ;done < live.txt
 	sort -u 3rdlevel/* > 3rdlevel.txt
 	cat 3rdlevel.txt | dnsx -o 3rdlevel_live.txt
 	rm -rf 3rdlevel/3rdlevel.txt
