@@ -235,6 +235,7 @@ fi
 if [ $rust_on == 1 ]
 then
 	if [ $udp_scan_on == 1 ]
+	then
 		### UDP SCANNING filtered_ip.txt FOR OPENED PORTS = udpnmap.txt -u
 		while IFS= read -r ip; do sudo nmap -sU $ip -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt ;done < $HOME/bounty/$DOMAIN/filtered_ip.txt
 	fi
