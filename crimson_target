@@ -107,24 +107,24 @@ else
         cat nmap.txt >> recon.txt
         rm nmap.txt
     fi
-    
+
     ### GET THE CONTENT OF SITEMAP IF EXISTS >> recon.txt
-    echo "[SITEMAP 80] ---------------------------------------------------------" | tee -a recon.txt
+    echo "[SITEMAP 80] ----------------------------------------------------------" | tee -a recon.txt
     $HOME/tools/sitemap-urls/sitemap-urls.sh http://$domain >> recon.txt
     echo "[SITEMAP 443] ---------------------------------------------------------" | tee -a recon.txt
     $HOME/tools/sitemap-urls/sitemap-urls.sh https://$domain >> recon.txt
 
     ### GET THE CONTENT OF ROBOTS IF EXISTS >> recon.txt
-    echo "[ROBOTS 80] ---------------------------------------------------------" | tee -a recon.txt
+    echo "[ROBOTS 80] -----------------------------------------------------------" | tee -a recon.txt
     curl -O http://$domain/robots.txt > /dev/null 2>&1
     cat robots.txt >> recon.txt
-    echo "[ROBOTS 443] ---------------------------------------------------------" | tee -a recon.txt
+    echo "[ROBOTS 443] ----------------------------------------------------------" | tee -a recon.txt
     curl -k -O https://$domain/robots.txt > /dev/null 2>&1
     cat robots.txt >> recon.txt
     rm robots.txt
 
     ### CHECKING WAF >> recon.txt
-    echo "[WAFW00F] ---------------------------------------------------------" | tee -a recon.txt
+    echo "[WAFW00F] -------------------------------------------------------------" | tee -a recon.txt
     wafw00f $domain | tail -n +16 | tee -a recon.txt
 
     ### IDENTIFY TECHNOLOGY 1 >> recon.txt
@@ -146,7 +146,7 @@ else
     echo "[SHCHECK 80] ---------------------------------------------------------" | tee -a recon.txt
     shcheck.py http://$domain/ -a "$cookie" | tail -n+8 >> recon.txt
     echo "[SHCHECK 443] ---------------------------------------------------------" | tee -a recon.txt
-    shcheck.py https://$domain/ -a "$cookie" | tail -n+8 >> recon.txt
+    shcheck.py https://$domain/ -a "$cookie" -d | tail -n+8 >> recon.txt
 
     ### VULN SCAN 1 >> recon.txt
     # Perform a brute-force attack to uncover known and potentially dangerous scripts on the web server.
