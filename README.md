@@ -41,8 +41,8 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 
 ```bash
 ./crimson_recon -D "domain.com" 
-         # Optional flags are shown below: 
-        -x # Domain bruteforcing (with words/dns wordlist)
+                   # Optional flags are shown below: 
+                -x # Domain bruteforcing (with words/dns wordlist)
                 -v # Virtual host discovering
                 -p # TCP ports scanning (1-65535)
                 -u # UDP ports scanning (nmap default ports)
@@ -53,7 +53,7 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 ##### :diamonds: Second module needs `subdomain name`:diamonds:
 ```bash
 ./crimson_target -d "example.domain.com" 
-         # Optional flags are shown below:
+                    # Optional flags are shown below:
                  -c "Cookie: auth1=123;"
                  -p # TCP (1-65535) / UDP (nmap default) ports scanning
                  -a # Without this flag, you have to manually check for false-positives after bruteforcing
