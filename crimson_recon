@@ -85,7 +85,7 @@ done
 
 
 ### REMINDER OF BURP SUITE 
-echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(tldextract "$DOMAIN" | cut -d " " -f 2-3 | sed "s/\ /\./" | sed "s/\./\\\./")$
+echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(tldextract "$DOMAIN" | cut -s -d " " -f 2-3 | sed "s/\ /\./" | sed "s/\./\\\./")$
 echo
 read -rsp $'\tRUN BURP, TURN OFF INTERCEPTION AND ADD SCOPE... THEN CLICK ENTER\n\n' -n1 key
 
@@ -234,13 +234,14 @@ fi
 ### --- PORT SCANNING SECTION --- ### -p
 if [ $rust_on == 1 ]
 then
-	if [ $udp_scan_on == 1 ]
-	then
-		### UDP SCANNING filtered_ip.txt FOR OPENED PORTS = udpnmap.txt -u
-		while IFS= read -r ip; do sudo nmap -sU "$ip" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
-	fi
 	### TCP SCANNING filtered_ip.txt FOR OPENED PORTS = nmap.txt
 	rustscan -a filtered_ip.txt --ulimit 5000 --scan-order="Random" -- -n -A -Pn --append-output -oN nmap.txt -oG nmap.gnmap | tee -a rustscan.txt
+fi
+
+if [ $udp_scan_on == 1 ]
+then
+	### UDP SCANNING filtered_ip.txt FOR OPENED PORTS = udpnmap.txt -u
+	while IFS= read -r ip; do sudo nmap -sU "$ip" -A -Pn --append-output -oG udpnmap.gnmap -oN udpnmap.txt ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
 fi
 
 ### MAKING SCREENSHOOTS FROM ENUERATED LIVE DOMAINS = screenshots/
@@ -261,7 +262,7 @@ rm temp_live.txt
 
 ### PROXING DOMAINS TO BURP = proxy.txt
 echo -e "\033[0;31m [+]\033[0m PROXING SUBDOMAINS TO BURP"
-cat status_live.txt | grep -v "XXX" | cut -d "\"" -f 2 > proxy.txt
+cat status_live.txt | grep -v "XXX" | cut -s -d "\"" -f 2 > proxy.txt
 wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z > /dev/null 2>&1
 
 ### CHECKING ZONE TRANSFER = dnsrecon.txt

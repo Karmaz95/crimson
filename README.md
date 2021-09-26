@@ -37,16 +37,27 @@ export PATH="$HOME/bin:$:$HOME/tools/codeql:$HOME/.local/bin:$HOME/go/bin:$PATH"
 ```
 Install Burp Suite and extensions listed below in section `Burp Suite extensions`.
 # Usage
-##### :diamonds: First module needs `domain name` to work properly, f.e. `google.com` and `-x` flag if you want to brute force subdomains. :diamonds:
+##### :diamonds: First module needs `domain name` to work properly, f.e. `google.com`:diamonds:
 
 ```bash
-./crimson_recon -D "domain.com" -x
+./crimson_recon -D "domain.com" 
+         # Optional flags are shown below: 
+        -x # Domain bruteforcing (with words/dns wordlist)
+                -v # Virtual host discovering
+                -p # TCP ports scanning (1-65535)
+                -u # UDP ports scanning (nmap default ports)
+                -b # Third level subdomain bruteforcing
 ```
 * You can learn more about `crimson_recon` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-i-574fd9dce53e)
  
-##### :diamonds: Second module needs `subdomain name`. You can additionally put `authorization cookie` :diamonds:
+##### :diamonds: Second module needs `subdomain name`:diamonds:
 ```bash
-./crimson_target -d "example.domain.com" -c "Cookie: auth1=123;"
+./crimson_target -d "example.domain.com" 
+         # Optional flags are shown below:
+                 -c "Cookie: auth1=123;"
+                 -p # TCP (1-65535) / UDP (nmap default) ports scanning
+                 -a # Without this flag, you have to manually check for false-positives after bruteforcing
+                 
 ```
 * You can learn more about `crimson_target` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-ii-4336bd4ca73b?sk=ba289442112704cd71ac4a89e994fc8c)
 
