@@ -37,7 +37,7 @@ export PATH="$HOME/bin:$:$HOME/tools/codeql:$HOME/.local/bin:$HOME/go/bin:$PATH"
 ```
 Install Burp Suite and extensions listed below in section `Burp Suite extensions`.
 # Usage
-##### :diamonds: First module needs `domain name` to work properly, f.e. `google.com`:diamonds:
+##### :diamonds: First module needs `domain name`:diamonds:
 
 ```bash
 ./crimson_recon -D "domain.com" 
@@ -57,16 +57,18 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
                  -c "Cookie: auth1=123;"
                  -p # TCP (1-65535) / UDP (nmap default) ports scanning
                  -a # Without this flag, you have to manually check for false-positives after bruteforcing
-                 
 ```
 * You can learn more about `crimson_target` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-ii-4336bd4ca73b?sk=ba289442112704cd71ac4a89e994fc8c)
 
-##### :diamonds: Third module needs `subdomain name` with your `collaborator` and `vps ip`. You can additionally put `authorization cookie` and if you want to fuzz all the urls use the `-x` flag. :diamonds:
+##### :diamonds: Third module needs `subdomain name` with your `collaborator` and `vps ip`:diamonds:
 ```bash
-./crimson_exploit -D "example.domain.com" -c "Cookie: auth1=123;" -d "collaborator.com" -i "ip" -x
+./crimson_exploit -D "example.domain.com" -d "collaborator.com" -i "ip"
+          # Optional flags are shown below:
+                  -c "Cookie: auth1=123;"
+                  -x # fuzz all urls (with words/bug wordlist)
 ```
 * You can learn more about `crimson_exploit` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-iii-2823b16f38cc)
-##### :diamonds: Before starting the script run the listener on your vps machine on port 80 :diamonds:
+##### :diamonds: Before starting third module, run the listener on your vps machine on port 80 :diamonds:
 
 # Extras
 > There are some useful tools in the scripts directory that I have written that are worth checking out.
