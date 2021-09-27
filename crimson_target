@@ -144,13 +144,16 @@ else
     wafw00f "$domain" | tail -n +16 | tee -a recon.txt
 
     ### IDENTIFY TECHNOLOGY 1 >> recon.txt
-    echo "[WEBTECH] ---------------------------------------------------------" | tee -a recon.txt
+    echo "[WEBTECH 80] ---------------------------------------------------------" | tee -a recon.txt
     webtech -u http://"$domain" | tee -a recon.txt
+    echo "[WEBTECH 443] ---------------------------------------------------------" | tee -a recon.txt
     webtech -u https://"$domain" | tee -a recon.txt
 
     ### IDENTIFY TECHNOLOGY 2 >> recon.txt
-    echo "[WHATWEB] ---------------------------------------------------------" | tee -a recon.txt
-    whatweb -a 3 "$domain" -H "$cookie" | tee -a recon.txt
+    echo "[WHATWEB 80] ---------------------------------------------------------" | tee -a recon.txt
+    whatweb -a 3 "http://$domain" -H "$cookie" | tee -a recon.txt
+    echo "[WHATWEB 443] ---------------------------------------------------------" | tee -a recon.txt
+    whatweb -a 3 "https://$domain" -H "$cookie" | tee -a recon.txt
 
     ### CMS SCAN >> recon.txt
     echo "[CMSEEK] ---------------------------------------------------------" | tee -a recon.txt
@@ -163,6 +166,13 @@ else
     shcheck.py http://"$domain"/ -a "$cookie" | tail -n+8 >> recon.txt
     echo "[SHCHECK 443] ---------------------------------------------------------" | tee -a recon.txt
     shcheck.py https://"$domain"/ -a "$cookie" -d | tail -n+8 >> recon.txt
+
+    ### DOWNLOAD COMMUNITY-CURATED TEMPLATES & RUN THE AGAINST DOMAIN
+    git clone https://github.com/projectdiscovery/nuclei-templates.git
+    echo "[NUCLEI 80] ---------------------------------------------------------" | tee -a recon.txt
+    nuclei -u http://"$domain" -t nuclei-templates/ -silent | tee -a recon.txt
+    echo "[NUCLEI 443] ---------------------------------------------------------" | tee -a recon.txt
+    nuclei -u https://"$domain" -t nuclei-templates/ -silent | tee -a recon.txt
 
     ### VULN SCAN 1 >> recon.txt
     # Perform a brute-force attack to uncover known and potentially dangerous scripts on the web server.
