@@ -274,7 +274,7 @@ else
 
     ### GATHER ALL SOURCE CODE FROM ffuf.txt AND STORE IT IN DIRECTORY > all_source_code/
     echo -e "\033[0;31m [+]\033[0m GATHERING SOURCE CODE OF BRUTE-FORCED SITES"
-    while read -r url; do echo -e "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url" && curl -k -s -D - "$url" -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/$(echo "$url" | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g") ;done < ffuf.txt
+    while IFS= read -r url; do echo -e "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url" && curl -k -s -D - "$url" -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/$(echo "$url" | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g") ;done < ffuf.txt
 
     ### GET LINKS TO JS FILES AND PREPARE IT FOR EXPLOIT MODULE > exp/jsfiles.txt
     echo -e "\033[0;31m [+]\033[0m GATHERING .js LINKS"
@@ -379,5 +379,5 @@ else
     echo "  - backups.txt"
     echo "  - apikeys.txt"
     echo "  - detect-secrets.txt"
-    echo "  - use pywhat && ciphey for 'strange' findings'"
+    echo "  - use pywhat && ciphey for 'strange' findings"
 fi
