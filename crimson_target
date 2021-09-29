@@ -269,9 +269,9 @@ else
         ### DIRECTORY BRUTEFORCING USING FEROXBUSTER (output is called ffuf.txt for comatibility reasons)
         if [ $https_on == 1 ]
         then
-            feroxbuster --extract-links --no-recursion --redirects --wordlist "$HOME"/tools/CRIMSON/words/custom_dir.txt -o temp/ferox.txt -u "https://$domain/FUZZ" -t 20 -H "$cookie" -k
+            feroxbuster --extract-links --no-recursion --redirects --wordlist "$HOME"/tools/CRIMSON/words/custom_dir.txt -o temp/ferox.txt -u "https://$domain" -t 20 -H "$cookie" -k
         else
-            feroxbuster --extract-links --no-recursion --redirects --wordlist "$HOME"/tools/CRIMSON/words/custom_dir.txt -o temp/ferox.txt -u "http://$domain/FUZZ" -t 20 -H "$cookie"
+            feroxbuster --extract-links --no-recursion --redirects --wordlist "$HOME"/tools/CRIMSON/words/custom_dir.txt -o temp/ferox.txt -u "http://$domain" -t 20 -H "$cookie"
         fi
 
         ### MANUAL CHECK - DELETE TRASH FROM FEROXBUSTER OUTPUT

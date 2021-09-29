@@ -59,7 +59,7 @@ vhost_on=0
 rust_on=0
 third_level_on=0
 udp_scan_on=0
-while getopts "D:xvpbu" OPTION; do
+while getopts "d:xvpbu" OPTION; do
     case $OPTION in
     D)
         export DOMAIN=$OPTARG
@@ -130,7 +130,7 @@ then
 	### STARTING 1ST BRUTEFORCE => subdomains.txt
 	echo -e "\033[0;31m [+]\033[0m SUBDOMAINS BRUTEFORCING"
 	puredns bruteforce "$HOME"/tools/CRIMSON/words/dns "$DOMAIN" -w puredns1.txt -r resolvers.txt -l 250
-	cat puredns1.txt | anew subdomains.txt
+	cat puredns1.txt | anew subdomains.txt > /dev/null
 	rm puredns1.txt
 fi
 
@@ -161,7 +161,7 @@ then
 
 	### MERGING live1.txt AND live2.txt = live.txt
 	sort -u live1.txt  > live.txt
-	sort -u live2.txt | anew live.txt
+	sort -u live2.txt | anew live.txt > /dev/null
 
 	### CLEARING LOGS 
 	rm live1.txt 
@@ -195,8 +195,8 @@ rm subs_waybackurls.txt
 
 ### MERGING SPIDERS IN ONE BIG LIST WITH A LOT BROKEN LINKS (it will be used in later modules) = urls.txt
 cat waybackurls.txt | qsreplace -a > urls.txt
-cat gau.txt | qsreplace -a | anew urls.txt
-cat gau.txt | qsreplace -a | anew urls.txt 
+cat gau.txt | qsreplace -a | anew urls.txt > /dev/null
+cat paramspider.txt | qsreplace -a | anew urls.txt > /dev/null
 sed -i '/^$/d' urls.txt
 rm waybackurls.txt paramspider.txt gau.txt
 
@@ -207,7 +207,7 @@ mv httpx_urls.txt urls.txt
 
 ### LOOKING FOR SUBDOMAINS AND SECRETS IN URLS = subdomainizer.txt
 echo -e "\033[0;31m [+]\033[0m GATHERING SUBDOMAINS, API KEYS, URLS [SUBDOMAINIZER]"
-python3 "$HOME"/tools/SubDomainizer/SubDomainizer.py -k -l urls.txt -o subdomainizer.txt > /dev/null
+python3 "$HOME"/tools/SubDomainizer/SubDomainizer.py -k -l urls.txt -o subdomainizer.txt | tee -a subdomainizer.log
 
 ### GETTING SUBDOMAINS FROM subdomainizer.txt AND CHECKING FOR LIVE = live.txt
 cat subdomainizer.txt | grep "$DOMAIN" | dnsx -t 100 -silent -r resolvers.txt -o live3.txt
@@ -225,7 +225,9 @@ then
 	cat "$HOME"/bounty/"$DOMAIN"/ip.txt | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | sort -u > "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
 	
 	### DISCOVERING VIRTUAL HOSTNAMES && ADD THEM TO live.txt = hosthunter.txt
-	python3 "$HOME"/tools/HostHunter/hosthunter.py filtered_ip.txt | tee -a hosthunter.txt
+	echo -e "\033[0;31m [+]\033[0m DISCOVERING VIRTUAL HOSTNAMES WITH HOSTHUNTER"
+	python3 "$HOME"/tools/HostHunter/hosthunter.py filtered_ip.txt >> hosthunter.txt
+	echo -e "\033[0;31m [+]\033[0m CHECKING LIVE HOSTS"
 	cat hosthunter.txt | grep "$DOMAIN" | sort -u | anew | dnsx -t 100 -silent -r resolvers.txt -o live4.txt
 	cat live4.txt | anew live.txt > /dev/null
 	rm live4.txt
@@ -235,35 +237,37 @@ fi
 if [ $rust_on == 1 ]
 then
 	### TCP SCANNING filtered_ip.txt FOR OPENED PORTS = nmap.txt
+	echo -e "\033[0;31m [+]\033[0m TCP PORT SCANNING"
 	rustscan -a filtered_ip.txt --ulimit 5000 --scan-order="Random" -- -n -A -Pn --append-output -oN nmap.txt -oG nmap.gnmap | tee -a rustscan.txt
 fi
 
 if [ $udp_scan_on == 1 ]
 then
 	### UDP SCANNING filtered_ip.txt FOR OPENED PORTS = udpnmap.txt -u
+	echo -e "\033[0;31m [+]\033[0m UDP PORT SCANNING"
 	while IFS= read -r ip; do nmap -sU "$ip" -A -Pn --append-output -oG udpnmap.gnmap -oN udpnmap.txt ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
 fi
 
 ### MAKING SCREENSHOOTS FROM ENUERATED LIVE DOMAINS = screenshots/
 echo -e "\033[0;31m [+]\033[0m MAKING SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
-gowitness file -f live.txt > /dev/null
+gowitness file live.txt > /dev/null
 
 ### PROXING urls.txt TO BURP SUITE
 echo -e "\033[0;31m [+]\033[0m PROXING ulrs.txt TO BRUP SUITE"
 cat urls.txt | grep "$DOMAIN" |grep http | sort -u > proxy.txt
-wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z > /dev/null 2>&1
+wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z #> /dev/null 2>&1
 
 ### CHECKING STATUS CODE OF ALL DOMAINS = status_live.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF ENUMERATED LIVE SUBDOMAINS"
 cat live.txt | sed "s/^/http:\/\//" >> temp_live.txt
 cat live.txt | sed "s/^/https:\/\//" >> temp_live.txt
-wfuzz -f status_live.txt,raw -Z -z file,temp_live.txt -z file,"$HOME"/tools/CRIMSON/words/blank FUZZFUZ2Z > /dev/null 2>&1
+wfuzz -f status_live.txt,raw -Z -z file,temp_live.txt -z file,"$HOME"/tools/CRIMSON/words/blank FUZZFUZ2Z #> /dev/null 2>&1
 rm temp_live.txt
 
 ### PROXING DOMAINS TO BURP = proxy.txt
 echo -e "\033[0;31m [+]\033[0m PROXING SUBDOMAINS TO BURP"
 cat status_live.txt | grep -v "XXX" | cut -s -d "\"" -f 2 > proxy.txt
-wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z > /dev/null 2>&1
+wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z #> /dev/null 2>&1
 
 ### CHECKING ZONE TRANSFER = dnsrecon.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING ZONE TRANSFER"
@@ -304,7 +308,6 @@ then
 	cat 3rdlevel.txt | dnsx -o 3rdlevel_live.txt 2>/dev/null
 	rm -rf 3rdlevel/3rdlevel.txt
 fi
-
 
 
 ### CLEARING THE DIRECTORY
