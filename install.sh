@@ -23,7 +23,7 @@ sudo snap install amass
 git clone https://github.com/blechschmidt/massdns.git
 cd massdns
 make
-sudo cp bin/massdns /usr/bin/massdns
+make install
 cd ..
 ### GOOGLE CHROME
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -120,7 +120,7 @@ pip install py-altdns shodan
 git clone https://github.com/ticarpi/jwt_tool
 python3 -m pip install termcolor cprint pycryptodomex requests
 ### PUREDNS
-git clone https://github.com/d3mondev/puredns.git
+GO111MODULE=on go install github.com/d3mondev/puredns/v2@latest
 ### SUDOMY
 git clone --recursive https://github.com/screetsec/Sudomy.git
 python3 -m pip install -r Sudomy/requirements.txt

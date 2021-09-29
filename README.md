@@ -40,7 +40,7 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 ##### :diamonds: First module needs `domain name`:diamonds:
 
 ```bash
-./crimson_recon -D "domain.com" 
+./crimson_recon -d "domain.com" 
                    
                    # Optional flags are shown below: 
                 -x # Domain bruteforcing (with words/dns wordlist)
