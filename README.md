@@ -119,7 +119,6 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [crimson_backuper](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_backuper.py)
 
 ### :diamonds: Target visualisation:
-* [webtech](https://github.com/ShielderSec/webtech)
 * [WhatWeb](https://github.com/urbanadventurer/WhatWeb)
 * [gowitness](https://github.com/sensepost/gowitness)
 * [wafw00f](https://github.com/EnableSecurity/wafw00f)
@@ -128,7 +127,6 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 
 ### :diamonds: Bug finding:
 * [nikto](https://github.com/sullo/nikto)
-* [wapiti](https://github.com/wapiti-scanner/wapiti)
 * [CorsMe](https://github.com/Shivangx01b/CorsMe)
 * [subjack](https://github.com/haccer/subjack)
 * [DirDar](https://github.com/M4DM0e/DirDar)
@@ -148,7 +146,6 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [crimson_oobtester](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_oobtester.py)
 * [crimson_rewriter](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_rewriter.py)
 * [crimson_templator](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_templator.py)
-* [shcheck](https://github.com/santoru/shcheck)
 * [nuclei](https://github.com/projectdiscovery/nuclei)
 * [headi](https://github.com/mlcsec/headi)
 * [codeql](https://github.com/github/codeql-cli-binaries)

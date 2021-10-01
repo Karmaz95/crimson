@@ -14,9 +14,6 @@ mkdir $HOME/bounty
 mkdir -p $HOME/tools/CRIMSON/
 cp -r * $HOME/tools/CRIMSON/
 cd $HOME/tools
-### WAPITI
-python3 -m pip install wapiti3 shodan
-sudo apt install wapiti -y
 ### AMASS
 sudo snap install amass
 ### MASSDNS

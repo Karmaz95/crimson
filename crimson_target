@@ -115,9 +115,6 @@ else
         ### RESOLVE IP AND SCAN OPENED PORTS > recon.txt
         echo "[NMAP] ---------------------------------------------------------" | tee -a recon.txt
         echo TARGET: "$TARGET" | tee -a recon.txt
-        #ports=$(nmap -p- --min-rate=1000 -T4 $TARGET | grep ^[0-9] | cut -s -d '/' -f 1 | sort -u | tr '\n' ',' | sed s/,$//)
-        #echo PORTS : $ports | tee -a recon.txt
-        #nmap -A -p $ports $TARGET -oG exp/nmap.gnmap -oN nmap.txt
         sudo nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt
         rustscan -a "$TARGET" --ulimit 5000 -- -n -A -Pn --append-output -oG exp/nmap.gnmap -oN nmap.txt  # --scan-order "Random"
         cat nmap.txt >> recon.txt
@@ -143,13 +140,7 @@ else
     echo "[WAFW00F] -------------------------------------------------------------" | tee -a recon.txt
     wafw00f "$domain" | tail -n +16 | tee -a recon.txt
 
-    ### IDENTIFY TECHNOLOGY 1 >> recon.txt
-    echo "[WEBTECH 80] ---------------------------------------------------------" | tee -a recon.txt
-    webtech -u http://"$domain" | tee -a recon.txt
-    echo "[WEBTECH 443] ---------------------------------------------------------" | tee -a recon.txt
-    webtech -u https://"$domain" | tee -a recon.txt
-
-    ### IDENTIFY TECHNOLOGY 2 >> recon.txt
+    ### IDENTIFY TECHNOLOGY >> recon.txt
     echo "[WHATWEB 80] ---------------------------------------------------------" | tee -a recon.txt
     whatweb -a 3 "http://$domain" -H "$cookie" | tee -a recon.txt
     echo "[WHATWEB 443] ---------------------------------------------------------" | tee -a recon.txt
@@ -161,12 +152,6 @@ else
     cat "$HOME"/tools/CMSeeK/Result/"$domain"/cms.json | jq . >> recon.txt
     rm -rf "$HOME"/tools/CMSeeK/Result/"$domain"/
 
-    ### CHECKING SECURITY HEADERS >> recon.txt
-    echo "[SHCHECK 80] ---------------------------------------------------------" | tee -a recon.txt
-    shcheck.py http://"$domain"/ -a "$cookie" | tail -n+8 >> recon.txt
-    echo "[SHCHECK 443] ---------------------------------------------------------" | tee -a recon.txt
-    shcheck.py https://"$domain"/ -a "$cookie" -d | tail -n+8 >> recon.txt
-
     ### DOWNLOAD COMMUNITY-CURATED TEMPLATES & RUN THE AGAINST DOMAIN
     git clone https://github.com/projectdiscovery/nuclei-templates.git
     echo "[NUCLEI 80] ---------------------------------------------------------" | tee -a recon.txt
@@ -174,7 +159,7 @@ else
     echo "[NUCLEI 443] ---------------------------------------------------------" | tee -a recon.txt
     nuclei -u https://"$domain" -t nuclei-templates/ -silent | tee -a recon.txt
 
-    ### VULN SCAN 1 >> recon.txt
+    ### VULN SCAN >> recon.txt
     # Perform a brute-force attack to uncover known and potentially dangerous scripts on the web server.
     nl=$'\n'
     cr=$'\r'
@@ -182,24 +167,6 @@ else
     "$HOME"/tools/nikto/program/nikto.pl -host https://"$domain" -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
     echo "[NIKTO 80] ----------------------------------------------------------" | tee -a recon.txt
     "$HOME"/tools/nikto/program/nikto.pl -host http://"$domain" -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
-
-    ### VULN SCAN 2 >> recon.txt
-    # Looking for: 
-    #   cookie flags
-    #   crlf vuln
-    #   csp
-    #   file handling vulns
-    #   bypass weak htaccess conf
-    #   methods 
-    #   shellshock vuln
-    echo "[WAPITI 80] ----------------------------------------------------------" | tee -a recon.txt
-    wapiti --no-bugreport -u http://"$domain" -o wapiti -f txt -m "cookieflags,crlf,csp,csrf,file,htaccess,methods,shellshock"
-    cat wapiti | tail -n+8 >> recon.txt
-    rm wapiti
-    echo "[WAPITI 443] ---------------------------------------------------------" | tee -a recon.txt
-    wapiti --no-bugreport --verify-ssl 0 -u https://"$domain" -o wapiti -f txt -m "2cookieflags,crlf,csp,csrf,file,htaccess,methods,shellshock"
-    cat wapiti | tail -n+8 >> recon.txt
-    rm wapiti
 
     ### SPIDER 1 > urls.txt
     echo -e "\033[0;31m [+]\033[0m STARTING SPIDERS"
@@ -214,7 +181,7 @@ else
 
     ### SPIDER 3 >> urls.txt
     echo -e "\033[0;31m [+]\033[0m SPIDER [3]"
-    get-all-urls "$domain" >> urls.txt
+    gau "$domain" >> urls.txt
 
     ### SPIDER 4 >> urls.txt
     echo -e "\033[0;31m [+]\033[0m SPIDER [4]"
@@ -262,7 +229,7 @@ else
 
         ### REMOVE TRASH RESPONSES FROM PREVIOUS SCAN > ffuf.txt
         echo -e "\033[0;31m [+]\033[0m REMOVING TRASH RESPONSES FROM status_ffuf.txt"
-        python "$HOME"/tools/CRIMSON/scripts/clever_ffuf.py
+        python3 "$HOME"/tools/CRIMSON/scripts/clever_ffuf.py
         sort -u temp_ffuf.txt > ffuf.txt
         rm temp_ffuf.txt
     else
@@ -276,7 +243,7 @@ else
 
         ### MANUAL CHECK - DELETE TRASH FROM FEROXBUSTER OUTPUT
         echo -e "\033[0;31m [+]\033[0m CHECK FEROXBUSTER OUTPUT AND REMOVE FALSE-POSITIVES MANUALLY"
-        xed temp/ferox.txt
+        xed temp/ferox.txt 
 
         ### CONVERT THE OUTPUT TO PROPER FORMAT AND DELETE DUPLICATES
         cat temp/ferox.txt | cut -s -d "h" -f 2-1000 | sed "s/^/h/" | qsreplace -a > ffuf.txt
