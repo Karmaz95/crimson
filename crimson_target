@@ -1,4 +1,6 @@
 #!/bin/bash
+# Delete below line if you install Crimson from source:
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/bin:/root/go/bin"
 #
 ### CREATED BY KARMAZ
 #
@@ -58,7 +60,8 @@ echo -e "\033[0;31m
 
 rust_on=0
 fully_automated=0
-while getopts "c:d:pa" OPTION; do
+proxy_on=0
+while getopts "c:d:pay" OPTION; do
     case $OPTION in
     c)
         cookie=$OPTARG
@@ -71,6 +74,8 @@ while getopts "c:d:pa" OPTION; do
         ;;
     a)
         fully_automated=1
+    y)
+        proxy_on=1
         ;;
     *)
         echo "Incorrect options provided"
@@ -81,7 +86,13 @@ done
 
 if [ -z "$domain" ]
 then
-    echo "Usage: crimson_target -d \"domain_name\" -c \"Cookie: auth=cookie\""
+    echo "./crimson_target -D \"example.domain.com\" 
+                    
+                    # Optional flags are shown below:
+                 -c \"Cookie: auth1=123;\"
+                 -p # TCP (1-65535) / UDP (nmap default) ports scanning
+                 -a # Without this flag, you have to manually check for false-positives after bruteforcing
+                 -y # Proxy urls.txt and ffuf.txt to Burp (127.0.0.1:8080)"
     exit  1
 else
     ### PREPARE DIRECTORIES AND VARIABLES
@@ -109,13 +120,17 @@ else
         https_on=0
     fi
 
+    echo "----------------------------------------------------------------"
+    echo "SCANNING START: $(date +'[%m-%d %H:%M:%S]')" >> recon.txt    
+    echo "----------------------------------------------------------------"
+
     ### --- PORT SCANNING SECTION --- ### -p
     if [ $rust_on == 1 ]
     then
         ### RESOLVE IP AND SCAN OPENED PORTS > recon.txt
         echo "[NMAP] ---------------------------------------------------------" | tee -a recon.txt
         echo TARGET: "$TARGET" | tee -a recon.txt
-        sudo nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt
+        nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt || sudo nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt
         rustscan -a "$TARGET" --ulimit 5000 -- -n -A -Pn --append-output -oG exp/nmap.gnmap -oN nmap.txt  # --scan-order "Random"
         cat nmap.txt >> recon.txt
         rm nmap.txt
@@ -123,9 +138,9 @@ else
 
     ### GET THE CONTENT OF SITEMAP IF EXISTS >> recon.txt
     echo "[SITEMAP 80] ----------------------------------------------------------" | tee -a recon.txt
-    "$HOME"/tools/sitemap-urls/sitemap-urls.sh http://"$domain" >> recon.txt
+    "$HOME"/tools/sitemap-urls/sitemap-urls.sh http://"$domain"/sitemap.xml >> recon.txt
     echo "[SITEMAP 443] ---------------------------------------------------------" | tee -a recon.txt
-    "$HOME"/tools/sitemap-urls/sitemap-urls.sh https://"$domain" >> recon.txt
+    "$HOME"/tools/sitemap-urls/sitemap-urls.sh https://"$domain"/sitemap.xml >> recon.txt
 
     ### GET THE CONTENT OF ROBOTS IF EXISTS >> recon.txt
     echo "[ROBOTS 80] -----------------------------------------------------------" | tee -a recon.txt
@@ -171,7 +186,7 @@ else
     ### SPIDER 1 > urls.txt
     echo -e "\033[0;31m [+]\033[0m STARTING SPIDERS"
     echo -e "\033[0;31m [+]\033[0m SPIDER [1]"
-    gospider -q -r -w -a --sitemap -c 10 -s  https://"$domain" -H "$cookie" >> urls.txt
+    gospider -q -r -w -a --sitemap --robots -c 10 -s  https://"$domain" -H "$cookie" >> urls.txt
 
     ### SPIDER 2 >> urls.txt
     echo -e "\033[0;31m [+]\033[0m SPIDER [2]"
@@ -200,11 +215,6 @@ else
     cat ../urls.txt | grep "$domain" | anew urls.txt > /dev/null
     cat urls.txt | qsreplace -a > temp1.txt
     mv temp1.txt urls.txt
-
-    ### CHECK STATUS OF URLS WITH QUERIES && PROXY TO BURP > status_params.txt
-    echo -e "\033[0;31m [+]\033[0m PROXING QUERIES TO BURP"
-    cat urls.txt | grep "?" > temp/temp_params.txt
-    wfuzz -f status_params.txt,raw -L -Z -z file,temp/temp_params.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
 
     ### GET NEW ENDPOINTS FROM SPIDERS AND ADD THEM TO WORDLIST FOR DIRECOTRY BRUTEFORCING > custom_dir.txt
     echo -e "\033[0;31m [+]\033[0m GATHERING NEW PATHS FROM SPIDERS RESULTS"
@@ -243,7 +253,10 @@ else
 
         ### MANUAL CHECK - DELETE TRASH FROM FEROXBUSTER OUTPUT
         echo -e "\033[0;31m [+]\033[0m CHECK FEROXBUSTER OUTPUT AND REMOVE FALSE-POSITIVES MANUALLY"
-        xed temp/ferox.txt 
+        cd temp || exit
+        read -p "[CTRL + Z] => check ferox.txt => \"fg\" in terminal"
+        cd ..
+        echo -e "\033[0;31m [+]\033[0m FEROXBUSTER SUCCESSFULLY EDITED - CONTINUING THE SCRIPT EXECUTION"
 
         ### CONVERT THE OUTPUT TO PROPER FORMAT AND DELETE DUPLICATES
         cat temp/ferox.txt | cut -s -d "h" -f 2-1000 | sed "s/^/h/" | qsreplace -a > ffuf.txt
@@ -304,9 +317,25 @@ else
     ### ADD http://$domain AND https://$domain EVEN IF THEY ARE 404/400/X status code >> ffuf.txt
     echo -e "http://$domain\nhttps://$domain" | anew ffuf.txt
 
-    ### PROXY ALL BRUTEFORCED FILES AND DIRECTORIES TO BURP > status_dir.txt
-    echo -e "\033[0;31m [+]\033[0m PROXING ALL DIRECTORIES && FILES TO BURP SUITE"
-    wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
+    ### --- PROXY SECTION --- ### -y
+    if [ $proxy_on == 1 ]
+    then
+        ### PROXY ALL BRUTEFORCED FILES AND DIRECTORIES TO BURP > status_dir.txt
+        echo -e "\033[0;31m [+]\033[0m PROXING ALL DIRECTORIES && FILES TO BURP SUITE"
+        wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
+
+        ### CHECK STATUS OF URLS WITH QUERIES && PROXY TO BURP > status_params.txt
+        echo -e "\033[0;31m [+]\033[0m PROXING urls.txt TO BURP"
+        cat urls.txt | grep "?" > temp/temp_params.txt
+        wfuzz -f status_params.txt,raw -L -Z -z file,temp/temp_params.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
+    else
+        ### IF THERE IS NO PROXY FLAG - JUST CHECK THE STATUS CODE AND SAVE THE RESULTS FOR FURTHER PROCESSING 
+        echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF (ffuf.txt) BRUTEFORCED DIRECTORIES"
+        wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,"$HOME"/tools/CRIMSON/words/blank -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
+        echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF (urls.txt) CRAWLED QUERIES"
+        cat urls.txt | grep "?" > temp/temp_params.txt
+        wfuzz -f status_params.txt,raw -L -Z -z file,temp/temp_params.txt -z file,"$HOME"/tools/CRIMSON/words/blank -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
+    fi
 
     ### EXTRACT UNIQUE QUERIES > exp/params.txt
     echo -e "\033[0;31m [+]\033[0m PREPARING FILES FOR crimson_exploit MODULE"
@@ -345,6 +374,11 @@ else
     ### REMOVE EMPTY FILES AND DIRECTORIES
     find . -type d -empty -print -delete -o -type f -empty -print -delete
     
+    ### MARK THE END
+    echo "----------------------------------------------------------------"
+    echo "SCANNING END: $(date +'[%m-%d %H:%M:%S]')" >> recon.txt    
+    echo "----------------------------------------------------------------"
+
     echo -e "\033[0;31m [+]\033[0m 1. recon.txt :"
     cat recon.txt
     echo -e "\033[0;31m [+]\033[0m 2. zile.txt :"
@@ -357,4 +391,5 @@ else
     echo "  - apikeys.txt"
     echo "  - detect-secrets.txt"
     echo "  - use pywhat && ciphey for 'strange' findings"
+    echo "  - robots.txt and sitemap.xml  at : https://httpstatus.io/"
 fi

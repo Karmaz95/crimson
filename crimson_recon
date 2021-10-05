@@ -1,4 +1,6 @@
 #!/bin/bash
+# Delete below line if you install Crimson from source:
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/bin:/root/go/bin"
 #
 ### CREATED BY KARMAZ
 #
@@ -59,7 +61,8 @@ vhost_on=0
 rust_on=0
 third_level_on=0
 udp_scan_on=0
-while getopts "d:xvpbu" OPTION; do
+proxy_on=0
+while getopts "D:xvpbuy" OPTION; do
     case $OPTION in
     D)
         export DOMAIN=$OPTARG
@@ -76,8 +79,18 @@ while getopts "d:xvpbu" OPTION; do
 	u)
 		udp_scan_on=1
 		;;
+	y)
+		proxy_on=1
+		;;
     *)
-        echo "Usage: ./crimson_recon -d \"example.domain.com\" -x -v -p -b -u"
+        echo "Usage: ./crimson_recon -D \"example.domain.com\"
+                   # Optional flags are shown below:
+                -x # Domain bruteforcing (with words/dns wordlist)
+                -v # Virtual host discovering
+                -p # TCP ports scanning (1-65535)
+                -u # UDP ports scanning (nmap default ports)
+                -b # Third level subdomain bruteforcing
+                -y # Proxy urls.txt and live.txt to Burp (127.0.0.1:8080)"
         exit 1
         ;;
     esac
@@ -252,22 +265,12 @@ fi
 echo -e "\033[0;31m [+]\033[0m MAKING SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
 gowitness file live.txt > /dev/null
 
-### PROXING urls.txt TO BURP SUITE
-echo -e "\033[0;31m [+]\033[0m PROXING ulrs.txt TO BRUP SUITE"
-cat urls.txt | grep "$DOMAIN" |grep http | sort -u > proxy.txt
-wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z #> /dev/null 2>&1
-
 ### CHECKING STATUS CODE OF ALL DOMAINS = status_live.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF ENUMERATED LIVE SUBDOMAINS"
 cat live.txt | sed "s/^/http:\/\//" >> temp_live.txt
 cat live.txt | sed "s/^/https:\/\//" >> temp_live.txt
 wfuzz -f status_live.txt,raw -Z -z file,temp_live.txt -z file,"$HOME"/tools/CRIMSON/words/blank FUZZFUZ2Z #> /dev/null 2>&1
 rm temp_live.txt
-
-### PROXING DOMAINS TO BURP = proxy.txt
-echo -e "\033[0;31m [+]\033[0m PROXING SUBDOMAINS TO BURP"
-cat status_live.txt | grep -v "XXX" | cut -s -d "\"" -f 2 > proxy.txt
-wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z #> /dev/null 2>&1
 
 ### CHECKING ZONE TRANSFER = dnsrecon.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING ZONE TRANSFER"
@@ -309,6 +312,19 @@ then
 	rm -rf 3rdlevel/3rdlevel.txt
 fi
 
+### --- PROXY SECTION --- ### -y
+if [ $proxy_on == 1 ]
+then
+	### PROXING urls.txt TO BURP SUITE
+	echo -e "\033[0;31m [+]\033[0m PROXING ulrs.txt TO BRUP SUITE"
+	cat urls.txt | grep "$DOMAIN" |grep http | sort -u > proxy.txt
+	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z #> /dev/null 2>&1
+
+	### PROXING DOMAINS TO BURP = proxy.txt
+	echo -e "\033[0;31m [+]\033[0m PROXING SUBDOMAINS TO BURP"
+	cat status_live.txt | grep -v "XXX" | cut -s -d "\"" -f 2 > proxy.txt
+	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z #> /dev/null 2>&1
+fi
 
 ### CLEARING THE DIRECTORY
 rm proxy.txt 2>/dev/null
@@ -344,11 +360,11 @@ echo "	- gowitness"
 echo "  - subdomainizer.txt"
 if [ $vhost_on == 1 ]
 then
-echo "	- hosthunter.txt"
+	echo "	- hosthunter.txt"
 fi
 if [ $rust_on == 1 ]
 then
-echo "	- nmap.txt"
+	echo "	- nmap.txt"
 fi
 echo "			google-chrome http://localhost:7171/table/"
 gowitness report serve

@@ -40,7 +40,7 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 ##### :diamonds: First module needs `domain name`:diamonds:
 
 ```bash
-./crimson_recon -d "domain.com" 
+./crimson_recon -D "domain.com" 
                    
                    # Optional flags are shown below: 
                 -x # Domain bruteforcing (with words/dns wordlist)
@@ -48,17 +48,19 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
                 -p # TCP ports scanning (1-65535)
                 -u # UDP ports scanning (nmap default ports)
                 -b # Third level subdomain bruteforcing
+                -y # Proxy urls.txt and live.txt to Burp (127.0.0.1:8080)"
 ```
 * You can learn more about `crimson_recon` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-i-574fd9dce53e)
  
 ##### :diamonds: Second module needs `subdomain name`:diamonds:
 ```bash
-./crimson_target -d "example.domain.com" 
+./crimson_target -D "example.domain.com" 
                     
                     # Optional flags are shown below:
                  -c "Cookie: auth1=123;"
                  -p # TCP (1-65535) / UDP (nmap default) ports scanning
                  -a # Without this flag, you have to manually check for false-positives after bruteforcing
+                 -y # Proxy urls.txt and ffuf.txt to Burp (127.0.0.1:8080)
 ```
 * You can learn more about `crimson_target` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-ii-4336bd4ca73b?sk=ba289442112704cd71ac4a89e994fc8c)
 
