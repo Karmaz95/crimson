@@ -5,6 +5,7 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go
 ### CREATED BY KARMAZ
 #
 #
+#
 ### FUNCTIONS:
 #
 # 1. FULL RANGE PORT SCAN && NSE ON OPENED PORTS
@@ -61,12 +62,12 @@ echo -e "\033[0;31m
 rust_on=0
 fully_automated=0
 proxy_on=0
-while getopts "c:d:pay" OPTION; do
+while getopts "c:D:pay" OPTION; do
     case $OPTION in
     c)
         cookie=$OPTARG
         ;;
-    d)
+    D)
         domain=$OPTARG
         ;;
     p)
@@ -74,6 +75,7 @@ while getopts "c:d:pay" OPTION; do
         ;;
     a)
         fully_automated=1
+        ;;
     y)
         proxy_on=1
         ;;
