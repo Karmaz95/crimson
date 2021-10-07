@@ -62,7 +62,8 @@ echo -e "\033[0;31m
 rust_on=0
 fully_automated=0
 proxy_on=0
-while getopts "c:D:pay" OPTION; do
+udp_on=0
+while getopts "c:D:payu" OPTION; do
     case $OPTION in
     c)
         cookie=$OPTARG
@@ -72,6 +73,9 @@ while getopts "c:D:pay" OPTION; do
         ;;
     p)
         rust_on=1
+        ;;
+    u)
+        udp_on=1
         ;;
     a)
         fully_automated=1
@@ -92,7 +96,8 @@ then
                     
                     # Optional flags are shown below:
                  -c \"Cookie: auth1=123;\"
-                 -p # TCP (1-65535) / UDP (nmap default) ports scanning
+                 -p # TCP (1-65535)   ports scanning
+                 -u # UDP (nmap default) ports scanning
                  -a # Without this flag, you have to manually check for false-positives after bruteforcing
                  -y # Proxy urls.txt and ffuf.txt to Burp (127.0.0.1:8080)"
     exit  1
@@ -130,27 +135,37 @@ else
     if [ $rust_on == 1 ]
     then
         ### RESOLVE IP AND SCAN OPENED PORTS > recon.txt
-        echo "[NMAP] ---------------------------------------------------------" | tee -a recon.txt
+        echo "[TCP SCANNING] ---------------------------------------------------------" | tee -a recon.txt
         echo TARGET: "$TARGET" | tee -a recon.txt
-        nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt || sudo nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt
         rustscan -a "$TARGET" --ulimit 5000 -- -n -A -Pn --append-output -oG exp/nmap.gnmap -oN nmap.txt  # --scan-order "Random"
         cat nmap.txt >> recon.txt
         rm nmap.txt
     fi
+    
+    if [ $udp_on == 1 ]
+        echo "[UDP SCANNING] ---------------------------------------------------------" | tee -a recon.txt
+        echo TARGET: "$TARGET" | tee -a recon.txt
+        nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt || sudo nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt
+        cat udpnmap.txt >> recon.txt
+    fi
 
-    ### GET THE CONTENT OF SITEMAP IF EXISTS >> recon.txt
+    ### GET THE CONTENT OF SITEMAP IF EXISTS >> recon.txt2
     echo "[SITEMAP 80] ----------------------------------------------------------" | tee -a recon.txt
     "$HOME"/tools/sitemap-urls/sitemap-urls.sh http://"$domain"/sitemap.xml >> recon.txt
+    echo >> recon.txt
     echo "[SITEMAP 443] ---------------------------------------------------------" | tee -a recon.txt
     "$HOME"/tools/sitemap-urls/sitemap-urls.sh https://"$domain"/sitemap.xml >> recon.txt
+    echo >> recon.txt
 
     ### GET THE CONTENT OF ROBOTS IF EXISTS >> recon.txt
     echo "[ROBOTS 80] -----------------------------------------------------------" | tee -a recon.txt
     curl -O http://"$domain"/robots.txt > /dev/null 2>&1
     cat robots.txt >> recon.txt
+    echo >> recon.txt
     echo "[ROBOTS 443] ----------------------------------------------------------" | tee -a recon.txt
     curl -k -O https://"$domain"/robots.txt > /dev/null 2>&1
     cat robots.txt >> recon.txt
+    echo >> recon.txt
     rm robots.txt
 
     ### CHECKING WAF >> recon.txt
@@ -206,12 +221,14 @@ else
 
     ### SPIDER 5 >> urls.txt
     echo -e "\033[0;31m [+]\033[0m SPIDER [5]"
-    hakrawler -url "$domain" -depth 2 -linkfinder -insecure -wayback -usewayback -urls -subs -sitemap -robots -plain -js -headers "$cookie" >> urls.txt
-
+    echo http://"$domain" | hakrawler -insecure -subs -u -h "$cookie" >> urls.txt
+    echo https://"$domain" | hakrawler -insecure -subs -u -h "$cookie" >> urls.txt
+    
     ### SPIDER 6 >> urls.txt
     echo -e "\033[0;31m [+]\033[0m SPIDER [6]"
     galer -u http://"$domain" -s >> urls.txt
-
+    galer -u https://"$domain" -s >> urls.txt
+    
     ### MERGE SPIDERS AND DELETE DUPLICATES >> urls.txt
     echo -e "\033[0;31m [+]\033[0m MERGING SPIDERS RESULTS"
     cat ../urls.txt | grep "$domain" | anew urls.txt > /dev/null

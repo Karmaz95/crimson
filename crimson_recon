@@ -108,7 +108,7 @@ cd "$HOME"/bounty/"$DOMAIN" || exit
 
 ### DOWNLOADING UP TO DATE LIST WITH RESOLVERS
 echo -e "\033[0;31m [+]\033[0m DOWNLOADING FRESH RESOLVERS"
-wget https://raw.githubusercontent.com/BonJarber/fresh-resolvers/main/resolvers.txt -O resolvers.txt > /dev/null 2>&1
+wget https://raw.githubusercontent.com/BonJarber/fresh-resolvers/main/resolvers.txt -O resolvers.txt > /dev/null 2>&1 || echo -e "8.8.8.8\n8.8.4.4" >> resolvers.txt
 
 ### STARTING PASSIVE ENUMERATION = subdomains.txt
 echo -e "\033[0;31m [+]\033[0m SUBDOMAINS SCRAPING"
@@ -269,7 +269,7 @@ gowitness file live.txt > /dev/null
 echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF ENUMERATED LIVE SUBDOMAINS"
 cat live.txt | sed "s/^/http:\/\//" >> temp_live.txt
 cat live.txt | sed "s/^/https:\/\//" >> temp_live.txt
-wfuzz -f status_live.txt,raw -Z -z file,temp_live.txt -z file,"$HOME"/tools/CRIMSON/words/blank FUZZFUZ2Z #> /dev/null 2>&1
+wfuzz -f status_live.txt,raw -Z -z file,temp_live.txt -z file,"$HOME"/tools/CRIMSON/words/blank FUZZFUZ2Z > /dev/null 2>&1
 rm temp_live.txt
 
 ### CHECKING ZONE TRANSFER = dnsrecon.txt
@@ -318,12 +318,12 @@ then
 	### PROXING urls.txt TO BURP SUITE
 	echo -e "\033[0;31m [+]\033[0m PROXING ulrs.txt TO BRUP SUITE"
 	cat urls.txt | grep "$DOMAIN" |grep http | sort -u > proxy.txt
-	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z #> /dev/null 2>&1
+	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z > /dev/null 2>&1
 
 	### PROXING DOMAINS TO BURP = proxy.txt
 	echo -e "\033[0;31m [+]\033[0m PROXING SUBDOMAINS TO BURP"
 	cat status_live.txt | grep -v "XXX" | cut -s -d "\"" -f 2 > proxy.txt
-	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z #> /dev/null 2>&1
+	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z > /dev/null 2>&1
 fi
 
 ### CLEARING THE DIRECTORY

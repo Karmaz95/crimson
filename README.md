@@ -58,7 +58,8 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
                     
                     # Optional flags are shown below:
                  -c "Cookie: auth1=123;"
-                 -p # TCP (1-65535) / UDP (nmap default) ports scanning
+                 -p # TCP (1-65535)   ports scanning
+                 -u # UDP (nmap default) ports scanning
                  -a # Without this flag, you have to manually check for false-positives after bruteforcing
                  -y # Proxy urls.txt and ffuf.txt to Burp (127.0.0.1:8080)
 ```
