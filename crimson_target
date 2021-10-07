@@ -143,6 +143,7 @@ else
     fi
     
     if [ $udp_on == 1 ]
+    then
         echo "[UDP SCANNING] ---------------------------------------------------------" | tee -a recon.txt
         echo TARGET: "$TARGET" | tee -a recon.txt
         nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt || sudo nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt
@@ -228,7 +229,7 @@ else
     echo -e "\033[0;31m [+]\033[0m SPIDER [6]"
     galer -u http://"$domain" -s >> urls.txt
     galer -u https://"$domain" -s >> urls.txt
-    
+
     ### MERGE SPIDERS AND DELETE DUPLICATES >> urls.txt
     echo -e "\033[0;31m [+]\033[0m MERGING SPIDERS RESULTS"
     cat ../urls.txt | grep "$domain" | anew urls.txt > /dev/null
