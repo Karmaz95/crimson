@@ -62,6 +62,7 @@ rust_on=0
 third_level_on=0
 udp_scan_on=0
 proxy_on=0
+subd_on=0
 while getopts "D:xvpbuy" OPTION; do
     case $OPTION in
     D)
@@ -82,6 +83,9 @@ while getopts "D:xvpbuy" OPTION; do
 	y)
 		proxy_on=1
 		;;
+	s)
+		subd_on=1
+		;;
     *)
         echo "Usage: ./crimson_recon -D \"example.domain.com\"
                    # Optional flags are shown below:
@@ -90,7 +94,8 @@ while getopts "D:xvpbuy" OPTION; do
                 -p # TCP ports scanning (1-65535)
                 -u # UDP ports scanning (nmap default ports)
                 -b # Third level subdomain bruteforcing
-                -y # Proxy urls.txt and live.txt to Burp (127.0.0.1:8080)"
+                -y # Proxy urls.txt and live.txt to Burp (127.0.0.1:8080)
+                -s # Find hidden subdomains and secrets within urls.txt with SubDomainizer (takes very long time)"
         exit 1
         ;;
     esac
@@ -218,9 +223,12 @@ echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE URLS"
 cat urls.txt | httpx -threads 50 -silent -o httpx_urls.txt > /dev/null
 mv httpx_urls.txt urls.txt
 
-### LOOKING FOR SUBDOMAINS AND SECRETS IN URLS = subdomainizer.txt
-echo -e "\033[0;31m [+]\033[0m GATHERING SUBDOMAINS, API KEYS, URLS [SUBDOMAINIZER]"
-python3 "$HOME"/tools/SubDomainizer/SubDomainizer.py -k -l urls.txt -o subdomainizer.txt | tee -a subdomainizer.log
+if [ $subd_on == 1 ]
+then
+	### LOOKING FOR SUBDOMAINS AND SECRETS IN URLS = subdomainizer.txt
+	echo -e "\033[0;31m [+]\033[0m GATHERING SUBDOMAINS, API KEYS, URLS [SUBDOMAINIZER]"
+	python3 "$HOME"/tools/SubDomainizer/SubDomainizer.py -k -l urls.txt -o subdomainizer.txt | tee -a subdomainizer.log
+fi
 
 ### GETTING SUBDOMAINS FROM subdomainizer.txt AND CHECKING FOR LIVE = live.txt
 cat subdomainizer.txt | grep "$DOMAIN" | dnsx -t 100 -silent -r resolvers.txt -o live3.txt
@@ -296,7 +304,7 @@ cat subjack2.txt >> subjack.txt 2>/dev/null
 rm subjack2.txt 2>/dev/null
 
 ### NUCLEI SCAN ON ALL LIVE DOMAINS
-for line in $(cat live.txt); do echo "https://$line\nhttp://$line" ;done >> live_with_protocol.txt
+for line in $(cat live.txt); do echo -e "https://$line\nhttp://$line" ;done >> live_with_protocol.txt
 git clone https://github.com/projectdiscovery/nuclei-templates.git
 nuclei -l live_with_protocol.txt -t nuclei-templates/ -silent | tee -a nuclei.txt
 

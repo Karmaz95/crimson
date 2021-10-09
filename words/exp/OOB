@@ -628,4 +628,5 @@ zlib://0://srff2.domain_collab;http://google.com:80/
 zlib://domain_collab
 zlib://ssrf1.domain_collab$google.com
 zlib://vps_ip
-zlib://vps_ip:80file://domain_collab
+zlib://vps_ip:80
+file://domain_collab
