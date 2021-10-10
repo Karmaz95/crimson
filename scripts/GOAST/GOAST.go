@@ -123,10 +123,7 @@ func main() {
 		uEnc = b64.URLEncoding.EncodeToString([]byte(output))
 	   	payloads = append(payloads,uEnc)
 	   	fmt.Println(uEnc)
-			}
-
 		}
-
 
 	// 4. Load urls_list into array
 	urls_list, err := readLines(*urls_list_path)
