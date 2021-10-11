@@ -276,7 +276,7 @@ fi
 
 ### MAKING SCREENSHOOTS FROM ENUERATED LIVE DOMAINS = screenshots/
 echo -e "\033[0;31m [+]\033[0m MAKING SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
-gowitness file live.txt > /dev/null
+gowitness file -f live.txt > /dev/null
 
 ### CHECKING STATUS CODE OF ALL DOMAINS = status_live.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF ENUMERATED LIVE SUBDOMAINS"
