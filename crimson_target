@@ -1,4 +1,5 @@
 #!/bin/bash
+pid=$$
 # Delete below line if you install Crimson from source:
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/bin:/root/go/bin"
 #
@@ -21,6 +22,7 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go
 # 11. CHECK WAF
 # 12. CHECK POTENTIAL BACKUP FILES
 # 13. CHECK CMS
+# 14. TEST HOP-BY-HOP DELETION
 #
 ### LISTS:
 #
@@ -39,7 +41,7 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go
 ### WORKFLOW
 #
 # 0. Start Burp
-#   - Create new project - www.example.domain.com
+#   - Create new project - www.example.tld
 #   - Turn off interception
 #   - Make active scan for proxied urls only in scope
 # 1. Start the script
@@ -201,6 +203,16 @@ else
     echo "[NIKTO 80] ----------------------------------------------------------" | tee -a recon.txt
     "$HOME"/tools/nikto/program/nikto.pl -host http://"$domain" -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
 
+    ### TEST HOP-BY-HOP DELETION (only on main page) > recon.txt
+    echo -e "\033[0;31m [+]\033[0m TESTING HOP-BY-HOP DELETION"
+    echo "[HBH 443] ---------------------------------------------------------" | tee -a recon.txt
+    cat "$HOME"/tools/CRIMSON/words/exp/hbh-headers | while IFS= read -r HEADER; do python "$HOME"/tools/hop-by-hop/hbh-header-abuse-test.py -u "https://$domain" -x "$HEADER"; sleep 1; done | tee -a recon.txt
+
+    ### TEST HOP-BY-HOP DELETION (only on main page) >> recon.txt
+    echo -e "\033[0;31m [+]\033[0m TESTING HOP-BY-HOP DELETION"
+    echo "[HBH 80] ---------------------------------------------------------" | tee -a recon.txt
+    cat "$HOME"/tools/CRIMSON/words/exp/hbh-headers | while IFS= read -r HEADER; do python "$HOME"/tools/hop-by-hop/hbh-header-abuse-test.py -u "http://$domain" -x "$HEADER"; sleep 1; done | tee -a recon.txt
+
     ### SPIDER 1 > urls.txt
     echo -e "\033[0;31m [+]\033[0m STARTING SPIDERS"
     echo -e "\033[0;31m [+]\033[0m SPIDER [1]"
@@ -266,15 +278,17 @@ else
         ### DIRECTORY BRUTEFORCING USING FEROXBUSTER (output is called ffuf.txt for comatibility reasons)
         if [ $https_on == 1 ]
         then
-            feroxbuster --extract-links --no-recursion --redirects --wordlist "$HOME"/tools/CRIMSON/words/custom_dir.txt -o temp/ferox.txt -u "https://$domain" -t 20 -H "$cookie" -k
+            feroxbuster --extract-links --no-recursion --redirects --wordlist "$HOME"/tools/CRIMSON/words/custom_dir.txt -o temp/ferox.txt -u "https://$domain" -H "$cookie" -k
         else
-            feroxbuster --extract-links --no-recursion --redirects --wordlist "$HOME"/tools/CRIMSON/words/custom_dir.txt -o temp/ferox.txt -u "http://$domain" -t 20 -H "$cookie"
+            feroxbuster --extract-links --no-recursion --redirects --wordlist "$HOME"/tools/CRIMSON/words/custom_dir.txt -o temp/ferox.txt -u "http://$domain" -H "$cookie"
         fi
 
         ### MANUAL CHECK - DELETE TRASH FROM FEROXBUSTER OUTPUT
         echo -e "\033[0;31m [+]\033[0m CHECK FEROXBUSTER OUTPUT AND REMOVE FALSE-POSITIVES MANUALLY"
         cd temp || exit
-        read -p "[CTRL + Z] => check ferox.txt => \"fg\" in terminal"
+        echo "Check ferox.txt => \"fg\" in terminal"
+        kill -s TSTP "$pid"
+        read -p "HIT ENTER TO CONTINUE"
         cd ..
         echo -e "\033[0;31m [+]\033[0m FEROXBUSTER SUCCESSFULLY EDITED - CONTINUING THE SCRIPT EXECUTION"
 

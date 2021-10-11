@@ -37,7 +37,7 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go
 ### WORKFLOW
 #
 # 1. Start Burp Suite
-#	- Create new project - example.domain.com
+#	- Create new project - example.tld
 #	- Turn off interception
 # 2. Start this script.
 # 3. Check the output listed above (LISTS)

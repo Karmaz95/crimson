@@ -172,7 +172,8 @@ go get -u github.com/dwisiswant0/cf-check
 go get github.com/mlcsec/headi
 ### CODEQL
 cd $HOME/tools
-wget https://github.com/github/codeql-cli-binaries/releases/download/v2.5.1/codeql-linux64.zip
+#wget https://github.com/github/codeql-cli-binaries/releases/download/v2.5.1/codeql-linux64.zip
+wget https://github.com/github/codeql-cli-binaries/releases/download/v2.6.3/codeql-linux64.zip
 unzip codeql-linux64.zip
 rm codeql-linux64.zip
 ### SEMGREP
