@@ -87,20 +87,25 @@ while getopts "D:xvpbuy" OPTION; do
 		subd_on=1
 		;;
     *)
-        echo "Usage: ./crimson_recon -D \"example.domain.com\"
-                   # Optional flags are shown below:
-                -x # Domain bruteforcing (with words/dns wordlist)
-                -v # Virtual host discovering
-                -p # TCP ports scanning (1-65535)
-                -u # UDP ports scanning (nmap default ports)
-                -b # Third level subdomain bruteforcing
-                -y # Proxy urls.txt and live.txt to Burp (127.0.0.1:8080)
-                -s # Find hidden subdomains and secrets within urls.txt with SubDomainizer (takes very long time)"
+        echo "Incorrect options provided"
         exit 1
         ;;
     esac
 done
 
+if [ -z "$DOMAIN" ]
+then
+    echo "Usage: ./crimson_recon -D \"example.domain.com\"
+               # Optional flags are shown below:
+            -x # Domain bruteforcing (with words/dns wordlist)
+            -v # Virtual host discovering
+            -p # TCP ports scanning (1-65535)
+            -u # UDP ports scanning (nmap default ports)
+            -b # Third level subdomain bruteforcing
+            -y # Proxy urls.txt and live.txt to Burp (127.0.0.1:8080)
+            -s # Find hidden subdomains and secrets within urls.txt with SubDomainizer (takes very long time)"	
+    exit  1
+else
 
 ### REMINDER OF BURP SUITE 
 echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(tldextract "$DOMAIN" | cut -s -d " " -f 2-3 | sed "s/\ /\./" | sed "s/\./\\\./")$
@@ -376,6 +381,7 @@ then
 fi
 echo "			google-chrome http://localhost:7171/table/"
 gowitness report serve
+fi
 
 ### GREP 2/3/4 LEVEL DOMAINS
 # grep -P '^(?:[a-z0-9]+.){1}[^.]*$'	2nd level domains only
