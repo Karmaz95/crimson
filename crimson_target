@@ -1,7 +1,7 @@
 #!/bin/bash
 pid=$$
 # Delete below line if you install Crimson from source:
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/bin:/root/go/bin"
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/bin:/root/go/bin:"
 #
 ### CREATED BY KARMAZ
 #
@@ -65,7 +65,8 @@ rust_on=0
 fully_automated=0
 proxy_on=0
 udp_on=0
-while getopts "c:D:payu" OPTION; do
+arjun_on=0
+while getopts "c:D:puayb" OPTION; do
     case $OPTION in
     c)
         cookie=$OPTARG
@@ -85,6 +86,9 @@ while getopts "c:D:payu" OPTION; do
     y)
         proxy_on=1
         ;;
+    b)
+        arjun_on=1
+        ;;
     *)
         echo "Incorrect options provided"
         exit 1
@@ -101,7 +105,8 @@ then
                  -p # TCP (1-65535)   ports scanning
                  -u # UDP (nmap default) ports scanning
                  -a # Without this flag, you have to manually check for false-positives after bruteforcing
-                 -y # Proxy urls.txt and ffuf.txt to Burp (127.0.0.1:8080)"
+                 -y # Proxy urls.txt and ffuf.txt to Burp (127.0.0.1:8080)
+                 -b # Parameter bruteforcing with Arjun"
     exit  1
 else
     ### PREPARE DIRECTORIES AND VARIABLES
@@ -202,16 +207,6 @@ else
     "$HOME"/tools/nikto/program/nikto.pl -host https://"$domain" -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
     echo "[NIKTO 80] ----------------------------------------------------------" | tee -a recon.txt
     "$HOME"/tools/nikto/program/nikto.pl -host http://"$domain" -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
-
-    ### TEST HOP-BY-HOP DELETION (only on main page) > recon.txt
-    echo -e "\033[0;31m [+]\033[0m TESTING HOP-BY-HOP DELETION"
-    echo "[HBH 443] ---------------------------------------------------------" | tee -a recon.txt
-    cat "$HOME"/tools/CRIMSON/words/exp/hbh-headers | while IFS= read -r HEADER; do python "$HOME"/tools/hop-by-hop/hbh-header-abuse-test.py -u "https://$domain" -x "$HEADER"; sleep 1; done | tee -a recon.txt
-
-    ### TEST HOP-BY-HOP DELETION (only on main page) >> recon.txt
-    echo -e "\033[0;31m [+]\033[0m TESTING HOP-BY-HOP DELETION"
-    echo "[HBH 80] ---------------------------------------------------------" | tee -a recon.txt
-    cat "$HOME"/tools/CRIMSON/words/exp/hbh-headers | while IFS= read -r HEADER; do python "$HOME"/tools/hop-by-hop/hbh-header-abuse-test.py -u "http://$domain" -x "$HEADER"; sleep 1; done | tee -a recon.txt
 
     ### SPIDER 1 > urls.txt
     echo -e "\033[0;31m [+]\033[0m STARTING SPIDERS"
@@ -383,7 +378,7 @@ else
 
     ### CHECK FOR BACKUP FILES > backups.txt
     echo -e "\033[0;31m [+]\033[0m CHECKING EXISTANCE OF BRUTEFORCED FILES BACKUPS"
-    python "$HOME"/tools/CRIMSON/scripts/crimson_backuper.py -w files.txt -e "$HOME"/tools/CRIMSON/words/BCK_EXT -c "$cookie" -o backups.txt
+    python2 "$HOME"/tools/CRIMSON/scripts/crimson_backuper.py -w files.txt -e "$HOME"/tools/CRIMSON/words/BCK_EXT -c "$cookie" -o backups.txt
 
     ### CORS MISCONFIGURATION SCAN >> recon.txt
     echo "[CORS] ---------------------------------------------------------" | tee -a recon.txt
@@ -397,16 +392,30 @@ else
     grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|password|pinning|secret|SHA256|SharedPreferences|superuser|token|X509TrustManager|google_api|google_api|google_captcha|google_oauth|amazon_aws_access_key_id|amazon_mws_auth_toke|amazon_aws_url|facebook_access_token|authorization_basic|authorization_bearer|authorization_api|mailgun_api_key|twilio_api_key|twilio_account_sid|twilio_app_sid|paypal_braintree_access_token|square_oauth_secret|square_access_token|stripe_standard_api|stripe_restricted_api|github_access_tokenttp" all_source_code/ --color=always > apikeys.txt
     detect-secrets scan all_source_code/ --all-files > detect-secrets.txt
 
-    ### GET PARAMETER NAMES BY BRUTEFORCING THEM > exp/arjun.txt
-    echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON exp/files.txt - IT WILL TAKE A WHILE..."
-    arjun -i files.txt -oT arjun.txt -q --headers "$cookie"
-    
+    if [ $arjun_on == 1 ]
+    then
+        ### GET PARAMETER NAMES BY BRUTEFORCING THEM > exp/arjun.txt
+        echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON exp/files.txt - IT WILL TAKE A WHILE..."
+        arjun -i files.txt -oT arjun.txt -q --headers "$cookie"
+    fi
+
+    ### TEST HOP-BY-HOP DELETION (only on main page) > recon.txt
+    echo -e "\033[0;31m [+]\033[0m TESTING HOP-BY-HOP DELETION"
+    echo "[HBH 443] ---------------------------------------------------------" | tee -a recon.txt
+    cat "$HOME"/tools/CRIMSON/words/exp/hbh-headers | while IFS= read -r HEADER; do python2 "$HOME"/tools/hop-by-hop/hbh-header-abuse-test.py -u "https://$domain" -x "$HEADER"; sleep 1; done | tee -a recon.txt
+
+    ### TEST HOP-BY-HOP DELETION (only on main page) >> recon.txt
+    echo -e "\033[0;31m [+]\033[0m TESTING HOP-BY-HOP DELETION"
+    echo "[HBH 80] ---------------------------------------------------------" | tee -a recon.txt
+    cat "$HOME"/tools/CRIMSON/words/exp/hbh-headers | while IFS= read -r HEADER; do python2 "$HOME"/tools/hop-by-hop/hbh-header-abuse-test.py -u "http://$domain" -x "$HEADER"; sleep 1; done | tee -a recon.txt
+
     ### CLEAR LOGS
     rm files.txt
     rm status_ffuf.txt
     rm status_new_endpoints.txt
     ### REMOVE EMPTY FILES AND DIRECTORIES
     find . -type d -empty -print -delete -o -type f -empty -print -delete
+    rm -rf nuclei-templates
     
     ### MARK THE END
     echo "----------------------------------------------------------------"
@@ -415,8 +424,8 @@ else
 
     echo -e "\033[0;31m [+]\033[0m 1. recon.txt :"
     cat recon.txt
-    echo -e "\033[0;31m [+]\033[0m 2. zile.txt :"
-    cat zile.txt | cut -s -d " " -f 2 | sed "s/^..//g" | sed "s/..$//g" | sort -u | sed "s/^.//" | sed "s/.$//"
+    #echo -e "\033[0;31m [+]\033[0m 2. zile.txt :"
+    # cat zile.txt | cut -s -d " " -f 2 | sed "s/^..//g" | sed "s/..$//g" | sort -u | sed "s/^.//" | sed "s/.$//"
     echo -e "\033[0;31m [+]\033[0m 3. CHECK :"
     echo "  - status_dir.txt"
     echo "  - status_params.txt"

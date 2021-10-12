@@ -1,6 +1,6 @@
 #!/bin/bash
 # Delete below line if you install Crimson from source:
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/bin:/root/go/bin"
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/bin:/root/go/bin:"
 #
 ### CREATED BY KARMAZ
 #
@@ -63,7 +63,7 @@ third_level_on=0
 udp_scan_on=0
 proxy_on=0
 subd_on=0
-while getopts "D:xvpbuy" OPTION; do
+while getopts "D:xvpbuys" OPTION; do
     case $OPTION in
     D)
         export DOMAIN=$OPTARG
@@ -76,6 +76,9 @@ while getopts "D:xvpbuy" OPTION; do
 		;;
 	p)
 		rust_on=1
+		;;
+	b)
+		third_level_on=1
 		;;
 	u)
 		udp_scan_on=1
@@ -344,6 +347,7 @@ rm proxy.txt 2>/dev/null
 rm resolvers.txt 2>/dev/null
 rm error_requests.txt 2>/dev/null
 find . -type d -empty -print -delete -o -type f -empty -print -delete
+rm -rf nuclei-templates
 
 ### PRINTING RESULTS
 echo -e "\033[0;31m [+]\033[0m RESULTS: "

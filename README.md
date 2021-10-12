@@ -22,21 +22,17 @@
 
 #### :small_red_triangle_down:crimson_exploit
 > This module uses a number of tools to automate the search for certain bugs in a list of urls.
-# Installation
-Tested on Linux Mint and Kali Linux.
-```bash
-git clone https://github.com/Karmaz95/crimson.git 
-cd crimson
-chmod +x install.sh
-./install.sh
+# Installation & running
 ```
-Then add below line to your .bashrc / .zshrc etc.
-```bash
-export GOPATH=$HOME/go
-export PATH="$HOME/bin:$:$HOME/tools/codeql:$HOME/.local/bin:$HOME/go/bin:$PATH"
+# 1. Pull docker container:
+docker pull karmaz95/crimson:v1
+# 2. First run of downloaded container:
+docker run --network="host" --name crimson -it karmaz95/crimson:v1
+# 3. After first run you can start container by:
+docker start crimson && docker attach crimson
 ```
-Install Burp Suite and extensions listed below in section `Burp Suite extensions`.
-# Usage
+Additionally you can install Burp Suite and extensions listed below in section `Burp Suite extensions`.
+# Usage - commands issued inside a docker container
 ##### :diamonds: First module needs `domain name`:diamonds:
 
 ```bash
@@ -48,9 +44,10 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
                 -p # TCP ports scanning (1-65535)
                 -u # UDP ports scanning (nmap default ports)
                 -b # Third level subdomain bruteforcing
-                -y # Proxy urls.txt and live.txt to Burp (127.0.0.1:8080)"
+                -y # Proxy urls.txt and live.txt to Burp (127.0.0.1:8080)
+                -s # Find hidden subdomains and secrets within urls.txt with SubDomainizer (takes very long time)
 ```
-* You can learn more about `crimson_recon` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-i-574fd9dce53e)
+
  
 ##### :diamonds: Second module needs `subdomain name`:diamonds:
 ```bash
@@ -62,18 +59,19 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
                  -u # UDP (nmap default) ports scanning
                  -a # Without this flag, you have to manually check for false-positives after bruteforcing
                  -y # Proxy urls.txt and ffuf.txt to Burp (127.0.0.1:8080)
+                 -b # Parameter bruteforcing with Arjun
 ```
-* You can learn more about `crimson_target` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-ii-4336bd4ca73b?sk=ba289442112704cd71ac4a89e994fc8c)
 
 ##### :diamonds: Third module needs `subdomain name` with your `collaborator` and `vps ip`:diamonds:
+
 ```bash
 ./crimson_exploit -D "example.domain.com" -d "collaborator.com" -i "ip"
                     
                     # Optional flags are shown below:
                   -c "Cookie: auth1=123;"
-                  -x # fuzz all urls (with words/bug wordlist)
+                  -x # fuzzing all.txt with bug wordlist
 ```
-* You can learn more about `crimson_exploit` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-iii-2823b16f38cc)
+
 ##### :diamonds: Before starting third module, run the listener on your vps machine on port 80 :diamonds:
 
 # Extras
@@ -132,7 +130,6 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [nikto](https://github.com/sullo/nikto)
 * [CorsMe](https://github.com/Shivangx01b/CorsMe)
 * [subjack](https://github.com/haccer/subjack)
-* [DirDar](https://github.com/M4DM0e/DirDar)
 * [XSStrike](https://github.com/s0md3v/XSStrike)
 * [Smuggler](https://github.com/defparam/smuggler)
 * [hbh-header-abuse-test](https://gist.github.com/ndavison/298d11b3a77b97c908d63a345d3c624d)
@@ -143,17 +140,16 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [ysoserial.net](https://github.com/frohoff/ysoserial)
 * [jwt-tool](https://github.com/ticarpi/jwt_tool)
 * [dalfox](https://github.com/hahwul/dalfox)
-* [metasploit](https://github.com/rapid7/metasploit-framework)
 * [testssl.sh](https://testssl.sh/)
 * [crimson_deserializator](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_deserializator.py)
 * [crimson_oobtester](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_oobtester.py)
-* [crimson_rewriter](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_rewriter.py)
 * [crimson_templator](https://github.com/Karmaz95/crimson/blob/master/scripts/crimson_templator.py)
 * [nuclei](https://github.com/projectdiscovery/nuclei)
 * [headi](https://github.com/mlcsec/headi)
 * [codeql](https://github.com/github/codeql-cli-binaries)
 * [semgrep](https://semgrep.dev/)
 * [gmapiscanner](https://github.com/ozguralp/gmapsapiscanner.git)
+
 
 ### :diamonds: WordPress tools:
 * [wpscan](https://github.com/wpscanteam/wpscan)
@@ -166,8 +162,6 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [qsreplace](https://github.com/tomnomnom/qsreplace)
 * [anew](https://github.com/tomnomnom/anew.git)
 * [unfurl](https://github.com/tomnomnom/unfurl)
-* [wine](https://www.winehq.org/)
-* [exploit-database](https://github.com/offensive-security/exploit-database.git)
 * [Search-That-Hash](https://github.com/HashPals/Search-That-Hash)
 * [clever_ffuf](https://github.com/Karmaz95/crimson/blob/master/scripts/clever_ffuf.py)
 * [crimson_opener](https://github.com/Karmaz95/crimson/tree/master/scripts/crimson_opener)
@@ -177,6 +171,7 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 * [Ciphey](https://github.com/Ciphey/Ciphey)
 * [cswsh-scanner](https://github.com/ambalabanov/cswsh-scanner)
 
+
 ### :diamonds: Wordlists:
 * [SecLists](https://github.com/danielmiessler/SecLists)
 * [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
@@ -184,48 +179,47 @@ Install Burp Suite and extensions listed below in section `Burp Suite extensions
 
 
 ### :diamonds: Burp Suite extensions:
-* [.NET Beautifier](https://portswigger.net/bappstore/e2a137ad44984ccb908375fa5b2c618d)
 * [ActiveScan++](https://portswigger.net/bappstore/3123d5b5f25c4128894d97ea1acc4976)
 * [Additional Scanner Checks](https://portswigger.net/bappstore/a158fd3fc9394253be3aa0bc4c181d1f)
 * [Anonymous Cloud, Configuration and Subdomain Takeover Scanner](https://portswigger.net/bappstore/ea60f107b25d44ddb59c1aee3786c6a1)
 * [Attack Surface Detector](https://portswigger.net/bappstore/47027b96525d4353aea5844781894fb1)
 * [Auth Analyzer](https://portswigger.net/bappstore/7db49799266c4f85866f54d9eab82c89)
-* [Autowasp](https://portswigger.net/bappstore/b89968942a3e4cab916b6c761beb2003)
 * [AWS Security Checks](https://portswigger.net/bappstore/f078b9254eab40dc8c562177de3d3b2d)
 * [Backslash Powered Scanner](https://portswigger.net/bappstore/9cff8c55432a45808432e26dbb2b41d8)
+* [Burp Bounty Pro](https://burpbounty.net/)
 * [Cloud Storage Tester](https://portswigger.net/bappstore/04adbe101f544c88b2497a9a25ffaab4)
 * [Collaborator Everywhere](https://portswigger.net/bappstore/2495f6fb364d48c3b6c984e226c02968)
-* [CSP-Bypass](https://portswigger.net/bappstore/b113bdc1390647b092cb527c0b95116d)
 * [CSRF Scanner](https://portswigger.net/bappstore/60f172f27a9b49a1b538ed414f9f27c3)
 * [Detect Dynamic JS](https://portswigger.net/bappstore/4a657674ebe3410b92280613aa512304)
 * [Error Message Checks](https://portswigger.net/bappstore/4f01db4b668c4126a68e4673df796f0f)
-* [ExifTool Scanner](https://portswigger.net/bappstore/858352a27e6e4a6caa802e61fdeb7dd4)
 * [Freddy, Deserialization Bug Finder](https://portswigger.net/bappstore/ae1cce0c6d6c47528b4af35faebc3ab3)
 * [HTTP Request Smuggler](https://portswigger.net/bappstore/aaaa60ef945341e8a450217a54a11646)
 * [InQL - Introspection GraphQL Scanner](https://portswigger.net/bappstore/296e9a0730384be4b2fffef7b4e19b1f)
 * [J2EEScan](https://portswigger.net/bappstore/7ec6d429fed04cdcb6243d8ba7358880)
 * [Java Deserialization Scanner](https://portswigger.net/bappstore/228336544ebe4e68824b5146dbbd93ae)
 * [JS Link Finder](https://portswigger.net/bappstore/0e61c786db0c4ac787a08c4516d52ccf)
-* [Logger++](https://portswigger.net/bappstore/470b7057b86f41c396a97903377f3d81)
 * [NGINX Alias Traversal](https://portswigger.net/bappstore/a5fdd2cdffa6410eb530de5a4c294d3a)
 * [NoSQLi Scanner](https://portswigger.net/bappstore/605a859f0a814f0cbbdce92bc64233b4)
-* [Paramalyzer](https://portswigger.net/bappstore/0ac13c45adff4e31a3ca8dc76dd6286c)
 * [Param Miner](https://portswigger.net/bappstore/17d2949a985c4b7ca092728dba871943)
 * [PHP Object Injection Check](https://portswigger.net/bappstore/24dab228311049d89a27a4d721e17ef7)
 * [Reflected Parameters](https://portswigger.net/bappstore/8e8f6bb313db46ba9e0a7539d3726651)
 * [Retire.js](https://portswigger.net/bappstore/36238b534a78494db9bf2d03f112265c)
-* [Same Origin Method Execution](https://portswigger.net/bappstore/9fea3ce4e79d450a9a15d05a79f9d349)
-* [SameSite Reporter](https://portswigger.net/bappstore/ea1aa264b86d424ba35760d7e24c9e60)
 * [Similar Request Excluder](https://portswigger.net/bappstore/9ecd51851baf4ae6b69c6a951257387a)
 * [Software Version Reporter](https://portswigger.net/bappstore/ae62baff8fa24150991bad5eaf6d4d38)
 * [Software Vulnerability Scanner](https://portswigger.net/bappstore/c9fb79369b56407792a7104e3c4352fb)
 * [Taborator](https://portswigger.net/bappstore/c9c37e424a744aa08866652f63ee9e0f)
 * [Turbo Intruder](https://portswigger.net/bappstore/9abaa233088242e8be252cd4ff534988)
 * [UploadScanner](https://portswigger.net/bappstore/b2244cbb6953442cb3c82fa0a0d908fa)
-* [ViewState Editor](https://portswigger.net/bappstore/ba17d9fb487448b48368c22cb70048dc)
-* [Wayback Machine](https://portswigger.net/bappstore/5c7c516c690345c19fbf55b2b2ebeb76)
 * [Web Cache Deception Scanner](https://portswigger.net/bappstore/7c1ca94a61474d9e897d307c858d52f0)
+* [Hackvertor](https://portswigger.net/bappstore/65033cbd2c344fbabe57ac060b5dd100)
+* [burp-copy-as-ffuf](https://github.com/d3k4z/burp-copy-as-ffuf)
 
+
+# HISTORY
+> If you are curious how it all started:
+* You can learn more about `crimson_recon` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-i-574fd9dce53e)
+* You can learn more about `crimson_target` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-ii-4336bd4ca73b?sk=ba289442112704cd71ac4a89e994fc8c)
+* You can learn more about `crimson_exploit` module by reading my article at [medium](https://karol-mazurek95.medium.com/automation-of-the-reconnaissance-phase-during-web-application-penetration-testing-iii-2823b16f38cc)
 
 # LICENSE
 > This program is free software: you can redistribute it and/or modify it under the terms of the [Apache license](https://choosealicense.com/licenses/apache-2.0/). Crimson and any contributions are Copyright © by Karol Mazurek 2020-2021.
