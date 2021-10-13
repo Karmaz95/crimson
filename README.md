@@ -1,6 +1,6 @@
-# Crimson
+# Crimson v2
 
-> Crimson is a tool that automates some of the Pentester or Bug Bounty Hunter tasks.  
+> Crimson is a tool that automates `ASSET DISCOVERY` and `VULNERABILITY SCANNING`.  
 > It uses many open source tools, most of them are available for download from github.
 
 <p align="center">
@@ -8,20 +8,10 @@
 </p>
 
 #### It consists of three partially interdependent modules:
-* crimson_recon   - automates the process of domain reconnaissance.
-* crimson_target  - automates the process of urls reconnaissance.
-* crimson_exploit - automates the process of bug founding.
+* `crimson_recon`   - automates the process of subdomain reconnaissance and vulnerability scanning.
+* `crimson_target`  - automates the process of single-domain reconnaissance and vulnerability scanning.
+* `crimson_exploit` - automates the process of bug founding in gathered URLS.
 
-
-#### :small_red_triangle_down:crimson_recon
-> This module can help you if you have to test big infrastructure or you are trying to earn some bounties in *.scope.com domain. It includes many web scraping and bruteforcing tools.
-
-#### :small_red_triangle_down:crimson_target
-> This module covers one particular domain chosen by you for testing.  
-> It uses a lot of vulnerability scanners, web scrapers and bruteforcing tools.
-
-#### :small_red_triangle_down:crimson_exploit
-> This module uses a number of tools to automate the search for certain bugs in a list of urls.
 # Installation & running
 ```
 # 1. Pull docker container:
@@ -38,7 +28,7 @@ Additionally you can install Burp Suite and extensions listed below in section `
 ##### :diamonds: First module needs `domain name`:diamonds:
 
 ```bash
-./crimson_recon -D "domain.com" 
+crimson_recon -D "domain.com" 
                    
                    # Optional flags are shown below: 
                 -x # Domain bruteforcing (with words/dns wordlist)
@@ -53,7 +43,7 @@ Additionally you can install Burp Suite and extensions listed below in section `
  
 ##### :diamonds: Second module needs `subdomain name`:diamonds:
 ```bash
-./crimson_target -D "example.domain.com" 
+crimson_target -D "example.domain.com" 
                     
                     # Optional flags are shown below:
                  -c "Cookie: auth1=123;"
@@ -67,7 +57,7 @@ Additionally you can install Burp Suite and extensions listed below in section `
 ##### :diamonds: Third module needs `subdomain name` with your `collaborator` and `vps ip`:diamonds:
 
 ```bash
-./crimson_exploit -D "example.domain.com" -d "collaborator.com" -i "ip"
+crimson_exploit -D "example.domain.com" -d "collaborator.com" -i "ip"
                     
                     # Optional flags are shown below:
                   -c "Cookie: auth1=123;"
@@ -76,6 +66,151 @@ Additionally you can install Burp Suite and extensions listed below in section `
 
 ##### :diamonds: Before starting third module, run the listener on your vps machine on port 80 :diamonds:
 
+# Usage - modules description
+#### :small_red_triangle_down:crimson_recon
+> This module can help you if you have to test big infrastructure or you are trying to earn some bounties in `*.scope.com` domain.
+
+```
+### FUNCTIONS:
+#
+# 1. SUBDOMAIN ENUMERATION
+# 2. LIVE SUBDOMAIN CHECK
+# 3. TAKEOVER CHECK
+# 4. SCREENSHOTS
+# 5. CORS CHECK
+# 6. IP RESOLVE
+# 7. OPENED PORTS SCAN
+# 8. URLS SCRAPING
+# 9. API KEYS SCRAPING
+# 10. VIRTUAL HOSTNAMES ENUMERATION
+#
+### LISTS (output):
+#
+# 1. live.txt     - LIVE SUBDOMAINS
+# 2. ip.txt       - ALL IPs
+# 3. ports.txt      - OPENED PORTS
+# 4. subjack.txt    - VULNS [TAKEOVER]
+# 5. screenshots    - STATUS CODES + SCREENS
+# 6. cors_scan.txt    - VULNS [CORS]
+# 7. urls.txt     - ALL CRAWLED AND LIVE URLS IN ONE FILE
+# 8. status_live.txt  - HTTPS / HTTPS SUBDOMAINS STATUS CODES
+# 9. ldns-walk.txt    - DOMAINS FROM DNSSEC
+# 10. subdomainizer.txt - DETECTED API KEYS / AND MORE SUBDOMAINS
+# 11. hosthunter.txt  - VIRTUAL HOSTNAMES
+# 12. nuclei.txt    - CVE SCAN
+#
+### WORKFLOW
+#
+# 1. Start Burp Suite - optional step
+# - Create new project - example.tld
+# - Turn off interception
+# 2. Start this script.
+# 3. Check the output listed above (LISTS)
+# 4. Select single domain and start crimson_target module
+#
+###
+```
+
+#### :small_red_triangle_down:crimson_target
+> This module covers one particular subdomain/domain for example : `www.scope.tld`.  
+```
+### FUNCTIONS:
+#
+# 1. FULL RANGE PORT SCANING && NSE ON OPENED PORTS
+# 2. VULNERABILITY SCANING
+# 3. DOMAIN CRAWLING
+# 4. DIRECTORY BRUTEFORCING
+# 5. GATHERING SOURCE CODE OF SCRAPED / BRUTEFORCED URLS
+# 6. EXTRACTING NEW PATHS, API KEYS, ENDPOINTS FROM GATHERED SOURCE CODE
+# 7. MERGING PATHS WITH DOMAIN AND PROBING FOR NEW ENDPOINTS
+# 8. PROXING LIVE RESULTS TO BURP SUITE  
+# 9. PREPARING params.txt && dirs.txt FOR EXPLOIT MODULE
+# 10. CHECK WAF && POTENTIAL BACKUP FILES && CMS
+# 11. TESTING HOP-BY-HOP DELETION
+#
+### LISTS:
+#
+# 1) recon.txt          - FILE WITH RECON OUTPUT
+# 2) urls.txt           - FILE WITH GATHERED URLS
+# 3) status_params.txt  - STATUS CODES OF urls.txt
+# 4) ffuf.txt           - DIR BRUTEFORCING OUTPUT
+# 5) status_dir.txt     - STATUS CODE OF ffuf.txt
+# 9) exp/params.txt     - FILE PREPARED FOR crimson_exploit WITH PARAMS
+# 10) exp/dirs.txt      - FILE PREPARED FOR crimson_exploit WITH DIRECTORIES
+# 11) backups.txt       - POTENTIALLY BACKUP FILES 
+# 12) arjun.txt         - FILE WITH BRUTEFORCED PARAMETERS
+# 13) nmap.txt          - FILE WITH TCP/UDP PORT SCANNING OUTPUT
+# 15) exp/nmap.gnmap    - FILE WITH TCP/UDP PORT SCANNING OUTPUT IN GREPABLE FORMAT 
+#
+### WORKFLOW
+#
+# 0. Start Burp - optional step
+#   - Create new project - www.example.tld
+#   - Turn off interception
+#   - Make active scan for proxied urls only in scope
+# 1. Start the script
+# 2. Check the output listed above (LISTS)
+# 3. Manually browse the application, click on all functionalities
+# 4. Copy whole target scope from Burp after manually browsing the target
+# 5. Paste it to exp/all.txt and run crimson_exploit
+#
+###
+```
+#### :small_red_triangle_down:crimson_exploit
+> This module uses a number of tools to automate the search for certain bugs in a list of urls.
+```
+### FUNCTIONS:
+#
+# 1. FUZZING PATHS IN URLS FROM dirs.txt WITH CUSTOM PAYLOADS
+# 2. FUZZING PARAMS IN URLS FROM params.txt WITH CUSTOM PAYLOADS
+# 3. TESTING FOR XSS
+# 4. TESTING JAVASCRIPT SOURCE CODE
+# 5. TESTING HTTP REQUEST SMUGGLING
+# 6. TESTING PROTOTYPE POLLUTION
+# 7. TESTING FOR BROKEN LINKS
+# 8. TESTING SQLI
+# 9. TESTING OUT-OF-BOUND RCE/SSRF
+# 10. TESTING JAVA DESERIALIZATION
+# 11. TESTING CRLF INJECTION
+# 12. TESTING FOR OPEN REDIRECTION
+# 13. TESTING WORDPRESS
+# 14. TESTING CVES
+# 15. TESTING HEADER INJECTIONS
+
+#
+### LISTS:
+#
+# 1. bug_params.txt         - Fuzzing output
+# 2. bug_dirs.txt           - Fuzzing output
+# 3. vuln_xss               - Output from XSSstrike with vulnerable urls ready to open in browser
+# 4. codeql.txt             - Output from Codeql after testing the JavaScript source code.
+# 5. smuggler.txt           - Output after testing for HTTP request smuggling.
+# 6. prototype-pollution    - Potentailly vulneable params to prototype pollution.
+# 7. broken_links.txt       - Output from BLC
+# 8. sqli/                  - Output from sqlmap
+# 9. oob.txt                - Log after OAST  
+# 10. CRLF.txt              - Output from crlfuzz
+# 11. OR.txt                - Potentailly vulnerable URLS to Open Redirect vulnerability
+# 12. dalfox.txt            - Output from dalfox
+# 13. ssti.txt              - Output from crimson_templator with SSTI vulnerable urls.
+# 14. wp/                   - Output from WPSCAN
+# 15. deserializator.txt    - Logs from crimson_deserializator 
+# 16. semgrep.txt           - Output from semgrep after testing the JavaScript source code.
+# 17. nuclei.txt            - Output from nuclei scanning
+# 18. headi.txt             - Otput from headi
+#
+### WORKFLOW
+#
+# 0. Start BURP - optional step
+# 1. Start vps listener and collaborator server
+# 2. Start the script
+# 3. Check the output listed above (LISTS)
+# 5. Look for [ID] [TIME] in oob.txt and compare it to pings on your vps / collaborator
+# 8. Check deserialization pings with manual payloads
+# 9. Start manual testing 
+#
+###
+```
 # Extras
 > There are some useful tools in the scripts directory that I have written that are worth checking out.
 

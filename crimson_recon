@@ -9,7 +9,7 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go
 ### FUNCTIONS:
 #
 # 1. SUBDOMAIN ENUMERATION
-# 2. LIVE CHECK
+# 2. LIVE SUBDOMAIN CHECK
 # 3. TAKEOVER CHECK
 # 4. SCREENSHOTS
 # 5. CORS CHECK
@@ -17,20 +17,20 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go
 # 7. OPENED PORTS SCAN
 # 8. URLS SCRAPING
 # 9. API KEYS SCRAPING
-# 10. GETTING VIRTUAL HOSTNAMES
+# 10. VIRTUAL HOSTNAMES ENUMERATION
 #
-### LISTS:
+### LISTS (output):
 #
 # 1. live.txt			- LIVE SUBDOMAINS
-# 2. ip.txt				- ALL IPS
+# 2. ip.txt				- ALL IPs
 # 3. ports.txt			- OPENED PORTS
-# 4. subjack.txt		- VULNS
-# 5. screenshots 		- STATUS + SCREENS
-# 6. cors_scan.txt		- VULNS
-# 7. urls.txt			- ALL SPIDERS URLS IN ONE
-# 8. status_live.txt	- HTTPS / HTTPS SUBDOMAINS STATUS
+# 4. subjack.txt		- VULNS [TAKEOVER]
+# 5. screenshots 		- STATUS CODES + SCREENS
+# 6. cors_scan.txt		- VULNS [CORS]
+# 7. urls.txt			- ALL CRAWLED AND LIVE URLS IN ONE FILE
+# 8. status_live.txt	- HTTPS / HTTPS SUBDOMAINS STATUS CODES
 # 9. ldns-walk.txt		- DOMAINS FROM DNSSEC
-# 10. subdomainizer.txt	- API KEYS / MORE SUBDOMAINS
+# 10. subdomainizer.txt	- DETECTED API KEYS / AND MORE SUBDOMAINS
 # 11. hosthunter.txt	- VIRTUAL HOSTNAMES
 # 12. nuclei.txt		- CVE SCAN
 #
