@@ -149,6 +149,7 @@ crimson_exploit -D "example.domain.com" -d "collaborator.com" -i "ip"
 #   - Turn off interception
 #   - Make active scan for proxied urls only in scope
 # 1. Start the script
+#   - If you didn't choose -a flag, go to /bounty/domain.tld/tested.domain.tld/temp and remove manually false positives entries in ferox.txt
 # 2. Check the output listed above (LISTS)
 # 3. Manually browse the application, click on all functionalities
 # 4. Copy whole target scope from Burp after manually browsing the target
