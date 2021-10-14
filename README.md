@@ -64,7 +64,7 @@ crimson_exploit -D "example.domain.com" -d "collaborator.com" -i "ip"
                   -x # fuzzing all.txt with bug wordlist
 ```
 
-##### :diamonds: Before starting third module, run the listener on your vps machine on port 80 :diamonds:
+##### :diamonds: Before starting third module, run the listener on your vps machine on port 80 `python -m http.server 80` and for ping payloads `tcpdump -i eth0 icmp`:diamonds:
 
 # Usage - modules description
 #### :small_red_triangle_down:crimson_recon
