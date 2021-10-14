@@ -61,3 +61,7 @@
 * :small_red_triangle_down: formula_injections.txt
 
 > Excel formulas that will be executed when the user opens the file or when the user clicks on some link inside the excel sheet.
+
+* :small_red_triangle_down:  exiftool.jpg
+
+> Edit using text editor - swap domain_collab with custom domain
