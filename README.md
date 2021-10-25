@@ -318,7 +318,6 @@ crimson_exploit -D "example.domain.com" -d "collaborator.com" -i "ip"
 
 ### :diamonds: Burp Suite extensions:
 * [ActiveScan++](https://portswigger.net/bappstore/3123d5b5f25c4128894d97ea1acc4976)
-* [Additional Scanner Checks](https://portswigger.net/bappstore/a158fd3fc9394253be3aa0bc4c181d1f)
 * [Anonymous Cloud, Configuration and Subdomain Takeover Scanner](https://portswigger.net/bappstore/ea60f107b25d44ddb59c1aee3786c6a1)
 * [Attack Surface Detector](https://portswigger.net/bappstore/47027b96525d4353aea5844781894fb1)
 * [Auth Analyzer](https://portswigger.net/bappstore/7db49799266c4f85866f54d9eab82c89)
@@ -351,6 +350,19 @@ crimson_exploit -D "example.domain.com" -d "collaborator.com" -i "ip"
 * [Web Cache Deception Scanner](https://portswigger.net/bappstore/7c1ca94a61474d9e897d307c858d52f0)
 * [Hackvertor](https://portswigger.net/bappstore/65033cbd2c344fbabe57ac060b5dd100)
 * [burp-copy-as-ffuf](https://github.com/d3k4z/burp-copy-as-ffuf)
+
+
+### :diamonds: OSINT:
+* [spiderfoot](https://github.com/smicallef/spiderfoot.git)
+* [theHarvester](https://github.com/laramies/theHarvester.git)
+
+
+### :diamonds: TO DO:
+* [gorgo](https://github.com/pry0cc/gorgo)
+* [cariddi](https://github.com/edoardottt/cariddi)
+* [crawlergo](https://github.com/Qianlitp/crawlergo)
+* [svn-extractor](https://github.com/Karmaz95/svn-extractor)
+* [PoC-in-GitHub](https://github.com/nomi-sec/PoC-in-GitHub)
 
 
 # HISTORY

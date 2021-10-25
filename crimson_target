@@ -132,9 +132,9 @@ else
         https_on=0
     fi
 
-    echo "----------------------------------------------------------------"
+    echo "----------------------------------------------------------------" >> recon.txt 
     echo "SCANNING START: $(date +'[%m-%d %H:%M:%S]')" >> recon.txt    
-    echo "----------------------------------------------------------------"
+    echo "----------------------------------------------------------------" >> recon.txt 
 
     ### --- PORT SCANNING SECTION --- ### -p
     if [ $rust_on == 1 ]
@@ -157,19 +157,19 @@ else
 
     ### GET THE CONTENT OF SITEMAP IF EXISTS >> recon.txt2
     echo "[SITEMAP 80] ----------------------------------------------------------" | tee -a recon.txt
-    "$HOME"/tools/sitemap-urls/sitemap-urls.sh http://"$domain"/sitemap.xml >> recon.txt
+    "$HOME"/tools/CRIMSON/scripts/sitemap-urls.sh http://"$domain"/sitemap.xml >> recon.txt
     echo >> recon.txt
     echo "[SITEMAP 443] ---------------------------------------------------------" | tee -a recon.txt
-    "$HOME"/tools/sitemap-urls/sitemap-urls.sh https://"$domain"/sitemap.xml >> recon.txt
+    "$HOME"/tools/CRIMSON/scripts/sitemap-urls.sh https://"$domain"/sitemap.xml >> recon.txt
     echo >> recon.txt
 
     ### GET THE CONTENT OF ROBOTS IF EXISTS >> recon.txt
     echo "[ROBOTS 80] -----------------------------------------------------------" | tee -a recon.txt
-    curl -O http://"$domain"/robots.txt > /dev/null 2>&1
+    curl -k --max-time 30 -O http://"$domain"/robots.txt  > /dev/null 2>&1
     cat robots.txt >> recon.txt
     echo >> recon.txt
     echo "[ROBOTS 443] ----------------------------------------------------------" | tee -a recon.txt
-    curl -k -O https://"$domain"/robots.txt > /dev/null 2>&1
+    curl -k --max-time 30 -O https://"$domain"/robots.txt > /dev/null 2>&1
     cat robots.txt >> recon.txt
     echo >> recon.txt
     rm robots.txt
