@@ -15,7 +15,7 @@
 # Installation & running
 ```
 # 1. Pull docker container:
-docker pull karmaz95/crimson:v1
+docker pull karmaz95/crimson:v2
 # 2. First run of downloaded container:
 docker run --network="host" --name crimson -it karmaz95/crimson:v2
 # 3. After first run you can start container by:
