@@ -15,7 +15,7 @@ with open("all.txt") as f:
         port = splited_line[1]
         #all_services.append(splited_line) # array with all ip:port pairs # print all_services[1]
         
-        scan_results.append(nm.scan(ip,port, arguments="-Pn -sV"))
+        scan_results.append(nm.scan(ip,port, arguments="-Pn -A"))
         print("------- Scan info: ")
         print(json.dumps(scan_results[i], sort_keys=True, indent=4))
         print("------- Output csv:")

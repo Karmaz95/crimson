@@ -29,10 +29,9 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go
 # 6. cors_scan.txt		- VULNS [CORS]
 # 7. urls.txt			- ALL CRAWLED AND LIVE URLS IN ONE FILE
 # 8. status_live.txt	- HTTPS / HTTPS SUBDOMAINS STATUS CODES
-# 9. ldns-walk.txt		- DOMAINS FROM DNSSEC
-# 10. subdomainizer.txt	- DETECTED API KEYS / AND MORE SUBDOMAINS
-# 11. hosthunter.txt	- VIRTUAL HOSTNAMES
-# 12. nuclei.txt		- CVE SCAN
+# 9. subdomainizer.txt	- DETECTED API KEYS / AND MORE SUBDOMAINS
+# 10. hosthunter.txt	- VIRTUAL HOSTNAMES
+# 11. nuclei.txt		- CVE SCAN
 #
 ### WORKFLOW
 #
@@ -292,10 +291,6 @@ rm temp_live.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING ZONE TRANSFER"
 dnsrecon -d "$DOMAIN" -a >> dnsrecon.txt
 
-### DNSSEC RECON = ldns-walk.txt
-echo -e "\033[0;31m [+]\033[0m CHECKING DNSSEC MISONFIGURATIONS"
-ldns-walk "$DOMAIN" >> ldns-walk.txt
-
 ### CHECKING FOR CORS MISSCONFIGURATION = cors_scan.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING CORS"
 cat live.txt | CorsMe -t 50 -output cors_scan.txt > /dev/null
@@ -365,8 +360,6 @@ else
     echo "\033[0;31m [++]\033[0m Zone Transfer not found.";
 fi
 cat dnsrecon.txt 2>/dev/null
-echo -e "\033[0;31m [+]\033[0m DNSSEC RECON:"
-cat ldns-walk.txt 2>/dev/null
 echo -e "\033[0;31m [+]\033[0m 3rd LEVEL SUBDOMAINS:"
 cat 3rdlevel.txt 2>/dev/null
 echo -e "-------------"
