@@ -315,6 +315,7 @@ rm subjack2.txt 2>/dev/null
 ### NUCLEI SCAN ON ALL LIVE DOMAINS
 for line in $(cat live.txt); do echo -e "https://$line\nhttp://$line" ;done >> live_with_protocol.txt
 git clone https://github.com/projectdiscovery/nuclei-templates.git
+rm -rf nuclei-templates/token-spray
 nuclei -l live_with_protocol.txt -t nuclei-templates/ -silent | tee -a nuclei.txt
 
 ### --- 3RDLEVEL SECTION --- ### -b

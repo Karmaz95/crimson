@@ -34,3 +34,6 @@
 .inc
 .php::png
 .php:.png
+.asp
+.aspx
+.config

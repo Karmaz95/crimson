@@ -151,7 +151,7 @@ else
     then
         echo "[UDP SCANNING] ---------------------------------------------------------" | tee -a recon.txt
         echo TARGET: "$TARGET" | tee -a recon.txt
-        nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt || sudo nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt
+        nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt | sudo nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt
         cat udpnmap.txt >> recon.txt
     fi
 
@@ -192,6 +192,7 @@ else
 
     ### DOWNLOAD COMMUNITY-CURATED TEMPLATES & RUN THE AGAINST DOMAIN
     git clone https://github.com/projectdiscovery/nuclei-templates.git
+    rm -rf nuclei-templates/token-spray
     echo "[NUCLEI 80] ---------------------------------------------------------" | tee -a recon.txt
     nuclei -u http://"$domain" -t nuclei-templates/ -silent | tee -a recon.txt
     echo "[NUCLEI 443] ---------------------------------------------------------" | tee -a recon.txt
