@@ -17,7 +17,7 @@
 # 1. Pull docker container:
 docker pull karmaz95/crimson:v2
 # 2. First run of downloaded container:
-docker run --network="host" --name crimson -it karmaz95/crimson:v2
+docker run -p 8080:8080 -p 7171:7171 --name crimson -it karmaz95/crimson:v2
 # 3. After first run you can start container by:
 docker start crimson && docker attach crimson
 # 4. If you need to copy output from container:
