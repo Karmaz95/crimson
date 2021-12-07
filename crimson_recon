@@ -261,10 +261,10 @@ then
 	rm live4.txt
 
 	### VHOST BRUTEFORCING = vhost.txt
-	mkdir vhosts_scans
-	cd vhosts_scans
-	while IFS= read -r ip; do echo "[+] $ip" && VHostScan -t "$ip" -w ../subdomains.txt -b "$DOMAIN" -oN "$ip.txt1" > /dev/null 2>&1 && VHostScan -t "$ip" -b "$DOMAIN" -oN "$ip.txt2" > /dev/null 2>&1 && VHostScan -t "$ip" -w ../subdomains.txt --ssl -p 443 -b "$DOMAIN" -oN "$ip.txt3" > /dev/null 2>&1 && VHostScan -t "$ip" -b "$DOMAIN" --ssl -p 443 -oN "$ip.txt4" > /dev/null 2>&1 ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
-	cd ..
+	#mkdir vhosts_scans
+	#cd vhosts_scans
+	#while IFS= read -r ip; do echo "[+] $ip" && VHostScan -t "$ip" -w ../subdomains.txt -b "$DOMAIN" -oN "$ip.txt1" > /dev/null 2>&1 && VHostScan -t "$ip" -b "$DOMAIN" -oN "$ip.txt2" > /dev/null 2>&1 && VHostScan -t "$ip" -w ../subdomains.txt --ssl -p 443 -b "$DOMAIN" -oN "$ip.txt3" > /dev/null 2>&1 && VHostScan -t "$ip" -b "$DOMAIN" --ssl -p 443 -oN "$ip.txt4" > /dev/null 2>&1 ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+	#cd ..
 fi
 
 ### --- PORT SCANNING SECTION --- ### -p

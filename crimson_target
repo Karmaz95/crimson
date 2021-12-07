@@ -369,11 +369,9 @@ else
     echo -e "\033[0;31m [+]\033[0m PREPARING FILES FOR crimson_exploit MODULE"
     cat status_params.txt | grep -v "C=404 " | grep http | grep -v "Pycurl" | cut -s -d "\"" -f2 | sort -u | qsreplace -a > exp/params.txt
 
-    ### PREAPRE DIRECTORIES FOR EXPLOIT MODULE (filtering static content) > exp/dirs.txt
-    cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -s -d "\"" -f2 | grep -v -e "Pycurl\|\.aac\|\.aiff\|\.ape\|\.au\|\.flac\|\.gsm\|\.it\|\.m3u\|\.m4a\|\.mid\|\.mod\|\.mp3\|\.mpa\|\.pls\|\.ra\|\.s3m\|\.sid\|\.wav\|\.wma\|\.xm\|\.ods\|\.xls\|\.xlsx\|\.csv\|\.ics\|\.vcf\|\.3dm\|\.3ds\|\.max\|\.bmp\|\.dds\|\.gif\|\.jpg\|\.jpeg\|\.png\|\.psd\|\.xcf\|\.tga\|\.thm\|\.tif\|\.tiff\|\.yuv\|\.ai\|\.eps\|\.ps\|\.svg\|\.dwg\|\.dxf\|\.gpx\|\.kml\|\.kmz\|\.webp\|\.3g2\|\.3gp\|\.aaf\|\.asf\|\.avchd\|\.avi\|\.drc\|\.flv\|\.m2v\|\.m4p\|\.m4v\|\.mkv\|\.mng\|\.mov\|\.mp2\|\.mp4\|\.mpe\|\.mpeg\|\.mpg\|\.mpv\|\.mxf\|\.nsv\|\.ogg\|\.ogv\|\.ogm\|\.qt\|\.rm\|\.rmvb\|\.roq\|\.srt\|\.svi\|\.vob\|\.webm\|\.wmv\|\.yuv\|\.7z\|\.a\|\.apk\|\.ar\|\.bz2\|\.cab\|\.cpio\|\.deb\|\.dmg\|\.egg\|\.gz\|\.iso\|\.jar\|\.lha\|\.mar\|\.pea\|\.rar\|\.rpm\|\.s7z\|\.shar\|\.tar\|\.tbz2\|\.tgz\|\.tlz\|\.war\|\.whl\|\.xpi\|\.zip\|\.zipx\|\.xz\|\.pak\|\.js\|\.jsmin\|\.css\|\.js\|\.jsx\|\.less\|\.scss\|\.wasm\|\.eot\|\.otf\|\.ttf\|\.woff\|\.woff2\|\.ppt\|\.odp\|\.doc\|\.docx\|\.ebook\|\.log\|\.md\|\.msg\|\.odt\|\.org\|\.pages\|\.pdf\|\.rtf\|\.rst\|\.tex\|\.txt\|\.wpd\|\.wps\|\.mobi\|\.epub\|\.azw1\|\.azw3\|\.azw4\|\.azw6\|\.azw\|\.cbr\|\.cbz" | sort -u > exp/dirs.txt
-
-    ### PREPARE FILES WORDLIST FOR BACKUPER AND ARJUN > exp/files.txt
-    cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -s -d "\"" -f2 | grep -v -e "Pycurl\|\.woff\|\.svg\|\.png\|\.gif\|\.jpg\|\.png\|\.css\|\.mp3\|\.mp4" | sed "s/\/$//g" | sort -u | grep -v "^https://$domain$\|^http://$domain$" > files.txt
+    ### PREPARE FILES WORDLIST FOR BACKUPER AND ARJUN &AND DIRECTORIES FOR EXPLOIT MODULE (filtering static content) > exp/files.txt && exp/dirs.txt
+    cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -s -d "\"" -f2 | grep -v -e "Pycurl\|\.woff\|\.svg\|\.png\|\.gif\|\.jpg\|\.png\|\.css\|\.mp3\|\.mp4\|\.js" | sed "s/\/$//g" | sort -u  > files.txt
+    cat files.txt > exp/dirs.txt
 
     ### CHECK FOR BACKUP FILES > backups.txt
     echo -e "\033[0;31m [+]\033[0m CHECKING EXISTANCE OF BRUTEFORCED FILES BACKUPS"
