@@ -64,10 +64,14 @@ fully_automated=0
 proxy_on=0
 udp_on=0
 arjun_on=0
-while getopts "c:D:puayb" OPTION; do
+vhost_on=0
+while getopts "c:vD:puayb" OPTION; do
     case $OPTION in
     c)
         cookie=$OPTARG
+        ;;
+    v)
+        vhost_on=1
         ;;
     D)
         domain=$OPTARG
@@ -100,6 +104,7 @@ then
                     
                     # Optional flags are shown below:
                  -c \"Cookie: auth1=123;\"
+                 -v # Virtual host discovering
                  -p # TCP (1-65535)   ports scanning
                  -u # UDP (nmap default) ports scanning
                  -a # Without this flag, you have to manually check for false-positives after bruteforcing
@@ -191,7 +196,7 @@ else
     rm -rf "$HOME"/tools/CMSeeK/Result/"$domain"/
 
     ### DOWNLOAD COMMUNITY-CURATED TEMPLATES & RUN THE AGAINST DOMAIN
-    git clone https://github.com/projectdiscovery/nuclei-templates.git
+    git clone https://github.com/projectdiscovery/nuclei-templates.git > /dev/null
     rm -rf nuclei-templates/token-spray
     echo "[NUCLEI 80] ---------------------------------------------------------" | tee -a recon.txt
     nuclei -u http://"$domain" -t nuclei-templates/ -silent | tee -a recon.txt
@@ -394,6 +399,25 @@ else
         ### GET PARAMETER NAMES BY BRUTEFORCING THEM > exp/arjun.txt
         echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON exp/files.txt - IT WILL TAKE A WHILE..."
         arjun -i files.txt -oT arjun.txt -q --headers "$cookie"
+    fi
+
+    ### --- VHOST SECTION --- ### -v
+    if [ $vhost_on == 1 ]
+    then
+        ### VHOST BRUTEFORCING = vhost.txt
+        echo -e "\033[0;31m [+]\033[0m BRUTEFORCING VIRTUAL HOSTNAMES "
+        cat "$HOME"/tools/CRIMSON/words/vhosts.txt | sed "s/TARGET_DOMAIN/$domain/" > vhosts.txt
+        cat ../subdomains.txt >> vhosts.txt
+        
+        echo "[VHOSTS 80] ---------------------------------------------------------" | tee -a recon.txt
+        glength=$(curl -s -H "Host: \"$domain\"" http://\"$domain\" |wc -c)
+        blength=$(curl -s -H "Host: badhost" http://\"$domain\" |wc -c)
+        ffuf -w vhosts.txt -u http://"$domain" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a recon.txt
+        
+        echo "[VHOSTS 443] ---------------------------------------------------------" | tee -a recon.txt
+        glength=$(curl -k -s -H "Host: \"$domain\"" https://\"$domain\" |wc -c)
+        blength=$(curl -k -s -H "Host: badhost" https://\"$domain\" |wc -c)
+        ffuf -w vhosts.txt -u https://"$domain" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a recon.txt
     fi
 
     ### TEST HOP-BY-HOP DELETION (only on main page) > recon.txt

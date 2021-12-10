@@ -137,7 +137,7 @@ subfinder -silent -recursive -d "$DOMAIN" -o subfinder.txt > /dev/null
 cat subfinder.txt | anew subdomains.txt > /dev/null
 rm subfinder.txt
 # sudomy.txt
-cd "$HOME"/tools/Sudomy || exit; ./sudomy -d "$DOMAIN" --no-probe -o "$DOMAIN" > /dev/null
+cd "$HOME"/tools/Sudomy || exit; ./sudomy -d "$DOMAIN" --no-probe -o "$DOMAIN" > /dev/null 2>&1
 cd "$HOME"/bounty/"$DOMAIN" || exit
 cat "$HOME"/tools/Sudomy/"$DOMAIN"/Sudomy-Output/"$DOMAIN"/subdomain.txt | anew subdomains.txt
 rm -rf "$HOME"/tools/Sudomy/"$DOMAIN"/Sudomy-Output/"$DOMAIN"
@@ -235,23 +235,25 @@ then
 	### LOOKING FOR SUBDOMAINS AND SECRETS IN URLS = subdomainizer.txt
 	echo -e "\033[0;31m [+]\033[0m GATHERING SUBDOMAINS, API KEYS, URLS [SUBDOMAINIZER]"
 	python3 "$HOME"/tools/SubDomainizer/SubDomainizer.py -k -l urls.txt -o subdomainizer.txt | tee -a subdomainizer.log
+
+	### GETTING SUBDOMAINS FROM subdomainizer.txt AND CHECKING FOR LIVE = live.txt
+	cat subdomainizer.txt | grep "$DOMAIN" | dnsx -t 100 -silent -r resolvers.txt -o live3.txt
+	cat live3.txt | anew live.txt > /dev/null
+	rm live3.txt
 fi
 
-### GETTING SUBDOMAINS FROM subdomainizer.txt AND CHECKING FOR LIVE = live.txt
-cat subdomainizer.txt | grep "$DOMAIN" | dnsx -t 100 -silent -r resolvers.txt -o live3.txt
-cat live3.txt | anew live.txt > /dev/null
-rm live3.txt
+### RESOLVING IP FROM live.txt = ip.txt
+echo -e "\033[0;31m [+]\033[0m RESOVLING IP ADRESSES"
+while IFS= read -r domain; do echo "[+] $domain" >> "$HOME"/bounty/"$DOMAIN"/ip.txt && dig +short "$domain" >> "$HOME"/bounty/"$DOMAIN"/ip.txt ;done < "$HOME"/bounty/"$DOMAIN"/live.txt 
+
+### FILTERING ip.txt = filtered_ip.txt
+cat "$HOME"/bounty/"$DOMAIN"/ip.txt | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | sort -u > "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
 
 ### --- VHOST SECTION --- ### -v
 if [ $vhost_on == 1 ]
 then
-	### RESOLVING IP FROM live.txt = ip.txt
-	echo -e "\033[0;31m [+]\033[0m RESOVLING IP ADRESSES"
-	while IFS= read -r domain; do echo "[+] $domain" >> "$HOME"/bounty/"$DOMAIN"/ip.txt && dig +short "$domain" >> "$HOME"/bounty/"$DOMAIN"/ip.txt ;done < "$HOME"/bounty/"$DOMAIN"/live.txt 
-	
-	### FILTERING ip.txt = filtered_ip.txt
-	cat "$HOME"/bounty/"$DOMAIN"/ip.txt | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | sort -u > "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
-	
+# TO DO - each domain bruteforcing
+# TO DO - more ports for http/https - httpx can help
 	### DISCOVERING VIRTUAL HOSTNAMES && ADD THEM TO live.txt = hosthunter.txt
 	echo -e "\033[0;31m [+]\033[0m DISCOVERING VIRTUAL HOSTNAMES WITH HOSTHUNTER"
 	python3 "$HOME"/tools/HostHunter/hosthunter.py filtered_ip.txt >> hosthunter.txt
@@ -261,10 +263,27 @@ then
 	rm live4.txt
 
 	### VHOST BRUTEFORCING = vhost.txt
-	#mkdir vhosts_scans
-	#cd vhosts_scans
-	#while IFS= read -r ip; do echo "[+] $ip" && VHostScan -t "$ip" -w ../subdomains.txt -b "$DOMAIN" -oN "$ip.txt1" > /dev/null 2>&1 && VHostScan -t "$ip" -b "$DOMAIN" -oN "$ip.txt2" > /dev/null 2>&1 && VHostScan -t "$ip" -w ../subdomains.txt --ssl -p 443 -b "$DOMAIN" -oN "$ip.txt3" > /dev/null 2>&1 && VHostScan -t "$ip" -b "$DOMAIN" --ssl -p 443 -oN "$ip.txt4" > /dev/null 2>&1 ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
-	#cd ..
+	echo -e "\033[0;31m [+]\033[0m BRUTEFORCING VIRTUAL HOSTNAMES "
+	mkdir vhosts
+	cd vhosts
+	cat "$HOME"/tools/CRIMSON/words/vhosts.txt | sed "s/TARGET_DOMAIN/$DOMAIN/" > vhosts.txt
+	cat ../subdomains.txt >> vhosts.txt
+	
+	echo -e "\033[0;31m [+][+]\033[0m BRUTEFORCING HTTP "
+	while IFS= read -r ip; do echo "[+] $ip" && \
+	glength=$(curl -s -H "Host: \"$ip\"" http://\"$ip\":80 |wc -c) \
+	blength=$(curl -s -H "Host: badhost" http://\"$ip\":80 |wc -c) \
+	ffuf -w vhosts.txt -u http://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a "$ip".http \
+	;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+	
+	echo -e "\033[0;31m [+][+]\033[0m BRUTEFORCING HTTPS "
+	while IFS= read -r ip; do echo "[+] $ip" && \
+	glength=$(curl -k -s -H "Host: \"$ip\"" https://\"$ip\":80 |wc -c) \
+	blength=$(curl -k -s -H "Host: badhost" https://\"$ip\":80 |wc -c) \
+	ffuf -w vhosts.txt -u https://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a "$ip".https \
+	;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+	rm vhosts.txt
+	cd ..
 fi
 
 ### --- PORT SCANNING SECTION --- ### -p
@@ -279,12 +298,12 @@ if [ $udp_scan_on == 1 ]
 then
 	### UDP SCANNING filtered_ip.txt FOR OPENED PORTS = udpnmap.txt -u
 	echo -e "\033[0;31m [+]\033[0m UDP PORT SCANNING"
-	while IFS= read -r ip; do nmap -sU "$ip" -A -Pn --append-output -oG udpnmap.gnmap -oN udpnmap.txt ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+	while IFS= read -r ip; do nmap -sU -T5 -F --version-intensity 0 "$ip" --append-output -oG udpnmap.gnmap -oN udpnmap.txt ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
 fi
 
 ### MAKING SCREENSHOOTS FROM ENUERATED LIVE DOMAINS = screenshots/
 echo -e "\033[0;31m [+]\033[0m MAKING SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
-gowitness file -f live.txt > /dev/null
+gowitness file -f live.txt > /dev/null 2>&1
 
 ### CHECKING STATUS CODE OF ALL DOMAINS = status_live.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF ENUMERATED LIVE SUBDOMAINS"
@@ -295,7 +314,7 @@ rm temp_live.txt
 
 ### CHECKING ZONE TRANSFER = dnsrecon.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING ZONE TRANSFER"
-dnsrecon -d "$DOMAIN" -a >> dnsrecon.txt
+dnsrecon -d "$DOMAIN" -a >> dnsrecon.txt 2>/dev/null 
 
 ### CHECKING FOR CORS MISSCONFIGURATION = cors_scan.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING CORS"
@@ -313,10 +332,11 @@ cat subjack2.txt >> subjack.txt 2>/dev/null
 rm subjack2.txt 2>/dev/null
 
 ### NUCLEI SCAN ON ALL LIVE DOMAINS
+echo -e "\033[0;31m [+]\033[0m STARTING NUCLEI SCAN"
 for line in $(cat live.txt); do echo -e "https://$line\nhttp://$line" ;done >> live_with_protocol.txt
-git clone https://github.com/projectdiscovery/nuclei-templates.git
+git clone https://github.com/projectdiscovery/nuclei-templates.git > /dev/null
 rm -rf nuclei-templates/token-spray
-nuclei -l live_with_protocol.txt -t nuclei-templates/ -silent | tee -a nuclei.txt
+nuclei -l live_with_protocol.txt -t nuclei-templates/ -stats -silent | tee -a nuclei.txt
 
 ### --- 3RDLEVEL SECTION --- ### -b
 if [ $third_level_on == 1 ]
