@@ -162,7 +162,10 @@ fi
 ### CHECKING FOR LIVE DOMAINS = live1.txt
 echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE SUBDOMAINS"
 echo -e "\033[0;31m==================================\033[0m"
-cat subdomains.txt | dnsx -t 100 -silent -r resolvers.txt -o live1.txt
+cat subdomains.txt | dnsx -t 100 -silent -r resolvers.txt -o dnsx1.txt
+dns-wildcard-removal --domain "$DOMAIN" --input dnsx1.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
+cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live1.txt
+rm dnsx1.txt && rm real.txt
 echo -e "\033[0;31m==================================\033[0m"
 
 ### 2ND BRUTEFORCE ON -x
@@ -182,7 +185,10 @@ then
 	puredns bruteforce altdns.txt "$DOMAIN" -w puredns2.txt -r resolvers.txt -l 250 
 
 	### CHECKING LIVE DOMAINS FROM BRUTEFORCE OF MUTATED WORDLIST = live2.txt
-	cat puredns2.txt | dnsx -t 100 -silent -r resolvers.txt -o live2.txt > /dev/null
+	cat puredns2.txt | dnsx -t 100 -silent -r resolvers.txt -o dnsx2.txt > /dev/null
+	dns-wildcard-removal --domain "$DOMAIN" --input dnsx2.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
+	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live2.txt
+	rm dnsx2.txt && rm real.txt
 
 	### MERGING live1.txt AND live2.txt = live.txt
 	sort -u live1.txt  > live.txt
@@ -237,9 +243,11 @@ then
 	python3 "$HOME"/tools/SubDomainizer/SubDomainizer.py -k -l urls.txt -o subdomainizer.txt | tee -a subdomainizer.log
 
 	### GETTING SUBDOMAINS FROM subdomainizer.txt AND CHECKING FOR LIVE = live.txt
-	cat subdomainizer.txt | grep "$DOMAIN" | dnsx -t 100 -silent -r resolvers.txt -o live3.txt
+	cat subdomainizer.txt | grep "$DOMAIN" | dnsx -t 100 -silent -r resolvers.txt -o dnsx3.txt
+	dns-wildcard-removal --domain "$DOMAIN" --input dnsx3.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
+	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live3.txt
 	cat live3.txt | anew live.txt > /dev/null
-	rm live3.txt
+	rm live3.txt && rm dnsx3.txt && rm real.txt
 fi
 
 ### RESOLVING IP FROM live.txt = ip.txt
@@ -258,7 +266,10 @@ then
 	echo -e "\033[0;31m [+]\033[0m DISCOVERING VIRTUAL HOSTNAMES WITH HOSTHUNTER"
 	python3 "$HOME"/tools/HostHunter/hosthunter.py filtered_ip.txt >> hosthunter.txt
 	echo -e "\033[0;31m [+]\033[0m CHECKING LIVE HOSTS"
-	cat hosthunter.txt | grep "$DOMAIN" | sort -u | anew | dnsx -t 100 -silent -r resolvers.txt -o live4.txt
+	cat hosthunter.txt | grep "$DOMAIN" | sort -u | anew | dnsx -t 100 -silent -r resolvers.txt -o dnsx4.txt
+	dns-wildcard-removal --domain "$DOMAIN" --input dnsx4.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
+	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live4.txt
+	rm dnsx4.txt && rm real.txt
 	cat live4.txt | anew live.txt > /dev/null
 	rm live4.txt
 
@@ -346,7 +357,10 @@ then
 	mkdir 3rdlevel
 	while IFS= read -r subdomain; do puredns bruteforce "$HOME"/tools/CRIMSON/words/dns "$subdomain" -w 3rdlevel/"$subdomain".txt -r resolvers.txt -l 250 ;done < live.txt
 	sort -u 3rdlevel/* > 3rdlevel.txt
-	cat 3rdlevel.txt | dnsx -o 3rdlevel_live.txt 2>/dev/null
+	cat 3rdlevel.txt | dnsx -o dnsx5.txt 2>/dev/null
+	dns-wildcard-removal --domain "$DOMAIN" --input dnsx5.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
+	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u >> 3rdlevel_live.txt
+	rm dnsx5.txt && rm real.txt
 	rm -rf 3rdlevel/3rdlevel.txt
 fi
 
