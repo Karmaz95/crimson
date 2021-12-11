@@ -203,7 +203,7 @@ chmod 755 msfinstall
 sudo ./msfinstall
 
 ### Dockerizing
-sudo docker -it --name crimson karmaz95/crimson:v0
+sudo docker run -it --name crimson karmaz95/crimson:v0
 docker container commit crimson karmaz95/crimson:v2
 docker push crimson karmaz95/crimson:v2
 
