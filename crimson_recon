@@ -276,11 +276,7 @@ vhost_brute_http() {
 	anchor_check "${FUNCNAME[0]}" || return 0
 
 	echo -e "\033[0;31m [+][+]\033[0m BRUTEFORCING HTTP "
-	while IFS= read -r ip; do echo "[+] $ip" && \
-	glength=$(curl -s -H "Host: \"$ip\"" http://\"$ip\":80 |wc -c) \
-	blength=$(curl -s -H "Host: badhost" http://\"$ip\":80 |wc -c) \
-	ffuf -w vhosts.txt -u http://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a "$ip".http \
-	;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+	while IFS= read -r ip; do echo "[+] $ip" &&	glength=$(curl -s -H "Host: \"$ip\"" http://\"$ip\":80 |wc -c) && blength=$(curl -s -H "Host: badhost" http://\"$ip\":80 |wc -c) &&	ffuf -w vhosts.txt -u http://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a "$ip".http ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
 }
 
 vhost_brute_https() {
@@ -288,11 +284,7 @@ vhost_brute_https() {
 	anchor_check "${FUNCNAME[0]}" || return 0
 
 	echo -e "\033[0;31m [+][+]\033[0m BRUTEFORCING HTTPS "
-	while IFS= read -r ip; do echo "[+] $ip" && \
-	glength=$(curl -k -s -H "Host: \"$ip\"" https://\"$ip\":80 |wc -c) \
-	blength=$(curl -k -s -H "Host: badhost" https://\"$ip\":80 |wc -c) \
-	ffuf -w vhosts.txt -u https://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a "$ip".https \
-	;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+	while IFS= read -r ip; do echo "[+] $ip" && glength=$(curl -k -s -H "Host: \"$ip\"" https://\"$ip\":80 |wc -c) && blength=$(curl -k -s -H "Host: badhost" https://\"$ip\":80 |wc -c) && ffuf -w vhosts.txt -u https://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a "$ip".https ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
 }
 
 tcp_scanning() {
