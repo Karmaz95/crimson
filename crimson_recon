@@ -44,6 +44,374 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go
 #
 ###
 
+### Catch crash in trap and save the function name in anchor.log
+trap 'echo $anchor > anchor.log && exit 1' SIGINT
+trap 'echo $anchor > anchor.log && exit 1' SIGHUP
+trap 'echo $anchor > anchor.log && exit 1' SIGKILL
+trap 'echo $anchor > anchor.log && exit 1' SIGTERM
+### ---
+
+### ALL FUNCTIONS:
+anchor_check() {
+	### 0.RETRY FUNCTION IF IT'S NOT IN anchor.log
+	anchor="$1"
+	[ ! -f "anchor.log" ] && return 0
+	if grep -q "$1" "anchor.log"; then
+		rm "anchor.log"; return 0
+	else
+		return 1
+	fi
+}
+
+clear_log() {
+	### REMOVING LOG IF PROGRAM EXIT NORMALLY
+	if [ -f "anchor.log" ]; then
+			rm "anchor.log"
+	fi
+}
+
+burp_reminder() {
+	### 1.PRINTS REMAINDER TO TURN ON BURP SUITE 
+	echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(tldextract "$DOMAIN" | cut -s -d " " -f 2-3 | sed "s/\ /\./" | sed "s/\./\\\./")$
+	echo
+	read -rsp $'\tRUN BURP, TURN OFF INTERCEPTION AND ADD SCOPE... THEN CLICK ENTER\n\n' -n1 key
+}
+
+download_resolvers() {
+	### 2.DOWNLOADING UP TO DATE LIST WITH RESOLVERS
+	anchor_check "${FUNCNAME[0]}" || return 0
+	
+	echo -e "\033[0;31m [+]\033[0m DOWNLOADING FRESH RESOLVERS"
+	wget https://raw.githubusercontent.com/BonJarber/fresh-resolvers/main/resolvers.txt -O resolvers.txt > /dev/null 2>&1 || echo -e "8.8.8.8\n8.8.4.4" >> resolvers.txt
+}
+
+amass_enum() {
+	### 3.AMASS & CRT.SH
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m SUBDOMAINS SCRAPING"
+	# crt.txt
+	curl -s https://crt.sh/?q="$DOMAIN" | grep "$DOMAIN" | grep TD | sed 's/<BR>.*$//g' | sed 's/<\/TD>.*$//' | sed 's/<TD>//g' | sed 's/\*.//g' | sed 's/ //g' | grep -v "TDclass" | grep -v "\@" | sort -u > crt.txt
+	cat crt.txt | anew subdomains.txt > /dev/null
+	rm crt.txt
+	# amass.txt
+	amass enum --passive -d "$DOMAIN" -o amass.txt -rf resolvers.txt > /dev/null
+	cat amass.txt | anew subdomains.txt > /dev/null
+	rm amass.txt
+}
+
+subfinder_enum() {
+	### 4.SUBFINDER
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	subfinder -silent -recursive -d "$DOMAIN" -o subfinder.txt > /dev/null
+	cat subfinder.txt | anew subdomains.txt > /dev/null
+	rm subfinder.txt
+}
+
+sudomy_enum() {
+	### 5.SUDOMY
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	cd "$HOME"/tools/Sudomy || exit; ./sudomy -d "$DOMAIN" --no-probe -o "$DOMAIN" > /dev/null 2>&1
+	cd "$HOME"/bounty/"$DOMAIN" || exit
+	cat "$HOME"/tools/Sudomy/"$DOMAIN"/Sudomy-Output/"$DOMAIN"/subdomain.txt | anew subdomains.txt
+	rm -rf "$HOME"/tools/Sudomy/"$DOMAIN"/Sudomy-Output/"$DOMAIN"
+}
+
+assetfinder_enum() {
+	### 6.ASSETFINDER
+	anchor_check "${FUNCNAME[0]}" || return 0
+	
+	assetfinder --subs-only "$DOMAIN" >> assetfinder.txt
+	cat assetfinder.txt | anew subdomains.txt > /dev/null
+	rm assetfinder.txt
+}
+
+paramspider_enum() {
+	### 7.PARAMSPIDER
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	python3 "$HOME"/tools/ParamSpider/paramspider.py -d "$DOMAIN" --output ./paramspider.txt --level high > /dev/null
+	cat paramspider.txt | unfurl -u domains | anew subdomains.txt > /dev/null
+}
+
+bruteforce_dns_1() {
+	### 8.PUREDNS
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m SUBDOMAINS BRUTEFORCING"
+	puredns bruteforce "$HOME"/tools/CRIMSON/words/dns "$DOMAIN" -w puredns1.txt -r resolvers.txt -l 250
+	cat puredns1.txt | anew subdomains.txt > /dev/null
+	rm puredns1.txt
+}
+
+check_for_live_1() {
+	### 9.DNSX
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE SUBDOMAINS"
+	echo -e "\033[0;31m==================================\033[0m"
+	cat subdomains.txt | dnsx -t 100 -silent -r resolvers.txt -o dnsx1.txt
+	dns-wildcard-removal --domain "$DOMAIN" --input dnsx1.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
+	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live1.txt
+	rm dnsx1.txt && rm real.txt
+	echo -e "\033[0;31m==================================\033[0m"
+}
+
+mutate_domains() {
+	### 10.ALTDNS
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m MUTATING LIVE SUBDOMAINS"
+	altdns -w "$HOME"/tools/CRIMSON/words/dns-altdns.txt -i live1.txt -o altdns_temp.txt
+	cat "$HOME"/tools/CRIMSON/words/dns | sed "s/$/\.$DOMAIN/" > ddns.txt
+	awk 'FNR==NR {a[$0]++; next} !($0 in a)' ddns.txt altdns_temp.txt > not_duplicated_altdns
+	awk 'FNR==NR {a[$0]++; next} !($0 in a)' subdomains.txt not_duplicated_altdns > not_duplicated_altdns2
+	awk 'FNR==NR {a[$0]++; next} !($0 in a)' live1.txt not_duplicated_altdns2 > altdns_with_domain_name
+	cat altdns_with_domain_name | sed "s/\.$DOMAIN//g" > altdns.txt
+}
+
+bruteforce_dns_2() {
+	### 11.PUREDNS
+	anchor_check "${FUNCNAME[0]}" || return 0
+	
+	echo -e "\033[0;31m [+]\033[0m CHECKING MUTATED LIST FOR LIVE SUBDOMAINS"
+	puredns bruteforce altdns.txt "$DOMAIN" -w puredns2.txt -r resolvers.txt
+}
+
+check_for_live_2() {
+	### 12.DNSX
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	cat puredns2.txt | dnsx -t 100 -silent -r resolvers.txt -o dnsx2.txt > /dev/null
+	dns-wildcard-removal --domain "$DOMAIN" --input dnsx2.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
+	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live2.txt
+	rm dnsx2.txt && rm real.txt
+}
+
+gau_get_urls() {
+	### 13.GAU
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m GATHERING URLS"
+	cat live.txt | gau -subs >> gau.txt
+	cat gau.txt | unfurl -u domains > subs_gau.txt
+	sort -u subs_gau.txt live.txt > live2.txt
+	mv live2.txt live.txt
+	rm subs_gau.txt
+}
+
+waybackurls_get_urls() {
+	### 14.WAYBACKURLS
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	cat live.txt | waybackurls >> waybackurls.txt
+	cat waybackurls.txt | unfurl -u domains > subs_waybackurls.txt
+	sort -u subs_waybackurls.txt live.txt > live2.txt
+	mv live2.txt live.txt
+	rm subs_waybackurls.txt
+}
+
+check_for_live_urls() {
+	### 15.HTTPX
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE URLS"
+	cat urls.txt | httpx -threads 50 -silent -o httpx_urls.txt > /dev/null
+	mv httpx_urls.txt urls.txt
+}
+
+enum_subdomanizer() {
+	### 16.SUBDOMAINIZER
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m GATHERING SUBDOMAINS, API KEYS, URLS [SUBDOMAINIZER]"
+	python3 "$HOME"/tools/SubDomainizer/SubDomainizer.py -k -l urls.txt -o subdomainizer.txt | tee -a subdomainizer.log
+}
+
+check_for_live_3() {
+	### 17.DNSX
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	cat subdomainizer.txt | grep "$DOMAIN" | dnsx -t 100 -silent -r resolvers.txt -o dnsx3.txt
+	dns-wildcard-removal --domain "$DOMAIN" --input dnsx3.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
+	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live3.txt
+	cat live3.txt | anew live.txt > /dev/null
+	rm live3.txt && rm dnsx3.txt && rm real.txt
+	}
+
+get_all_ip() {
+	### 18.DIG
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m RESOVLING IP ADRESSES"
+	while IFS= read -r domain; do echo "[+] $domain" >> "$HOME"/bounty/"$DOMAIN"/ip.txt && dig +short "$domain" >> "$HOME"/bounty/"$DOMAIN"/ip.txt ;done < "$HOME"/bounty/"$DOMAIN"/live.txt 
+	cat "$HOME"/bounty/"$DOMAIN"/ip.txt | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | sort -u > "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+}
+
+hosthunter_enum() {
+	### 19.HOSTHUNTER
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m DISCOVERING VIRTUAL HOSTNAMES WITH HOSTHUNTER"
+	python3 "$HOME"/tools/HostHunter/hosthunter.py filtered_ip.txt >> hosthunter.txt
+}
+
+check_for_live_4() {
+	### 20.DNSX
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m CHECKING LIVE HOSTS"
+	cat hosthunter.txt | grep "$DOMAIN" | sort -u | anew | dnsx -t 100 -silent -r resolvers.txt -o dnsx4.txt
+	dns-wildcard-removal --domain "$DOMAIN" --input dnsx4.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
+	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live4.txt
+	rm dnsx4.txt && rm real.txt
+	cat live4.txt | anew live.txt > /dev/null
+	rm live4.txt
+}
+
+vhost_brute_http() {
+	### 21.FFUF
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+][+]\033[0m BRUTEFORCING HTTP "
+	while IFS= read -r ip; do echo "[+] $ip" && \
+	glength=$(curl -s -H "Host: \"$ip\"" http://\"$ip\":80 |wc -c) \
+	blength=$(curl -s -H "Host: badhost" http://\"$ip\":80 |wc -c) \
+	ffuf -w vhosts.txt -u http://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a "$ip".http \
+	;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+}
+
+vhost_brute_https() {
+	### 22.FFUF
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+][+]\033[0m BRUTEFORCING HTTPS "
+	while IFS= read -r ip; do echo "[+] $ip" && \
+	glength=$(curl -k -s -H "Host: \"$ip\"" https://\"$ip\":80 |wc -c) \
+	blength=$(curl -k -s -H "Host: badhost" https://\"$ip\":80 |wc -c) \
+	ffuf -w vhosts.txt -u https://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a "$ip".https \
+	;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+}
+
+tcp_scanning() {
+	### 23.RUSTSCAN
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m TCP PORT SCANNING"
+	rustscan -a filtered_ip.txt --ulimit 5000 --scan-order="Random" -- -n -A -Pn --append-output -oN nmap.txt -oG nmap.gnmap | tee -a rustscan.txt
+}
+
+udp_scanning() {
+	### 24.NMAP
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m UDP PORT SCANNING"
+	while IFS= read -r ip; do nmap -sU -T5 -F --version-intensity 0 "$ip" --append-output -oG udpnmap.gnmap -oN udpnmap.txt ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+}
+
+make_screens() {
+	### 25.GOWTINESS
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m MAKING SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
+	gowitness file -f live.txt > /dev/null 2>&1
+}
+
+check_status_code() {
+	### 26.WFUZZ
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF ENUMERATED LIVE SUBDOMAINS"
+	cat live.txt | sed "s/^/http:\/\//" >> temp_live.txt
+	cat live.txt | sed "s/^/https:\/\//" >> temp_live.txt
+	wfuzz -f status_live.txt,raw -Z -z file,temp_live.txt -z file,"$HOME"/tools/CRIMSON/words/blank FUZZFUZ2Z > /dev/null 2>&1
+	rm temp_live.txt
+}
+
+check_zonetransfer() {
+	### 27.DNSRECON
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m CHECKING ZONE TRANSFER"
+	dnsrecon -d "$DOMAIN" -a >> dnsrecon.txt 2>/dev/null 
+}
+
+check_cors() {
+	### 28.CORSME
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m CHECKING CORS"
+	cat live.txt | CorsMe -t 50 -output cors_scan.txt > /dev/null
+}
+
+check_domain_takeover() {
+	### 29.SUBJACK
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m CHECKING DOMAIN TAKEOVER"
+	# Temp workaround to subjack missed fingerprint issue:
+	fingerprint_location=$(find / 2>/dev/null -name "fingerprints.json" | grep "subjack" | grep -v "subjack\/fingerprints.json")
+	subjack -w live.txt -t 20 -timeout 30 -o subjack1.txt -ssl -a -c "$fingerprint_location"
+	cat subjack1.txt > subjack.txt 2>/dev/null
+	rm subjack1.txt 2>/dev/null
+	subjack -w live.txt -t 20 -timeout 30 -o subjack2.txt -a -c "$fingerprint_location"
+	cat subjack2.txt >> subjack.txt 2>/dev/null
+	rm subjack2.txt 2>/dev/null
+}
+
+nuclei_scan_all() {
+	### 30.NUCLEI
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m STARTING NUCLEI SCAN"
+	for line in $(cat live.txt); do echo -e "https://$line\nhttp://$line" ;done >> live_with_protocol.txt
+	git clone https://github.com/projectdiscovery/nuclei-templates.git > /dev/null
+	rm -rf nuclei-templates/token-spray
+	nuclei -l live_with_protocol.txt -t nuclei-templates/ -stats -silent | tee -a nuclei.txt
+}
+
+3dlevel_brute() {
+	### 31.PUREDNS
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m STARTING 3RDLEVEL ENUMERATION"
+	mkdir 3rdlevel
+	while IFS= read -r subdomain; do puredns bruteforce "$HOME"/tools/CRIMSON/words/dns "$subdomain" -w 3rdlevel/"$subdomain".txt -r resolvers.txt -l 250 ;done < live.txt
+	sort -u 3rdlevel/* > 3rdlevel.txt
+}
+
+check_for_live_5() {
+	### 31.DNSX
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	cat 3rdlevel.txt | dnsx -o dnsx5.txt 2>/dev/null
+	dns-wildcard-removal --domain "$DOMAIN" --input dnsx5.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
+	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u >> 3rdlevel_live.txt
+	rm dnsx5.txt && rm real.txt
+	rm -rf 3rdlevel/3rdlevel.txt
+}
+
+proxy_urls_to_burp() {
+	### 32.WFUZZ
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m PROXING ulrs.txt TO BRUP SUITE"
+	cat urls.txt | grep "$DOMAIN" |grep http | sort -u > proxy.txt
+	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z > /dev/null 2>&1
+}
+	proxy_domains_to_burp() {
+	### 33.WFUZZ
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m PROXING SUBDOMAINS TO BURP"
+	cat status_live.txt | grep -v "XXX" | cut -s -d "\"" -f 2 > proxy.txt
+	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z > /dev/null 2>&1
+}
+### ---
+
+### MAIN ()
 echo -e "\033[0;31m
  ██████╗██████╗ ██╗███╗   ███╗███████╗ ██████╗ ███╗   ██╗        ██████╗ ███████╗ ██████╗ ██████╗ ███╗   ██╗
 ██╔════╝██╔══██╗██║████╗ ████║██╔════╝██╔═══██╗████╗  ██║        ██╔══██╗██╔════╝██╔════╝██╔═══██╗████╗  ██║
@@ -53,7 +421,6 @@ echo -e "\033[0;31m
  ╚═════╝╚═╝  ╚═╝╚═╝╚═╝     ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝
 
 \033[0m"
-
 
 fuzzing_on=0
 vhost_on=0
@@ -109,100 +476,55 @@ then
     exit  1
 else
 
-### REMINDER OF BURP SUITE 
-echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(tldextract "$DOMAIN" | cut -s -d " " -f 2-3 | sed "s/\ /\./" | sed "s/\./\\\./")$
-echo
-read -rsp $'\tRUN BURP, TURN OFF INTERCEPTION AND ADD SCOPE... THEN CLICK ENTER\n\n' -n1 key
-
 ### CREATING PROPER DIRECTORY
 mkdir "$HOME"/bounty/"$DOMAIN" -p
 cd "$HOME"/bounty/"$DOMAIN" || exit
 
-### DOWNLOADING UP TO DATE LIST WITH RESOLVERS
-echo -e "\033[0;31m [+]\033[0m DOWNLOADING FRESH RESOLVERS"
-wget https://raw.githubusercontent.com/BonJarber/fresh-resolvers/main/resolvers.txt -O resolvers.txt > /dev/null 2>&1 || echo -e "8.8.8.8\n8.8.4.4" >> resolvers.txt
+if [ $proxy_on == 1 ]
+then
+	###PRINTS REMAINDER TO TURN ON BURP SUITE 
+	burp_reminder
+fi
 
 ### STARTING PASSIVE ENUMERATION = subdomains.txt
-echo -e "\033[0;31m [+]\033[0m SUBDOMAINS SCRAPING"
-# crt.txt
-curl -s https://crt.sh/?q="$DOMAIN" | grep "$DOMAIN" | grep TD | sed 's/<BR>.*$//g' | sed 's/<\/TD>.*$//' | sed 's/<TD>//g' | sed 's/\*.//g' | sed 's/ //g' | grep -v "TDclass" | grep -v "\@" | sort -u > crt.txt
-cat crt.txt | anew subdomains.txt > /dev/null
-rm crt.txt
-# amass.txt
-amass enum --passive -d "$DOMAIN" -o amass.txt -rf resolvers.txt > /dev/null
-cat amass.txt | anew subdomains.txt > /dev/null
-rm amass.txt
-# subfinder.txt
-subfinder -silent -recursive -d "$DOMAIN" -o subfinder.txt > /dev/null
-cat subfinder.txt | anew subdomains.txt > /dev/null
-rm subfinder.txt
-# sudomy.txt
-cd "$HOME"/tools/Sudomy || exit; ./sudomy -d "$DOMAIN" --no-probe -o "$DOMAIN" > /dev/null 2>&1
-cd "$HOME"/bounty/"$DOMAIN" || exit
-cat "$HOME"/tools/Sudomy/"$DOMAIN"/Sudomy-Output/"$DOMAIN"/subdomain.txt | anew subdomains.txt
-rm -rf "$HOME"/tools/Sudomy/"$DOMAIN"/Sudomy-Output/"$DOMAIN"
-# assetfinder.txt
-assetfinder --subs-only "$DOMAIN" >> assetfinder.txt
-cat assetfinder.txt | anew subdomains.txt > /dev/null
-rm assetfinder.txt
-# paramspider.txt subdomains_paramspider.txt
-python3 "$HOME"/tools/ParamSpider/paramspider.py -d "$DOMAIN" --output ./paramspider.txt --level high > /dev/null
-cat paramspider.txt | unfurl -u domains | anew subdomains.txt > /dev/null
+download_resolvers
+amass_enum
+subfinder_enum
+sudomy_enum
+assetfinder_enum
+paramspider_enum
 
 ### 1ST BRUTEFORCE ON -x
 if [ $fuzzing_on == 1 ]
 then
-	### STARTING 1ST BRUTEFORCE => subdomains.txt
-	echo -e "\033[0;31m [+]\033[0m SUBDOMAINS BRUTEFORCING"
-	puredns bruteforce "$HOME"/tools/CRIMSON/words/dns "$DOMAIN" -w puredns1.txt -r resolvers.txt -l 250
-	cat puredns1.txt | anew subdomains.txt > /dev/null
-	rm puredns1.txt
+	### STARTING 1ST BRUTEFORCE = subdomains.txt
+	bruteforce_dns_1
 fi
 
 ### CHECKING FOR LIVE DOMAINS = live1.txt
-echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE SUBDOMAINS"
-echo -e "\033[0;31m==================================\033[0m"
-cat subdomains.txt | dnsx -t 100 -silent -r resolvers.txt -o dnsx1.txt
-dns-wildcard-removal --domain "$DOMAIN" --input dnsx1.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
-cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live1.txt
-rm dnsx1.txt && rm real.txt
-echo -e "\033[0;31m==================================\033[0m"
+check_for_live_1
 
 ### 2ND BRUTEFORCE ON -x
 if [ $fuzzing_on == 1 ]
 then
 	### MAKING MUTATIONS FROM ENUMERATED SUBDOMAINS (EXCLUDE ALL SUBDOMAINS ENUMERATED TILL NOW) = altnds.txt
-	echo -e "\033[0;31m [+]\033[0m MUTATING LIVE SUBDOMAINS"
-	altdns -w "$HOME"/tools/CRIMSON/words/dns-altdns.txt -i live1.txt -o altdns_temp.txt
-	cat "$HOME"/tools/CRIMSON/words/dns | sed "s/$/\.$DOMAIN/" > ddns.txt
-	awk 'FNR==NR {a[$0]++; next} !($0 in a)' ddns.txt altdns_temp.txt > not_duplicated_altdns
-	awk 'FNR==NR {a[$0]++; next} !($0 in a)' subdomains.txt not_duplicated_altdns > not_duplicated_altdns2
-	awk 'FNR==NR {a[$0]++; next} !($0 in a)' live1.txt not_duplicated_altdns2 > altdns_with_domain_name
-	cat altdns_with_domain_name | sed "s/\.$DOMAIN//g" > altdns.txt
-
+	mutate_domains
 	### STARTING 2ND BRUTEFORCE WITH MUTATED WORDLIST = puredns2.txt
-	echo -e "\033[0;31m [+]\033[0m CHECKING MUTATED LIST FOR LIVE SUBDOMAINS"
-	puredns bruteforce altdns.txt "$DOMAIN" -w puredns2.txt -r resolvers.txt -l 250 
-
+	bruteforce_dns_2
 	### CHECKING LIVE DOMAINS FROM BRUTEFORCE OF MUTATED WORDLIST = live2.txt
-	cat puredns2.txt | dnsx -t 100 -silent -r resolvers.txt -o dnsx2.txt > /dev/null
-	dns-wildcard-removal --domain "$DOMAIN" --input dnsx2.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
-	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live2.txt
-	rm dnsx2.txt && rm real.txt
-
+	check_for_live_2
 	### MERGING live1.txt AND live2.txt = live.txt
 	sort -u live1.txt  > live.txt
 	sort -u live2.txt | anew live.txt > /dev/null
-
-	### CLEARING LOGS 
-	rm live1.txt 
-	rm live2.txt 
-	rm altdns_temp.txt 
-	rm not_duplicated_altnds 
-	rm not_duplicated_altnds2 
-	rm ddns.txt 
-	rm altdns_with_domain_name 
-	rm altdns.txt 
+	### CLEARING LOGS
+	rm live1.txt
+	rm live2.txt
+	rm altdns_temp.txt
+	rm not_duplicated_altnds
+	rm not_duplicated_altnds2
+	rm ddns.txt
+	rm altdns_with_domain_name
+	rm altdns.txt
 	rm puredns2.txt
 else
 	sort -u live1.txt  > live.txt
@@ -210,89 +532,48 @@ else
 fi
 
 ### SCRAPING THE INTERNET FOR URLS = gau.txt
-echo -e "\033[0;31m [+]\033[0m GATHERING URLS"
-cat live.txt | gau -subs >> gau.txt
-cat gau.txt | unfurl -u domains > subs_gau.txt
-sort -u subs_gau.txt live.txt > live2.txt
-mv live2.txt live.txt
-rm subs_gau.txt
-
+gau_get_urls
 ### SCRAPING THE INTERNET FOR URLS = waybackurls.txt
-cat live.txt | waybackurls >> waybackurls.txt
-cat waybackurls.txt | unfurl -u domains > subs_waybackurls.txt
-sort -u subs_waybackurls.txt live.txt > live2.txt
-mv live2.txt live.txt
-rm subs_waybackurls.txt
-
+waybackurls_get_urls
 ### MERGING SPIDERS IN ONE BIG LIST WITH A LOT BROKEN LINKS (it will be used in later modules) = urls.txt
 cat waybackurls.txt | qsreplace -a > urls.txt
 cat gau.txt | qsreplace -a | anew urls.txt > /dev/null
 cat paramspider.txt | qsreplace -a | anew urls.txt > /dev/null
 sed -i '/^$/d' urls.txt
 rm waybackurls.txt paramspider.txt gau.txt
-
 ### CHECK FOR LIVE LINKS (to proxy only valid urls) > urls.txt
-echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE URLS"
-cat urls.txt | httpx -threads 50 -silent -o httpx_urls.txt > /dev/null
-mv httpx_urls.txt urls.txt
+check_for_live_urls
 
+### TURN SUBDOMAINIZER -s
 if [ $subd_on == 1 ]
 then
 	### LOOKING FOR SUBDOMAINS AND SECRETS IN URLS = subdomainizer.txt
-	echo -e "\033[0;31m [+]\033[0m GATHERING SUBDOMAINS, API KEYS, URLS [SUBDOMAINIZER]"
-	python3 "$HOME"/tools/SubDomainizer/SubDomainizer.py -k -l urls.txt -o subdomainizer.txt | tee -a subdomainizer.log
-
+	enum_subdomanizer
 	### GETTING SUBDOMAINS FROM subdomainizer.txt AND CHECKING FOR LIVE = live.txt
-	cat subdomainizer.txt | grep "$DOMAIN" | dnsx -t 100 -silent -r resolvers.txt -o dnsx3.txt
-	dns-wildcard-removal --domain "$DOMAIN" --input dnsx3.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
-	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live3.txt
-	cat live3.txt | anew live.txt > /dev/null
-	rm live3.txt && rm dnsx3.txt && rm real.txt
+	check_for_live_3
 fi
 
-### RESOLVING IP FROM live.txt = ip.txt
-echo -e "\033[0;31m [+]\033[0m RESOVLING IP ADRESSES"
-while IFS= read -r domain; do echo "[+] $domain" >> "$HOME"/bounty/"$DOMAIN"/ip.txt && dig +short "$domain" >> "$HOME"/bounty/"$DOMAIN"/ip.txt ;done < "$HOME"/bounty/"$DOMAIN"/live.txt 
-
-### FILTERING ip.txt = filtered_ip.txt
-cat "$HOME"/bounty/"$DOMAIN"/ip.txt | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | sort -u > "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+### RESOLVING IP FROM live.txt = ip.txt && FILTERING ip.txt = filtered_ip.txt
+get_all_ip
 
 ### --- VHOST SECTION --- ### -v
 if [ $vhost_on == 1 ]
 then
 # TO DO - each domain bruteforcing
 # TO DO - more ports for http/https - httpx can help
-	### DISCOVERING VIRTUAL HOSTNAMES && ADD THEM TO live.txt = hosthunter.txt
-	echo -e "\033[0;31m [+]\033[0m DISCOVERING VIRTUAL HOSTNAMES WITH HOSTHUNTER"
-	python3 "$HOME"/tools/HostHunter/hosthunter.py filtered_ip.txt >> hosthunter.txt
-	echo -e "\033[0;31m [+]\033[0m CHECKING LIVE HOSTS"
-	cat hosthunter.txt | grep "$DOMAIN" | sort -u | anew | dnsx -t 100 -silent -r resolvers.txt -o dnsx4.txt
-	dns-wildcard-removal --domain "$DOMAIN" --input dnsx4.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
-	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live4.txt
-	rm dnsx4.txt && rm real.txt
-	cat live4.txt | anew live.txt > /dev/null
-	rm live4.txt
 
-	### VHOST BRUTEFORCING = vhost.txt
+	### DISCOVERING VIRTUAL HOSTNAMES && ADD THEM TO live.txt = hosthunter.txt
+	hosthunter_enum
+	check_for_live_4
+	### PREPARING DIRECTORY AND WORDLIST FOR BRUTEFORCE
 	echo -e "\033[0;31m [+]\033[0m BRUTEFORCING VIRTUAL HOSTNAMES "
 	mkdir vhosts
 	cd vhosts
 	cat "$HOME"/tools/CRIMSON/words/vhosts.txt | sed "s/TARGET_DOMAIN/$DOMAIN/" > vhosts.txt
 	cat ../subdomains.txt >> vhosts.txt
-	
-	echo -e "\033[0;31m [+][+]\033[0m BRUTEFORCING HTTP "
-	while IFS= read -r ip; do echo "[+] $ip" && \
-	glength=$(curl -s -H "Host: \"$ip\"" http://\"$ip\":80 |wc -c) \
-	blength=$(curl -s -H "Host: badhost" http://\"$ip\":80 |wc -c) \
-	ffuf -w vhosts.txt -u http://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a "$ip".http \
-	;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
-	
-	echo -e "\033[0;31m [+][+]\033[0m BRUTEFORCING HTTPS "
-	while IFS= read -r ip; do echo "[+] $ip" && \
-	glength=$(curl -k -s -H "Host: \"$ip\"" https://\"$ip\":80 |wc -c) \
-	blength=$(curl -k -s -H "Host: badhost" https://\"$ip\":80 |wc -c) \
-	ffuf -w vhosts.txt -u https://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a "$ip".https \
-	;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+	### VHOST BRUTEFORCING = vhost.txt
+	vhost_brute_http
+	vhost_brute_https
 	rm vhosts.txt
 	cd ..
 fi
@@ -301,81 +582,45 @@ fi
 if [ $rust_on == 1 ]
 then
 	### TCP SCANNING filtered_ip.txt FOR OPENED PORTS = nmap.txt
-	echo -e "\033[0;31m [+]\033[0m TCP PORT SCANNING"
-	rustscan -a filtered_ip.txt --ulimit 5000 --scan-order="Random" -- -n -A -Pn --append-output -oN nmap.txt -oG nmap.gnmap | tee -a rustscan.txt
+	tcp_scanning
 fi
 
 if [ $udp_scan_on == 1 ]
 then
 	### UDP SCANNING filtered_ip.txt FOR OPENED PORTS = udpnmap.txt -u
-	echo -e "\033[0;31m [+]\033[0m UDP PORT SCANNING"
-	while IFS= read -r ip; do nmap -sU -T5 -F --version-intensity 0 "$ip" --append-output -oG udpnmap.gnmap -oN udpnmap.txt ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+	udp_scanning
 fi
 
 ### MAKING SCREENSHOOTS FROM ENUERATED LIVE DOMAINS = screenshots/
-echo -e "\033[0;31m [+]\033[0m MAKING SCREENSHOTS OF ENUMERATED LIVE DOMAINS"
-gowitness file -f live.txt > /dev/null 2>&1
-
+make_screens
 ### CHECKING STATUS CODE OF ALL DOMAINS = status_live.txt
-echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF ENUMERATED LIVE SUBDOMAINS"
-cat live.txt | sed "s/^/http:\/\//" >> temp_live.txt
-cat live.txt | sed "s/^/https:\/\//" >> temp_live.txt
-wfuzz -f status_live.txt,raw -Z -z file,temp_live.txt -z file,"$HOME"/tools/CRIMSON/words/blank FUZZFUZ2Z > /dev/null 2>&1
-rm temp_live.txt
-
+check_status_code
 ### CHECKING ZONE TRANSFER = dnsrecon.txt
-echo -e "\033[0;31m [+]\033[0m CHECKING ZONE TRANSFER"
-dnsrecon -d "$DOMAIN" -a >> dnsrecon.txt 2>/dev/null 
-
+check_zonetransfer
 ### CHECKING FOR CORS MISSCONFIGURATION = cors_scan.txt
-echo -e "\033[0;31m [+]\033[0m CHECKING CORS"
-cat live.txt | CorsMe -t 50 -output cors_scan.txt > /dev/null
-
+check_cors
 ### CHECKING SUBDOMAIN TAKEOVER = subjack.txt
-echo -e "\033[0;31m [+]\033[0m CHECKING DOMAIN TAKEOVER"
-# Temp workaround to subjack missed fingerprint issue:
-fingerprint_location=$(find / 2>/dev/null -name "fingerprints.json" | grep "subjack" | grep -v "subjack\/fingerprints.json")
-subjack -w live.txt -t 20 -timeout 30 -o subjack1.txt -ssl -a -c "$fingerprint_location"
-cat subjack1.txt > subjack.txt 2>/dev/null
-rm subjack1.txt 2>/dev/null
-subjack -w live.txt -t 20 -timeout 30 -o subjack2.txt -a -c "$fingerprint_location"
-cat subjack2.txt >> subjack.txt 2>/dev/null
-rm subjack2.txt 2>/dev/null
-
+check_domain_takeover
 ### NUCLEI SCAN ON ALL LIVE DOMAINS
-echo -e "\033[0;31m [+]\033[0m STARTING NUCLEI SCAN"
-for line in $(cat live.txt); do echo -e "https://$line\nhttp://$line" ;done >> live_with_protocol.txt
-git clone https://github.com/projectdiscovery/nuclei-templates.git > /dev/null
-rm -rf nuclei-templates/token-spray
-nuclei -l live_with_protocol.txt -t nuclei-templates/ -stats -silent | tee -a nuclei.txt
+nuclei_scan_all
 
 ### --- 3RDLEVEL SECTION --- ### -b
 if [ $third_level_on == 1 ]
 then
 	### THRID LEVEL SUBDOMAINS BRUTE-FORCE = 3rdlevel_live.txt
-	echo -e "\033[0;31m [+]\033[0m STARTING 3RDLEVEL ENUMERATION"
-	mkdir 3rdlevel
-	while IFS= read -r subdomain; do puredns bruteforce "$HOME"/tools/CRIMSON/words/dns "$subdomain" -w 3rdlevel/"$subdomain".txt -r resolvers.txt -l 250 ;done < live.txt
-	sort -u 3rdlevel/* > 3rdlevel.txt
-	cat 3rdlevel.txt | dnsx -o dnsx5.txt 2>/dev/null
-	dns-wildcard-removal --domain "$DOMAIN" --input dnsx5.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
-	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u >> 3rdlevel_live.txt
-	rm dnsx5.txt && rm real.txt
-	rm -rf 3rdlevel/3rdlevel.txt
+	3dlevel_brute
+	### CHECK ALL 3RD LEVEL BRUTEFORCED DOMAINS FOR LIVE = 3rdlevel_live.txt
+	check_for_live_5
 fi
 
 ### --- PROXY SECTION --- ### -y
 if [ $proxy_on == 1 ]
 then
 	### PROXING urls.txt TO BURP SUITE
-	echo -e "\033[0;31m [+]\033[0m PROXING ulrs.txt TO BRUP SUITE"
-	cat urls.txt | grep "$DOMAIN" |grep http | sort -u > proxy.txt
-	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z > /dev/null 2>&1
-
+	proxy_urls_to_burp
 	### PROXING DOMAINS TO BURP = proxy.txt
-	echo -e "\033[0;31m [+]\033[0m PROXING SUBDOMAINS TO BURP"
-	cat status_live.txt | grep -v "XXX" | cut -s -d "\"" -f 2 > proxy.txt
-	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z > /dev/null 2>&1
+	proxy_domains_to_burp
+
 fi
 
 ### CLEARING THE DIRECTORY
@@ -417,9 +662,12 @@ if [ $rust_on == 1 ]
 then
 	echo "	- nmap.txt"
 fi
+echo "			TO SEE GOWITNESS REPORT:" 
+echo "			gowitness report serve"
 echo "			google-chrome http://localhost:7171/table/"
-gowitness report serve
 fi
+
+clear_log
 
 ### GREP 2/3/4 LEVEL DOMAINS
 # grep -P '^(?:[a-z0-9]+.){1}[^.]*$'	2nd level domains only
