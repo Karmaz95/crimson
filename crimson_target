@@ -82,7 +82,7 @@ tcp_scanning() {
 
     echo "[TCP SCANNING] ---------------------------------------------------------" | tee -a recon.txt
     echo TARGET: "$TARGET" | tee -a recon.txt
-    rustscan -a "$TARGET" --ulimit 5000 -- -n -A -Pn --append-output -oG exp/nmap.gnmap -oN nmap.txt  # --scan-order "Random"
+    rustscan -b 200 -a "$TARGET" -- -n -A -Pn --append-output -oG exp/nmap.gnmap -oN nmap.txt  # --scan-order "Random"
     cat nmap.txt >> recon.txt
     rm nmap.txt
 }
