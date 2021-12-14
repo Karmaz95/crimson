@@ -161,9 +161,9 @@ nuclei_scan_domain(){
     git clone https://github.com/projectdiscovery/nuclei-templates.git > /dev/null
     rm -rf nuclei-templates/token-spray
     echo "[NUCLEI 80] ---------------------------------------------------------" | tee -a recon.txt
-    nuclei -u http://"$domain" -t nuclei-templates/ -silent | tee -a recon.txt
+    nuclei -u http://"$domain" -t nuclei-templates/ -stats -silent | tee -a recon.txt
     echo "[NUCLEI 443] ---------------------------------------------------------" | tee -a recon.txt
-    nuclei -u https://"$domain" -t nuclei-templates/ -silent | tee -a recon.txt
+    nuclei -u https://"$domain" -t nuclei-templates/ -stats -silent | tee -a recon.txt
 }
 
 nikto_enum_443() {
@@ -233,7 +233,7 @@ galer_enum_and_merging() {
     galer -u https://"$domain" -s >> urls.txt
     ### MERGE SPIDERS AND DELETE DUPLICATES >> urls.txt
     echo -e "\033[0;31m [+]\033[0m MERGING SPIDERS RESULTS"
-    cat ../urls.txt | grep "$domain" | anew urls.txt > /dev/null
+    cat ../urls.txt | grep "$domain" | anew urls.txt 2 > /dev/null
     cat urls.txt | qsreplace -a > temp1.txt
     mv temp1.txt urls.txt
     ### GET NEW ENDPOINTS FROM SPIDERS AND ADD THEM TO WORDLIST FOR DIRECOTRY BRUTEFORCING > custom_dir.txt
@@ -306,7 +306,7 @@ gahter_js_links() {
     anchor_check "${FUNCNAME[0]}" || return 0
 
     echo -e "\033[0;31m [+]\033[0m GATHERING .js LINKS"
-    cat urls.txt ffuf.txt | getJS --complete --nocolors -H "$cookie" | grep "^http" | grep "$DOMAIN" | sed "s/\?.*//" | anew exp/jsfiles.txt
+    cat urls.txt ffuf.txt | getJS --insecure --complete --nocolors -H "$cookie" | grep "^http" | grep "$DOMAIN" | sed "s/\?.*//" | anew exp/jsfiles.txt
     ### GET LINKS TO JS FILES FROM urls.txt > exp/jsfiles.txt
     cat urls.txt | grep "\.js$" | grep "^http" | grep "$DOMAIN" | sed "s/\?.*//" | anew exp/jsfiles.txt > /dev/null
 }
@@ -566,9 +566,9 @@ DOMAIN=$(tldextract "$domain" | cut -s -d " " -f 2-3 | sed "s/\ /\./")
 export DOMAIN
 TARGET=$(dig +short "$domain" | tr "\n" ",")
 export TARGET
-mkdir "$HOME"/bounty/"$DOMAIN"/"$domain"/temp -p
-mkdir "$HOME"/bounty/"$DOMAIN"/"$domain"/exp
-mkdir "$HOME"/bounty/"$DOMAIN"/"$domain"/all_source_code
+mkdir "$HOME"/bounty/"$DOMAIN"/"$domain"/temp -p 2>/dev/null
+mkdir "$HOME"/bounty/"$DOMAIN"/"$domain"/exp 2>/dev/null
+mkdir "$HOME"/bounty/"$DOMAIN"/"$domain"/all_source_code 2>/dev/null
 cd "$HOME"/bounty/"$DOMAIN"/"$domain" || exit   
 
 if [ -z "$cookie" ]
