@@ -49,15 +49,13 @@ trap 'echo $anchor > anchor.log && exit 1' SIGINT
 trap 'echo $anchor > anchor.log && exit 1' SIGHUP
 trap 'echo $anchor > anchor.log && exit 1' SIGKILL
 trap 'echo $anchor > anchor.log && exit 1' SIGTERM
-### ---
 
-### ALL FUNCTIONS:
 anchor_check() {
 	### 0.RETRY FUNCTION IF IT'S NOT IN anchor.log
 	anchor="$1"
-	[ ! -f "anchor.log" ] && return 0
-	if grep -q "$1" "anchor.log"; then
-		rm "anchor.log"; return 0
+	[ ! -f "$HOME/bounty/$DOMAIN/anchor.log" ] && return 0
+	if grep -q "$1" "$HOME/bounty/$DOMAIN/anchor.log"; then
+		rm "$HOME/bounty/$DOMAIN/anchor.log"; return 0
 	else
 		return 1
 	fi
@@ -65,11 +63,13 @@ anchor_check() {
 
 clear_log() {
 	### REMOVING LOG IF PROGRAM EXIT NORMALLY
-	if [ -f "anchor.log" ]; then
-			rm "anchor.log"
+	if [ -f "$HOME/bounty/$DOMAIN/anchor.log" ]; then
+			rm "$HOME/bounty/$DOMAIN/anchor.log"
 	fi
 }
+### ---
 
+### ALL FUNCTIONS:
 burp_reminder() {
 	### 1.PRINTS REMAINDER TO TURN ON BURP SUITE 
 	echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(tldextract "$DOMAIN" | cut -s -d " " -f 2-3 | sed "s/\ /\./" | sed "s/\./\\\./")$
@@ -279,7 +279,7 @@ vhost_brute_http() {
 	while IFS= read -r ip; do echo "[+] $ip" &&	glength=$(curl -s -H "Host: \"$ip\"" http://\"$ip\":80 |wc -c) && blength=$(curl -s -H "Host: badhost" http://\"$ip\":80 |wc -c) &&	ffuf -w vhosts.txt -u http://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a "$ip".http ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
 }
 
-vhost_brute_https() {
+https_vhost_brute() {
 	### 22.FFUF
 	anchor_check "${FUNCNAME[0]}" || return 0
 
@@ -506,7 +506,7 @@ then
 	### CHECKING LIVE DOMAINS FROM BRUTEFORCE OF MUTATED WORDLIST = live2.txt
 	check_for_live_2
 	### MERGING live1.txt AND live2.txt = live.txt
-	sort -u live1.txt  > live.txt
+	sort -u live1.txt  >> live.txt
 	sort -u live2.txt | anew live.txt > /dev/null
 	### CLEARING LOGS
 	rm live1.txt
@@ -519,7 +519,7 @@ then
 	rm altdns.txt
 	rm puredns2.txt
 else
-	sort -u live1.txt  > live.txt
+	sort -u live1.txt  >> live.txt
 	rm live1.txt
 fi
 
@@ -528,7 +528,7 @@ gau_get_urls
 ### SCRAPING THE INTERNET FOR URLS = waybackurls.txt
 waybackurls_get_urls
 ### MERGING SPIDERS IN ONE BIG LIST WITH A LOT BROKEN LINKS (it will be used in later modules) = urls.txt
-cat waybackurls.txt | qsreplace -a > urls.txt
+cat waybackurls.txt | qsreplace -a >> urls.txt
 cat gau.txt | qsreplace -a | anew urls.txt > /dev/null
 cat paramspider.txt | qsreplace -a | anew urls.txt > /dev/null
 sed -i '/^$/d' urls.txt
@@ -561,11 +561,11 @@ then
 	echo -e "\033[0;31m [+]\033[0m BRUTEFORCING VIRTUAL HOSTNAMES "
 	mkdir vhosts
 	cd vhosts
-	cat "$HOME"/tools/CRIMSON/words/vhosts.txt | sed "s/TARGET_DOMAIN/$DOMAIN/" > vhosts.txt
+	cat "$HOME"/tools/CRIMSON/words/vhosts.txt | sed "s/TARGET_DOMAIN/$DOMAIN/" >> vhosts.txt
 	cat ../subdomains.txt >> vhosts.txt
 	### VHOST BRUTEFORCING = vhost.txt
 	vhost_brute_http
-	vhost_brute_https
+	https_vhost_brute
 	rm vhosts.txt
 	cd ..
 fi
