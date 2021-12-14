@@ -325,7 +325,7 @@ gather_js_code(){
     anchor_check "${FUNCNAME[0]}" || return 0
 
     echo -e "\033[0;31m [+]\033[0m GATHERING SOURCE CODE FROM LIVE .js LINKS"
-    while IFS= read -r url; do echo -e "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url" && curl -k -s "$url" -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" | js-beautify > all_source_code/$(echo "$url" | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g") ;done < exp/jsfiles.txt
+    while IFS= read -r url; do echo -e "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url" && curl -k -s "$url" -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" | js-beautify > all_source_code/$(echo "$url" | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g") 2>/dev/null ;done < exp/jsfiles.txt
 }
 
 zile_enum() {
@@ -368,7 +368,7 @@ check_new_endpoints_status() {
     cat filtered_new_endpoints.txt | anew ffuf.txt > /dev/null
     rm filtered_new_endpoints.txt
     ### ADD http://$domain AND https://$domain EVEN IF THEY ARE 404/400/X status code >> ffuf.txt
-    echo -e "http://$domain\nhttps://$domain" | anew ffuf.txt
+    echo -e "http://$domain\nhttps://$domain" | anew ffuf.txt > /dev/null
 }
 
 proxy_directories_to_burp() {
