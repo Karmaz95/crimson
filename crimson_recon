@@ -62,6 +62,12 @@ anchor_check() {
 }
 
 clear_log() {
+	### CLEARING STUFF
+	rm proxy.txt 2>/dev/null
+	rm resolvers.txt 2>/dev/null
+	rm error_requests.txt 2>/dev/null
+	find . -type d -empty -print -delete -o -type f -empty -print -delete
+	rm -rf nuclei-templates
 	### REMOVING LOG IF PROGRAM EXIT NORMALLY
 	if [ -f "$HOME/bounty/$DOMAIN/anchor.log" ]; then
 			rm "$HOME/bounty/$DOMAIN/anchor.log"
@@ -95,7 +101,7 @@ amass_enum() {
 	cat crt.txt | anew subdomains.txt > /dev/null
 	rm crt.txt
 	# amass.txt
-	amass enum --passive -d "$DOMAIN" -o amass.txt -rf resolvers.txt > /dev/null
+	amass enum --passive -d "$DOMAIN" -o amass.txt -rf resolvers.txt > /dev/null 2>&1
 	cat amass.txt | anew subdomains.txt > /dev/null
 	rm amass.txt
 }
@@ -188,6 +194,27 @@ check_for_live_2() {
 	dns-wildcard-removal --domain "$DOMAIN" --input dnsx2.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
 	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live2.txt
 	rm dnsx2.txt && rm real.txt
+	### MERGING live1.txt AND live2.txt = live.txt
+	sort -u live1.txt  >> live.txt
+	sort -u live2.txt | anew live.txt > /dev/null
+	### CLEARING LOGS
+	rm live1.txt
+	rm live2.txt
+	rm altdns_temp.txt
+	rm not_duplicated_altnds
+	rm not_duplicated_altnds2
+	rm ddns.txt
+	rm altdns_with_domain_name
+	rm altdns.txt
+	rm puredns2.txt
+}
+
+no_brute_sorting_stuff() {
+	### -
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	sort -u live1.txt  >> live.txt
+	rm live1.txt
 }
 
 gau_get_urls() {
@@ -211,6 +238,17 @@ waybackurls_get_urls() {
 	sort -u subs_waybackurls.txt live.txt > live2.txt
 	mv live2.txt live.txt
 	rm subs_waybackurls.txt
+}
+
+merging_spiders_in_one_big_list() {
+	### -
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	cat waybackurls.txt | qsreplace -a >> urls.txt
+	cat gau.txt | qsreplace -a | anew urls.txt > /dev/null
+	cat paramspider.txt | qsreplace -a | anew urls.txt > /dev/null
+	sed -i '/^$/d' urls.txt
+	rm waybackurls.txt paramspider.txt gau.txt
 }
 
 check_for_live_urls() {
@@ -263,12 +301,22 @@ check_for_live_4() {
 	anchor_check "${FUNCNAME[0]}" || return 0
 
 	echo -e "\033[0;31m [+]\033[0m CHECKING LIVE HOSTS"
-	cat hosthunter.txt | grep "$DOMAIN" | sort -u | anew | dnsx -t 100 -silent -r resolvers.txt -o dnsx4.txt
-	dns-wildcard-removal --domain "$DOMAIN" --input dnsx4.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
+	cat hosthunter.txt | grep "$DOMAIN" | sort -u | anew | dnsx -t 100 -silent -r resolvers.txt -o dnsx4.txt > /dev/null
+	dns-wildcard-removal --domain "$DOMAIN" --input dnsx4.txt -r resolvers.txt --output real.txt > /dev/null
 	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live4.txt
 	rm dnsx4.txt && rm real.txt
 	cat live4.txt | anew live.txt > /dev/null
 	rm live4.txt
+}
+
+prepare_vhosts_directories() {
+	### -
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m BRUTEFORCING VIRTUAL HOSTNAMES "
+	mkdir vhosts
+	cat "$HOME"/tools/CRIMSON/words/vhosts.txt | sed "s/TARGET_DOMAIN/$DOMAIN/" >> vhosts/vhosts.txt
+	cat subdomains.txt >> vhosts/vhosts.txt
 }
 
 vhost_brute_http() {
@@ -276,7 +324,7 @@ vhost_brute_http() {
 	anchor_check "${FUNCNAME[0]}" || return 0
 
 	echo -e "\033[0;31m [+][+]\033[0m BRUTEFORCING HTTP "
-	while IFS= read -r ip; do echo "[+] $ip" &&	glength=$(curl -s -H "Host: \"$ip\"" http://\"$ip\":80 |wc -c) && blength=$(curl -s -H "Host: badhost" http://\"$ip\":80 |wc -c) &&	ffuf -w vhosts.txt -u http://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a "$ip".http ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+	while IFS= read -r ip; do echo "[+] $ip" &&	glength=$(curl -s -H "Host: \"$ip\"" http://\"$ip\":80 |wc -c) && blength=$(curl -s -H "Host: badhost" http://\"$ip\":80 |wc -c) &&	ffuf -w vhosts/vhosts.txt -u http://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a vhosts/"$ip".http ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
 }
 
 https_vhost_brute() {
@@ -284,7 +332,8 @@ https_vhost_brute() {
 	anchor_check "${FUNCNAME[0]}" || return 0
 
 	echo -e "\033[0;31m [+][+]\033[0m BRUTEFORCING HTTPS "
-	while IFS= read -r ip; do echo "[+] $ip" && glength=$(curl -k -s -H "Host: \"$ip\"" https://\"$ip\":80 |wc -c) && blength=$(curl -k -s -H "Host: badhost" https://\"$ip\":80 |wc -c) && ffuf -w vhosts.txt -u https://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a "$ip".https ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+	while IFS= read -r ip; do echo "[+] $ip" && glength=$(curl -k -s -H "Host: \"$ip\"" https://\"$ip\":80 |wc -c) && blength=$(curl -k -s -H "Host: badhost" https://\"$ip\":80 |wc -c) && ffuf -w vhosts/vhosts.txt -u https://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a vhosts/"$ip".https ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
+	rm vhosts.txt
 }
 
 tcp_scanning() {
@@ -359,7 +408,7 @@ nuclei_scan_all() {
 
 	echo -e "\033[0;31m [+]\033[0m STARTING NUCLEI SCAN"
 	for line in $(cat live.txt); do echo -e "https://$line\nhttp://$line" ;done >> live_with_protocol.txt
-	git clone https://github.com/projectdiscovery/nuclei-templates.git > /dev/null
+	git clone https://github.com/projectdiscovery/nuclei-templates.git > /dev/null 2>&1
 	rm -rf nuclei-templates/token-spray
 	nuclei -l live_with_protocol.txt -t nuclei-templates/ -stats -silent | tee -a nuclei.txt
 }
@@ -474,7 +523,7 @@ cd "$HOME"/bounty/"$DOMAIN" || exit
 
 if [ $proxy_on == 1 ]
 then
-	###PRINTS REMAINDER TO TURN ON BURP SUITE 
+	### PRINTS REMAINDER TO TURN ON BURP SUITE 
 	burp_reminder
 fi
 
@@ -505,22 +554,8 @@ then
 	bruteforce_dns_2
 	### CHECKING LIVE DOMAINS FROM BRUTEFORCE OF MUTATED WORDLIST = live2.txt
 	check_for_live_2
-	### MERGING live1.txt AND live2.txt = live.txt
-	sort -u live1.txt  >> live.txt
-	sort -u live2.txt | anew live.txt > /dev/null
-	### CLEARING LOGS
-	rm live1.txt
-	rm live2.txt
-	rm altdns_temp.txt
-	rm not_duplicated_altnds
-	rm not_duplicated_altnds2
-	rm ddns.txt
-	rm altdns_with_domain_name
-	rm altdns.txt
-	rm puredns2.txt
 else
-	sort -u live1.txt  >> live.txt
-	rm live1.txt
+	no_brute_sorting_stuff
 fi
 
 ### SCRAPING THE INTERNET FOR URLS = gau.txt
@@ -528,11 +563,7 @@ gau_get_urls
 ### SCRAPING THE INTERNET FOR URLS = waybackurls.txt
 waybackurls_get_urls
 ### MERGING SPIDERS IN ONE BIG LIST WITH A LOT BROKEN LINKS (it will be used in later modules) = urls.txt
-cat waybackurls.txt | qsreplace -a >> urls.txt
-cat gau.txt | qsreplace -a | anew urls.txt > /dev/null
-cat paramspider.txt | qsreplace -a | anew urls.txt > /dev/null
-sed -i '/^$/d' urls.txt
-rm waybackurls.txt paramspider.txt gau.txt
+merging_spiders_in_one_big_list
 ### CHECK FOR LIVE LINKS (to proxy only valid urls) > urls.txt
 check_for_live_urls
 
@@ -551,23 +582,14 @@ get_all_ip
 ### --- VHOST SECTION --- ### -v
 if [ $vhost_on == 1 ]
 then
-# TO DO - each domain bruteforcing
-# TO DO - more ports for http/https - httpx can help
-
 	### DISCOVERING VIRTUAL HOSTNAMES && ADD THEM TO live.txt = hosthunter.txt
 	hosthunter_enum
 	check_for_live_4
 	### PREPARING DIRECTORY AND WORDLIST FOR BRUTEFORCE
-	echo -e "\033[0;31m [+]\033[0m BRUTEFORCING VIRTUAL HOSTNAMES "
-	mkdir vhosts
-	cd vhosts
-	cat "$HOME"/tools/CRIMSON/words/vhosts.txt | sed "s/TARGET_DOMAIN/$DOMAIN/" >> vhosts.txt
-	cat ../subdomains.txt >> vhosts.txt
+	prepare_vhosts_directories
 	### VHOST BRUTEFORCING = vhost.txt
 	vhost_brute_http
 	https_vhost_brute
-	rm vhosts.txt
-	cd ..
 fi
 
 ### --- PORT SCANNING SECTION --- ### -p
@@ -615,13 +637,8 @@ then
 
 fi
 
-### CLEARING THE DIRECTORY
-rm proxy.txt 2>/dev/null
-rm resolvers.txt 2>/dev/null
-rm error_requests.txt 2>/dev/null
-find . -type d -empty -print -delete -o -type f -empty -print -delete
-rm -rf nuclei-templates
-
+### CLEARING THE DIRECTORY AND anchor.log
+clear_log
 ### PRINTING RESULTS
 echo -e "\033[0;31m [+]\033[0m RESULTS: "
 echo -e "-------------"
@@ -659,7 +676,6 @@ echo "			gowitness report serve"
 echo "			google-chrome http://localhost:7171/table/"
 fi
 
-clear_log
 
 ### GREP 2/3/4 LEVEL DOMAINS
 # grep -P '^(?:[a-z0-9]+.){1}[^.]*$'	2nd level domains only
