@@ -342,8 +342,8 @@ tcp_scanning() {
 	anchor_check "${FUNCNAME[0]}" || return 0
 
 	echo -e "\033[0;31m [+]\033[0m TCP PORT SCANNING"
-	echo -e "\033[0;31m [+][+]\033[0m IT WILL TAKE AROUND $(expr $(cat filtered_ip.txt | wc -l) \* 2) minutes"
-	rustscan -b 500 -a filtered_ip.txt -- -n -A -Pn --append-output -oN nmap.txt -oG nmap.gnmap | tee -a rustscan.txt
+	echo -e "\033[0;31m [+][+]\033[0m IT WILL TAKE AROUND $(expr $(cat filtered_ip.txt | wc -l) \* 1) minutes"
+	rustscan -a filtered_ip.txt -- -n -A -Pn --append-output -oN nmap.txt -oG nmap.gnmap | tee -a rustscan.txt
 }
 
 udp_scanning() {
