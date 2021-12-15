@@ -93,21 +93,22 @@ crimson_exploit -D "example.domain.com" -d "collaborator.com" -i "ip"
 # 8. URLS SCRAPING
 # 9. API KEYS SCRAPING
 # 10. VIRTUAL HOSTNAMES ENUMERATION
+# 11. NUCLEI VULN SCAN
 #
 ### LISTS (output):
 #
-# 1. live.txt     - LIVE SUBDOMAINS
-# 2. ip.txt       - ALL IPs
-# 3. ports.txt      - OPENED PORTS
-# 4. subjack.txt    - VULNS [TAKEOVER]
-# 5. screenshots    - STATUS CODES + SCREENS
-# 6. cors_scan.txt    - VULNS [CORS]
-# 7. urls.txt     - ALL CRAWLED AND LIVE URLS IN ONE FILE
-# 8. status_live.txt  - HTTPS / HTTPS SUBDOMAINS STATUS CODES
-# 9. ldns-walk.txt    - DOMAINS FROM DNSSEC
+# 1. live.txt           - LIVE SUBDOMAINS
+# 2. ip.txt             - ALL IPs
+# 3. ports.txt          - OPENED PORTS
+# 4. subjack.txt        - VULNS [TAKEOVER]
+# 5. screenshots        - STATUS CODES + SCREENS
+# 6. cors_scan.txt      - VULNS [CORS]
+# 7. urls.txt           - ALL CRAWLED AND LIVE URLS IN ONE FILE
+# 8. status_live.txt    - HTTPS / HTTPS SUBDOMAINS STATUS CODES
+# 9. ldns-walk.txt      - DOMAINS FROM DNSSEC
 # 10. subdomainizer.txt - DETECTED API KEYS / AND MORE SUBDOMAINS
-# 11. hosthunter.txt  - VIRTUAL HOSTNAMES
-# 12. nuclei.txt    - CVE SCAN
+# 11. hosthunter.txt    - VIRTUAL HOSTNAMES
+# 12. nuclei.txt        - CVE SCAN
 #
 ### WORKFLOW
 #
