@@ -72,7 +72,12 @@ crimson_exploit -D "example.domain.com" -d "collaborator.com" -i "ip"
 ##### :diamonds: Before starting third module, run the listener on your vps machine on port 80 `python -m http.server 80` and for ping payloads `tcpdump -i eth0 icmp`:diamonds:
 
 # Usage - modules description
-#### :small_red_triangle_down:crimson_recon
+
+<p align="center">
+  <img src="crimson_map.jpg" />
+</p>
+
+#### :small_red_triangle_down: [I] crimson_recon
 > This module can help you if you have to test big infrastructure or you are trying to earn some bounties in `*.scope.com` domain.
 
 ```
@@ -116,7 +121,7 @@ crimson_exploit -D "example.domain.com" -d "collaborator.com" -i "ip"
 ###
 ```
 
-#### :small_red_triangle_down:crimson_target
+#### :small_red_triangle_down: [II] crimson_target
 > This module covers one particular subdomain/domain for example : `www.scope.tld`.  
 ```
 ### FUNCTIONS:
@@ -162,7 +167,7 @@ crimson_exploit -D "example.domain.com" -d "collaborator.com" -i "ip"
 #
 ###
 ```
-#### :small_red_triangle_down:crimson_exploit
+#### :small_red_triangle_down: [III] crimson_exploit
 > This module uses a number of tools to automate the search for certain bugs in a list of urls.
 ```
 ### FUNCTIONS:

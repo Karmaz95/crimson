@@ -22,11 +22,11 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go
 ### LISTS (output):
 #
 # 1. live.txt			- LIVE SUBDOMAINS
-# 2. ip.txt				- ALL IPs
+# 2. ip.txt				- IP's AND THE CORRESPONDING DOMAINS
 # 3. ports.txt			- OPENED PORTS
-# 4. subjack.txt		- VULNS [TAKEOVER]
+# 4. subjack.txt		- [VULN] DOMAIN TAKEOVER ON ALL LIVE SUBDOMAINS
 # 5. screenshots 		- STATUS CODES + SCREENS
-# 6. cors_scan.txt		- VULNS [CORS]
+# 6. cors_scan.txt		- [VULN] MISCONFIGURED CORS
 # 7. urls.txt			- ALL CRAWLED AND LIVE URLS IN ONE FILE
 # 8. status_live.txt	- HTTPS / HTTPS SUBDOMAINS STATUS CODES
 # 9. subdomainizer.txt	- DETECTED API KEYS / AND MORE SUBDOMAINS
