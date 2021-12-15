@@ -65,3 +65,12 @@
 * :small_red_triangle_down:  exiftool.jpg
 
 > Edit using text editor - swap domain_collab with custom domain
+
+* :small_red_triangle_down:  req.pdf
+
+> alerts and makes HTTP request to collab (works on Chrome)
+
+* :small_red_triangle_down: steal-content.pdf
+
+>  alerts and is a PoC of possible data leak from a PDF via HTTP request to collab (works on Chrome)
+
