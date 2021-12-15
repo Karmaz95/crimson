@@ -373,6 +373,7 @@ crimson_exploit -D "example.domain.com" -d "collaborator.com" -i "ip"
 * [crawlergo](https://github.com/Qianlitp/crawlergo)
 * [svn-extractor](https://github.com/Karmaz95/svn-extractor)
 * [PoC-in-GitHub](https://github.com/nomi-sec/PoC-in-GitHub)
+* [S3Scanner](https://github.com/sa7mon/S3Scanner)
 
 
 # HISTORY
