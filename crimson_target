@@ -353,7 +353,7 @@ zile_enum() {
     cd all_source_code || exit
     python3 "$HOME"/tools/CRIMSON/scripts/zile/zile.py --file >> ../temp/temp_zile.txt
     cd ..
-    awk '!seen[$0]++' temp/temp_zile.txt | grep -v "[+]" > zile.txt
+    awk '!seen[$0]++' temp/temp_zile.txt | grep -v "[+]" > zile.txt 2>/dev/null
     ### GET ENDPOINTS FROM ZILE > extracted.txt
     cat zile.txt | cut -s -d " " -f 2 | sed "s/^..//g" | sed "s/..$//g" | sed "s/\"//g" | unfurl path | sed "s/'$//" > temp/temp_zile_endpoints.txt
     awk '!seen[$0]++' temp/temp_zile_endpoints.txt >> extracted.txt
