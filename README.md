@@ -188,7 +188,6 @@ crimson_exploit -D "example.domain.com" -d "collaborator.com" -i "ip"
 # 13. TESTING WORDPRESS
 # 14. TESTING CVES
 # 15. TESTING HEADER INJECTIONS
-
 #
 ### LISTS:
 #
