@@ -18,10 +18,10 @@
 docker pull karmaz95/crimson:v2
 # 2. First run of downloaded container:
 docker run --net="host" --name crimson -it karmaz95/crimson:v2
-# 3. After first run you can start container by:
+# 3. After the first run, you can start the container by:
 docker start crimson && docker attach crimson
 # 4. If you need to copy output from container:
-docker cp crimson:/root/bounty/domain.name <local-dest-path> 
+docker cp crimson:/root/bounty/domain.name <local-dest-path>
 ```
 Additionally you can install Burp Suite and extensions listed below in section `Burp Suite extensions`.
 # Usage - commands issued inside a docker container
