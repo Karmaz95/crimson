@@ -442,7 +442,7 @@ proxy_urls_to_burp() {
 
 	echo -e "\033[0;31m [+]\033[0m PROXING ulrs.txt TO BRUP SUITE"
 	cat urls.txt | grep "$DOMAIN" |grep http | sort -u > proxy.txt
-	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z > /dev/null 2>&1
+	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p host.docker.internal:8080 FUZZFUZ2Z > /dev/null 2>&1
 }
 	proxy_domains_to_burp() {
 	### 33.WFUZZ
@@ -450,7 +450,7 @@ proxy_urls_to_burp() {
 
 	echo -e "\033[0;31m [+]\033[0m PROXING SUBDOMAINS TO BURP"
 	cat status_live.txt | grep -v "XXX" | cut -s -d "\"" -f 2 > proxy.txt
-	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 FUZZFUZ2Z > /dev/null 2>&1
+	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p host.docker.internal:8080 FUZZFUZ2Z > /dev/null 2>&1
 }
 ### ---
 
@@ -514,7 +514,7 @@ then
             -p # TCP ports scanning (1-65535)
             -u # UDP ports scanning (nmap default ports)
             -b # Third level subdomain bruteforcing
-            -y # Proxy urls.txt and live.txt to Burp (127.0.0.1:8080)
+            -y # Proxy urls.txt and live.txt to Burp (host.docker.internal:8080)
             -s # Find hidden subdomains and secrets within urls.txt with SubDomainizer (takes very long time)"	
     exit  1
 else

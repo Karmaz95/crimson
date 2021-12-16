@@ -393,7 +393,7 @@ proxy_directories_to_burp() {
     anchor_check "${FUNCNAME[0]}" || return 0
 
     echo -e "\033[0;31m [+]\033[0m PROXING ALL DIRECTORIES && FILES TO BURP SUITE"
-    wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
+    wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p host.docker.internal:8080 -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
 }
 
 proxy_urls_to_burp() {
@@ -402,7 +402,7 @@ proxy_urls_to_burp() {
 
     echo -e "\033[0;31m [+]\033[0m PROXING urls.txt TO BURP"
     cat urls.txt | grep "?" > temp/temp_params.txt
-    wfuzz -f status_params.txt,raw -L -Z -z file,temp/temp_params.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p 127.0.0.1:8080 -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
+    wfuzz -f status_params.txt,raw -L -Z -z file,temp/temp_params.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p host.docker.internal:8080 -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
 }
 
 check_directories_status(){
@@ -572,7 +572,7 @@ echo "./crimson_target -D \"example.domain.com\"
                 -p # TCP (1-65535)   ports scanning
                 -u # UDP (nmap default) ports scanning
                 -a # Without this flag, you have to manually check for false-positives after bruteforcing
-                -y # Proxy urls.txt and ffuf.txt to Burp (127.0.0.1:8080)
+                -y # Proxy urls.txt and ffuf.txt to Burp (host.docker.internal:8080)
                 -b # Parameter bruteforcing with Arjun"
 exit 1  1
 else
