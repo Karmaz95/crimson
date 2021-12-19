@@ -410,7 +410,9 @@ make_live_with_protocol() {
 	### -
 	anchor_check "${FUNCNAME[0]}" || return 0
 
-	for line in $(cat live.txt); do echo -e "https://$line\nhttp://$line" ;done >> live_with_protocol.txt
+	for line in $(cat live.txt); do echo -e "https://$line\nhttp://$line" ;done >> temp_live_with_protocol.txt
+	cat temp_live_with_protocol.txt | httpx -threads 50 -silent -o live_with_protocol.txt > /dev/null
+	rm temp_live_with_protocol.txt
 }
 
 nuclei_scan_all() {
