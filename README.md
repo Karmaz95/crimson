@@ -292,7 +292,7 @@ crimson_exploit -D "example.domain.com" -d "collaborator.com" -i "ip"
 * [codeql](https://github.com/github/codeql-cli-binaries)
 * [semgrep](https://semgrep.dev/)
 * [gmapiscanner](https://github.com/ozguralp/gmapsapiscanner.git)
-
+* [log4j-scan](https://github.com/fullhunt/log4j-scan)
 
 ### :diamonds: WordPress tools:
 * [wpscan](https://github.com/wpscanteam/wpscan)

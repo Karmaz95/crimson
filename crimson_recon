@@ -32,6 +32,7 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go
 # 9. subdomainizer.txt	- DETECTED API KEYS / AND MORE SUBDOMAINS
 # 10. hosthunter.txt	- VIRTUAL HOSTNAMES
 # 11. nuclei.txt		- CVE SCAN
+# 12. log4j.txt			- LOG4J VULN SCAN
 #
 ### WORKFLOW
 #
@@ -68,6 +69,7 @@ clear_log() {
 	rm error_requests.txt 2>/dev/null
 	find . -type d -empty -print -delete -o -type f -empty -print -delete
 	rm -rf nuclei-templates
+	rm urls_and_live.txt
 	### REMOVING LOG IF PROGRAM EXIT NORMALLY
 	if [ -f "$HOME/bounty/$DOMAIN/anchor.log" ]; then
 			rm "$HOME/bounty/$DOMAIN/anchor.log"
@@ -201,8 +203,8 @@ check_for_live_2() {
 	rm live1.txt
 	rm live2.txt
 	rm altdns_temp.txt
-	rm not_duplicated_altnds
-	rm not_duplicated_altnds2
+	rm not_duplicated_altdns
+	rm not_duplicated_altdns2
 	rm ddns.txt
 	rm altdns_with_domain_name
 	rm altdns.txt
@@ -404,15 +406,32 @@ check_domain_takeover() {
 	rm subjack2.txt 2>/dev/null
 }
 
+make_live_with_protocol() {
+	### -
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	for line in $(cat live.txt); do echo -e "https://$line\nhttp://$line" ;done >> live_with_protocol.txt
+}
+
 nuclei_scan_all() {
 	### 30.NUCLEI
 	anchor_check "${FUNCNAME[0]}" || return 0
 
 	echo -e "\033[0;31m [+]\033[0m STARTING NUCLEI SCAN"
-	for line in $(cat live.txt); do echo -e "https://$line\nhttp://$line" ;done >> live_with_protocol.txt
 	git clone https://github.com/projectdiscovery/nuclei-templates.git > /dev/null 2>&1
 	rm -rf nuclei-templates/token-spray
 	nuclei -l live_with_protocol.txt -t nuclei-templates/ -stats -silent | tee -a nuclei.txt
+}
+
+log4j_scan() {
+	### LOG4J-SCAN
+	anchor_check "${FUNCNAME[0]}" || return 0
+
+	echo -e "\033[0;31m [+]\033[0m STARTING LOG4J SCAN"
+	cat urls.txt live_with_protocol.txt >> urls_and_live.txt
+	cp /root/tools/log4j-scan/headers.txt headers.txt
+	/root/tools/log4j-scan/log4j-scan.py -l urls_and_live.txt --custom-dns-callback-host "$collaborator_domain" > log4j.txt
+	rm headers.txt
 }
 
 3dlevel_brute() {
@@ -472,7 +491,8 @@ third_level_on=0
 udp_scan_on=0
 proxy_on=0
 subd_on=0
-while getopts "D:xvpbuys" OPTION; do
+log4j_on=0
+while getopts "D:xvpbuysj:" OPTION; do
     case $OPTION in
     D)
         export DOMAIN=$OPTARG
@@ -497,6 +517,10 @@ while getopts "D:xvpbuys" OPTION; do
 		;;
 	s)
 		subd_on=1
+		;;
+	j)
+		log4j_on=1
+		collaborator_domain=$OPTARG
 		;;
     *)
         echo "Incorrect options provided"
@@ -566,6 +590,8 @@ gau_get_urls
 waybackurls_get_urls
 ### MERGING SPIDERS IN ONE BIG LIST WITH A LOT BROKEN LINKS (it will be used in later modules) = urls.txt
 merging_spiders_in_one_big_list
+### ADD http / https TO live.txt DOMAINS = live_with_protocol.txt
+make_live_with_protocol
 ### CHECK FOR LIVE LINKS (to proxy only valid urls) > urls.txt
 check_for_live_urls
 
@@ -619,6 +645,13 @@ check_cors
 check_domain_takeover
 ### NUCLEI SCAN ON ALL LIVE DOMAINS
 nuclei_scan_all
+
+### --- LOG4J SECTION --- ### -j <collaborator domain>
+if [ $log4j_on == 1 ]
+then
+	### LOG4J VULNERABILITY CHECK ON ALL DOMAINS & URLS = log4j.txt
+	log4j_scan
+fi
 
 ### --- 3RDLEVEL SECTION --- ### -b
 if [ $third_level_on == 1 ]
