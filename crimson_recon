@@ -78,7 +78,9 @@ clear_log() {
 
 ### ALL FUNCTIONS:
 burp_reminder() {
-	### 1.PRINTS REMAINDER TO TURN ON BURP SUITE 
+	### 1.PRINTS REMAINDER TO TURN ON BURP SUITE
+	anchor_check "${FUNCNAME[0]}" || return 0
+	
 	echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(tldextract "$DOMAIN" | cut -s -d " " -f 2-3 | sed "s/\ /\./" | sed "s/\./\\\./")$
 	echo
 	read -rsp $'\tRUN BURP, TURN OFF INTERCEPTION AND ADD SCOPE... THEN CLICK ENTER\n\n' -n1 key
@@ -530,7 +532,8 @@ then
             -u # UDP ports scanning (nmap default ports)
             -b # Third level subdomain bruteforcing
             -y # Proxy urls.txt and live.txt to Burp (host.docker.internal:8080)
-            -s # Find hidden subdomains and secrets within urls.txt with SubDomainizer (takes very long time)"	
+            -s # Find hidden subdomains and secrets within urls.txt with SubDomainizer (takes very long time)
+			-j \"burp.collaborator.domain\" # Scan for log4j vulnerability on all urls & live domains"	
     exit  1
 else
 
