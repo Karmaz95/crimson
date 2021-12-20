@@ -64,7 +64,6 @@ anchor_check() {
 
 clear_log() {
 	### CLEARING STUFF
-	rm proxy.txt 2>/dev/null
 	rm resolvers.txt 2>/dev/null
 	rm error_requests.txt 2>/dev/null
 	find . -type d -empty -print -delete -o -type f -empty -print -delete
@@ -257,9 +256,9 @@ check_for_live_urls() {
 	### 15.HTTPX
 	anchor_check "${FUNCNAME[0]}" || return 0
 
-	echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE URLS"
-	cat urls.txt | httpx -threads 50 -silent -o httpx_urls.txt > /dev/null
-	mv httpx_urls.txt urls.txt
+	echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE URLS && STATUS CODES"
+	cat urls.txt | httpx -threads 50 -silent -sc -nc -o status_urls.txt > /dev/null
+	cat status_urls.txt | cut -d " " -f 1 > urls.txt
 }
 
 enum_subdomanizer() {
@@ -364,16 +363,6 @@ make_screens() {
 	gowitness file -f live.txt > /dev/null 2>&1
 }
 
-check_status_code() {
-	### 26.WFUZZ
-	anchor_check "${FUNCNAME[0]}" || return 0
-
-	echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF ENUMERATED LIVE SUBDOMAINS"
-	cat live.txt | sed "s/^/http:\/\//" >> temp_live.txt
-	cat live.txt | sed "s/^/https:\/\//" >> temp_live.txt
-	wfuzz -f status_live.txt,raw -Z -z file,temp_live.txt -z file,"$HOME"/tools/CRIMSON/words/blank FUZZFUZ2Z > /dev/null 2>&1
-	rm temp_live.txt
-}
 
 check_zonetransfer() {
 	### 27.DNSRECON
@@ -410,8 +399,10 @@ make_live_with_protocol() {
 	### -
 	anchor_check "${FUNCNAME[0]}" || return 0
 
+	echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF ENUMERATED LIVE SUBDOMAINS"
 	for line in $(cat live.txt); do echo -e "https://$line\nhttp://$line" ;done >> temp_live_with_protocol.txt
-	cat temp_live_with_protocol.txt | httpx -threads 50 -silent -o live_with_protocol.txt > /dev/null
+	cat temp_live_with_protocol.txt | httpx -threads 50 -silent -sc -nc -o status_live.txt > /dev/null
+	cat status_live.txt | cut -d " " -f 1 > live_with_protocol.txt
 	rm temp_live_with_protocol.txt
 }
 
@@ -462,16 +453,14 @@ proxy_urls_to_burp() {
 	anchor_check "${FUNCNAME[0]}" || return 0
 
 	echo -e "\033[0;31m [+]\033[0m PROXING ulrs.txt TO BRUP SUITE"
-	cat urls.txt | grep "$DOMAIN" |grep http | sort -u > proxy.txt
-	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p host.docker.internal:8080 FUZZFUZ2Z > /dev/null 2>&1
+	wfuzz -L -Z -z file,urls.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p host.docker.internal:8080 FUZZFUZ2Z > /dev/null 2>&1
 }
 	proxy_domains_to_burp() {
 	### 33.WFUZZ
 	anchor_check "${FUNCNAME[0]}" || return 0
 
 	echo -e "\033[0;31m [+]\033[0m PROXING SUBDOMAINS TO BURP"
-	cat status_live.txt | grep -v "XXX" | cut -s -d "\"" -f 2 > proxy.txt
-	wfuzz -L -Z -z file,proxy.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p host.docker.internal:8080 FUZZFUZ2Z > /dev/null 2>&1
+	wfuzz -L -Z -z file,live_with_protocol.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p host.docker.internal:8080 FUZZFUZ2Z > /dev/null 2>&1
 }
 ### ---
 
@@ -593,6 +582,7 @@ waybackurls_get_urls
 ### MERGING SPIDERS IN ONE BIG LIST WITH A LOT BROKEN LINKS (it will be used in later modules) = urls.txt
 merging_spiders_in_one_big_list
 ### ADD http / https TO live.txt DOMAINS = live_with_protocol.txt
+### CHECK FOR STATUS CODES = status_live.txt 
 make_live_with_protocol
 ### CHECK FOR LIVE LINKS (to proxy only valid urls) > urls.txt
 check_for_live_urls
@@ -669,7 +659,7 @@ if [ $proxy_on == 1 ]
 then
 	### PROXING urls.txt TO BURP SUITE
 	proxy_urls_to_burp
-	### PROXING DOMAINS TO BURP = proxy.txt
+	### PROXING DOMAINS TO BURP
 	proxy_domains_to_burp
 
 fi
