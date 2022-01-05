@@ -156,8 +156,17 @@ func main() {
 
 	// 6. Start the attack => Send the GET requests with test cases and LOG all sent requests:
 	logs := []string{}
+	t := http.DefaultTransport.(*http.Transport).Clone()
+	t.MaxIdleConns = 100
+	t.MaxConnsPerHost = 100
+	t.MaxIdleConnsPerHost = 100
+	client := &http.Client{
+		Timeout: 1 * time.Second,
+		Transport: t,
+	}
+	
 	for i, test_case := range test_cases {
-		client := &http.Client{}
+
 		req, _ := http.NewRequest("GET", test_case, nil)
 		if flagset["h"] {
 			for _, header := range headers {

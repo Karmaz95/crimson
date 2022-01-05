@@ -9,30 +9,33 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go
 ### FUNCTIONS:
 #
 # 1. SUBDOMAIN ENUMERATION
-# 2. LIVE SUBDOMAIN CHECK
+# 2. SUBDOMAIN LIVE CHECK
 # 3. TAKEOVER CHECK
 # 4. SCREENSHOTS
 # 5. CORS CHECK
-# 6. IP RESOLVE
+# 6. IP ENUMERATION
 # 7. OPENED PORTS SCAN
 # 8. URLS SCRAPING
 # 9. API KEYS SCRAPING
 # 10. VIRTUAL HOSTNAMES ENUMERATION
+# 11. VULNERABILITY TEMPLATE SCAN
+# 12. LOG4J SCAN
 #
 ### LISTS (output):
 #
-# 1. live.txt			- LIVE SUBDOMAINS
-# 2. ip.txt				- IP's AND THE CORRESPONDING DOMAINS
-# 3. ports.txt			- OPENED PORTS
-# 4. subjack.txt		- [VULN] DOMAIN TAKEOVER ON ALL LIVE SUBDOMAINS
-# 5. screenshots 		- STATUS CODES + SCREENS
-# 6. cors_scan.txt		- [VULN] MISCONFIGURED CORS
-# 7. urls.txt			- ALL CRAWLED AND LIVE URLS IN ONE FILE
-# 8. status_live.txt	- HTTPS / HTTPS SUBDOMAINS STATUS CODES
-# 9. subdomainizer.txt	- DETECTED API KEYS / AND MORE SUBDOMAINS
-# 10. hosthunter.txt	- VIRTUAL HOSTNAMES
-# 11. nuclei.txt		- CVE SCAN
-# 12. log4j.txt			- LOG4J VULN SCAN
+# 1. 	live.txt			- LIVE SUBDOMAINS
+# 1.1. 	status_live.txt		- STATUS CODE OF HTTP SERVICES FROM (80/443) live.txt
+# 2. 	ip.txt				- IP's AND THE CORRESPONDING DOMAINS
+# 3. 	ports.txt			- OPENED PORTS
+# 4. 	subjack.txt			- [VULN] DOMAIN TAKEOVER ON ALL LIVE SUBDOMAINS
+# 5. 	screenshots 		- STATUS CODES + SCREENS
+# 6. 	cors_scan.txt		- [VULN] MISCONFIGURED CORS
+# 7. 	urls.txt			- ALL CRAWLED AND LIVE URLS IN ONE FILE
+# 8. 	status_live.txt		- HTTPS / HTTPS SUBDOMAINS STATUS CODES
+# 9. 	subdomainizer.txt	- DETECTED API KEYS / AND MORE SUBDOMAINS
+# 10. 	hosthunter.txt		- VIRTUAL HOSTNAMES
+# 11. 	nuclei.txt			- TEMPLATE SCAN
+# 12. 	log4j.txt			- LOG4J VULN SCAN
 #
 ### WORKFLOW
 #
@@ -80,7 +83,7 @@ clear_log() {
 burp_reminder() {
 	### 1.PRINTS REMAINDER TO TURN ON BURP SUITE
 	anchor_check "${FUNCNAME[0]}" || return 0
-	
+
 	echo -e "\033[0;31m [+]\033[0m BURP SCOPE: .*\."$(tldextract "$DOMAIN" | cut -s -d " " -f 2-3 | sed "s/\ /\./" | sed "s/\./\\\./")$
 	echo
 	read -rsp $'\tRUN BURP, TURN OFF INTERCEPTION AND ADD SCOPE... THEN CLICK ENTER\n\n' -n1 key
@@ -305,7 +308,7 @@ check_for_live_4() {
 
 	echo -e "\033[0;31m [+]\033[0m CHECKING LIVE HOSTS"
 	cat hosthunter.txt | grep "$DOMAIN" | sort -u | anew | dnsx -t 100 -silent -r resolvers.txt -o dnsx4.txt > /dev/null
-	dns-wildcard-removal --domain "$DOMAIN" --input dnsx4.txt -r resolvers.txt --output real.txt > /dev/null
+	dns-wildcard-removal --domain "$DOMAIN" --input dnsx4.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
 	cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live4.txt
 	rm dnsx4.txt && rm real.txt
 	cat live4.txt | anew live.txt > /dev/null
@@ -325,7 +328,7 @@ prepare_vhosts_directories() {
 vhost_brute_http() {
 	### 21.FFUF
 	anchor_check "${FUNCNAME[0]}" || return 0
-
+	# add httpx to check ip http services first. + timeout on ffuf = 1s 
 	echo -e "\033[0;31m [+][+]\033[0m BRUTEFORCING HTTP "
 	while IFS= read -r ip; do echo "[+] $ip" &&	glength=$(curl -s -H "Host: \"$ip\"" http://\"$ip\":80 |wc -c) && blength=$(curl -s -H "Host: badhost" http://\"$ip\":80 |wc -c) &&	ffuf -w vhosts/vhosts.txt -u http://"$ip" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a vhosts/"$ip".http ;done < "$HOME"/bounty/"$DOMAIN"/filtered_ip.txt
 }
@@ -582,7 +585,8 @@ fi
 gau_get_urls
 ### SCRAPING THE INTERNET FOR URLS = waybackurls.txt
 waybackurls_get_urls
-### MERGING SPIDERS IN ONE BIG LIST WITH A LOT BROKEN LINKS (it will be used in later modules) = urls.txt
+### MERGING SPIDERS IN ONE BIG LIST WITH A LOT BROKEN LINKS = urls.txt
+### (urls.txt will be used in later modules) 
 merging_spiders_in_one_big_list
 ### ADD http / https TO live.txt DOMAINS = live_with_protocol.txt
 ### CHECK FOR STATUS CODES = status_live.txt 
@@ -630,8 +634,6 @@ fi
 
 ### MAKING SCREENSHOOTS FROM ENUERATED LIVE DOMAINS = screenshots/
 make_screens
-### CHECKING STATUS CODE OF ALL DOMAINS = status_live.txt
-check_status_code
 ### CHECKING ZONE TRANSFER = dnsrecon.txt
 check_zonetransfer
 ### CHECKING FOR CORS MISSCONFIGURATION = cors_scan.txt
@@ -680,9 +682,9 @@ echo -e "\033[0;31m [+]\033[0m ZONE TRANSFER:"
 zt=$(cat dnsrecon.txt | grep successful)
 if [ -n "$zt" ];
 then
-    echo "\033[0;31m [++]\033[0m ZONE TRANSFER WAS SUCCESSFUL! - check the dnsreon.txt";
+    echo -e "\033[0;31m [++]\033[0m ZONE TRANSFER WAS SUCCESSFUL! - check the dnsreon.txt";
 else
-    echo "\033[0;31m [++]\033[0m Zone Transfer not found.";
+    echo -e "\033[0;31m [++]\033[0m Zone Transfer not found.";
 fi
 cat dnsrecon.txt 2>/dev/null
 echo -e "\033[0;31m [+]\033[0m 3rd LEVEL SUBDOMAINS:"
