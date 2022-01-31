@@ -120,10 +120,10 @@ get_the_robots(){
     anchor_check "${FUNCNAME[0]}" || return 0
 
     echo "[ROBOTS 80] -----------------------------------------------------------" | tee -a recon.txt
-    curl -k --max-time 30 http://"$domain"/robots.txt | tee -a recon.txt
+    curl -k --max-time 30 http://"$domain"/robots.txt >> recon.txt
     echo >> recon.txt
     echo "[ROBOTS 443] ----------------------------------------------------------" | tee -a recon.txt
-    curl -k --max-time 30 https://"$domain"/robots.txt | tee -a recon.txt
+    curl -k --max-time 30 https://"$domain"/robots.txt >> recon.txt
     echo >> recon.txt
 }
 
@@ -711,10 +711,6 @@ then
     https_vhost_brute
 fi
 
-### TEST HOP-BY-HOP DELETION (only on main page) > recon.txt
-https_hop_by_hop
-### TEST HOP-BY-HOP DELETION (only on main page) >> recon.txt
-hop_by_hop_http
 ### CLEAR LOGS && TRASH
 clear_log
 ### MARK THE END

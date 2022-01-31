@@ -27,6 +27,8 @@ import (
 	"time"
 	"os/exec"
 	b64 "encoding/base64"
+	"sync"
+	"runtime"
 )
 
 // readLines reads a whole file into memory
@@ -157,14 +159,17 @@ func main() {
 	// 6. Start the attack => Send the GET requests with test cases and LOG all sent requests:
 	logs := []string{}
 	t := http.DefaultTransport.(*http.Transport).Clone()
-	t.MaxIdleConns = 100
+	t.MaxIdleConns = 10
+	t.IdleConnTimeout = 1 * time.Second
 	t.MaxConnsPerHost = 100
 	t.MaxIdleConnsPerHost = 100
+	t.DisableCompression = true
 	client := &http.Client{
 		Timeout: 1 * time.Second,
 		Transport: t,
 	}
 	
+	var wg sync.WaitGroup
 	for i, test_case := range test_cases {
 
 		req, _ := http.NewRequest("GET", test_case, nil)
@@ -175,12 +180,19 @@ func main() {
 			}
 
 		}
-
-		client.Do(req) //res, _ :=
+		wg.Add(1)
+		if runtime.NumGoroutine() > 300 {
+			time.Sleep(1 *time.Second / 2)
+			//fmt.Println(runtime.NumGoroutine())
+		}
+		go func () {	
+			defer wg.Done()
+			client.Do(req)
+		}()
 		fmt.Println("[ID]:" + fmt.Sprint(i+1) + ":[TIME]:" + time.Now().Format(time.ANSIC) + ":[URL]:" + test_case)
 		logs = append(logs, ("[ID]:" + fmt.Sprint(i+1) + ":[TIME]:" + time.Now().Format(time.ANSIC) + ":[URL]:" + test_case))
 	}
-
+	wg.Wait()
 	// 7. Save the logs in a file:
 	if err := writeLines(logs, *output_file); err != nil {
 		log.Fatalf("writeLines: %s", err)
