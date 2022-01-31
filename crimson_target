@@ -574,7 +574,7 @@ echo "./crimson_target -D \"example.domain.com\"
                 -a # Without this flag, you have to manually check for false-positives after bruteforcing
                 -y # Proxy urls.txt and ffuf.txt to Burp (host.docker.internal:8080)
                 -b # Parameter bruteforcing with Arjun"
-exit 1  1
+exit 1
 else
 ### PREPARE DIRECTORIES AND VARIABLES
 echo -e "\033[0;31m [+]\033[0m PREPARING DIRECTORIES AND VARIABLES"
