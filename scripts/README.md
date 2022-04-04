@@ -174,3 +174,7 @@ python crimson_templator.py -w urls.txt -c "Cookie: auth1=qwe; auth2=asd;" -H "a
 # you need "all.txt" file in your working directory
 python crimson_mass_nmap
 ```
+
+## :small_red_triangle_down:crimson_faker
+
+> Template for generating fake data for API testing.
