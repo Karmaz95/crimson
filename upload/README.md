@@ -74,3 +74,6 @@
 
 >  alerts and is a PoC of possible data leak from a PDF via HTTP request to collab (works on Chrome)
 
+* :small_red_triangle_down: test.aspx
+
+> Upload it through the web interface and attempt to access it manually or using file bruteforcing.
