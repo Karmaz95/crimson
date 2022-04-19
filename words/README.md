@@ -33,3 +33,7 @@
 * :small_red_triangle_down: dns-altsdns.txt
 
 > This is wordlist for `altdns` mutations
+
+* :small_red_triangle_down: exp/AUTH_BYPASS
+
+> First use "Battering ram" with first 200 lines. Then whole list with sniper as username(admin|your_account), then password(Pa$$P0licy_baby123).
