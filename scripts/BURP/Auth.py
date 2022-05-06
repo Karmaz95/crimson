@@ -35,7 +35,6 @@
 from dataclasses import asdict
 import optparse,requests,json
 from difflib import SequenceMatcher
-from difflib import SequenceMatcher
 
 def similar(a, b):
     '''Check similarity between two strings.'''
