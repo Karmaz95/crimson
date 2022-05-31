@@ -6,7 +6,7 @@ for domain in $(cat $1); do
     ### SPIDER 1 > urls.txt
     echo "\033[0;31m [+]\033[0m STARTING SPIDERS"
     echo "\033[0;31m [+]\033[0m SPIDER [1]"
-    echo $domain | httpx | gospider -c 10 -q -r -w -a --sitemap --robots --subs -H $cookie >> urls.txt
+    echo $domain | httpx -silent | gospider -c 10 -q -r -w -a --sitemap --robots --subs -H $cookie >> urls.txt
 
     ### SPIDER 2 >> urls.txt
     echo "\033[0;31m [+]\033[0m SPIDER [2]"
@@ -24,11 +24,11 @@ for domain in $(cat $1); do
 
     ### SPIDER 5 >> urls.txt
     echo "\033[0;31m [+]\033[0m SPIDER [5]"
-    echo $domain | httpx | hakrawler >> urls.txt
+    echo $domain | httpx -silent | hakrawler >> urls.txt
 
     ### SPIDER 6 >> urls.txt
     echo "\033[0;31m [+]\033[0m SPIDER [6]"
-    echo $domain | httpx | galer -s >> urls.txt
+    echo $domain | httpx -silent | galer -s >> urls.txt
 done
 
 ### MERGE SPIDERS AND DELETE DUPLICATES >> urls.txt
