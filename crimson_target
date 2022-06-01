@@ -233,7 +233,7 @@ galer_enum_and_merging() {
     galer -u https://"$domain" -s >> urls.txt
     ### MERGE SPIDERS AND DELETE DUPLICATES >> urls.txt
     echo -e "\033[0;31m [+]\033[0m MERGING SPIDERS RESULTS"
-    cat ../urls.txt | grep "$domain" | anew urls.txt 2>/dev/null
+    grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" ../urls.txt | grep "$domain" | anew urls.txt 2>/dev/null
     cat urls.txt | qsreplace -a > temp1.txt 
     mv temp1.txt urls.txt
     ### GET NEW ENDPOINTS FROM SPIDERS AND ADD THEM TO WORDLIST FOR DIRECOTRY BRUTEFORCING > custom_dir.txt
