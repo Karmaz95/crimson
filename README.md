@@ -17,11 +17,11 @@
 # Installation & running
 1. Pull docker container:
 ```
-docker pull karmaz95/crimson:v2
+docker pull karmaz95/crimson:v3
 ```
 2. First run of downloaded container:
 ```
-docker run --net="host" --name crimson -it karmaz95/crimson:v2
+docker run --net="host" --name crimson -it karmaz95/crimson:v3
 ```
 3. After the first run, you can start the container by:
 ```
