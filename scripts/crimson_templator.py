@@ -20,10 +20,11 @@
 # USAGE EXAMPLE:
 #   python crimson_templator.py -w urls.txt -c "Cookie: auth1=qwe; auth2=asd;" -H "asd=1" -H "qwe=2"
 
-import sys, getopt, requests, urllib3, urlparse
+import sys, getopt, requests, urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 from tqdm import tqdm
-
+from urllib.parse import urlparse
+from urllib.parse import urlunparse 
 ### OPTIONS ---
 argument_list = sys.argv[1:]
 short_options = "w:c:H:o:h"
@@ -67,7 +68,7 @@ def import_cookies(cookie):
 def paramjuggler(url,payload):
     '''Return all possible mutations of parameter values of the given url and payload'''
     new_urls = []
-    parsed=urlparse.urlparse(url)
+    parsed=urlparse(url)
     queries=parsed.query.split("&")
     for i,query in enumerate(queries):
         result = []
@@ -79,7 +80,7 @@ def paramjuggler(url,payload):
         new_param=param+payload
         new_queries[i] = new_param
         new_parsed = parsed._replace(query="&".join(new_queries))
-        result.append(urlparse.urlunparse(new_parsed))
+        result.append(urlunparse(new_parsed))
         new_urls.append("".join(result).rstrip())
     return new_urls
 
@@ -106,7 +107,7 @@ def check_ssti_string_based(urls, cookies, headers):
     for armed_url in tqdm(armed_urls):   
         r1 = s.get(armed_url, allow_redirects=True, verify=False)
         if "7777" in r1.text:
-            output_list.append("[+] 7777 INJECTION FOUND: " + r1.url)
+            output_list.append("[+] 7777 INJECTION FOUND: " + r1.url + " - L="+ str(len(r1.content)))
     return output_list
 
 
@@ -131,15 +132,15 @@ def check_ssti_error_based(urls, cookies, headers):
     for armed_url in tqdm(armed_urls):
         r1 = s.get(armed_url, allow_redirects=True, verify=False)
         if r1.status_code == 500:
-            output_list.append("[+] INTERNAL ERROR FOUND: " + r1.url)
+            output_list.append("[+] INTERNAL ERROR FOUND: " + r1.url + " - L="+ str(len(r1.content)))
     return output_list
 
 
 def logs_saver(logs_list, logs_name):
     with open(logs_name, 'w') as f:
         for log in logs_list:
-            print >> f, log
-
+            #print >> f, log
+            f.write(log+"\n")
 
 ### OPTIONS ---
 headers = {}

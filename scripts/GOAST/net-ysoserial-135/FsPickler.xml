@@ -1,0 +1,2869 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>FsPickler</name></assembly>
+<members>
+<member name="P:TypeShape.ShapePoco`1.Properties">
+<summary>
+ Property shapes for the type
+</summary>
+</member>
+<member name="P:TypeShape.ShapePoco`1.IsStruct">
+<summary>
+ True iff POCO is a struct
+</summary>
+</member>
+<member name="P:TypeShape.ShapePoco`1.Fields">
+<summary>
+ Field shapes for the type
+</summary>
+</member>
+<member name="P:TypeShape.ShapePoco`1.Constructors">
+<summary>
+ Constructor shapes for the type
+</summary>
+</member>
+<member name="M:TypeShape.ShapePoco`1.CreateUninitialized">
+<summary>
+ Creates an uninitialized instance for POCO
+</summary>
+</member>
+<member name="T:TypeShape.ShapePoco`1">
+<summary>
+ Denotes any .NET type that is either a class or a struct
+</summary>
+</member>
+<member name="P:TypeShape.IShapePoco.Properties">
+<summary>
+ Property shapes for the type
+</summary>
+</member>
+<member name="P:TypeShape.IShapePoco.IsStruct">
+<summary>
+ True iff POCO is a struct
+</summary>
+</member>
+<member name="P:TypeShape.IShapePoco.Fields">
+<summary>
+ Field shapes for the type
+</summary>
+</member>
+<member name="P:TypeShape.IShapePoco.Constructors">
+<summary>
+ Constructor shapes for the type
+</summary>
+</member>
+<member name="T:TypeShape.IShapePoco">
+<summary>
+ Denotes any .NET type that is either a class or a struct
+</summary>
+</member>
+<member name="P:TypeShape.ShapeCliMutable`1.Properties">
+<summary>
+ Property shapes for C# record
+</summary>
+</member>
+<member name="P:TypeShape.ShapeCliMutable`1.DefaultCtorInfo">
+<summary>
+ Gets the default constructor info defined in the type
+</summary>
+</member>
+<member name="M:TypeShape.ShapeCliMutable`1.CreateUninitialized">
+<summary>
+ Creates an uninitialized instance for given C# record
+</summary>
+</member>
+<member name="T:TypeShape.ShapeCliMutable`1">
+<summary>
+ Denotes a type that behaves like a C# record:
+ Carries a parameterless constructor and settable properties
+</summary>
+</member>
+<member name="P:TypeShape.IShapeCliMutable.Properties">
+<summary>
+ Gettable and Settable properties for C# Record
+</summary>
+</member>
+<member name="T:TypeShape.IShapeCliMutable">
+<summary>
+ Denotes a type that behaves like a mutable C# record:
+ Carries a parameterless constructor and settable properties
+</summary>
+</member>
+<member name="P:TypeShape.ShapeFSharpUnion`1.UnionCases">
+<summary>
+ Case shapes for given union type
+</summary>
+</member>
+<member name="M:TypeShape.ShapeFSharpUnion`1.GetTag(System.String)">
+<summary>
+ Gets the underlying tag id for given union case name
+</summary>
+</member>
+<member name="M:TypeShape.ShapeFSharpUnion`1.GetTag(`0)">
+<summary>
+ Gets the underlying tag id for given union instance
+</summary>
+</member>
+<member name="T:TypeShape.ShapeFSharpUnion`1">
+<summary>
+ Denotes an F# Union shape
+</summary>
+</member>
+<member name="P:TypeShape.IShapeFSharpUnion.UnionCases">
+<summary>
+ Case shapes for given union type
+</summary>
+</member>
+<member name="T:TypeShape.IShapeFSharpUnion">
+<summary>
+ Denotes an F# Union shape
+</summary>
+</member>
+<member name="P:TypeShape.ShapeFSharpUnionCase`1.Fields">
+<summary>
+ Field shapes for union case
+</summary>
+</member>
+<member name="P:TypeShape.ShapeFSharpUnionCase`1.CaseInfo">
+<summary>
+ Underlying FSharp.Reflection.UnionCaseInfo description
+</summary>
+</member>
+<member name="M:TypeShape.ShapeFSharpUnionCase`1.CreateUninitialized">
+<summary>
+ Creates an uninitialized instance for specific union case
+</summary>
+</member>
+<member name="T:TypeShape.ShapeFSharpUnionCase`1">
+<summary>
+ Denotes an F# union case shape
+</summary>
+</member>
+<member name="P:TypeShape.IShapeFSharpUnionCase.Fields">
+<summary>
+ Field shapes for union case
+</summary>
+</member>
+<member name="P:TypeShape.IShapeFSharpUnionCase.CaseInfo">
+<summary>
+ Underlying FSharp.Reflection.UnionCaseInfo description
+</summary>
+</member>
+<member name="T:TypeShape.IShapeFSharpUnionCase">
+<summary>
+ Denotes an F# union case shape
+</summary>
+</member>
+<member name="P:TypeShape.ShapeFSharpRecord`1.Fields">
+<summary>
+ F# record field shapes
+</summary>
+</member>
+<member name="M:TypeShape.ShapeFSharpRecord`1.CreateUninitialized">
+<summary>
+ Creates an uninitialized instance for given record
+</summary>
+</member>
+<member name="T:TypeShape.ShapeFSharpRecord`1">
+<summary>
+ Identifies an F# record type
+</summary>
+</member>
+<member name="P:TypeShape.IShapeFSharpRecord.Fields">
+<summary>
+ F# record field shapes
+</summary>
+</member>
+<member name="T:TypeShape.IShapeFSharpRecord">
+<summary>
+ Denotes an F# record type
+</summary>
+</member>
+<member name="P:TypeShape.ShapeTuple`1.Elements">
+<summary>
+ Tuple element shape definitions
+</summary>
+</member>
+<member name="M:TypeShape.ShapeTuple`1.CreateUninitialized">
+<summary>
+ Creates an uninitialized tuple instance of given type
+</summary>
+</member>
+<member name="T:TypeShape.ShapeTuple`1">
+<summary>
+ Identifies a specific System.Tuple shape
+</summary>
+</member>
+<member name="P:TypeShape.IShapeTuple.Elements">
+<summary>
+ Tuple element shape definitions
+</summary>
+</member>
+<member name="T:TypeShape.IShapeTuple">
+<summary>
+ Denotes a specific System.Tuple shape
+</summary>
+</member>
+<member name="M:TypeShape.ShapeConstructor`2.Invoke(`1)">
+<summary>
+ Creates an instance of declaring type with supplied constructor args
+</summary>
+</member>
+<member name="T:TypeShape.ShapeConstructor`2">
+<summary>
+ Identifies a constructor implementation shape
+</summary>
+</member>
+<member name="T:TypeShape.IShapeConstructor`1">
+<summary>
+ Identifies a constructor implementation shape
+</summary>
+</member>
+<member name="P:TypeShape.IShapeConstructor.IsPublic">
+<summary>
+ Denotes whether constructor is public
+</summary>
+</member>
+<member name="P:TypeShape.IShapeConstructor.ConstructorInfo">
+<summary>
+ ConstructorInfo instance
+</summary>
+</member>
+<member name="P:TypeShape.IShapeConstructor.Arity">
+<summary>
+ Denotes the arity of the constructor arguments
+</summary>
+</member>
+<member name="T:TypeShape.IShapeConstructor">
+<summary>
+ Identifies a constructor implementation shape
+</summary>
+</member>
+<member name="M:TypeShape.ShapeWriteMember`2.Inject(`0,`1)">
+<summary>
+ Injects a value to member of given instance
+</summary>
+</member>
+<member name="T:TypeShape.ShapeWriteMember`2">
+<summary>
+ Identifies an instance member that defines
+ a mutable value in a class instance, typically a field or property
+</summary>
+</member>
+<member name="T:TypeShape.IShapeWriteMember`1">
+<summary>
+ Identifies an instance member that defines
+ a mutable value in a class instance, typically a field or property
+</summary>
+</member>
+<member name="P:TypeShape.ShapeMember`2.MemberInfo">
+<summary>
+ The actual System.Reflection.MemberInfo corresponding to member
+</summary>
+</member>
+<member name="P:TypeShape.ShapeMember`2.Label">
+<summary>
+ Human-readable member identifier
+</summary>
+</member>
+<member name="P:TypeShape.ShapeMember`2.IsStructMember">
+<summary>
+ True iff member is contained within a struct
+</summary>
+</member>
+<member name="P:TypeShape.ShapeMember`2.IsPublic">
+<summary>
+ True iff member is public
+</summary>
+</member>
+<member name="M:TypeShape.ShapeMember`2.Project(`0)">
+<summary>
+ Projects an instance to member of given value
+</summary>
+</member>
+<member name="T:TypeShape.ShapeMember`2">
+<summary>
+ Identifies an instance member that defines
+ a value in a class instance, typically a field or property
+</summary>
+</member>
+<member name="T:TypeShape.IShapeMember`1">
+<summary>
+ Identifies an instance member that defines
+ a value in a class instance, typically a field or property
+</summary>
+</member>
+<member name="P:TypeShape.IShapeMember.MemberInfo">
+<summary>
+ The actual System.Reflection.MemberInfo corresponding to member
+</summary>
+</member>
+<member name="P:TypeShape.IShapeMember.Member">
+<summary>
+ Type of value stored by member
+</summary>
+</member>
+<member name="P:TypeShape.IShapeMember.Label">
+<summary>
+ Human-readable member identifier
+</summary>
+</member>
+<member name="P:TypeShape.IShapeMember.IsStructMember">
+<summary>
+ True iff member is contained within a struct
+</summary>
+</member>
+<member name="P:TypeShape.IShapeMember.IsPublic">
+<summary>
+ True iff member is public
+</summary>
+</member>
+<member name="T:TypeShape.IShapeMember">
+<summary>
+ Identifies an instance member that defines
+ a value in a class instance, typically a field or property
+</summary>
+</member>
+<member name="P:TypeShape.ShapeArray`1.Rank">
+<summary>
+ Gets the rank of the array type shape
+</summary>
+</member>
+<member name="P:TypeShape.IShapeArray.Rank">
+<summary>
+ Gets the rank of the array type shape
+</summary>
+</member>
+<member name="T:TypeShape.TypeShape`1">
+<summary>
+ Encapsulates a type variable that can be accessed using type shape visitors
+</summary>
+</member>
+<member name="M:TypeShape.TypeShape.FromValue(System.Object)">
+ <summary>
+     Creates a type shape instance from the underlying
+     type of a given value.
+ </summary>
+ <param name="obj">Non-null value to extract shape data from.</param>
+</member>
+<member name="M:TypeShape.TypeShape.Create``1">
+ <summary>
+     Creates a type shape instance for given type
+ </summary>
+</member>
+<member name="M:TypeShape.TypeShape.Create(System.Type)">
+ <summary>
+     Creates a type shape instance for given type
+ </summary>
+ <param name="typ">System.Type to be resolved.</param>
+</member>
+<member name="T:TypeShape.TypeShape">
+<summary>
+ Encapsulates a type variable that can be accessed using type shape visitors
+</summary>
+</member>
+<member name="T:TypeShape.ITypeShapeVisitor`1">
+<summary>
+ Used to extract the type variable contained in a specific shape
+</summary>
+</member>
+<member name="T:TypeShape.TypeShapeInfo">
+<summary>
+ Provides a simple breakdown of basic kinds of types.
+ Used for easier extraction of type shapes in the active pattern implementations.
+</summary>
+</member>
+<member name="M:TypeShape.tshapeof``1">
+<summary>
+ Typed variation of the shapeof operator
+</summary>
+</member>
+<member name="M:TypeShape.shapeof``1">
+<summary>
+ Creates a type shape instance for given type
+</summary>
+</member>
+<member name="M:TypeShape.Type.IsInterfaceAssignableFrom(System.Type,System.Type)">
+<summary>
+ Correctly resolves if type is assignable to interface
+</summary>
+</member>
+<member name="M:TypeShape.Activator.CreateInstanceGeneric.Static``1(Microsoft.FSharp.Core.FSharpOption{System.Type[]},Microsoft.FSharp.Core.FSharpOption{System.Object[]})">
+<summary>
+ Generic edition of the activator method which support type parameters and private types
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Poco|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes POCO shapes, .NET types that are either classes or structs
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|CliMutable|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes that look like C# record classes
+ They are classes with parameterless constructors and settable properties
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Tuple|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes that are System.Tuple instances of arbitrary arity
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|FSharpUnion|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes that are F# unions
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|FSharpRecord|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes that are F# records
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Enumerable|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes that implement System.Collections.Generic.IEnumerable&lt;_&gt;
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Collection|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes that implement System.Collections.Generic.ICollection&lt;_&gt;
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|FSharpFunc|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes of F# function types
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|FSharpChoice7|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes of F# Choice&lt;_,_,_,_,_,_,_&gt; types
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|FSharpChoice6|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes of F# Choice&lt;_,_,_,_,_,_&gt; types
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|FSharpChoice5|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes of F# Choice&lt;_,_,_,_,_&gt; types
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|FSharpChoice4|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes of F# Choice&lt;_,_,_,_&gt; types
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|FSharpChoice3|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes of F# Choice&lt;_,_,_&gt; types
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|FSharpChoice2|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes of F# Choice&lt;_,_&gt; types
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|FSharpMap|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes of F# map types
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|FSharpSet|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes of F# set types
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|FSharpRef|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes of F# ref types
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|FSharpOption|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes of F# option types
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|FSharpList|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes of F# list types
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Tuple8|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes instances of System.Tuple&lt;_,_,_,_,_,_,_,_&gt;
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Tuple7|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes instances of System.Tuple&lt;_,_,_,_,_,_,_&gt;
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Tuple6|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes instances of System.Tuple&lt;_,_,_,_,_,_&gt;
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Tuple5|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes instances of System.Tuple&lt;_,_,_,_,_&gt;
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Tuple4|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes instances of System.Tuple&lt;_,_,_,_&gt;
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Tuple3|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes instances of System.Tuple&lt;_,_,_&gt;
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Tuple2|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes instances of System.Tuple&lt;_,_&gt;
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Tuple1|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes instances of System.Tuple&lt;_&gt;
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Array|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes that are .NET arrays
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|ISerializable|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes that implement ISerializable
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Exception|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes that inherit from System.Exception
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Delegate|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes that inherit from System.Delegate
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|ResizeArray|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes that are instances of System.Collections.Generic.List&lt;_&gt;
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|HashSet|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes that are instances of System.Collections.Generic.HashSet&lt;_&gt;
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Dictionary|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes that are instances of System.Collections.Generic.Dictionary&lt;_,_&gt;
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|KeyValuePair|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes that are instances of System.Collections.Generic.KeyValuePair&lt;_,_&gt;
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|DefaultConstructor|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes shapes that carry a parameterless constructor
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Struct|NotStruct|(TypeShape.TypeShape)">
+<summary>
+ Identifies whether shape satisfies the &apos;struct&apos; or &apos;not struct&apos; constraint
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Comparison|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes any type that satisfies the F# `comparison` constraint
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Equality|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes any type that satisfies the F# `equality` constraint
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Enum|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes any type that is a .NET enumeration
+</summary>
+</member>
+<member name="M:TypeShape.Shape.|Nullable|_|(TypeShape.TypeShape)">
+<summary>
+ Recognizes any type that is a System.Nullable instance
+</summary>
+</member>
+<member name="M:TypeShape.TypeShapeImpl.isInterfaceAssignableFrom(System.Type,System.Type)">
+<summary>
+ correctly resolves if type is assignable to interface
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.NonSerializableTypeException.NonSerializableType">
+<summary>
+ The nested field that caused this type to be non-serializable
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.NonSerializableTypeException">
+<summary>
+ raised by pickler generator whenever an unsupported type is encountered in the type graph.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.PicklerGenerationException">
+<summary>
+ raised by pickler generator whenever an unexpected error is encountered.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.InvalidPickleTypeException">
+<summary>
+ Raised when pickle is of invalid type.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.FsPicklerException">
+<summary>
+ Base exception raised by the FsPickler library.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Sifted`1.SiftCount">
+<summary>
+ Number of objects that have been sifted from parent graph.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Sifted`1">
+<summary>
+ Declares a sifted version of a version of type &apos;T
+ Is generated by the sifting implementation of FsPickler.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.LocalFSharpCoreConverter">
+<summary>
+ A type name converter that forces deserialization uses the default
+ FSharp.Core version that is loaded in the current AppDomain
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.IgnoreStrongNamesConverter">
+ <summary>
+     Defines a type conversion scheme in which strong assembly info is dropped 
+     at deserialization.
+ </summary>
+</member>
+<member name="M:MBrace.FsPickler.ITypeNameConverter.ToDeserializedType(MBrace.FsPickler.TypeInfo)">
+<summary>
+ TypeInfo to be converted at deserialization
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ITypeNameConverter.OfSerializedType(MBrace.FsPickler.TypeInfo)">
+<summary>
+ TypeInfo to be recorded to serialization
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.ITypeNameConverter">
+ <summary>
+     Provides facility for user-defined type conversion at 
+     serialization and deserialization.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.AssemblyInfo.AssemblyQualifiedName">
+ <summary>
+     Returns assembly qualified name string from given assembly info.
+ </summary>
+</member>
+<member name="M:MBrace.FsPickler.AssemblyInfo.ToAssemblyName">
+ <summary>
+     Defines a new System.Reflection.AssemblyName from given record.
+ </summary>
+</member>
+<member name="M:MBrace.FsPickler.AssemblyInfo.OfAssemblyName(System.Reflection.AssemblyName)">
+ <summary>
+     Initializes a new record out of a given assembly name.
+ </summary>
+ <param name="name"></param>
+</member>
+<member name="M:MBrace.FsPickler.AssemblyInfo.OfAssembly(System.Reflection.Assembly)">
+ <summary>
+     Initializes a new record out of a given assembly.
+ </summary>
+ <param name="assembly">input assembly.</param>
+</member>
+<member name="T:MBrace.FsPickler.AssemblyInfo">
+ <summary>
+     An immutable, structurally equatable version of System.Reflection.AssemblyName.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.TypeInfo.AssemblyInfo">
+<summary>
+ Assembly Information
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.TypeInfo.Name">
+<summary>
+ Type name
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.TypeInfo">
+ <summary>
+     Serialization information for named types.
+ </summary>
+</member>
+<member name="T:MBrace.FsPickler.CloneableOnlyAttribute">
+<summary>
+ Specifies that the type is not serializable but can be freely cloned/hashed
+ by maintaining identical references when found inside object graphs.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.CustomPicklerAttribute">
+<summary>
+ Specifies that the pickler for this type is to be generated using
+ the static method &apos;TypeDef.CreatePickler : IPicklerResolver -&gt; Pickler&lt;TypeDef&gt;&apos;.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.ObjectFlags">
+<summary>
+ Specifies runtime properties of serialized objects.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.PicklerInfo">
+<summary>
+ Pickler generation metadata.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Kind">
+<summary>
+ Defines a stratification of .NET types from simplest to more complex.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ITextPickleFormatProvider.CreateWriter(System.IO.TextWriter,System.Boolean,System.Boolean)">
+<summary>
+ Initializes a new format writer
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ITextPickleFormatProvider.CreateReader(System.IO.TextReader,System.Boolean,System.Boolean)">
+<summary>
+ Initializes a new format reader
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.ITextPickleFormatProvider">
+<summary>
+ Factory abstraction for text-based pickle formats.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.IPickleFormatProvider.Name">
+<summary>
+ Pickle format name
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.IPickleFormatProvider.DefaultEncoding">
+<summary>
+ Specifies the encoding intended as default for this pickle format
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.IPickleFormatProvider.CreateWriter(System.IO.Stream,System.Text.Encoding,System.Boolean,System.Boolean)">
+<summary>
+ Initializes a new format writer
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.IPickleFormatProvider.CreateReader(System.IO.Stream,System.Text.Encoding,System.Boolean,System.Boolean)">
+<summary>
+ Initializes a new format reader
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.IPickleFormatProvider">
+<summary>
+ Factory abstraction for binary pickle formats.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.IPickleFormatReader.UseNamedEnumSerialization">
+<summary>
+ Serialize enumerations using the slower Enum.Parse/Enum.Format methods
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.IPickleFormatReader.SerializeUnionCaseNames">
+ <summary>
+     If specified, serializes full union case name for readability.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.IPickleFormatReader.PreferLengthPrefixInSequences">
+ <summary>
+     Specifies if the format favors prefixing of sequence lengths where applicable.
+     This is offered for performance and is mostly used by binary formats.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.IPickleFormatReader.IsPrimitiveArraySerializationSupported">
+<summary>
+ specifies if the format supports custom serialization for primitive arrays.
+ this functionality is reserved for binary formats that use Buffer.BlockCopy
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.IPickleFormatReader.ReadPrimitiveArray(System.String,System.Array)">
+ <summary>
+     Copies data into preallocated primitive array.
+ </summary>
+ <param name="tag">array identifier.</param>
+ <param name="target">target array.</param>
+</member>
+<member name="M:MBrace.FsPickler.IPickleFormatReader.ReadNextSequenceElement">
+ <summary>
+     Check if sequence has another element.
+ </summary>
+</member>
+<member name="M:MBrace.FsPickler.IPickleFormatReader.EndReadRoot">
+ <summary>
+     End reading the pickle.
+ </summary>
+</member>
+<member name="M:MBrace.FsPickler.IPickleFormatReader.EndReadObject">
+ <summary>
+     End reading an object.
+ </summary>
+</member>
+<member name="M:MBrace.FsPickler.IPickleFormatReader.BeginReadRoot(System.String)">
+ <summary>
+     Begin reading the pickle.
+ </summary>
+ <param name="tag">pickle identifier.</param>
+</member>
+<member name="M:MBrace.FsPickler.IPickleFormatReader.BeginReadObject(System.String)">
+ <summary>
+     Begin reading a new object.
+ </summary>
+ <param name="tag">object identifier.</param>
+</member>
+<member name="T:MBrace.FsPickler.IPickleFormatReader">
+ <summary>
+     Deserialization format abstraction.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.IPickleFormatWriter.UseNamedEnumSerialization">
+<summary>
+ Serialize enumerations using the slower Enum.Parse/Enum.Format methods
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.IPickleFormatWriter.SerializeUnionCaseNames">
+ <summary>
+     If specified, serializes full union case name for readability.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.IPickleFormatWriter.PreferLengthPrefixInSequences">
+ <summary>
+     Specifies if the format favors prefixing of sequence lengths where applicable.
+     This is offered for performance and is mostly used by binary formats.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.IPickleFormatWriter.IsPrimitiveArraySerializationSupported">
+<summary>
+ specifies if the format supports custom serialization for primitive arrays.
+ this functionality is reserved for binary formats that use Buffer.BlockCopy
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.IPickleFormatWriter.WritePrimitiveArray(System.String,System.Array)">
+ <summary>
+     Write primitive array contents to pickle
+ </summary>
+ <param name="tag">array identifier.</param>
+ <param name="value">source array.</param>
+</member>
+<member name="M:MBrace.FsPickler.IPickleFormatWriter.WriteNextSequenceElement(System.Boolean)">
+ <summary>
+     Specifies if another sequence element is to follow in the stream.
+ </summary>
+ <param name="hasNext"></param>
+</member>
+<member name="M:MBrace.FsPickler.IPickleFormatWriter.EndWriteRoot">
+ <summary>
+     Writes the end of the pickle.
+ </summary>
+</member>
+<member name="M:MBrace.FsPickler.IPickleFormatWriter.EndWriteObject">
+ <summary>
+     End write of an object.
+ </summary>
+</member>
+<member name="M:MBrace.FsPickler.IPickleFormatWriter.BeginWriteRoot(System.String)">
+ <summary>
+     Writes the start of the pickle.
+ </summary>
+ <param name="tag">pickle identifier.</param>
+</member>
+<member name="M:MBrace.FsPickler.IPickleFormatWriter.BeginWriteObject(System.String,MBrace.FsPickler.ObjectFlags)">
+ <summary>
+     Start writing a new object to the pickle.
+ </summary>
+ <param name="tag">object identifier.</param>
+ <param name="objectFlags">runtime object flags.</param>
+</member>
+<member name="T:MBrace.FsPickler.IPickleFormatWriter">
+ <summary>
+     Serialization format abstraction.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.VisitState.StreamingContext">
+<summary>
+ Gets the visiting streaming context.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.VisitState">
+<summary>
+ Contains all state related to object visiting
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.CloneState.UnSiftData">
+<summary>
+ Object unsifting state
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.CloneState.StreamingContext">
+<summary>
+ Gets the cloning streaming context.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.CloneState.SiftData">
+<summary>
+ Object sifting state
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.CloneState.DeclareProperSubtype">
+<summary>
+ Declares that the current node was found to be of proper subtyped.
+ Used for proper NodeId generation.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.CloneState.CreateSift``1(``0)">
+<summary>
+ Create a sifted object using accumulated sifting data
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.CloneState">
+<summary>
+ Contains all state related to object cloning
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.ReadState.TypePickler">
+<summary>
+ Pickler for System.Type serializations.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.ReadState.StreamingContext">
+<summary>
+ Streaming context to the deserialization
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.ReadState.ReflectionCache">
+<summary>
+ Reflection cache used for quick reflection type deserialization.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.ReadState.PicklerResolver">
+<summary>
+ Pickler resolver used for runtime deserializations
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.ReadState.ObjectCount">
+<summary>
+ Number of deserialized objects
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.ReadState.ObjectCache">
+<summary>
+ Object deserialization cache indexed by id
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.ReadState.IsUnSifting">
+<summary>
+ In unsifting deserialization instance
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.ReadState.Formatter">
+<summary>
+ Deserialization format provider
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.ReadState.DisableSubtypeResolution">
+<summary>
+ Do not allow subtype resolution when deserializing classes
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.ReadState.DisableAssemblyLoading">
+<summary>
+ Disable assembly loading when deserializing classes specifying System.Reflection.Assembly instances
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ReadState.Reset">
+<summary>
+ Reset deserializer state.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ReadState.NextObjectId">
+<summary>
+ Generates an object id for the upcoming object
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ReadState.EarlyRegisterArray(System.Array)">
+<summary>
+ Register&apos;s array instances upon initialization and before
+ element deserialization has taken place. This is done to
+ properly deserialize cyclic array instances.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.ReadState">
+<summary>
+ Contains all state related to object deserializations
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.WriteState.TypePickler">
+<summary>
+ Pickler for serializing System.Type instances.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.WriteState.StreamingContext">
+<summary>
+ Streaming context to the serialization
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.WriteState.Sifter">
+<summary>
+ Optional object sifter predicate.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.WriteState.Sifted">
+<summary>
+ Contains all currently sifted objects.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.WriteState.ReflectionCache">
+<summary>
+ Cache for quick reflection type serialization.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.WriteState.PicklerResolver">
+<summary>
+ Pickler resolver instance used for dynamic pickler resolution.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.WriteState.ObjectStack">
+<summary>
+ Stack containing all object id&apos;s that are currently being serialized.
+ Used for identifying cyclic objects.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.WriteState.ObjectCount">
+<summary>
+ Total number of serialized objects
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.WriteState.IsHashComputation">
+<summary>
+ Identifies this serialization session as a hash computation
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.WriteState.Formatter">
+<summary>
+ Serialization format provider
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.WriteState.DisableSubtypeResolution">
+<summary>
+ Do not allow subtype resolution when serializing classes
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.WriteState.CyclicObjectSet">
+<summary>
+ Set containing the id&apos;s of all objects identified as cyclic
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.WriteState.Reset">
+<summary>
+ Resets the serialization state.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.WriteState.GetObjectId(System.Object,System.Boolean@)">
+<summary>
+ Gets an object id which is unique by reference
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.WriteState">
+<summary>
+ Contains all state related to object serializations
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.IPicklerResolver.Resolve``1">
+<summary>
+ Attempt to generate a pickler instance for given type.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.IPicklerResolver.Resolve(System.Type)">
+<summary>
+ Attempt to generate a pickler instance for given type.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.IPicklerResolver.IsSerializable``1">
+<summary>
+ Identifies if instances of given type can be serialized.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.IPicklerResolver.IsSerializable(System.Type)">
+<summary>
+ Identifies if instances of given type can be serialized.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.IPicklerResolver">
+<summary>
+ Provides access to automated pickler generation facility.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.IObjectSifter.Sift``1(MBrace.FsPickler.Pickler{``0},System.Int64,``0)">
+ <summary>
+     Predicate deciding whether provided object is to be sifted from serialization.
+ </summary>
+ <param name="pickler">Pickler used for traversal. Used for metadata reference.</param>
+ <param name="id">Object id for current value.</param>
+ <param name="value">Value that is being visited.</param>
+</member>
+<member name="T:MBrace.FsPickler.IObjectSifter">
+<summary>
+ Object graph sifting predicate.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ISpecializedObjectVisitor`1.VisitSpecialized(MBrace.FsPickler.Pickler{`0},`0)">
+ <summary>
+     Visit value inside an object graph that matches given type.
+ </summary>
+ <param name="pickler">Pickler used for traversal. Used for metadata reference.</param>
+ <param name="value">Value that is being visited.</param>
+</member>
+<member name="T:MBrace.FsPickler.ISpecializedObjectVisitor`1">
+<summary>
+ Specialized object visitor abstraction.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.IObjectVisitor.Visit``1(MBrace.FsPickler.Pickler{``0},``0)">
+ <summary>
+     Visit provided value inside an object graph.
+ </summary>
+ <param name="pickler">Pickler used for traversal. Used for metadata reference.</param>
+ <param name="value">Value that is being visited.</param>
+</member>
+<member name="T:MBrace.FsPickler.IObjectVisitor">
+<summary>
+ Object graph visitor abstraction.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Pickler`1.Write(MBrace.FsPickler.WriteState,System.String,`0)">
+ <summary>
+     Serializes a value with provided tag to the underlying writer state.
+ </summary>
+ <param name="state">Object serialization state.</param>
+ <param name="tag">String identifier for value.</param>
+ <param name="value">Value to be serialized.</param>
+</member>
+<member name="M:MBrace.FsPickler.Pickler`1.Read(MBrace.FsPickler.ReadState,System.String)">
+ <summary>
+     Deserializes a value with provided tag from reader state.
+ </summary>
+ <param name="state">Object deserialization state.</param>
+ <param name="tag">String identifier for value.</param>
+</member>
+<member name="M:MBrace.FsPickler.Pickler`1.Clone(MBrace.FsPickler.CloneState,`0)">
+ <summary>
+     Clones a value using the underlying cloning state.
+ </summary>
+ <param name="state">Object cloning state.</param>
+ <param name="value">Value to be cloned.</param>
+</member>
+<member name="M:MBrace.FsPickler.Pickler`1.Accept(MBrace.FsPickler.VisitState,`0)">
+ <summary>
+     Accepts visitor for traversal of child nodes of given value.
+ </summary>
+ <param name="state">Visitor state.</param>
+ <param name="value">Value to be visited.</param>
+</member>
+<member name="T:MBrace.FsPickler.Pickler`1">
+<summary>
+ Defines serialization rules for given type parameter.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Pickler.UseWithSubtypes">
+<summary>
+ Specifies if this pickler can be applied to proper subtypes.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Pickler.Type">
+<summary>
+ Type of values serialized by this pickler.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Pickler.PicklerInfo">
+<summary>
+ Pickler generation metadata.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Pickler.Kind">
+<summary>
+ Pickler type classification
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Pickler.IsRecursiveType">
+<summary>
+ Specifies if instances of this type can be cyclic objects.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Pickler.IsOpenHierarchy">
+<summary>
+ Specifies if objects graphs of this type can contain open hierarchies.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Pickler.IsOfFixedSize">
+<summary>
+ Specifies if instances of this type are of fixed size.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Pickler.IsCloneableOnly">
+<summary>
+ Specifies that pickler provides logic only for object cloning/visiting/hashing
+ and that type is not otherwise serializable.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Pickler.IsCacheByRef">
+<summary>
+ Specifies if pickled objects are to be cached by reference.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Pickler.ImplementationType">
+<summary>
+ The underlying type that this pickler implements.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Pickler">
+<summary>
+ Base pickler type.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.CompositePickler.CreateUninitialized``1">
+ <summary>
+     Creates an empty composite pickler for given type.
+ </summary>
+</member>
+<member name="M:MBrace.FsPickler.CompositePickler.Create``1(Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.ReadState,Microsoft.FSharp.Core.FSharpFunc{System.String,``0}},Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.WriteState,Microsoft.FSharp.Core.FSharpFunc{System.String,Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit}}},Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.CloneState,Microsoft.FSharp.Core.FSharpFunc{``0,``0}},Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.VisitState,Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit}},MBrace.FsPickler.PicklerInfo,Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>
+     Primary constructor for definining a materialized composite pickler
+ </summary>
+ <param name="reader">deserialization lambda.</param>
+ <param name="writer">serialization lambda.</param>
+ <param name="picklerInfo">pickler generation metadata.</param>
+ <param name="cacheByRef">enable caching by reference for serialized instances.</param>
+ <param name="useWithSubtypes">allow casting of pickler implementation to proper subtypes.</param>
+ <param name="skipHeaderWrite">skip header serialization of instances.</param>
+ <param name="bypass">pickle using serialization/deserialization lambdas directly.</param>
+ <param name="skipVisit">do not apply visitor to instances if specified.</param>
+</member>
+<member name="M:MBrace.FsPickler.CompositePickler.Copy(MBrace.FsPickler.Pickler,MBrace.FsPickler.Pickler)">
+ <summary>
+     Initializes a CompositePickler by copying fields from a source pickler
+ </summary>
+ <param name="source"></param>
+ <param name="target"></param>
+</member>
+<member name="M:MBrace.FsPickler.CompositePickler`1.InitializeFrom(MBrace.FsPickler.Pickler)">
+<summary>
+ Pickler initialization code
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.CompositePickler`1.#ctor">
+ <summary>
+     Uninitialized pickler constructor
+ </summary>
+</member>
+<member name="M:MBrace.FsPickler.CompositePickler`1.#ctor(Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.ReadState,Microsoft.FSharp.Core.FSharpFunc{System.String,`0}},Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.WriteState,Microsoft.FSharp.Core.FSharpFunc{System.String,Microsoft.FSharp.Core.FSharpFunc{`0,Microsoft.FSharp.Core.Unit}}},Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.CloneState,Microsoft.FSharp.Core.FSharpFunc{`0,`0}},Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.VisitState,Microsoft.FSharp.Core.FSharpFunc{`0,Microsoft.FSharp.Core.Unit}},MBrace.FsPickler.PicklerInfo,Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>
+     Primary constructor for definining a materialized composite pickler
+ </summary>
+ <param name="reader">deserialization lambda.</param>
+ <param name="writer">serialization lambda.</param>
+ <param name="picklerInfo">pickler generation metadata.</param>
+ <param name="cacheByRef">enable caching by reference for serialized instances.</param>
+ <param name="useWithSubtypes">allow casting of pickler implementation to proper subtypes.</param>
+ <param name="skipHeaderWrite">skip header serialization of instances.</param>
+ <param name="bypass">pickle using serialization/deserialization lambdas directly.</param>
+ <param name="skipVisit">do not apply visitor to instances if specified.</param>
+</member>
+<member name="T:MBrace.FsPickler.DelegatePickler">
+<summary>
+ Delegate Pickler combinator
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.NullablePickler">
+<summary>
+ Nullable Pickler combinator
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.EnumPickler">
+<summary>
+ Enum types combinator
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.AbstractPickler">
+<summary>
+ abstract type pickler factory
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.CustomPicklerRegistry.TypesDeclaredSerializable">
+<summary>
+ List of all individual types declared serializable
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.CustomPicklerRegistry.SerializationPredicates">
+<summary>
+ List of all user-specified custom serialization predicates
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.CustomPicklerRegistry.PicklerFactories">
+<summary>
+ List of all individual pickler factory types
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.CustomPicklerRegistry.IsGenerationStarted">
+<summary>
+ Gets whether isntance is alread being used for pickler generation.
+ In that case, any attempt to register new types will result in an InvalidOperationException
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.CustomPicklerRegistry.RegisterPicklers(MBrace.FsPickler.Pickler[])">
+<summary>
+ Registers a collections of supplied custom pickelrs
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.CustomPicklerRegistry.RegisterPickler(MBrace.FsPickler.Pickler)">
+<summary>
+ Registers a supplied custom pickler
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.CustomPicklerRegistry.RegisterFactory``1(Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.IPicklerResolver,MBrace.FsPickler.Pickler{``0}})">
+<summary>
+ Registers a user-specified pickler factory
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.CustomPicklerRegistry.DeclareSerializable``1">
+<summary>
+ Registers the specifed type as if carrying the .IsSerializable flag
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.CustomPicklerRegistry.DeclareSerializable(System.Type[])">
+<summary>
+ Appends a list of types that will be treated by the pickler generator as if carrying the .IsSerializable flag
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.CustomPicklerRegistry.DeclareSerializable(Microsoft.FSharp.Core.FSharpFunc{System.Type,System.Boolean})">
+<summary>
+ Appends a predicate used to determine whether a specific type should be treated as if carrying the .IsSerializable flag
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.CustomPicklerRegistry">
+<summary>
+ Type for appending user-supplied pickler registrations
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.EmptyPicklerRegistry">
+<summary>
+ A pickler registry with no items
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.CustomPicklerRegistration.CustomPickler">
+<summary>
+ Declares a custom pickler factor for the given type
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.CustomPicklerRegistration.DeclaredSerializable">
+<summary>
+ Declares a type serializable, but uses default pickler generators for it
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.CustomPicklerRegistration.UnRegistered">
+<summary>
+ Pickler not registered for particular type
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.CustomPicklerRegistration">
+<summary>
+ Pickler registration for particular type
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ICustomPicklerRegistry.GetRegistration(System.Type)">
+<summary>
+ Look up pickler registration for particular type
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.ICustomPicklerRegistry">
+<summary>
+ Abstraction for specifying user-supplied custom picklers
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ISerializablePickler.FromSerializationInfo``1(Microsoft.FSharp.Core.FSharpFunc{System.Runtime.Serialization.SerializationInfo,``0},Microsoft.FSharp.Core.FSharpFunc{System.Runtime.Serialization.SerializationInfo,Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit}},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+<summary>
+ SerializationInfo-based pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.CloneableOnlyPickler.Create``1">
+<summary>
+ Defines a pickler that forces cloneability/hashability on nonserializable types.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.PicklerCache.Instance">
+<summary>
+ Gets the singleton PicklerCache instance with the default pickler generation semantics 
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerCache.IsSerializableType(System.Type)">
+<summary>
+ Decides if given type is serializable by the pickler cache
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerCache.IsSerializableType``1">
+<summary>
+ Decides if given type is serializable by the pickler cache
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerCache.GeneratePickler(System.Type)">
+<summary>
+ Auto generates a pickler for given type
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerCache.GeneratePickler``1">
+<summary>
+ Auto generates a pickler for given type variable
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerCache.FromCustomPicklerRegistry(MBrace.FsPickler.ICustomPicklerRegistry)">
+ <summary>
+     Creates a custom pickler cache based off a supplied pickler registry.
+ </summary>
+ <param name="registry"></param>
+</member>
+<member name="T:MBrace.FsPickler.PicklerCache">
+<summary>
+ Defines a cache of generated picklers for every type being used by a serializer.
+ Picklers are being generated recursively and on-demand. Note that this is an extremely
+ heavyweight object both in terms of size and cost of pickler generation. Most applications
+ should just make use of the `PicklerCache.Instance` singleton. Otherwise extreme care must
+ be exercised so that multiple instances of this cache are not created.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.BinaryPickleFormatProvider">
+ <summary>
+     Factory methods for the binary serialization format.
+ </summary>
+</member>
+<member name="T:MBrace.FsPickler.BinaryPickleReader">
+ <summary>
+     Binary format deserializer.
+ </summary>
+</member>
+<member name="T:MBrace.FsPickler.BinaryPickleWriter">
+ <summary>
+     Binary format serializer.
+ </summary>
+</member>
+<member name="T:MBrace.FsPickler.XmlPickleFormatProvider">
+ <summary>
+     Factory methods for the Xml serialization format.
+ </summary>
+</member>
+<member name="T:MBrace.FsPickler.XmlPickleReader">
+ <summary>
+     Xml format deserializer.
+ </summary>
+</member>
+<member name="T:MBrace.FsPickler.XmlPickleWriter">
+ <summary>
+     Xml format serializer.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.ObjectSizeCounter.ObjectCount">
+<summary>
+ Gets the total number of root-level objects that were appended to the counter.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.ObjectSizeCounter.Count">
+<summary>
+ Gets accumulated object size in bytes
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ObjectSizeCounter.ResetSerializationCache">
+<summary>
+ Resets the serialization cache, without reseting size counters.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ObjectSizeCounter.Reset">
+<summary>
+ Resets the size counter state.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ObjectSizeCounter.Append``1(``0,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}})">
+<summary>
+ Appends a value to the size count.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.ObjectSizeCounter">
+<summary>
+ Computes the accumulated size for a collection of user-provided serializable objects
+</summary>
+</member>
+<member name="F:MBrace.FsPickler.FsPicklerSerializer.DisableAssemblyLoading@">
+<summary>
+ Declares that FsPickler should make no attempt of its own to load Assemblies
+ that are specified in the serialization format. Will result in a deserialization
+ exception if required assembly is missing from the current AppDomain. Defaults to false.
+</summary>
+</member>
+<member name="F:MBrace.FsPickler.FsPicklerSerializer.DisableSubtypeResolution@">
+<summary>
+ Declares that dynamic subtype resolution should be disabled during serialization.
+ This explicitly prohibits serialization/deserialization of any objects whose type
+ is specified in the serialization payload. Examples of such types are System.Object,
+ F# functions and delegates. Defaults to false.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.FsPicklerSerializer.DisableSubtypeResolution(System.Boolean)">
+<summary>
+ Declares that dynamic subtype resolution should be disabled during serialization.
+ This explicitly prohibits serialization/deserialization of any objects whose type
+ is specified in the serialization payload. Examples of such types are System.Object,
+ F# functions and delegates. Defaults to false.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.FsPicklerSerializer.DisableAssemblyLoading(System.Boolean)">
+<summary>
+ Declares that FsPickler should make no attempt of its own to load Assemblies
+ that are specified in the serialization format. Will result in a deserialization
+ exception if required assembly is missing from the current AppDomain. Defaults to false.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.FsPicklerSerializer.PickleFormat">
+ <summary>
+     Description of the pickle format used by the serializer.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.FsPicklerSerializer.DisableSubtypeResolution">
+<summary>
+ Declares that dynamic subtype resolution should be disabled during serialization.
+ This explicitly prohibits serialization/deserialization of any objects whose type
+ is specified in the serialization payload. Examples of such types are System.Object,
+ F# functions and delegates. Defaults to false.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.FsPicklerSerializer.DisableAssemblyLoading">
+<summary>
+ Declares that FsPickler should make no attempt of its own to load Assemblies
+ that are specified in the serialization format. Will result in a deserialization
+ exception if required assembly is missing from the current AppDomain. Defaults to false.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.UnPickleUntyped(System.Byte[],MBrace.FsPickler.Pickler,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding})">
+ <summary>
+     Unpickle value to given type.
+ </summary>
+ <param name="pickle">Byte array to unpickler.</param>
+ <param name="pickler">Pickler used for value serialization. Its type should be compatible with that of the supplied pickle.</param>
+ <param name="streamingContext">Streaming context for deserialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the deserializer.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.UnPickleSifted``1(System.Byte[],System.Tuple{System.Int64,System.Object}[],Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding})">
+ <summary>
+     Unpickles a sifted value, filling in sifted holes from the serialized using supplied objects.
+ </summary>
+ <param name="data">Pickle to deserialize.</param>
+ <param name="sifted">Object-id pairs used for filling sifted holes in serialization.</param>
+ <param name="pickler">Pickler used for element deserialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the serializer.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.UnPickle``1(System.Byte[],Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding})">
+ <summary>
+     Unpickles value using given pickler.
+ </summary>
+ <param name="data">Pickle to deserialize.</param>
+ <param name="pickler">Pickler used for element serialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for deserialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the deserializer.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.SerializeUntyped(System.IO.Stream,System.Object,MBrace.FsPickler.Pickler,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Serialize untyped object to the underlying stream with provided pickler.</summary>
+ <param name="stream">Target write stream.</param>
+ <param name="value">Value to be serialized.</param>
+ <param name="pickler">Untyped pickler used for serialization. Its type should be compatible with that of the supplied object.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the serializer.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.SerializeSifted``1(System.IO.Stream,``0,MBrace.FsPickler.IObjectSifter,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>
+     Serializes a value to stream, excluding objects mandated by the provided IObjectSifter instance.
+     Values excluded from serialization will be returned tagged by their ids. 
+ </summary>
+ <param name="stream">Target write stream.</param>
+ <param name="value">Value to be serialized.</param>
+ <param name="sifter">User supplied sifter implementation. Used to specify which nodes in the object graph are to be excluded from serialization.</param>
+ <param name="pickler">Pickler used for element deserialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the serializer.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+ <returns>Sifted values along with their graph ids.</returns>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.SerializeSequenceUntyped(System.IO.Stream,System.Collections.IEnumerable,MBrace.FsPickler.Pickler,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Serialize an untyped sequence of objects to the underlying stream.</summary>
+ <param name="elementType">element type used in sequence.</param>
+ <param name="stream">Target write stream.</param>
+ <param name="sequence">Input sequence to be evaluated and serialized.</param>
+ <param name="pickler">Pickler used for element serialization. Its type should be compatible with that of the supplied sequence.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the serializer.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+ <return>Number of elements written to the stream.</return>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.SerializeSequence``1(System.IO.Stream,System.Collections.Generic.IEnumerable{``0},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Serialize a sequence of objects to the underlying stream.</summary>
+ <param name="stream">Target write stream.</param>
+ <param name="sequence">Input sequence to be evaluated and serialized.</param>
+ <param name="pickler">Pickler used for serialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the serializer.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+ <return>Number of elements written to the stream.</return>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.Serialize``1(System.IO.Stream,``0,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Serialize value to the underlying stream.</summary>
+ <param name="stream">Target write stream.</param>
+ <param name="value">Value to be serialized.</param>
+ <param name="pickler">Pickler used for serialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the serializer.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.PickleUntyped(System.Object,MBrace.FsPickler.Pickler,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding})">
+ <summary>
+     Pickles given value to byte array.
+ </summary>
+ <param name="value">Value to pickle.</param>
+ <param name="pickler">Pickler used for value serialization. Its type should be compatible with that of the supplied value.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the serializer.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.PickleSifted``1(``0,MBrace.FsPickler.IObjectSifter,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding})">
+ <summary>
+     Pickles value to bytes, excluding objects mandated by the provided IObjectSifter instance.
+     Values excluded from serialization will be returned tagged by their ids. 
+ </summary>
+ <param name="value">Value to be serialized.</param>
+ <param name="sifter">User supplied sifter implementation. Used to specify which nodes in the object graph are to be excluded from serialization.</param>
+ <param name="pickler">Pickler used for element deserialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the serializer.</param>
+ <returns>Pickled value along with sifted values along with their graph ids.</returns>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.Pickle``1(``0,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding})">
+ <summary>
+     Pickles given value to byte array.
+ </summary>
+ <param name="value">Value to pickle.</param>
+ <param name="pickler">Pickler used for element serialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the serializer.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.DeserializeUntyped(System.IO.Stream,MBrace.FsPickler.Pickler,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Deserialize untyped object from the underlying stream with provided pickler.</summary>
+ <param name="stream">Source read stream.</param>
+ <param name="pickler">Pickler used for deserialization. Its type should be compatible with that of the supplied object.</param>
+ <param name="streamingContext">Streaming context for deserialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the deserializer.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.DeserializeSifted``1(System.IO.Stream,System.Tuple{System.Int64,System.Object}[],Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>
+     Deserializes a sifted value from stream, filling in sifted holes from the serialized using supplied objects.
+ </summary>
+ <param name="stream">Source read stream.</param>
+ <param name="sifted">Object-id pairs used for filling sifted holes in serialization.s</param>
+ <param name="pickler">Pickler used for element deserialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the serializer.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.DeserializeSequenceUntyped(System.IO.Stream,MBrace.FsPickler.Pickler,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Lazily deserialize an untyped sequence of objects from the underlying stream.</summary>
+ <param name="stream">source stream.</param>
+ <param name="pickler">Pickler used for element deserialization. Its type should be compatible with that of the supplied sequence.</param>
+ <param name="streamingContext">Streaming context for deserialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the deserializer.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+ <returns>An IEnumerable that lazily consumes elements from the stream.</returns>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.DeserializeSequence``1(System.IO.Stream,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Lazily deserialize a sequence of objects from the underlying stream.</summary>
+ <param name="stream">Source read stream.</param>
+ <param name="pickler">Pickler used for element deserialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for deserialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the deserializer.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+ <returns>An IEnumerable that lazily consumes elements from the stream.</returns>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.Deserialize``1(System.IO.Stream,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Deserialize value of given type from the underlying stream.</summary>
+ <param name="stream">Source read stream.</param>
+ <param name="pickler">Pickler used for deserialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for deserialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">Text encoding used by the deserializer.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.CreateObjectSizeCounter(Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding},Microsoft.FSharp.Core.FSharpOption{System.Int64})">
+ <summary>
+     Creates a state object used for computing accumulated sizes for multiple objects.
+ </summary>
+ <param name="encoding">Text encoding used by the serializer.</param>
+ <param name="resetInterval">Specifies the serialized object interval after which serialization state will be reset. Defaults to no interval.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.ComputeSize``1(``0,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}})">
+ <summary>Compute size in bytes for given input.</summary>
+ <param name="value">input value.</param>
+ <param name="pickler">Pickler to be used for size computation. Defaults to auto-generated pickler.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerSerializer.ComputeHash``1(``0,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Hashing.IHashStreamFactory})">
+ <summary>Compute size and hashcode for given input.</summary>
+ <param name="value">input value.</param>
+ <param name="hashFactory">the hashing algorithm to be used. MurMur3 by default.</param>
+</member>
+<member name="T:MBrace.FsPickler.FsPicklerSerializer">
+ <summary>
+     An abstract class containg the basic serialization API.
+ </summary>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.UnPickleOfStringUntyped(System.String,MBrace.FsPickler.Pickler,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext})">
+ <summary>
+     Unpickle using provided pickler.
+ </summary>
+ <param name="pickle">String to unpickle</param>
+ <param name="pickler">Untyped pickler used for deserialization. Its type should be compatible with that of the pickle.</param>
+ <param name="streamingContext">streaming context.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.UnPickleOfStringSifted``1(System.String,System.Tuple{System.Int64,System.Object}[],Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext})">
+ <summary>
+     Unpickles a sifted value, filling in sifted holes from the serialized using supplied objects.
+ </summary>
+ <param name="pickle">Pickle to deserialize.</param>
+ <param name="sifted">Object-id pairs used for filling sifted holes in serialization.</param>
+ <param name="pickler">Pickler used for element deserialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.UnPickleOfString``1(System.String,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext})">
+ <summary>
+     Unpickles value from string.
+ </summary>
+ <param name="pickle">Input pickle.</param>
+ <param name="pickler">Pickler used for deserialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for deserialization state. Defaults to the empty streaming context.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.SerializeUntyped(System.IO.TextWriter,System.Object,MBrace.FsPickler.Pickler,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Serialize object of given type to the underlying stream.</summary>
+ <param name="writer">Target text writer.</param>
+ <param name="value">Value to be serialized.</param>
+ <param name="pickler">Untyped pickler used for serialization. Its type should be compatible with that of the supplied object.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="encoding">encoding passed to the binary writer.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.SerializeSifted``1(System.IO.TextWriter,``0,MBrace.FsPickler.IObjectSifter,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>
+     Serializes a value to text writer, excluding values mandated by the provided IObjectSifter instance.
+     Values excluded from serialization will be returned tagged by their ids.
+ </summary>
+ <param name="stream">Target write stream.</param>
+ <param name="value">Value to be serialized.</param>
+ <param name="sifter">User supplied sifter implementation. Used to specify which nodes in the object graph are to be excluded from serialization.</param>
+ <param name="pickler">Pickler used for element deserialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+ <returns>Sifted values along with their graph ids.</returns>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.SerializeSequenceUntyped(System.IO.TextWriter,System.Collections.IEnumerable,MBrace.FsPickler.Pickler,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Evaluate and serialize a sequence of objects to the underlying stream.</summary>
+ <param name="writer">Target text writer.</param>
+ <param name="sequence">Input sequence to be evaluated and serialized.</param>
+ <param name="pickler">Untyped pickler used for element serialization. Its type should be compatible with that of the supplied sequence elements.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+ <return>Number of elements written to the stream.</return>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.SerializeSequence``1(System.IO.TextWriter,System.Collections.Generic.IEnumerable{``0},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Evaluates and serializes a sequence of objects to the underlying stream.</summary>
+ <param name="writer">Target text writer.</param>
+ <param name="sequence">Input sequence to be evaluated and serialized.</param>
+ <param name="pickler">Pickler used for serialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+ <return>Number of elements written to the stream.</return>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.Serialize``1(System.IO.TextWriter,``0,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Serialize value to the underlying writer.</summary>
+ <param name="writer">Target text writer.</param>
+ <param name="value">Value to be serialized.</param>
+ <param name="pickler">Pickler used for serialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="leaveOpen">Leave underlying text writer open when finished. Defaults to false.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.PickleToStringUntyped(System.Object,MBrace.FsPickler.Pickler,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext})">
+ <summary>
+     Pickles given value to string using provided pickler.
+ </summary>
+ <param name="value">Value to pickle.</param>
+ <param name="pickler">Untyped pickler used for serialization. Its type should be compatible with that of the supplied object.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.PickleToStringSifted``1(``0,MBrace.FsPickler.IObjectSifter,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext})">
+ <summary>
+     Pickles value to string, excluding objects mandated by the provided IObjectSifter instance.
+     Values excluded from serialization will be returned tagged by their ids. 
+ </summary>
+ <param name="value">Value to be serialized.</param>
+ <param name="sifter">User supplied sifter implementation. Used to specify which nodes in the object graph are to be excluded from serialization.</param>
+ <param name="pickler">Pickler used for element deserialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <returns>Pickled value along with sifted values along with their graph ids.</returns>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.PickleToString``1(``0,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext})">
+ <summary>
+     Pickles given value to string.
+ </summary>
+ <param name="value">Value to pickle.</param>
+ <param name="pickler">Pickler used for serialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.DeserializeUntyped(System.IO.TextReader,MBrace.FsPickler.Pickler,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Deserialize object of given type from the underlying stream.</summary>
+ <param name="reader">Source text reader.</param>
+ <param name="pickler">Untyped pickler used for deserialization. Its type should be compatible with that of the supplied object.</param>
+ <param name="streamingContext">Streaming context for deserialization state. Defaults to the empty streaming context.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.DeserializeSifted``1(System.IO.TextReader,System.Tuple{System.Int64,System.Object}[],Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>
+     Deserializes a sifted value from stream, filling in sifted holes from the serialized using supplied objects.
+ </summary>
+ <param name="reader">Source text reader.</param>
+ <param name="sifted">Object-id pairs used for filling sifted holes in serialization.s</param>
+ <param name="pickler">Pickler used for element deserialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for serialization state. Defaults to the empty streaming context.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.DeserializeSequenceUntyped(System.IO.TextReader,MBrace.FsPickler.Pickler,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Lazily deserialize a sequence of objects from the underlying stream.</summary>
+ <param name="reader">source reader.</param>
+ <param name="pickler">Untyped pickler used for element deserialization. Its type should be compatible with that of the supplied sequence elements.</param>
+ <param name="streamingContext">Streaming context for deserialization state. Defaults to the empty streaming context.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+ <returns>An IEnumerator that lazily consumes elements from the stream.</returns>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.DeserializeSequence``1(System.IO.TextReader,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Lazily deserialize a sequence of objects from the underlying stream.</summary>
+ <param name="reader">Source text reader.</param>
+ <param name="pickler">Pickler used for deserialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for deserialization state. Defaults to the empty streaming context.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+ <returns>An IEnumerator that lazily consumes elements from the stream.</returns>
+</member>
+<member name="M:MBrace.FsPickler.FsPicklerTextSerializer.Deserialize``1(System.IO.TextReader,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Deserialize value of given type from the underlying stream.</summary>
+ <param name="reader">source reader.</param>
+ <param name="pickler">Pickler used for serialization. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context for deserialization state. Defaults to the empty streaming context.</param>
+ <param name="leaveOpen">Leave underlying stream open when finished. Defaults to false.</param>
+</member>
+<member name="T:MBrace.FsPickler.FsPicklerTextSerializer">
+ <summary>
+     An abstract class containing the text-based serialization API.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.BinarySerializer.ForceLittleEndian(System.Boolean)">
+<summary>
+ Gets or sets the ForceLittleEndian setting.
+ Uses BinaryWriter rather than Buffer.BlockCopy 
+ for array serializations but is slower.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.BinarySerializer.ForceLittleEndian">
+<summary>
+ Gets or sets the ForceLittleEndian setting.
+ Uses BinaryWriter rather than Buffer.BlockCopy 
+ for array serializations but is slower.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.BinarySerializer.#ctor(Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.ITypeNameConverter},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.IPicklerResolver})">
+ <summary>
+     Initializes a new Binary pickler instance.
+ </summary>
+ <param name="forceLittleEndian">Force little-endian encoding in primitive arrays but is slower. Defaults to false.</param>
+ <param name="typeConverter">Define a custom type name converter.</param>
+ <param name="picklerResolver">Specify a custom pickler resolver/cache for serialization. Defaults to the singleton pickler cache.</param>
+</member>
+<member name="T:MBrace.FsPickler.BinarySerializer">
+ <summary>
+     Binary pickler instance.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.XmlSerializer.Indent(System.Boolean)">
+<summary>
+ Gets or sets indentation of serialized pickles.
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.XmlSerializer.Indent">
+<summary>
+ Gets or sets indentation of serialized pickles.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.XmlSerializer.#ctor(Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.ITypeNameConverter},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.IPicklerResolver})">
+ <summary>
+     Define a new Xml pickler instance.
+ </summary>
+ <param name="indent">Enable indentation of output XML pickles.</param>
+ <param name="typeConverter">Define a custom type name converter.</param>
+ <param name="picklerResolver">Specify a custom pickler resolver/cache for serialization. Defaults to the singleton pickler cache.</param>
+</member>
+<member name="T:MBrace.FsPickler.XmlSerializer">
+ <summary>
+     XML pickler instance.
+ </summary>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.VisitObject``1(MBrace.FsPickler.IObjectVisitor,``0,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.VisitOrder})">
+ <summary>
+     Visits all reference types that appear in the given object graph.
+ </summary>
+ <param name="visitor">Visitor implementation.</param>
+ <param name="graph">Object graph.</param>
+ <param name="pickler">Pickler to be used for traversal. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context used for cloning. Defaults to null streaming context.</param>
+ <param name="visitOrder">Object graph traversal order. Defaults to pre-order traversal.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.UnSift``1(MBrace.FsPickler.Sifted{``0},System.Tuple{System.Int64,System.Object}[],Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext})">
+ <summary>
+     Unsifts a provided object graph with given values.
+ </summary>
+ <param name="sifted">Sifted object graph to be unsifted.</param>
+ <param name="values">Values to be pushed in sift holes.</param>
+ <param name="pickler">Pickler to be used for traversal. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context used for cloning. Defaults to null streaming context.</param>
+ <returns>An unsifted object graph.</returns>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.Sift``1(``0,Microsoft.FSharp.Core.FSharpFunc{System.Object,System.Boolean},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext})">
+ <summary>
+     Creates a clone of the provided object graph, sifting objects from the graph as specified by the provided sifter implementation.
+     Only reference types can be sifted from a graph.
+ </summary>
+ <param name="value">Value to be sifted.</param>
+ <param name="sifter">Sifting predicate implementation.</param>
+ <param name="pickler">Pickler to be used for traversal. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context used for cloning. Defaults to null streaming context.</param>
+ <returns>A sifted wrapper together with all objects that have been sifted.</returns>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.Sift``1(``0,MBrace.FsPickler.IObjectSifter,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext})">
+ <summary>
+     Creates a clone of the provided object graph, sifting objects from the graph as specified by the provided sifter implementation.
+     Only reference types can be sifted from a graph.
+ </summary>
+ <param name="value">Value to be sifted.</param>
+ <param name="sifter">Sifting predicate implementation.</param>
+ <param name="pickler">Pickler to be used for traversal. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context used for cloning. Defaults to null streaming context.</param>
+ <returns>A sifted wrapper together with all objects that have been sifted.</returns>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.IsSerializableValue``1(``0,Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>
+     Decides if given value is serializable object graph without performing an actual serialization.
+ </summary>
+ <param name="graph">Graph to be checked.</param>
+ <param name="failOnCloneableOnlyTypes">Fail on types that are declared cloneable only. Defaults to true.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.IsSerializableType(System.Type)">
+<summary>
+ Decides if given type is serializable by FsPickler
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.IsSerializableType``1">
+<summary>
+ Decides if given type is serializable by FsPickler
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.GeneratePickler(System.Type)">
+<summary>
+ Auto generates a pickler for given type
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.GeneratePickler``1">
+<summary>
+ Auto generates a pickler for given type variable
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.GatherTypesInObjectGraph(System.Object)">
+ <summary>
+     Uses FsPickler to traverse the object graph, gathering types of objects as it goes.
+ </summary>
+ <param name="graph">input object graph.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.GatherObjectsInGraph(System.Object)">
+ <summary>
+     Use FsPickler to traverse the object graph, gathering object instances as it goes.
+ </summary>
+ <param name="graph">input object graph.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.EnsureSerializable``1(``0,Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>
+     Traverses the object graph, completing if serializable or raising a serialization exception if not.
+ </summary>
+ <param name="graph">Graph to be checked.</param>
+ <param name="failOnCloneableOnlyTypes">Fail on types that are declared cloneable only. Defaults to true.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.CreateXmlSerializer(Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.ITypeNameConverter},Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.IPicklerResolver})">
+ <summary>
+     Create a new FsPickler serializer instance that uses the XML format.
+ </summary>
+ <param name="tyConv">optional type name converter implementation.</param>
+ <param name="picklerResolver">Specify a custom pickler resolver/cache for serialization. Defaults to the singleton pickler cache.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.CreateObjectSizeCounter(Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding},Microsoft.FSharp.Core.FSharpOption{System.Int64})">
+ <summary>
+     Creates a state object used for computing accumulated sizes for multiple objects.
+ </summary>
+ <param name="encoding">Text encoding used by the serializer.</param>
+ <param name="resetInterval">Specifies the serialized object interval after which serialization state will be reset. Defaults to no interval.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.CreateBinarySerializer(Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.ITypeNameConverter},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.IPicklerResolver})">
+ <summary>
+     Create a new FsPickler serializer instance that uses the built-in binary format.
+ </summary>
+ <param name="forceLittleEndian">Force little-endian encoding in primitive arrays but is slower. Defaults to false.</param>
+ <param name="tyConv">optional type name converter implementation.</param>
+ <param name="picklerResolver">Specify a custom pickler resolver/cache for serialization. Defaults to the singleton pickler cache.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.ComputeSize``1(``0,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}})">
+ <summary>Compute size in bytes for given input.</summary>
+ <param name="value">input value.</param>
+ <param name="pickler">Pickler to be used for size computation. Defaults to auto-generated pickler.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.ComputeHash``1(``0,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Hashing.IHashStreamFactory})">
+ <summary>Compute size and hashcode for given input.</summary>
+ <param name="value">input value.</param>
+ <param name="hashFactory">the hashing algorithm to be used. MurMur3 by default.</param>
+</member>
+<member name="M:MBrace.FsPickler.FsPickler.Clone``1(``0,Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.Pickler{``0}},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext})">
+ <summary>
+     Performs an in-memory, deep cloning of provided serializable object graph.
+     Cloning is performed on a node-to-node basis and does not make use of intermediate
+     serialization buffers.
+ </summary>
+ <param name="value">Value to be cloned.</param>
+ <param name="pickler">Pickler used for cloning. Defaults to auto-generated pickler.</param>
+ <param name="streamingContext">Streaming context used for cloning. Defaults to null streaming context.</param>
+</member>
+<member name="T:MBrace.FsPickler.FsPickler">
+<summary>
+ FsPickler static methods.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Utils.LengthCounterStream">
+<summary>
+ Stream implementation that computes object size, discarding any data
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Utils.ReferenceEqualityComparer`1">
+<summary>
+ IEqualityComparer implementation that follows reference equality
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Utils.ICache`2">
+<summary>
+ replacement for IDictionary
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Utils.Exn`1.Value">
+<summary>
+ evaluate, re-raising the exception if failed
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Utils.Exn`1">
+<summary>
+ Value or exception
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Utils.memoizeParam``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}})">
+<summary>
+ thread safe memo operator with parametric support
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Utils.memoize``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1})">
+<summary>
+ thread safe memo operator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Utils.hset``1(System.Collections.Generic.IEnumerable{``0})">
+<summary>
+ hashset constructor
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Utils.Enum.hasFlag``1(``0,``0)">
+ <summary>
+     Checks that set of enumeration flags has given flag
+ </summary>
+ <param name="flags">Flags to be checked.</param>
+ <param name="flag">Flag to be satisfied.</param>
+</member>
+<member name="T:MBrace.FsPickler.Emit.EnvItem`1">
+<summary>
+ a descriptor for local variables or parameters in emitted IL
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Emit.DynamicMethod.emitDynamicMethod``1(System.String,System.Type[],System.Type,Microsoft.FSharp.Core.FSharpFunc{System.Reflection.Emit.ILGenerator,Microsoft.FSharp.Core.Unit})">
+<summary>
+ Emits a dynamic method that is cached based on the type of the delegate and method name
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Reflection.isRecursiveType(System.Boolean,System.Type)">
+<summary>
+ Checks if type is &apos;recursive&apos; according to above definition
+ Note that type must additionally be a reference type for this to be meaningful.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Reflection.isPolymorphicRecursive(System.Type)">
+<summary>
+ Detect polymorphic recursion patterns
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Reflection.gatherMembers(System.Type)">
+<summary>
+ walks up the type hierarchy, gathering all instance members
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Reflection.getSerializationMethods``1(System.Reflection.MethodInfo[])">
+<summary>
+ returns all methods of type `StreamingContext -&gt; unit` and given Attribute
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Reflection.getSupertypes(System.Type)">
+<summary>
+ Gets the immediate supertypes of a given type,
+ either base type or interfaces implemented
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Reflection.isAssignableFrom(System.Type,System.Type)">
+<summary>
+ correctly resolves if type is assignable to interface
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Hashing.MurMur3">
+<summary>
+ MurMur3 128-bit hashing algorithm.
+ Optimized for 64-bit architectures
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Hashing.FNV1aStream">
+<summary>
+ 64-bit Fowler-Noll-Vo hashing algorithm
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Hashing.FNV1aStreamFactory">
+<summary>
+ 64-bit Fowler-Noll-Vo hashing algorithm
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Hashing.HashStream.HashAlgorithm">
+<summary>
+ Hash algorithm identifier
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Hashing.HashStream.ComputeHash">
+<summary>
+ Generates hash based on accumulated stream data.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Hashing.HashStream">
+<summary>
+ An abstract byte sink used as a hash generating state machine
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Hashing.IHashStreamFactory.Create">
+<summary>
+ Create a hash streaming instance
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Hashing.IHashStreamFactory">
+<summary>
+ An immutable factory interface for HashStreams
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Hashing.HashResult.Hash">
+<summary>
+ Hash data
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Hashing.HashResult.Length">
+<summary>
+ Size of serialized object
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Hashing.HashResult.Type">
+<summary>
+ Type of hashed object
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Hashing.HashResult.Algorithm">
+<summary>
+ Hashing algorithm identifier
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Hashing.HashResult">
+<summary>
+ Hashed object result info
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.TypeNameConverter.compose(System.Collections.Generic.IEnumerable{MBrace.FsPickler.ITypeNameConverter})">
+<summary>
+ Composes a collection of ITypeNameConverters into one
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.TypeNameConverter">
+<summary>
+ TypeNameConverter utilities
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.KindModule.compute(System.Type)">
+<summary>
+ builds type info enumeration out of reflection info
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.ReflectionCache.CompositeMemberInfo">
+<summary>
+ Contains breakdown information for a MemberInfo instance
+ This information can be memoized for performance and
+ is sufficient to restructure the instance at deserialization.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.SequenceUtils.SequenceDeserializerEnumerator`1">
+<summary>
+ lazily deserialize a sequence of elements ; reserved for top-level sequence deserializations only.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.SequenceUtils.writeUnboundedSequence``1(System.Boolean,MBrace.FsPickler.Pickler{``0},MBrace.FsPickler.WriteState,System.String,System.Collections.Generic.IEnumerable{``0})">
+<summary>
+ serializes a sequence of unknown length to the stream ; returns its eventual length
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.SequenceUtils.readBoundedSequence``1(MBrace.FsPickler.Pickler{``0},System.Int32,MBrace.FsPickler.ReadState,System.String)">
+<summary>
+ reads a sequence whose length is known a priori
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.SequenceUtils.writeBoundedSequence``1(MBrace.FsPickler.Pickler{``0},System.Int32,MBrace.FsPickler.WriteState,System.String,System.Collections.Generic.IEnumerable{``0})">
+<summary>
+ writes a sequence whose length is known a priori
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.SequenceUtils.beginReadSequence(MBrace.FsPickler.IPickleFormatReader,System.String)">
+<summary>
+ reads a new object and ensures it is a sequence header
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.readString(MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.ReadState},System.String,System.Reflection.Emit.ILGenerator)">
+<summary>
+ reads a string and pushes to stack
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.writeString(MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.WriteState},System.String,System.String,System.Reflection.Emit.ILGenerator)">
+<summary>
+ writes a string
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.wrapISerializableConstructor``1(System.Reflection.ConstructorInfo)">
+<summary>
+ wraps call to ISerializable constructor in a dynamic method
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.emitObjectReferenceResolver``2(MBrace.FsPickler.Emit.EnvItem{``0},Microsoft.FSharp.Core.FSharpChoice{MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.ReadState},MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.CloneState}},System.Reflection.Emit.ILGenerator)">
+<summary>
+ emit a call to the &apos;OnDeserialization&apos; method on given value
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.emitDeserializationCallback``1(MBrace.FsPickler.Emit.EnvItem{``0},System.Reflection.Emit.ILGenerator)">
+<summary>
+ emit a call to the &apos;OnDeserialization&apos; method on given value
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.emitSerializationMethodCalls``1(System.Reflection.MethodInfo[],Microsoft.FSharp.Core.FSharpChoice{MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.WriteState},MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.ReadState},MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.CloneState},MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.VisitState}},MBrace.FsPickler.Emit.EnvItem{``0},System.Reflection.Emit.ILGenerator)">
+<summary>
+ calls a predefined collection of serialization methods on given value
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.emitObjectInitializer(System.Type,System.Reflection.Emit.ILGenerator)">
+<summary>
+ push an uninitialized object of type &apos;t&apos; to the stack
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.emitCloneAndConstruct``1(Microsoft.FSharp.Core.FSharpChoice{System.Reflection.MethodInfo,System.Reflection.ConstructorInfo},System.Reflection.PropertyInfo[],MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.CloneState},MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.Pickler[]},MBrace.FsPickler.Emit.EnvItem{``0},System.Reflection.Emit.ILGenerator)">
+<summary>
+ deserialize fields, pass to factory method and push to stack
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.emitDeserializeAndConstruct(Microsoft.FSharp.Core.FSharpChoice{System.Reflection.MethodInfo,System.Reflection.ConstructorInfo},System.Type[],System.String[],MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.ReadState},MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.Pickler[]},System.Reflection.Emit.ILGenerator)">
+<summary>
+ deserialize fields, pass to factory method and push to stack
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.emitAcceptMembers``2(``0[],MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.VisitState},MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.Pickler[]},MBrace.FsPickler.Emit.EnvItem{``1},System.Reflection.Emit.ILGenerator)">
+<summary>
+ emits code for accepting visitors for field or property values
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.emitCloneMembers``2(``0[],MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.CloneState},MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.Pickler[]},MBrace.FsPickler.Emit.EnvItem{``1},MBrace.FsPickler.Emit.EnvItem{``1},System.Reflection.Emit.ILGenerator)">
+<summary>
+ emits code for deserializing field or property values
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.emitDeserializeMembers``2(``0[],System.String[],MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.ReadState},MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.Pickler[]},MBrace.FsPickler.Emit.EnvItem{``1},System.Reflection.Emit.ILGenerator)">
+<summary>
+ emits code for deserializing field or property values
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.emitSerializeMembers``2(``0[],System.String[],MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.WriteState},MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.Pickler[]},MBrace.FsPickler.Emit.EnvItem{``1},System.Reflection.Emit.ILGenerator)">
+<summary>
+ emits code for serializing field or property values
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.emitAccept(System.Type,System.Reflection.Emit.ILGenerator)">
+<summary>
+ emit IL that accepts a visitor
+ last 3 items in stack: Pickler&lt;&apos;T&gt; ; VisitState ; &apos;T
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.emitClone(System.Type,System.Reflection.Emit.ILGenerator)">
+<summary>
+ emit IL that clones an object
+ last 3 items in stack: Pickler&lt;&apos;T&gt; ; CloneState ; &apos;T
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.emitDeserialize(System.Type,System.Reflection.Emit.ILGenerator)">
+<summary>
+ emit IL that deserializes an object
+ last 3 items in stack: Pickler&lt;&apos;T&gt; ; ReadState ; string
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.emitSerialize(System.Type,System.Reflection.Emit.ILGenerator)">
+<summary>
+ emit IL that serializes last object in stack
+ last 4 items in stack: Pickler&lt;&apos;T&gt;; WriteState ; string ; &apos;T
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerEmit.emitLoadPickler(MBrace.FsPickler.Emit.EnvItem{MBrace.FsPickler.Pickler[]},System.Type,System.Int32,System.Reflection.Emit.ILGenerator)">
+<summary>
+ emits typed pickler from array of untyped picklers
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerGenerator.PicklerGenerator.CreateUninitialized(TypeShape.TypeShape)">
+<summary>
+ Constructs a blank, uninitialized pickler object
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerGenerator.PicklerGenerator.Create(MBrace.FsPickler.ICustomPicklerRegistry,MBrace.FsPickler.IPicklerResolver,TypeShape.TypeShape)">
+<summary>
+ Constructs a pickler for a given shape
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.PicklerGenerator.PicklerGenerator">
+<summary>
+ Implements a pickler factory type visitor
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerResolution.generatePickler(MBrace.FsPickler.ICustomPicklerRegistry,MBrace.FsPickler.Utils.ICache{System.Type,MBrace.FsPickler.Utils.Exn{MBrace.FsPickler.Pickler}},System.Type)">
+<summary>
+ recursively generates picklers required for given type, 
+ storing results in global cache when completed.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.PicklerResolution.resolvePickler(MBrace.FsPickler.ICustomPicklerRegistry,MBrace.FsPickler.IPicklerResolver,Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.Pickler,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.Pickler,System.Boolean},System.Type)">
+<summary>
+ reflection - based pickler resolution
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.BinaryFormatUtils.blockRead(System.IO.Stream,System.Array)">
+<summary>
+ copy stream contents to preallocated array
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.BinaryFormatUtils.blockCopy(System.Array,System.IO.Stream)">
+<summary>
+ block copy primitive array to stream
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.RootSerialization.readTopLevelSequenceUntyped(MBrace.FsPickler.IPicklerResolver,MBrace.FsPickler.ReflectionCache.ReflectionCache,MBrace.FsPickler.IPickleFormatReader,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},System.Boolean,System.Boolean,MBrace.FsPickler.Pickler)">
+<summary>
+ deserializes a sequence of untyped objects from stream
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.RootSerialization.writeTopLevelSequenceUntyped(MBrace.FsPickler.IPicklerResolver,MBrace.FsPickler.ReflectionCache.ReflectionCache,MBrace.FsPickler.IPickleFormatWriter,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},System.Boolean,System.Boolean,MBrace.FsPickler.Pickler,System.Collections.IEnumerable)">
+<summary>
+ serializes a sequence of untyped objects to stream
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.RootSerialization.readTopLevelSequence``1(MBrace.FsPickler.IPicklerResolver,MBrace.FsPickler.ReflectionCache.ReflectionCache,MBrace.FsPickler.IPickleFormatReader,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},System.Boolean,System.Boolean,MBrace.FsPickler.Pickler{``0})">
+<summary>
+ deserializes a sequence of objects from stream
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.RootSerialization.writeTopLevelSequence``1(MBrace.FsPickler.IPicklerResolver,MBrace.FsPickler.ReflectionCache.ReflectionCache,MBrace.FsPickler.IPickleFormatWriter,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},System.Boolean,System.Boolean,MBrace.FsPickler.Pickler{``0},System.Collections.Generic.IEnumerable{``0})">
+<summary>
+ serializes a sequence of objects to stream
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.RootSerialization.readRootObjectUntyped(MBrace.FsPickler.IPicklerResolver,MBrace.FsPickler.ReflectionCache.ReflectionCache,MBrace.FsPickler.IPickleFormatReader,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Tuple{System.Int64,System.Object}[]},System.Boolean,System.Boolean,MBrace.FsPickler.Pickler)">
+<summary>
+ Initializes a ReadState instance and read untyped value from stream
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.RootSerialization.writeRootObjectUntyped(MBrace.FsPickler.IPicklerResolver,MBrace.FsPickler.ReflectionCache.ReflectionCache,MBrace.FsPickler.IPickleFormatWriter,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.IObjectSifter},System.Boolean,System.Boolean,MBrace.FsPickler.Pickler,System.Object)">
+<summary>
+ Initializes a WriteState instance and write untyped value to stream
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.RootSerialization.readRootObject``1(MBrace.FsPickler.IPicklerResolver,MBrace.FsPickler.ReflectionCache.ReflectionCache,MBrace.FsPickler.IPickleFormatReader,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Tuple{System.Int64,System.Object}[]},System.Boolean,System.Boolean,MBrace.FsPickler.Pickler{``0})">
+<summary>
+ Initializes a ReadState instance and read value from stream
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.RootSerialization.writeRootObject``1(MBrace.FsPickler.IPicklerResolver,MBrace.FsPickler.ReflectionCache.ReflectionCache,MBrace.FsPickler.IPickleFormatWriter,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.IObjectSifter},System.Boolean,System.Boolean,MBrace.FsPickler.Pickler{``0},``0)">
+<summary>
+ Initializes a WriteState instance and write value to stream
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.RootSerialization.initTextReader(MBrace.FsPickler.ITextPickleFormatProvider,System.IO.TextReader,System.Boolean,Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+<summary>
+ Initializes an IPickleFormatReader instance using a targeted System.IO.TextReader and parameters
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.RootSerialization.initTextWriter(MBrace.FsPickler.ITextPickleFormatProvider,System.IO.TextWriter,System.Boolean,Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+<summary>
+ Initializes an IPickleFormatWriter instance using a targeted System.IO.TextWriter and parameters
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.RootSerialization.initStreamReader(MBrace.FsPickler.IPickleFormatProvider,System.IO.Stream,Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding},System.Boolean,Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+<summary>
+ Initializes an IPickleFormatReader instance using a targeted System.IO.Stream and parameters
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.RootSerialization.initStreamWriter(MBrace.FsPickler.IPickleFormatProvider,System.IO.Stream,Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding},System.Boolean,Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+<summary>
+ Initializes an IPicklerFormatWriter instance using a targeted System.IO.Stream and parameters
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.variant``1(``0)">
+<summary>
+ Useful for union cases without arguments.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.case``2(``0,``1)">
+<summary>
+ See `sum`.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.sum``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1})">
+<summary>
+ Starts defining a pickler for an n-ary sum type, such as
+ a union type. For example:
+
+    type UnionT =
+        | Case1
+        | Case2 of int
+        | Case3 of string * int
+
+    let unionTPickler =
+        Pickler.sum (fun x k1 k2 k3 -&gt;
+            match x with
+            | Case1 -&gt; k1 ()
+            | Case2 x -&gt; k2 x
+            | Case3 (x, y) -&gt; k3 (x, y))
+        ^+ Pickler.variant Case1
+        ^+ Pickler.case Case2 Pickler.int
+        ^. Pickler.case Case3 (Pickler.pair Pickler.string Pickler.int)
+
+ Note that the implementation is not currently efficient,
+ though it may improve in the future.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.field``4(Microsoft.FSharp.Core.FSharpFunc{``0,``1},MBrace.FsPickler.Pickler{``1})">
+<summary>
+ See `product`.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.product``3(``0)">
+<summary>
+ Starts defining a pickler for an n-ary product, such as
+ record. Example:
+
+    type Person =
+        {
+            Address : string
+            Age : int
+            Name : string
+        }
+
+    let makePerson name age address =
+        {
+            Address = address
+            Age = age
+            Name = name
+        }
+
+    let personPickler =
+        Pickler.product makePerson
+        ^+ Pickler.field (fun p -&gt; p.Name) Pickler.string
+        ^+ Pickler.field (fun p -&gt; p.Age) Pickler.int
+        ^. Pickler.field (fun p -&gt; p.Address) Pickler.string
+
+ The implementation is not currently efficient, though it
+ may improve in the future.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.fix3``3(Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.Pickler{``0},Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.Pickler{``1},Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.Pickler{``2},System.Tuple{MBrace.FsPickler.Pickler{``0},MBrace.FsPickler.Pickler{``1},MBrace.FsPickler.Pickler{``2}}}}})">
+<summary>
+ pickler fixpoint combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.fix2``2(Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.Pickler{``0},Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.Pickler{``1},System.Tuple{MBrace.FsPickler.Pickler{``0},MBrace.FsPickler.Pickler{``1}}}})">
+<summary>
+ pickler fixpoint combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.fix``1(Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.Pickler{``0},MBrace.FsPickler.Pickler{``0}})">
+<summary>
+ pickler fixpoint combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.func``2">
+<summary>
+ F# function combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.fromSerializationInfo``1(Microsoft.FSharp.Core.FSharpFunc{System.Runtime.Serialization.SerializationInfo,``0},Microsoft.FSharp.Core.FSharpFunc{System.Runtime.Serialization.SerializationInfo,Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit}})">
+<summary>
+ Pickler combinator based on SerializationInfo
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.alt``1(Microsoft.FSharp.Core.FSharpFunc{``0,System.Int32},Microsoft.FSharp.Collections.FSharpList{MBrace.FsPickler.Pickler{``0}})">
+<summary>
+ alt combinator: choose from list of pickler combinators using tag reader
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.wrap``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Core.FSharpFunc{``1,``0},MBrace.FsPickler.Pickler{``0})">
+<summary>
+ wrap combinator: defines picklers up to isomorphism
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.seq``1(MBrace.FsPickler.Pickler{``0})">
+<summary>
+ sequence pickler combinator ; uses eager evaluation
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.array4D``1(MBrace.FsPickler.Pickler{``0})">
+<summary>
+ array4D pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.array3D``1(MBrace.FsPickler.Pickler{``0})">
+<summary>
+ array3D pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.array2D``1(MBrace.FsPickler.Pickler{``0})">
+<summary>
+ array2D pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.array``1(MBrace.FsPickler.Pickler{``0})">
+<summary>
+ array pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.set``1(MBrace.FsPickler.Pickler{``0})">
+<summary>
+ FSharp set pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.map``2(MBrace.FsPickler.Pickler{``0},MBrace.FsPickler.Pickler{``1})">
+<summary>
+ FSharp map pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.list``1(MBrace.FsPickler.Pickler{``0})">
+<summary>
+ FSharp list pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.ref``1(MBrace.FsPickler.Pickler{``0})">
+<summary>
+ FSharp ref pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.choice4``4(MBrace.FsPickler.Pickler{``0},MBrace.FsPickler.Pickler{``1},MBrace.FsPickler.Pickler{``2},MBrace.FsPickler.Pickler{``3})">
+<summary>
+ Choice&lt;_,_,_,_&gt; pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.choice3``3(MBrace.FsPickler.Pickler{``0},MBrace.FsPickler.Pickler{``1},MBrace.FsPickler.Pickler{``2})">
+<summary>
+ Choice&lt;_,_,_&gt; pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.choice2``2(MBrace.FsPickler.Pickler{``0},MBrace.FsPickler.Pickler{``1})">
+<summary>
+ Choice&lt;_,_&gt; pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.nullable``1(MBrace.FsPickler.Pickler{``0})">
+<summary>
+ nullable pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.option``1(MBrace.FsPickler.Pickler{``0})">
+<summary>
+ option pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.quad``4(MBrace.FsPickler.Pickler{``0},MBrace.FsPickler.Pickler{``1},MBrace.FsPickler.Pickler{``2},MBrace.FsPickler.Pickler{``3})">
+<summary>
+ quad pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.triple``3(MBrace.FsPickler.Pickler{``0},MBrace.FsPickler.Pickler{``1},MBrace.FsPickler.Pickler{``2})">
+<summary>
+ triple pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.pair``2(MBrace.FsPickler.Pickler{``0},MBrace.FsPickler.Pickler{``1})">
+<summary>
+ pair pickler combinator
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.auto``1">
+<summary>
+ auto generate a pickler
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.Combinators.Pickler.obj">
+<summary>
+ the default System.Object pickler
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.SumInternals.Wrap`1.op_HatPlus``2(MBrace.FsPickler.Combinators.Pickler.SumInternals.Wrap{Microsoft.FSharp.Core.FSharpFunc{``0,``1}},MBrace.FsPickler.Combinators.Pickler.SumInternals.Wrap{``0})">
+<summary>
+ Adds a case.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.SumInternals.Wrap`1.op_HatDot``5(MBrace.FsPickler.Combinators.Pickler.SumInternals.Wrap{Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.Combinators.Pickler.SumInternals.Part{``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``1,``2},``2},``1,``2},``3}},MBrace.FsPickler.Combinators.Pickler.SumInternals.Case{Microsoft.FSharp.Core.FSharpFunc{``1,``0},``4})">
+<summary>
+ Adds the last case.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Combinators.Pickler.SumInternals.Wrap`1">
+<summary>
+ Internal type for type-checking intermediate values.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.SumInternals.Case`2.op_HatPlus``6(MBrace.FsPickler.Combinators.Pickler.SumInternals.Case{Microsoft.FSharp.Core.FSharpFunc{``0,``1},``2},MBrace.FsPickler.Combinators.Pickler.SumInternals.Wrap{MBrace.FsPickler.Combinators.Pickler.SumInternals.Part{``1,``3,``4,``5}})">
+<summary>
+ Adds a case.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.SumInternals.Case`2.op_HatDot``6(MBrace.FsPickler.Combinators.Pickler.SumInternals.Case{Microsoft.FSharp.Core.FSharpFunc{``0,``1},``2},MBrace.FsPickler.Combinators.Pickler.SumInternals.Case{Microsoft.FSharp.Core.FSharpFunc{``3,``1},``4})">
+<summary>
+ Adds the last case.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Combinators.Pickler.SumInternals.Case`2">
+<summary>
+ Internal type for type-checking intermediate values.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Combinators.Pickler.SumInternals.Part`4">
+<summary>
+ Internal type for type-checking intermediate values.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Combinators.Pickler.SumInternals">
+<summary>
+ Experimental support for n-way sum types such as unions.
+ See `sum`.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.ProductInternals.Wrap`1.op_HatPlus``2(MBrace.FsPickler.Combinators.Pickler.ProductInternals.Wrap{Microsoft.FSharp.Core.FSharpFunc{``0,``1}},``0)">
+<summary>
+ Defines an extra field.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Pickler.ProductInternals.Wrap`1.op_HatDot``3(MBrace.FsPickler.Combinators.Pickler.ProductInternals.Wrap{Microsoft.FSharp.Core.FSharpFunc{``0,``1}},MBrace.FsPickler.Combinators.Pickler.ProductInternals.Wrap{Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.Combinators.Pickler.ProductInternals.Part{``2,``2,Microsoft.FSharp.Core.Unit},``0}})">
+<summary>
+ Defines the last field.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Combinators.Pickler.ProductInternals.Wrap`1">
+<summary>
+ Internal type for type-checking intermediate values.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Combinators.Pickler.ProductInternals.Part`3">
+<summary>
+ Internal type for type-checking intermediate values.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Combinators.Pickler.ProductInternals">
+<summary>
+ Experimental support for n-way product types such as records.
+ See `product` and `field` combinators.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Combinators.Pickler">
+<summary>
+ Pickler combinator definitions
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Xml.unpickle``1(MBrace.FsPickler.Pickler{``0},System.String)">
+ <summary>
+     Unpickles a values from XML.
+ </summary>
+ <param name="pickler">utilized pickler.</param>
+ <param name="pickle">input pickle.</param>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Xml.pickle``1(MBrace.FsPickler.Pickler{``0},``0)">
+ <summary>
+     Pickles a value to XML.
+ </summary>
+ <param name="pickler">utilized pickler.</param>
+ <param name="value">input value.</param>
+</member>
+<member name="T:MBrace.FsPickler.Combinators.Xml">
+<summary>
+ Xml pickling methods
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Binary.unpickle``1(MBrace.FsPickler.Pickler{``0},System.Byte[])">
+ <summary>
+     Unpickles a values from binary.
+ </summary>
+ <param name="pickler">utilized pickler.</param>
+ <param name="pickle">input pickle.</param>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Binary.pickle``1(MBrace.FsPickler.Pickler{``0},``0)">
+ <summary>
+     Pickles a value to binary.
+ </summary>
+ <param name="pickler">utilized pickler.</param>
+ <param name="value">input value.</param>
+</member>
+<member name="T:MBrace.FsPickler.Combinators.Binary">
+<summary>
+ Binary pickling methods
+</summary>
+</member>
+<member name="P:MBrace.FsPickler.ExtensionMethods.Pickle`1.Bytes">
+<summary>
+ Byte array pickle
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ExtensionMethods.Pickle`1.#ctor(System.Byte[])">
+<summary>
+ Wraps a byte array into a type annotated pickle.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.ExtensionMethods.Pickle`1">
+<summary>
+ Pickled object with type annotation
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ExtensionMethods.HashResult.Parse.Static(System.String)">
+<summary>
+ Parses hash identifier to receive a hash record
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ExtensionMethods.HashResult.get_Id(MBrace.FsPickler.Hashing.HashResult)">
+<summary>
+ Returns a unique, case-sensitive hash identifier
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ExtensionMethods.SerializationInfo.TryGetObj(System.Runtime.Serialization.SerializationInfo,System.String)">
+ <summary>
+     Try getting value of provided name from SerializationInfo instance.
+     Returns 'None' if not found.
+ </summary>
+ <param name="name">Name for value.</param>
+</member>
+<member name="M:MBrace.FsPickler.ExtensionMethods.SerializationInfo.TryGet``1(System.Runtime.Serialization.SerializationInfo,System.String)">
+ <summary>
+     Try getting value of provided type and name from SerializationInfo instance.
+     Returns 'None' if not found.
+ </summary>
+ <param name="name">Name for value.</param>
+</member>
+<member name="M:MBrace.FsPickler.ExtensionMethods.SerializationInfo.Get``1(System.Runtime.Serialization.SerializationInfo,System.String)">
+ <summary>
+     Gets value of given type and provided name from SerializationInfo instance.
+ </summary>
+ <param name="name">Name for value.</param>
+</member>
+<member name="M:MBrace.FsPickler.ExtensionMethods.SerializationInfo.Add``1(System.Runtime.Serialization.SerializationInfo,System.String,``0)">
+ <summary>
+     Adds value of given type to SerializationInfo instance.
+ </summary>
+ <param name="name">Name for value.</param>
+ <param name="value">Input value.</param>
+</member>
+<member name="M:MBrace.FsPickler.ExtensionMethods.Pickler.Null.Static``1(Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+<summary>
+ A pickler that always serializes instances as zero(null).
+ Useful for forcing serialization of non-serializable fields.
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.ExtensionMethods.Pickler.FromSerializationInfo.Static``1(Microsoft.FSharp.Core.FSharpFunc{System.Runtime.Serialization.SerializationInfo,``0},Microsoft.FSharp.Core.FSharpFunc{System.Runtime.Serialization.SerializationInfo,Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit}},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>
+     Initializes a pickler instance using a pair of SerializationInfo lambdas.
+ </summary>
+ <param name="reader">SerializationInfo deserializer.</param>
+ <param name="writer">SerializationInfo serializer.</param>
+ <param name="useWithSubtypes">Use with all subtypes of given type. Defaults to false.</param>
+</member>
+<member name="M:MBrace.FsPickler.ExtensionMethods.Pickler.FromPrimitives.Static``1(Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.ReadState,``0},Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.WriteState,Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit}},Microsoft.FSharp.Core.FSharpOption{Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.CloneState,Microsoft.FSharp.Core.FSharpFunc{``0,``0}}},Microsoft.FSharp.Core.FSharpOption{Microsoft.FSharp.Core.FSharpFunc{MBrace.FsPickler.VisitState,Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit}}},Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>Initializes a pickler out of a pair of read/write lambdas. Unsafe pickler generation method.</summary>
+ <param name="reader">Deserialization logic for the pickler.</param>
+ <param name="writer">Serialization logic for the pickler.</param>
+ <param name="cloner">In-memory cloning logic for the pickler. Defaults to no cloning implementation.</param>
+ <param name="accepter">Visitor accepting function for the descendand nodes of the graph. Defaults to no visitor implementation.</param>
+ <param name="cacheByRef">Specifies whether objects serialized by this pickler should be cached by reference.</param>
+ <param name="useWithSubtypes">Specifies whether pickler should also apply for all subtypes.</param>
+</member>
+<member name="M:MBrace.FsPickler.ExtensionMethods.FsPicklerSerializer.UnPickleTyped``1(MBrace.FsPickler.FsPicklerSerializer,MBrace.FsPickler.ExtensionMethods.Pickle{``0},Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding})">
+ <summary>
+     Deserializes a type annotated pickle.
+ </summary>
+ <param name="pickle">Type annotated pickle.</param>
+ <param name="streamingContext">streaming context.</param>
+ <param name="encoding">encoding passed to the binary reader.</param>
+</member>
+<member name="M:MBrace.FsPickler.ExtensionMethods.FsPicklerSerializer.PickleTyped``1(MBrace.FsPickler.FsPicklerSerializer,``0,Microsoft.FSharp.Core.FSharpOption{System.Runtime.Serialization.StreamingContext},Microsoft.FSharp.Core.FSharpOption{System.Text.Encoding})">
+ <summary>
+     Creates a type annotated pickle for given value.
+ </summary>
+ <param name="value">Value to be pickled.</param>
+ <param name="streamingContext">streaming context.</param>
+ <param name="encoding">encoding passed to the binary writer.</param>
+</member>
+<member name="T:MBrace.FsPickler.ExtensionMethods">
+<summary>
+ F# Extension methods for FsPickler
+</summary>
+</member>
+</members>
+</doc>

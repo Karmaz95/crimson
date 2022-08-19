@@ -1,0 +1,37 @@
+### TO DO
+
+test_javascript_with_codeql() {
+    anchor_check "${FUNCNAME[0]}" || return 0
+    echo -e "\033[0;31m [+]\033[0m TESTING JAVASCRIPT SOURCE CODE WITH CODEQL"
+    mkdir codeqltest
+    cd codeqltest
+    custom_i=0
+    cat ../jsfiles.txt | while IFS= read -r url; do wget "$url" -O $custom_i".js" --no-check-certificate && custom_i=$(($custom_i+1)); done  
+    cp "$HOME"/tools/CRIMSON/scripts/codeql/codeql-js.sh .
+    ./codeql-js.sh "$domain" 50 burp beau
+    cat ./*.csv > ../codeql.txt
+    cd ..
+}
+
+test_javascript_with_semgrep() {
+    anchor_check "${FUNCNAME[0]}" || return 0
+
+    echo -e "\033[0;31m [+]\033[0m TESTING JAVASCRIPT SOURCE CODE WITH SEMGREP"
+    mkdir semgreptest
+    cd semgreptest
+    #cp ../codeqltest/*.js . # works only with codeql
+    cat ../jsfiles.txt | while IFS= read -r url; do wget "$url" -O $custom_i".js" --no-check-certificate && custom_i=$(($custom_i+1)); done
+    semgrep --config=p/security-audit -o semgrep1.txt
+    semgrep --config=p/r2c-ci -o semgrep2.txt
+    semgrep --config=r/javascript -o semgrep3.txt
+    cat semgrep*.txt > ../semgrep.txt
+    cd ..
+}
+
+dig_for_secrets() {
+    # DETECT-SECRETS
+    anchor_check "${FUNCNAME[0]}" || return 0
+    echo -e "\033[0;31m [+]\033[0m CHECKING SECRETS IN GATHERED SOURCE CODE"
+    grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|password|pinning|secret|SHA256|SharedPreferences|superuser|token|X509TrustManager|google_api|google_api|google_captcha|google_oauth|amazon_aws_access_key_id|amazon_mws_auth_toke|amazon_aws_url|facebook_access_token|authorization_basic|authorization_bearer|authorization_api|mailgun_api_key|twilio_api_key|twilio_account_sid|twilio_app_sid|paypal_braintree_access_token|square_oauth_secret|square_access_token|stripe_standard_api|stripe_restricted_api|github_access_tokenttp" all_source_code/ --color=always > apikeys.txt
+    detect-secrets scan all_source_code/ --all-files > detect-secrets.txt
+}

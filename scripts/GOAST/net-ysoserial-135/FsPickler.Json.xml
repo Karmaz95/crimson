@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>FsPickler.Json</name></assembly>
+<members>
+<member name="T:MBrace.FsPickler.Json.JsonPickleWriter">
+ <summary>
+     Json format serializer.
+ </summary>
+</member>
+<member name="T:MBrace.FsPickler.Json.JsonPickleReader">
+ <summary>
+     Json format deserializer
+ </summary>
+</member>
+<member name="T:MBrace.FsPickler.Json.JsonPickleFormatProvider">
+ <summary>
+     Factory methods for the Json serialization format.
+ </summary>
+</member>
+<member name="T:MBrace.FsPickler.Json.BsonPickleFormatProvider">
+ <summary>
+     BSON format factory methods.
+ </summary>
+</member>
+<member name="M:MBrace.FsPickler.Json.FsPickler.CreateJsonSerializer(Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.ITypeNameConverter},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.IPicklerResolver})">
+ <summary>
+     Initializes a new FsPickler serializer instance that uses the JSON format.
+ </summary>
+ <param name="indent">indent out Json pickles.</param>
+ <param name="omitHeader">omit FsPickler header in Json pickles.</param>
+ <param name="typeConverter">specify a custom type name converter.</param>
+ <param name="picklerResolver">Specify a custom pickler resolver/cache for serialization. Defaults to the singleton pickler cache.</param>
+</member>
+<member name="M:MBrace.FsPickler.Json.FsPickler.CreateBsonSerializer(Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.ITypeNameConverter},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.IPicklerResolver})">
+ <summary>
+     Initializes a new FsPickler serializer instance that uses the BSON format.
+ </summary>
+ <param name="typeConverter">specify a custom type name converter.</param>
+</member>
+<member name="T:MBrace.FsPickler.Json.FsPickler">
+<summary>
+ FsPickler static methods.
+</summary>
+</member>
+<member name="T:MBrace.FsPickler.Json.BsonSerializer">
+ <summary>
+     BSON pickler instance.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.Json.JsonSerializer.UseCustomTopLevelSequenceSeparator(System.Boolean)">
+ <summary>
+     Gets or sets whether top-level sequences should be serialized using the custom separator.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.Json.JsonSerializer.SequenceSeparator(System.String)">
+ <summary>
+     Gets or sets a non-null whitespace string that serves as a custom, top-level sequence separator.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.Json.JsonSerializer.OmitHeader(System.Boolean)">
+ <summary>
+     Gets or sets whether FsPickler headers should be ignored in pickle format.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.Json.JsonSerializer.Indent(System.Boolean)">
+ <summary>
+     Gets or sets whether Json output should be indented.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.Json.JsonSerializer.UseCustomTopLevelSequenceSeparator">
+ <summary>
+     Gets or sets whether top-level sequences should be serialized using the custom separator.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.Json.JsonSerializer.SequenceSeparator">
+ <summary>
+     Gets or sets a non-null whitespace string that serves as a custom, top-level sequence separator.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.Json.JsonSerializer.OmitHeader">
+ <summary>
+     Gets or sets whether FsPickler headers should be ignored in pickle format.
+ </summary>
+</member>
+<member name="P:MBrace.FsPickler.Json.JsonSerializer.Indent">
+ <summary>
+     Gets or sets whether Json output should be indented.
+ </summary>
+</member>
+<member name="M:MBrace.FsPickler.Json.JsonSerializer.#ctor(Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.ITypeNameConverter},Microsoft.FSharp.Core.FSharpOption{MBrace.FsPickler.IPicklerResolver})">
+ <summary>
+     Initializes a new Json pickler instance.
+ </summary>
+ <param name="indent">indent out Json pickles.</param>
+ <param name="omitHeader">omit FsPickler header in Json pickles.</param>
+ <param name="typeConverter">specify a custom type name converter.</param>
+ <param name="picklerResolver">Specify a custom pickler resolver/cache for serialization. Defaults to the singleton pickler cache.</param>
+</member>
+<member name="T:MBrace.FsPickler.Json.JsonSerializer">
+ <summary>
+     Json pickler instance.
+ </summary>
+</member>
+<member name="M:MBrace.FsPickler.Json.Common.Enum.hasFlag``1(``0,``0)">
+ <summary>
+     Checks that set of enumeration flags has given flag
+ </summary>
+ <param name="flags">Flags to be checked.</param>
+ <param name="flag">Flag to be satisfied.</param>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Bson.unpickle``1(MBrace.FsPickler.Pickler{``0},System.Byte[])">
+ <summary>
+     Unpickles a value from BSON.
+ </summary>
+ <param name="pickler">utilized pickler.</param>
+ <param name="pickle">input pickle.</param>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Bson.pickle``1(MBrace.FsPickler.Pickler{``0},``0)">
+ <summary>
+     Pickles a value to BSON.
+ </summary>
+ <param name="pickler">utilized pickler.</param>
+ <param name="value">input value.</param>
+</member>
+<member name="T:MBrace.FsPickler.Combinators.Bson">
+<summary>
+ Bson pickling methods
+</summary>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Json.unpickle``1(MBrace.FsPickler.Pickler{``0},System.String)">
+ <summary>
+     Unpickles a value from Json.
+ </summary>
+ <param name="pickler">utilized pickler.</param>
+ <param name="pickle">input pickle.</param>
+</member>
+<member name="M:MBrace.FsPickler.Combinators.Json.pickle``1(MBrace.FsPickler.Pickler{``0},``0)">
+ <summary>
+     Pickles a value to Json.
+ </summary>
+ <param name="pickler">utilized pickler.</param>
+ <param name="value">input value.</param>
+</member>
+<member name="T:MBrace.FsPickler.Combinators.Json">
+<summary>
+ Json pickling methods
+</summary>
+</member>
+</members>
+</doc>

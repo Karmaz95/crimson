@@ -1,30 +1,24 @@
-#!/bin/bash
-pid=$$
-# Delete below line if you install Crimson from source:
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/bin:/root/go/bin:"
-#
 ### CREATED BY KARMAZ
 #
-#
-#
-### FUNCTIONS:
-#
-# 1. FULL RANGE PORT SCANING && NSE ON OPENED PORTS
-# 2. VULNERABILITY SCANING
+## FUNCTIONS:
+# 1. PARSING robots.txt AND sitemap.xml
+# 2. ENUMERATING WAF
+# 3. ENUMERATING FRAMEWORKS & CMS
+# 2. VULNERABILITY SCANNING
 # 3. DOMAIN CRAWLING
 # 4. DIRECTORY BRUTEFORCING
-# 5. GATHERING SOURCE CODE OF SCRAPED / BRUTEFORCED URLS
-# 6. EXTRACTING NEW PATHS, API KEYS, ENDPOINTS FROM GATHERED SOURCE CODE
+# 5. GATHERING SOURCE CODE OF JS FILES
+# 6. EXTRACTING NEW ENDPOINTS FROM GATHERED SOURCE CODE
 # 7. MERGING PATHS WITH DOMAIN AND PROBING FOR NEW ENDPOINTS
-# 8. PROXING LIVE RESULTS TO BURP SUITE  
+# 8. PROXYING LIVE RESULTS TO BURP SUITE  
 # 9. PREPARING params.txt && dirs.txt FOR EXPLOIT MODULE
-# 10. CHECK WAF && POTENTIAL BACKUP FILES && CMS
+# 10. CHECKING POTENTIAL BACKUP FILES
 # 11. TESTING HOP-BY-HOP DELETION
 #
-### LISTS:
+## LISTS:
 #
 # 1) recon.txt          - FILE WITH RECON OUTPUT
-# 2) urls.txt           - FILE WITH GATHERED URLS
+# 2) urls.txt           - FILE WITH GATHERED URLs
 # 3) status_params.txt  - STATUS CODES OF urls.txt
 # 4) ffuf.txt           - DIR BRUTEFORCING OUTPUT
 # 5) status_dir.txt     - STATUS CODE OF ffuf.txt
@@ -32,20 +26,22 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go
 # 10) exp/dirs.txt      - FILE PREPARED FOR crimson_exploit WITH DIRECTORIES
 # 11) backups.txt       - POTENTIALLY BACKUP FILES 
 # 12) arjun.txt         - FILE WITH BRUTEFORCED PARAMETERS
-# 13) nmap.txt          - FILE WITH TCP/UDP PORT SCANNING OUTPUT
-# 15) exp/nmap.gnmap    - FILE WITH TCP/UDP PORT SCANNING OUTPUT IN GREPABLE FORMAT 
+# 13) all_source_code/  - DIRECTORY WITH JS SOURCE CODES
+# 14) testssl.txt       - OUTPUT FROM testssl
+# 15) jwt.txt           - OUTPUT FROM jwt_tool
+# 16) wp/               - DIRECTORY WITH OUTPUT FROM WordPress tools
 #
-### WORKFLOW
+## WORKFLOW
 #
 # 0. Start Burp - optional step
 #   - Create new project - www.example.tld
-#   - Turn off interception
-#   - Make active scan for proxied urls only in scope
+#   - Turn off an interception
+#   - Make active scan for proxied URLs only in scope
 # 1. Start the script
-#   - If you didn't choose -a flag, go to /bounty/tested.domain.tld/temp and remove manually false positives entries in ferox.txt
+#   - If you did not choose -a flag, go to /bounty/tested.domain.tld/temp and remove manually false positives entries in ferox.txt
 # 2. Check the output listed above (LISTS)
 # 3. Manually browse the application, click on all functionalities
-# 4. Copy whole target scope from Burp after manually browsing the target
+# 4. Copy the whole target scope from Burp after manually browsing the target
 # 5. Paste it to exp/all.txt and run crimson_exploit
 #
 ###
@@ -57,7 +53,7 @@ trap 'echo $anchor > anchor.log && exit 1' SIGKILL
 trap 'echo $anchor > anchor.log && exit 1' SIGTERM
 
 anchor_check() {
-	### 0.RETRY FUNCTION IF IT'S NOT IN anchor.log
+	### RETRY FUNCTION IF IT'S NOT IN anchor.log
 	anchor="$1"
 	[ ! -f "$HOME/bounty/$DOMAIN/$domain/anchor.log" ] && return 0
 	if grep -q "$1" "$HOME/bounty/$DOMAIN/$domain/anchor.log"; then
@@ -73,7 +69,6 @@ clear_log() {
     rm status_new_endpoints.txt >/dev/null 2>&1
     ### REMOVE EMPTY FILES AND DIRECTORIES
     find . -type d -empty -print -delete -o -type f -empty -print -delete >/dev/null 2>&1
-    rm -rf nuclei-templates >/dev/null 2>&1
 	### REMOVING LOG IF PROGRAM EXIT NORMALLY
 	if [ -f "$HOME/bounty/$DOMAIN/$domain/anchor.log" ]; then
 			rm "$HOME/bounty/$DOMAIN/$domain/anchor.log"
@@ -82,62 +77,38 @@ clear_log() {
 ### ---
 
 ### ALL FUNCTIONS:
-tcp_scanning() {
-    ### 1.RUSTSCAN
-    anchor_check "${FUNCNAME[0]}" || return 0
-
-    echo "[TCP SCANNING] ---------------------------------------------------------" | tee -a recon.txt
-    echo TARGET: "$TARGET" | tee -a recon.txt
-    rustscan -a "$TARGET" -- -n -A -Pn --append-output -oG exp/nmap.gnmap -oN nmap.txt  # --scan-order "Random"
-    cat nmap.txt >> recon.txt
-    rm nmap.txt
-}
-
-udp_scanning() {
-    ### 2.NMAP
-    anchor_check "${FUNCNAME[0]}" || return 0
-
-    echo "[UDP SCANNING] ---------------------------------------------------------" | tee -a recon.txt
-    echo TARGET: "$TARGET" | tee -a recon.txt
-    nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt | sudo nmap -sU "$domain" -A -Pn --append-output -oG exp/udpnmap.gnmap -oN udpnmap.txt
-    cat udpnmap.txt >> recon.txt
-}
-
 get_the_sitemap() {
-    ### 3.SITEMAP-URLS.SH
+    ### SITEMAP-URLS.SH
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo "[SITEMAP 80] ----------------------------------------------------------" | tee -a recon.txt
-    "$HOME"/tools/CRIMSON/scripts/sitemap-urls.sh http://"$domain"/sitemap.xml >> recon.txt
+    "$HOME"/tools/crimson/scripts/sitemap-urls.sh http://"$domain"/sitemap.xml >> recon.txt
     echo >> recon.txt
     echo "[SITEMAP 443] ---------------------------------------------------------" | tee -a recon.txt
-    "$HOME"/tools/CRIMSON/scripts/sitemap-urls.sh https://"$domain"/sitemap.xml >> recon.txt
+    "$HOME"/tools/crimson/scripts/sitemap-urls.sh https://"$domain"/sitemap.xml >> recon.txt
     echo >> recon.txt
 }
 
 get_the_robots(){
-    ### 4.CURL
+    ### CURL
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo "[ROBOTS 80] -----------------------------------------------------------" | tee -a recon.txt
-    curl -k --max-time 30 http://"$domain"/robots.txt >> recon.txt
+    curl -H "$cookie" -s -k --max-time 30 http://"$domain"/robots.txt >> recon.txt 
     echo >> recon.txt
     echo "[ROBOTS 443] ----------------------------------------------------------" | tee -a recon.txt
-    curl -k --max-time 30 https://"$domain"/robots.txt >> recon.txt
+    curl -H "$cookie" -s -k --max-time 30 https://"$domain"/robots.txt >> recon.txt
     echo >> recon.txt
 }
 
 check_waf() {
-    ### 5.WAFW00F
+    ### WAFW00F
     anchor_check "${FUNCNAME[0]}" || return 0
     echo "[WAFW00F] -------------------------------------------------------------" | tee -a recon.txt
     wafw00f "$domain" | tail -n +16 | tee -a recon.txt
 }
 
 whatweb_enum() {
-    ### 6.WHATWEB
+    ### WHATWEB
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo "[WHATWEB 80] ---------------------------------------------------------" | tee -a recon.txt
     whatweb -a 3 "http://$domain" -H "$cookie" | tee -a recon.txt
     echo "[WHATWEB 443] ---------------------------------------------------------" | tee -a recon.txt
@@ -145,54 +116,72 @@ whatweb_enum() {
 }
 
 cmseek_enum() {
-    ### 7.CMSEEK
+    ### CMSEEK
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo "[CMSEEK] ---------------------------------------------------------" | tee -a recon.txt
     python3 "$HOME"/tools/CMSeeK/cmseek.py -u "$domain" --follow-redirect
     cat "$HOME"/tools/CMSeeK/Result/"$domain"/cms.json | jq . >> recon.txt
     rm -rf "$HOME"/tools/CMSeeK/Result/"$domain"/
 }
 
+test_wordpress_if_exists() {
+    anchor_check "${FUNCNAME[0]}" || return 0
+    if [[ $(cat recon.txt | grep cms_name | cut -d "\"" -f 4) == "WordPress" ]]
+    then
+        mkdir wp
+        echo -e "\033[0;31m [+]\033[0mURL STARTING WP ENUMERATION"
+        ### ENUMERATION USING wpscan > wpscan.txt
+        wpscan --no-banner --url "$domain" -o wp/wpscan.txt --cookie-string "$cookie" --no-update
+        ### SSRF CHECK
+        echo -e "\033[0;31m [+]\033[0mURL LOOKING FOR SSRF IN WORDPRESS"
+        quickpress -server http://"$collaborator_domain" -target https://"$domain"
+        quickpress -server http://"$collaborator_domain" -target http://"$domain"
+        ### PLUGIN ENUMERATION > plugins.txt && ssl_plugins.txt
+        echo -e "\033[0;31m [+]\033[0mURL BRUTEFORCING PLUGINS"
+        python3 "$HOME"/tools/WPluginScanner/wpluginscanner.py http://"$domain" -o wp/plugins.txt -p popular.txt > /dev/null 2>&1
+        python3 "$HOME"/tools/WPluginScanner/wpluginscanner.py https://"$domain" -o wp/ssl_plugins.txt -p popular.txt > /dev/null 2>&1
+        echo -e "\033[0;31m [+]\033[0mURL CHECK WP/ DIRECTORY AND RUN python3 /root/tools/wpbullet/wpbullet.py --path DOWNLOADED_PLUGIN"
+    fi
+}
+
+test_jwt_if_exists() {
+    anchor_check "${FUNCNAME[0]}" || return 0
+    jwt=$(echo "$cookie" | cut -d ":" -f 2 | grep "ey.*\..*\.[^;]*" -o)
+    if [ -n "$jwt" ]
+    then
+        python3 "$HOME"/tools/jwt_tool/jwt_tool.py "$jwt" | tail -n+14 | tee -a jwt.txt
+        python3 "$HOME"/tools/jwt_tool/jwt_tool.py -t https://"$domain"/ -rc "$cookie" -M pb | tee -a jwt.txt
+    fi
+}
+
 nuclei_scan_domain(){
-    ### 8.NUCLEI
+    ### NUCLEI
     anchor_check "${FUNCNAME[0]}" || return 0
-
-    git clone https://github.com/projectdiscovery/nuclei-templates.git > /dev/null
-    rm -rf nuclei-templates/token-spray
-    echo "[NUCLEI 80] ---------------------------------------------------------" | tee -a recon.txt
-    nuclei -u http://"$domain" -t nuclei-templates/ -stats -silent | tee -a recon.txt
-    echo "[NUCLEI 443] ---------------------------------------------------------" | tee -a recon.txt
-    nuclei -u https://"$domain" -t nuclei-templates/ -stats -silent | tee -a recon.txt
+    nuclei -ut -silent
+    echo "[NUCLEI] ---------------------------------------------------------" | tee -a recon.txt
+	nuclei -u http://"$domain" -fr -mhe 300 -headless -silent -et "token-spray,misconfiguration/http-missing-security-headers.yaml" -H "$cookie" | tee -a nuclei.txt
+	mkdir screenshots/
+    mv ./*.png screenshots/
 }
 
-nikto_enum_443() {
-    ### 9.NIKTO
+nikto_enum() {
+    ### NIKTO
     anchor_check "${FUNCNAME[0]}" || return 0
 
-    echo "[NIKTO 443] ---------------------------------------------------------" | tee -a recon.txt
-    "$HOME"/tools/nikto/program/nikto.pl -host https://"$domain" -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
-}
-
-nikto_enum_80() {
-    ### 10.NIKTO
-    anchor_check "${FUNCNAME[0]}" || return 0
-    echo "[NIKTO 80] ----------------------------------------------------------" | tee -a recon.txt
-    "$HOME"/tools/nikto/program/nikto.pl -host http://"$domain" -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
+    echo "[NIKTO] ---------------------------------------------------------" | tee -a recon.txt
+    nikto -host "$domain" -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36${cr}${nl}$cookie" --maxtime 1500 | tee -a recon.txt
 }
 
 gospider_enum() {
-    ### 11.GOSPIDER
+    ### GOSPIDER
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m SPIDER [1]"
-    gospider -q -r -w -a --sitemap --robots -c 10 -s  https://"$domain" -H "$cookie" >> urls.txt
+    echo "$domain" | httpx -silent | gospider -c 10 -q -r -w -a --sitemap --robots --subs -H "$cookie" | grep http | sed "s/^.*http/http/g" >> urls.txt
 }
 
 paramspider_enum() {
-    ### 12.GOSPIDER
+    ### GOSPIDER
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m SPIDER [2]"
     python3 "$HOME"/tools/ParamSpider/paramspider.py -d "$domain" --output ./paramspider.txt --level high > /dev/null 2>&1
     cat paramspider.txt | grep http | sort -u | grep "$domain" >> urls.txt
@@ -200,81 +189,84 @@ paramspider_enum() {
 }
 
 gau_enum() {
-    ### 13.GAU
+    ### GAU
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m SPIDER [3]"
-    gau "$domain" >> urls.txt
+    gau "$domain" -subs -t 10 >> urls.txt
 }
 
 waybackurls_enum() {
-    ### 14.WAYBACKURLS
+    ### WAYBACKURLS
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m SPIDER [4]"
     waybackurls "$domain" >> urls.txt
 }
 
 hakrawler_enum() {
-    ### 15.HAKRAWLER
+    ### HAKRAWLER
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m SPIDER [5]"
-    echo http://"$domain" | hakrawler -insecure -subs -u -h "$cookie" >> urls.txt
-    echo https://"$domain" | hakrawler -insecure -subs -u -h "$cookie" >> urls.txt
+    echo "$domain" | httpx -silent | hakrawler -insecure -h "$cookie" -subs -t 10 -u >> urls.txt 
+}
+
+
+cariddi_enum(){
+    ### CARIDDI
+    anchor_check "${FUNCNAME[0]}" || return 0
+    echo -e "\033[0;31m [+]\033[0m SPIDER [6]"
+    echo "$domain" | cariddi -headers "$cookie" -intensive -plain >> urls.txt    
 }
 
 galer_enum_and_merging() {
-    ### 16.GALER
+    ### GALER
     anchor_check "${FUNCNAME[0]}" || return 0
-
-    echo -e "\033[0;31m [+]\033[0m SPIDER [6]"
-    galer -u http://"$domain" -s >> urls.txt
-    galer -u https://"$domain" -s >> urls.txt
+    echo -e "\033[0;31m [+]\033[0m SPIDER [7]"
+    echo "$domain" | httpx -silent | galer -s  >> urls.txt
     ### MERGE SPIDERS AND DELETE DUPLICATES >> urls.txt
     echo -e "\033[0;31m [+]\033[0m MERGING SPIDERS RESULTS"
     grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" ../urls.txt | grep "$domain" | anew urls.txt 2>/dev/null
-    cat urls.txt | qsreplace -a > temp1.txt 
-    mv temp1.txt urls.txt
+    cat urls.txt | qsreplace -a >  temp1.txt 
+}
+
+check_live_urls_and_make_custom_wordlist() {
+    anchor_check "${FUNCNAME[0]}" || return 0
+    httpx -silent -l temp1.txt -H "$cookie" -fc 404 > urls.txt
     ### GET NEW ENDPOINTS FROM SPIDERS AND ADD THEM TO WORDLIST FOR DIRECOTRY BRUTEFORCING > custom_dir.txt
     echo -e "\033[0;31m [+]\033[0m GATHERING NEW PATHS FROM SPIDERS RESULTS"
     cat urls.txt | unfurl paths > temp1.txt
-    sort -u "$HOME"/tools/CRIMSON/words/dir > "$HOME"/tools/CRIMSON/words/custom_dir.txt
-    sort -u temp1.txt | anew "$HOME"/tools/CRIMSON/words/custom_dir.txt > /dev/null
+    sort -u "$HOME"/tools/crimson/words/dir > custom_dir.txt
+    sort -u temp1.txt | anew custom_dir.txt > /dev/null
     rm temp1.txt
 }
 
 ffuf_bruteforce() {
-    ### 17.FFUF
+    ### FFUF
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m STARTING DIRECTORY BRUTEFORCING"
     if [ $https_on == 1 ]
     then
-        ffuf -w "$HOME"/tools/CRIMSON/words/custom_dir.txt -t 20 -u https://"$domain"/FUZZ -mc all -fc 400 -H "$cookie" -o ffuf.json > /dev/null
+        ffuf -ignore-body -r -w custom_dir.txt -u https://"$domain"/FUZZ -mc all -fc 400 -H "$cookie" -o ffuf.json > /dev/null
     else
-        ffuf -w "$HOME"/tools/CRIMSON/words/custom_dir.txt -t 20 -u http://"$domain"/FUZZ -mc all -fc 400 -H "$cookie" -o ffuf.json > /dev/null
+        ffuf -ignore-body -r -w custom_dir.txt -u http://"$domain"/FUZZ -mc all -fc 400 -H "$cookie" -o ffuf.json > /dev/null
     fi
     cat ffuf.json | jq -c '.results[] | {url:.url,status: .status}' > status_ffuf.txt
     rm ffuf.json
-
     ### REMOVE TRASH RESPONSES FROM PREVIOUS SCAN > ffuf.txt
     echo -e "\033[0;31m [+]\033[0m REMOVING TRASH RESPONSES FROM status_ffuf.txt"
-    python3 "$HOME"/tools/CRIMSON/scripts/clever_ffuf.py
+    python3 "$HOME"/tools/crimson/scripts/clever_ffuf.py
     sort -u temp_ffuf.txt > ffuf.txt
     rm temp_ffuf.txt
 }
 
 ferox_bruteforce() {
-    ### 18.FEROX
+    ### FEROX
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m STARTING DIRECTORY BRUTEFORCING"
     if [ $https_on == 1 ]
     then
-        feroxbuster --extract-links --no-recursion --redirects --wordlist "$HOME"/tools/CRIMSON/words/custom_dir.txt -o temp/ferox.txt -u "https://$domain" -H "$cookie" -k
+        feroxbuster -C 400,404 --auto-tune  -nEgBekr --wordlist custom_dir.txt -u "https://$domain" -o temp/ferox.txt -I 3gp,aac,apng,avif,bmp,class,com,css,cur,doc,flac,gif,gz,ico,jar,jfif,jpeg,jpg,m4a,m4p,m4v,mov,mp3,mp4,mpeg,mpg,oga,ogg,ogv,pdf,pif,pjp,pjpeg,png,ram,scr,snp,svg,swf,tgz,tif,tiff,wav,webm,webp,woff,xls -H "$cookie"
     else
-        feroxbuster --extract-links --no-recursion --redirects --wordlist "$HOME"/tools/CRIMSON/words/custom_dir.txt -o temp/ferox.txt -u "http://$domain" -H "$cookie"
+        feroxbuster -C 400,404 --auto-tune  -nEgBekr --wordlist custom_dir.txt -u "http://$domain" -o temp/ferox.txt -I 3gp,aac,apng,avif,bmp,class,com,css,cur,doc,flac,gif,gz,ico,jar,jfif,jpeg,jpg,m4a,m4p,m4v,mov,mp3,mp4,mpeg,mpg,oga,ogg,ogv,pdf,pif,pjp,pjpeg,png,ram,scr,snp,svg,swf,tgz,tif,tiff,wav,webm,webp,woff,xls -H "$cookie"
     fi
     ### MANUAL CHECK - DELETE TRASH FROM FEROXBUSTER OUTPUT
     echo -e "\033[0;31m [+]\033[0m CHECK $HOME/bounty/$DOMAIN/$domain/temp/ferox.txt"
@@ -285,73 +277,45 @@ ferox_bruteforce() {
 }
 
 ferox_manual() {
-    # 19.CONTINUE THE EXECUTION...
+    # CONTINUE THE EXECUTION...
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m FEROXBUSTER SUCCESSFULLY EDITED - CONTINUING THE SCRIPT EXECUTION"
     ### CONVERT THE OUTPUT TO PROPER FORMAT AND DELETE DUPLICATES
     cat temp/ferox.txt | cut -s -d "h" -f 2-1000 | sed "s/^/h/" | qsreplace -a > ffuf.txt
 }
 
-code_gatherer() {
-    # 20.CURL
-    anchor_check "${FUNCNAME[0]}" || return 0
-
-    while IFS= read -r url
-        do echo -e "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url"
-        if (( $(echo -n "$url" | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g" |wc -c) < 255 ))
-        then
-            curl -k -s -D - "$url" -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/$(echo "$url" | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g")
-        else
-            small_url=${url:0:220}
-            curl -k -s -D - "$url" -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" > all_source_code/$(echo "$small_url" | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g")
-        fi
-    done < ffuf.txt
-}
-
 gahter_js_links() {
-    # 21.GETJS
+    # GETJS
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m GATHERING .js LINKS"
-    cat urls.txt ffuf.txt | getJS --insecure --complete --nocolors -H "$cookie" | grep "^http" | grep "$DOMAIN" | sed "s/\?.*//" | anew exp/jsfiles.txt
+    sort -u urls.txt ffuf.txt  | getJS --timeout 2 --insecure --complete --nocolors -H "$cookie" | grep "^http" | grep "$DOMAIN" | sed "s/\?.*//" | anew exp/jsfiles.txt
     ### GET LINKS TO JS FILES FROM urls.txt > exp/jsfiles.txt
     cat urls.txt | grep "\.js$" | grep "^http" | grep "$DOMAIN" | sed "s/\?.*//" | anew exp/jsfiles.txt > /dev/null
 }
 
-check_js_live() {
-    # 22.HTTPX
+check_js_live_and_gather_js_code() {
+    # HTTPX
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE .js LINKS"
-    httpx -silent -l exp/jsfiles.txt -H "$cookie" >> exp/temp_jsfiles.txt
+    httpx -silent -l exp/jsfiles.txt -H "$cookie" -fc 404 -srd all_source_code/ >> exp/temp_jsfiles.txt
     mv exp/temp_jsfiles.txt exp/jsfiles.txt
 }
 
-gather_js_code(){
-    # 23.CURL
+beautify_source_code() {
     anchor_check "${FUNCNAME[0]}" || return 0
-
-    echo -e "\033[0;31m [+]\033[0m GATHERING SOURCE CODE FROM LIVE .js LINKS"
-    while IFS= read -r url
-        do echo -e "\033[0;31m [++]\033[0m GATHERING SOURCE CODE OF: $url"
-        if (( $(echo -n "$url" | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g" |wc -c) < 255 ))
-        then
-            curl -k -s "$url" -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" | js-beautify > all_source_code/$(echo "$url" | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g") 2>/dev/null
-        else
-            small_url=${url:0:220}
-            curl -k -s "$url" -H "$cookie" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" | js-beautify > all_source_code/$(echo "$small_url" | sed "s/^https:\/\///" | sed "s/^http:\/\///" | sed "s/\//_/g") 2>/dev/null
-        fi
-    done < exp/jsfiles.txt
+    for file in all_source_code/* 
+    do 
+        cat "$file" | js-beautify > temp.txt 2>/dev/null
+        mv temp.txt "$file"
+    done
 }
 
 zile_enum() {
-    # 24.ZILE
+    # ZILE
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m GATHERING API KEYS && NEW PATHS"
     cd all_source_code || exit
-    python3 "$HOME"/tools/CRIMSON/scripts/zile/zile.py --file >> ../temp/temp_zile.txt
+    python3 "$HOME"/tools/crimson/scripts/zile/zile.py --file >> ../temp/temp_zile.txt
     cd ..
     awk '!seen[$0]++' temp/temp_zile.txt | grep -v "[+]" > zile.txt 2>/dev/null
     ### GET ENDPOINTS FROM ZILE > extracted.txt
@@ -360,23 +324,28 @@ zile_enum() {
 }
 
 mutate_urls_check_duplicates() {
-    # 25.UNIQ
+    # UNIQ
     anchor_check "${FUNCNAME[0]}" || return 0
-
-    while IFS= read -r line; do echo http://"$domain""$line" >> temp/temp_new.txt; done < extracted.txt
-    while IFS= read -r line; do echo https://"$domain""$line" >> temp/temp_new.txt; done < extracted.txt
+    if [ $https_on == 1 ]
+    then
+    while IFS= read -r line; do echo "https://$domain$line" >> temp/temp_new.txt; done < extracted.txt
+        awk '!seen[$0]++' temp/temp_new.txt > temp/temp_new_endpoints.txt
+        sort ffuf.txt temp/temp_new_endpoints.txt | uniq -d > temp/temp_duplicates.txt
+        grep -v -x -f temp/temp_duplicates.txt temp/temp_new_endpoints.txt > new_endpoints.txt
+    else
+        while IFS= read -r line; do echo http://"$domain""$line" >> temp/temp_new.txt; done < extracted.txt
+        awk '!seen[$0]++' temp/temp_new.txt > temp/temp_new_endpoints.txt
+        sort ffuf.txt temp/temp_new_endpoints.txt | uniq -d > temp/temp_duplicates.txt
+        grep -v -x -f temp/temp_duplicates.txt temp/temp_new_endpoints.txt > new_endpoints.txt        
+    fi
     rm extracted.txt
-    awk '!seen[$0]++' temp/temp_new.txt > temp/temp_new_endpoints.txt
-    sort ffuf.txt temp/temp_new_endpoints.txt | uniq -d > temp/temp_duplicates.txt
-    grep -v -x -f temp/temp_duplicates.txt temp/temp_new_endpoints.txt > new_endpoints.txt
 }
 
 check_new_endpoints_status() {
-    # 26.WFUZZ
+    # WFUZZ
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF NEW PATHS"
-    wfuzz -f status_new_endpoints.txt,raw -L -Z -z file,new_endpoints.txt -z file,"$HOME"/tools/CRIMSON/words/blank -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
+    wfuzz -f status_new_endpoints.txt,raw -L -Z -z file,new_endpoints.txt -z file,"$HOME"/tools/crimson/words/blank -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
     rm new_endpoints.txt
     ### REMOVE 400 && 404 RESPONSES
     cat status_new_endpoints.txt | grep "http" | grep -E "C=400  |C=404  " -v | grep -v "Pycurl" | cut -s -d "\"" -f2 > filtered_new_endpoints.txt
@@ -384,152 +353,132 @@ check_new_endpoints_status() {
     echo -e "\033[0;31m [+]\033[0m ADDING LIVE PATHS TO ffuf.txt"
     cat filtered_new_endpoints.txt | anew ffuf.txt > /dev/null
     rm filtered_new_endpoints.txt
-    ### ADD http://$domain AND https://$domain EVEN IF THEY ARE 404/400/X status code >> ffuf.txt
-    echo -e "http://$domain\nhttps://$domain" | anew ffuf.txt > /dev/null
+    ### ADD http://$domain | https://$domain EVEN IF THEY ARE 404/400/X status code >> ffuf.txt
+    if [ $https_on == 1 ]
+    then
+        echo -e "https://$domain" | anew ffuf.txt > /dev/null
+    else
+        echo -e "http://$domain" | anew ffuf.txt > /dev/null      
+    fi
+    
 }
 
 proxy_directories_to_burp() {
-    # 27.WFUZZ
+    # WFUZZ
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m PROXING ALL DIRECTORIES && FILES TO BURP SUITE"
-    wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p host.docker.internal:8080 -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
+    wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,"$HOME"/tools/crimson/words/blank -p host.docker.internal:8080 -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
 }
 
 proxy_urls_to_burp() {
-    # 28.WFUZZ
+    # WFUZZ
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m PROXING urls.txt TO BURP"
     cat urls.txt | grep "?" > temp/temp_params.txt
-    wfuzz -f status_params.txt,raw -L -Z -z file,temp/temp_params.txt -z file,"$HOME"/tools/CRIMSON/words/blank -p host.docker.internal:8080 -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
+    wfuzz -f status_params.txt,raw -L -Z -z file,temp/temp_params.txt -z file,"$HOME"/tools/crimson/words/blank -p host.docker.internal:8080 -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
 }
 
 check_directories_status(){
-    # 29.WFUZZ
+    # WFUZZ
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF (ffuf.txt) BRUTEFORCED DIRECTORIES"
-    wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,"$HOME"/tools/CRIMSON/words/blank -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
+    wfuzz -f status_dir.txt,raw -L -Z -z file,ffuf.txt -z file,"$HOME"/tools/crimson/words/blank -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
 }
 
 check_urls_status(){
-    # 30.WFUZZ
+    # WFUZZ
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF (urls.txt) CRAWLED QUERIES"
     cat urls.txt | grep "?" > temp/temp_params.txt
-    wfuzz -f status_params.txt,raw -L -Z -z file,temp/temp_params.txt -z file,"$HOME"/tools/CRIMSON/words/blank -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
+    wfuzz -f status_params.txt,raw -L -Z -z file,temp/temp_params.txt -z file,"$HOME"/tools/crimson/words/blank -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
 }
 
 preapre_params_and_files() {
-    # 31.QSREPLACE
+    # QSREPLACE
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m PREPARING FILES FOR crimson_exploit MODULE"
     cat status_params.txt | grep -v "C=404 " | grep http | grep -v "Pycurl" | cut -s -d "\"" -f2 | sort -u | qsreplace -a > exp/params.txt
-    cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -s -d "\"" -f2 | grep -v -e "Pycurl\|\.woff\|\.svg\|\.png\|\.gif\|\.jpg\|\.png\|\.css\|\.mp3\|\.mp4\|\.js" | sed "s/\/$//g" | sort -u  > files.txt
+    cat status_dir.txt | grep -v "C=400\|C=429\|C=404" | grep http | cut -s -d "\"" -f2 | grep -v -e "Pycurl\|\.3gp\|\.aac\|\.apng\|\.avif\|\.bmp\|\.class\|\.com\|\.css\|\.cur\|\.doc\|\.flac\|\.gif\|\.gz\|\.ico\|\.jar\|\.jfif\|\.jpeg\|\.jpg\|\.m4a\|\.m4p\|\.m4v\|\.mov\|\.mp3\|\.mp4\|\.mpeg\|\.mpg\|\.oga\|\.ogg\|\.ogv\|\.pdf\|\.pif\|\.pjp\|\.pjpeg\|\.png\|\.ram\|\.scr\|\.snp\|\.svg\|\.swf\|\.tgz\|\.tif\|\.tiff\|\.wav\|\.webm\|\.webp\|\.woff\|\.xls\|\.js" | sed "s/\/$//g" | sort -u  > files.txt
     cat files.txt > exp/dirs.txt
 }
 
 check_for_backups() {
-    # 32.CRIMSON_BACKUPER
+    # CRIMSON_BACKUPER
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m CHECKING EXISTANCE OF BRUTEFORCED FILES BACKUPS"
-    python2 "$HOME"/tools/CRIMSON/scripts/crimson_backuper.py -w files.txt -e "$HOME"/tools/CRIMSON/words/BCK_EXT -c "$cookie" -o backups.txt
+    python "$HOME"/tools/crimson/scripts/crimson_backuper.py -w urls.txt -e "$HOME"/tools/crimson/words/BCK_EXT -c "$cookie" -o backups.txt
 }
 
 check_for_cors() {
-    # 33.CORSME
+    # CORSME
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo "[CORS] ---------------------------------------------------------" | tee -a recon.txt
-    cat ffuf.txt | CorsMe -t 50 -header "$cookie" -output corsme.txt > /dev/null 2>&1
+    cat ffuf.txt | CorsMe -header "$cookie" -output corsme.txt > /dev/null 2>&1
     cat corsme.txt >> recon.txt
     rm corsme.txt
     rm error_requests.txt
 }
 
-dig_for_secrets() {
-    # 34.DETECT-SECRETS
+check_ssl() {
     anchor_check "${FUNCNAME[0]}" || return 0
-
-    echo -e "\033[0;31m [+]\033[0m CHECKING SECRETS IN GATHERED SOURCE CODE"
-    grep -EHirn "accesskey|admin|aes|api_key|apikey|checkClientTrusted|crypt|password|pinning|secret|SHA256|SharedPreferences|superuser|token|X509TrustManager|google_api|google_api|google_captcha|google_oauth|amazon_aws_access_key_id|amazon_mws_auth_toke|amazon_aws_url|facebook_access_token|authorization_basic|authorization_bearer|authorization_api|mailgun_api_key|twilio_api_key|twilio_account_sid|twilio_app_sid|paypal_braintree_access_token|square_oauth_secret|square_access_token|stripe_standard_api|stripe_restricted_api|github_access_tokenttp" all_source_code/ --color=always > apikeys.txt
-    detect-secrets scan all_source_code/ --all-files > detect-secrets.txt
+    echo "[SSL] ---------------------------------------------------------" | tee -a recon.txt
+    testssl --warnings off "$domain" | tee -a testssl.txt
 }
 
 arjun_enum() {
-    # 35.ARJUN
+    # ARJUN
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m STARTING ARJUN ON exp/files.txt - IT WILL TAKE A WHILE..."
     arjun -i files.txt -oT arjun.txt -q --headers "$cookie"
 }
 
-vhost_brute_http() {
-    # 36.FFUF
+vhost_brute() {
+    # FFUF
     anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m BRUTEFORCING VIRTUAL HOSTNAMES "
-    cat "$HOME"/tools/CRIMSON/words/vhosts.txt | sed "s/TARGET_DOMAIN/$domain/" > vhosts.txt
+    ip=$(dig +short "$domain")
+    cat "$HOME"/tools/crimson/words/vhosts.txt | sed "s/$/.$DOMAIN/" > vhosts.txt
     cat ../subdomains.txt >> vhosts.txt
-    echo "[VHOSTS 80] ---------------------------------------------------------" | tee -a recon.txt
-    glength=$(curl -s -H "Host: \"$domain\"" http://\"$domain\" |wc -c)
-    blength=$(curl -s -H "Host: badhost" http://\"$domain\" |wc -c)
-    ffuf -w vhosts.txt -u http://"$domain" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a recon.txt
+    sed -i '/_/d' ./vhosts.txt
+
+    echo "[VHOSTS] ---------------------------------------------------------" | tee -a recon.txt
+    if [ $https_on == 1 ]
+    then
+        blength=$(curl -H "$cookie" -k -s -H "Host: bbaddhost.$domain" "https://$ip/" |wc -l)
+        glength=$(curl -H "$cookie" -k -s -H "Host: $domain" "https://$ip/" |wc -l)
+        wfuzz -f v_temp.txt,raw -H "$cookie" -c -w vhosts.txt -H "Host: FUZZ" -u "https://$ip/" -t 100 --hl "$glength","$blength" | tail -n +5
+    else
+        blength=$(curl -H "$cookie" -k -s -H "Host: bbaddhost.$domain" "http://$ip/" |wc -l)
+        glength=$(curl -H "$cookie" -k -s -H "Host: $domain" "http://$ip/" |wc -l)
+        wfuzz -f v_temp.txt,raw -H "$cookie" -c -w vhosts.txt -H "Host: FUZZ" -u "http://$ip/" -t 100 --hl "$glength","$blength" | tail -n +5  
+    fi
+    cat v_temp.txt >> recon.txt
+    rm v_temp.txt
 }
 
-https_vhost_brute() {
-    # 37.FFUF
+hop_by_hop_test() {
+    # hop-by-hop/hbh-header-abuse-test.py
     anchor_check "${FUNCNAME[0]}" || return 0
-    
-    echo "[VHOSTS 443] ---------------------------------------------------------" | tee -a recon.txt
-    glength=$(curl -k -s -H "Host: \"$domain\"" https://\"$domain\" |wc -c)
-    blength=$(curl -k -s -H "Host: badhost" https://\"$domain\" |wc -c)
-    ffuf -w vhosts.txt -u https://"$domain" -H "Host: FUZZ" -fs "$glength","$blength" -s | tee -a recon.txt
-}
-
-https_hop_by_hop() {
-    # 38.hop-by-hop/hbh-header-abuse-test.py
-    anchor_check "${FUNCNAME[0]}" || return 0
-
     echo -e "\033[0;31m [+]\033[0m TESTING HOP-BY-HOP DELETION"
-    echo "[HBH 443] ---------------------------------------------------------" | tee -a recon.txt
-    cat "$HOME"/tools/CRIMSON/words/exp/hbh-headers | while IFS= read -r HEADER; do python2 "$HOME"/tools/hop-by-hop/hbh-header-abuse-test.py -u "https://$domain" -x "$HEADER"; sleep 1; done | tee -a recon.txt
+    echo "[HBH] ---------------------------------------------------------" | tee -a recon.txt
+    if [ $https_on == 1 ]
+    then
+        cat "$HOME"/tools/crimson/words/exp/hbh-headers | while IFS= read -r HEADER; do python "$HOME"/tools/hop-by-hop/hbh-header-abuse-test.py -u "https://$domain" -x "$HEADER"; sleep 1; done | tee -a recon.txt
+    else
+        cat "$HOME"/tools/crimson/words/exp/hbh-headers | while IFS= read -r HEADER; do python "$HOME"/tools/hop-by-hop/hbh-header-abuse-test.py -u "http://$domain" -x "$HEADER"; sleep 1; done
+    fi
 }
-
-hop_by_hop_http() {
-    # 39.hop-by-hop/hbh-header-abuse-test.py
-    anchor_check "${FUNCNAME[0]}" || return 0
-
-    echo -e "\033[0;31m [+]\033[0m TESTING HOP-BY-HOP DELETION"
-    echo "[HBH 80] ---------------------------------------------------------" | tee -a recon.txt
-    cat "$HOME"/tools/CRIMSON/words/exp/hbh-headers | while IFS= read -r HEADER; do python2 "$HOME"/tools/hop-by-hop/hbh-header-abuse-test.py -u "http://$domain" -x "$HEADER"; sleep 1; done | tee -a recon.txt
-}
-
 #---
 
 
 ### MAIN()
-echo -e "\033[0;31m
- ██████╗██████╗ ██╗███╗   ███╗███████╗ ██████╗ ███╗   ██╗     ████████╗ █████╗ ██████╗  ██████╗ ███████╗████████╗
-██╔════╝██╔══██╗██║████╗ ████║██╔════╝██╔═══██╗████╗  ██║     ╚══██╔══╝██╔══██╗██╔══██╗██╔════╝ ██╔════╝╚══██╔══╝
-██║     ██████╔╝██║██╔████╔██║███████╗██║   ██║██╔██╗ ██║        ██║   ███████║██████╔╝██║  ███╗█████╗     ██║   
-██║     ██╔══██╗██║██║╚██╔╝██║╚════██║██║   ██║██║╚██╗██║        ██║   ██╔══██║██╔══██╗██║   ██║██╔══╝     ██║   
-╚██████╗██║  ██║██║██║ ╚═╝ ██║███████║╚██████╔╝██║ ╚████║███████╗██║   ██║  ██║██║  ██║╚██████╔╝███████╗   ██║   
- ╚═════╝╚═╝  ╚═╝╚═╝╚═╝     ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝   
-                                                                                                                 
-\033[0m"
-
-rust_on=0
 fully_automated=0
 proxy_on=0
-udp_on=0
 arjun_on=0
 vhost_on=0
-while getopts "c:vD:puayb" OPTION; do
+backup_on=0
+no_brute_on=0
+while getopts "c:vd:ayphbn" OPTION; do
     case $OPTION in
     c)
         cookie=$OPTARG
@@ -537,14 +486,8 @@ while getopts "c:vD:puayb" OPTION; do
     v)
         vhost_on=1
         ;;
-    D)
+    d)
         domain=$OPTARG
-        ;;
-    p)
-        rust_on=1
-        ;;
-    u)
-        udp_on=1
         ;;
     a)
         fully_automated=1
@@ -552,8 +495,17 @@ while getopts "c:vD:puayb" OPTION; do
     y)
         proxy_on=1
         ;;
-    b)
+    p)
         arjun_on=1
+        ;;
+    h)
+        hop_on=1
+        ;;
+    b)
+        backup_on=1
+        ;;
+    n)
+        no_brute_on=1
         ;;
     *)
         echo "Incorrect options provided"
@@ -564,16 +516,17 @@ done
 
 if [ -z "$domain" ]
 then
-echo "./crimson_target -D \"example.domain.com\" 
+echo "crimson_target -d \"example.domain.com\" 
                 
                 # Optional flags are shown below:
                 -c \"Cookie: auth1=123;\"
                 -v # Virtual host discovering
-                -p # TCP (1-65535)   ports scanning
-                -u # UDP (nmap default) ports scanning
                 -a # Without this flag, you have to manually check for false-positives after bruteforcing
                 -y # Proxy urls.txt and ffuf.txt to Burp (host.docker.internal:8080)
-                -b # Parameter bruteforcing with Arjun"
+                -p # Parameter bruteforcing with Arjun (WARNING - it takes a lot of time, better use Burp Param Miner)
+                -h # Test HOP-BY-HOP header deletion at the end
+                -b # Check backup files (can take a few hours of time)
+                -n # Use this option to skip directory bruteforcing phase"
 exit 1
 else
 ### PREPARE DIRECTORIES AND VARIABLES
@@ -596,28 +549,16 @@ else
 fi
 
 ### CHECK IF THERE IS SSL
-if wget --spider --no-check-certificate https://"$domain" 2>/dev/null; then
+ssl_check=$(echo "$domain" | httpx -silent | grep https -o)
+if [  "$ssl_check" == "https" ]
+then
     https_on=1
 else
     https_on=0
 fi
-
 echo "----------------------------------------------------------------" >> recon.txt 
 echo "SCANNING START: $(date +'[%m-%d %H:%M:%S]')" >> recon.txt    
 echo "----------------------------------------------------------------" >> recon.txt 
-### --- PORT SCANNING SECTION --- ### -p
-if [ $rust_on == 1 ]
-then
-    ### RESOLVE IP AND SCAN OPENED TCP PORTS > recon.txt
-    tcp_scanning 
-fi
-
-if [ $udp_on == 1 ]
-then
-### RESOLVE IP AND SCAN OPENED UDP PORTS > recon.txt
-    udp_scanning
-fi
-
 ### GET THE CONTENT OF SITEMAP IF EXISTS >> recon.txt2
 get_the_sitemap
 ### GET THE CONTENT OF ROBOTS IF EXISTS >> recon.txt
@@ -626,16 +567,21 @@ get_the_robots
 check_waf
 ### IDENTIFY TECHNOLOGY >> recon.txt
 whatweb_enum
+### SSL CHECK
+check_ssl
 ### CMS SCAN >> recon.txt
 cmseek_enum
-### DOWNLOAD COMMUNITY-CURATED TEMPLATES & RUN THE AGAINST DOMAIN
+### TEST WP IF FOUND >> 
+test_wordpress_if_exists
+### TEST JWT IF EXISTS > jwt.txt
+test_jwt_if_exists
+### NUCLEI SCAN
 nuclei_scan_domain
 ### PREPARE COOKIE HEADER FO NIKTO ENUM
 nl=$'\n'
 cr=$'\r'
-### PERFORM NIKTO VULNERABILITY SCAN ON BOTH 443 / 80 PORT
-nikto_enum_443
-nikto_enum_80
+### PERFORM NIKTO VULNERABILITY SCAN
+nikto_enum
 ### SPIDER 1 > urls.txt
 gospider_enum
 ### SPIDER 2 >> urls.txt
@@ -647,27 +593,36 @@ waybackurls_enum
 ### SPIDER 5 >> urls.txt
 hakrawler_enum
 ### SPIDER 6 >> urls.txt
+cariddi_enum
+### SPIDER 7 >> urls.txt
 galer_enum_and_merging
-
+### MERGE ALL SPIDERS, CHECK LIVE, MAKE CUSTON WORDLIST FOR DIR BRUTE >> custom_dir.txt
+check_live_urls_and_make_custom_wordlist
 ### --- AUTOMATED SECTION --- ### -a
-if [ $fully_automated == 1 ]
+if [ $fully_automated == 1 ] && [ $no_brute_on == 0 ]
 then
     ### DIRECTORY BRUTEFORCING USING FFUF > status_ffuf.txt
     ffuf_bruteforce
-else
+elif [ $fully_automated == 0 ] && [ $no_brute_on == 0 ]
+then
     ### DIRECTORY BRUTEFORCING USING FEROXBUSTER (output is called ffuf.txt for comatibility reasons)
     ferox_bruteforce
     ferox_manual
+else
+    ### SKIPPING DIRECTORY BRUTEFORCING -n 
+    if [ $https_on == 1 ]
+    then
+        echo "https://$domain" >> ffuf.txt
+    else
+        echo "http://$domain" >> ffuf.txt
+    fi
 fi
-
-### GATHER ALL SOURCE CODE FROM ffuf.txt AND STORE IT IN DIRECTORY > all_source_code/
-code_gatherer
 ### GET LINKS TO JS FILES AND PREPARE IT FOR EXPLOIT MODULE > exp/jsfiles.txt
 gahter_js_links
-### CHECK FOR LIVE JS LINKS
-check_js_live
-### GATHER SOURCE CODE FROM JS LINKS AND STORE IT IN >> all_source_code/
-gather_js_code
+### CHECK FOR LIVE JS LINKS AND STORE THE SOURCE CODE > all_source_code/
+check_js_live_and_gather_js_code
+### BEAUTIFY JS SOURCE CODE IN all_source_code/
+beautify_source_code
 ### DIG API KEYS / ENDPOINTS ETC. > zile.txt
 zile_enum
 ### MUTATE URLS && CHECK IF THERE ARE NO DUPLICATES WITH ffuf.txt > new_endpoints.txt
@@ -687,30 +642,31 @@ else
     check_directories_status
     check_urls_status
 fi
-
 ### EXTRACT UNIQUE QUERIES > exp/params.txt && PREPARE FILES WORDLIST FOR BACKUPER AND ARJUN &AND DIRECTORIES FOR EXPLOIT MODULE (filtering static content) > exp/files.txt && exp/dirs.txt
 preapre_params_and_files
-### CHECK FOR BACKUP FILES > backups.txt
-check_for_backups
 ### CORS MISCONFIGURATION SCAN >> recon.txt
 check_for_cors
-### DIG SECRETS FROM all_source_code/ SAVE COLORED OUTPUT > apikeys.txt
-dig_for_secrets
-
 if [ $arjun_on == 1 ]
 then
     ### GET PARAMETER NAMES BY BRUTEFORCING THEM > exp/arjun.txt
     arjun_enum
 fi
-
 ### --- VHOST SECTION --- ### -v
 if [ $vhost_on == 1 ]
 then
     ### VHOST BRUTEFORCING = vhost.txt
-    vhost_brute_http
-    https_vhost_brute
+    vhost_brute
 fi
-
+if [ "$hop_on" == 1 ]
+then
+    hop_by_hop_test
+fi
+### CHECK FOR BACKUP FILES > backups.txt
+if [ $backup_on == 1 ]
+then
+    ### GET PARAMETER NAMES BY BRUTEFORCING THEM > exp/arjun.txt
+    check_for_backups
+fi
 ### CLEAR LOGS && TRASH
 clear_log
 ### MARK THE END
@@ -727,9 +683,11 @@ echo "  - status_dir.txt"
 echo "  - status_params.txt"
 echo "  - arjun.txt"
 echo "  - backups.txt"
-echo "  - apikeys.txt"
-echo "  - detect-secrets.txt"
 echo "  - use pywhat && ciphey for 'strange' findings"
 echo "  - robots.txt and sitemap.xml  at : https://httpstatus.io/"
 echo "  - Use trufflehog if there is a git repository"
 fi
+
+### TO DO
+# If there is /graphql endpoint use INQL automatically.
+# s3scanner

@@ -1,0 +1,274 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FsPickler.CSharp</name>
+    </assembly>
+    <members>
+        <member name="T:MBrace.CsPickler.CsPicklerSerializer">
+            <summary>
+                Provides basic serialization functionality.
+            </summary>
+        </member>
+        <member name="P:MBrace.CsPickler.CsPicklerSerializer.DisableSubtypeResolution">
+            <summary>
+            Declares that dynamic subtype resolution should be disabled during serialization.
+            This explicitly prohibits serialization/deserialization of any objects whose type
+            is specified in the serialization payload. Examples of such types are System.Object,
+            F# functions and delegates. Defaults to false.
+            </summary>
+        </member>
+        <member name="P:MBrace.CsPickler.CsPicklerSerializer.DisableAssemblyLoading">
+            Declares that FsPickler should make no attempt of its own to load Assemblies
+            that are specified in the serialization format. Will result in a deserialization
+            exception if required assembly is missing from the current AppDomain. Defaults to false.
+        </member>
+        <member name="M:MBrace.CsPickler.CsPicklerSerializer.#ctor(MBrace.FsPickler.FsPicklerSerializer)">
+            <summary>
+                Wraps an FsPickler instance in a C# friendly facade.
+            </summary>
+            <param name="serializer">FsPickler serializer instance.</param>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPicklerSerializer.Serialize``1(System.IO.Stream,``0,System.Object,System.Text.Encoding,System.Boolean)">
+            <summary>
+                Serializes given value to stream.
+            </summary>
+            <typeparam name="T">serialized value type.</typeparam>
+            <param name="stream">target stream.</param>
+            <param name="value">serialized value.</param>
+            <param name="streamingContext">payload object for StreamingContext; defaults to null.</param>
+            <param name="encoding">stream encoding; defaults to UTF8.</param>
+            <param name="leaveOpen">leave stream open; defaults to false.</param>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPicklerSerializer.Deserialize``1(System.IO.Stream,System.Object,System.Text.Encoding,System.Boolean)">
+            <summary>
+                Deserializes given type from stream.
+            </summary>
+            <typeparam name="T">deserialized value type.</typeparam>
+            <param name="stream">source stream.</param>
+            <param name="streamingContext">payload object for StreamingContext; defaults to null.</param>
+            <param name="encoding">stream encoding; defaults to UTF8.</param>
+            <param name="leaveOpen">leave stream open; defaults to false.</param>
+            <returns>deserialized value.</returns>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPicklerSerializer.Pickle``1(``0,System.Object,System.Text.Encoding)">
+            <summary>
+                Creates a binary pickle out of a given value.
+            </summary>
+            <typeparam name="T">serialized value type.</typeparam>
+            <param name="value">serialized value.</param>
+            <param name="streamingContext">payload object for StreamingContext; defaults to null.</param>
+            <param name="encoding">stream encoding; defaults to UTF8.</param>
+            <returns>binary pickle for object.</returns>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPicklerSerializer.UnPickle``1(System.Byte[],System.Object,System.Text.Encoding)">
+            <summary>
+                Instantiates a new object out of a binary pickle.
+            </summary>
+            <typeparam name="T">type of value to be unpickled.</typeparam>
+            <param name="pickle">binary pickle of value.</param>
+            <param name="streamingContext">payload object for StreamingContext; defaults to null.</param>
+            <param name="encoding">stream encoding; defaults to UTF8.</param>
+            <returns>unpickled instance.</returns>
+        </member>
+        <member name="T:MBrace.CsPickler.BinarySerializer">
+            <summary>
+                Defines a binary serializer instance.
+            </summary>
+        </member>
+        <member name="M:MBrace.CsPickler.BinarySerializer.Create(System.Boolean)">
+            <summary>
+                Creates a new BinaryPickler instance.
+            </summary>
+            <param name="forceLittleEndian">force little-endian encoding in primitive arrays but is slower; defaults to false.</param>
+        </member>
+        <member name="P:MBrace.CsPickler.BinarySerializer.ForceLittleEndian">
+            <summary>
+                Gets or sets the ForceLittleEndian setting.
+                Uses BinaryWriter rather than Buffer.BlockCopy 
+                for array serializations but is slower.
+            </summary>
+        </member>
+        <member name="T:MBrace.CsPickler.CsPickler">
+            <summary>
+                Provides a collection of utilities and factory methods.
+            </summary>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPickler.CreateBinarySerializer(System.Boolean)">
+            <summary>
+                Creates a new serializer instance that uses the built-in binary format.
+            </summary>
+            <param name="forceLittleEndian">force little-endian encoding in primitive arrays but is slower; defaults to false.</param>
+            <returns>BinaryPickler instance.</returns>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPickler.CreateXmlSerializer(System.Boolean)">
+            <summary>
+                Creates a new serializer instance that uses the XML format.
+            </summary>
+            <param name="indent">indent xml serializations; defaults to false.</param>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPickler.CreateJsonSerializer(System.Boolean,System.Boolean)">
+            <summary>
+                Creates a new serializer instances that uses the JSON format.
+            </summary>
+            <param name="indent">indent json serializations; defaults to false.</param>
+            <param name="omitHeader">omit FsPickler metadata at the serialization header; defaults to false.</param>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPickler.CreateBsonSerializer">
+            <summary>
+                Creates a new serializer instances that uses the BSON format.
+            </summary>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPickler.IsSerializableType(System.Type)">
+            <summary>
+                Checks if given type is serializable.
+            </summary>
+            <param name="type">input type.</param>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPickler.IsSerializableType``1">
+            <summary>
+                Checks if given type is serializable.
+            </summary>
+            <typeparam name="T">input type.</typeparam>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPickler.ComputeSize``1(``0)">
+            <summary>
+                Compute size in bytes for given value.
+            </summary>
+            <typeparam name="T">input value type.</typeparam>
+            <param name="value">input value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPickler.ComputeHash``1(``0)">
+            <summary>
+                Computes an 128-bit MurMur3 hash for given value.
+            </summary>
+            <typeparam name="T">input value type.</typeparam>
+            <param name="value">input value.</param>
+            <returns>128-bit hashcode.</returns>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPickler.VisitObject``1(MBrace.FsPickler.IObjectVisitor,``0)">
+            <summary>
+                Traverses a serializable object graph using an IObjectVisitor implementation.
+            </summary>
+            <typeparam name="T">graph type.</typeparam>
+            <param name="visitor">visitor implementation.</param>
+            <param name="graph">input graph.</param>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPickler.Clone``1(``0,System.Object)">
+            <summary>
+                Performs an in-memory, deep cloning of provided serializable object graph.
+                Cloning is performed on a node-to-node basis and does not make use of intermediate
+                serialization buffers.
+            </summary>
+            <typeparam name="T">graph type.</typeparam>
+            <param name="graph">object to be cloned.</param>
+            <param name="streamingContext">payload object for StreamingContext; defaults to null.</param>
+            <returns>Clone of provided object graph.</returns>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPickler.EnsureSerializable``1(``0)">
+            <summary>
+                Traverses the object graph, returning if serializable
+                or raising an exception if not.
+            </summary>
+            <typeparam name="T">Type of the object graph to be checked.</typeparam>
+            <param name="graph">Graph to be checked.</param>
+        </member>
+        <member name="T:MBrace.CsPickler.BsonSerializer">
+            <summary>
+                Defines a Bson serializer instance.
+            </summary>
+        </member>
+        <member name="M:MBrace.CsPickler.BsonSerializer.Create">
+            <summary>
+                Creates a new BsonPickler instance.
+            </summary>
+        </member>
+        <member name="T:MBrace.CsPickler.JsonSerializer">
+            <summary>
+                Defines a Json serializer instance.
+            </summary>
+        </member>
+        <member name="M:MBrace.CsPickler.JsonSerializer.Create(System.Boolean,System.Boolean)">
+            <summary>
+                Creates a new JsonPickler instance.
+            </summary>
+            <param name="indent">indent Json serializations; defaults to false.</param>
+            <param name="omitHeader">omit FsPickler metadata at the serialization header; defaults to false.</param>
+        </member>
+        <member name="P:MBrace.CsPickler.JsonSerializer.Indent">
+            <summary>
+                Gets or sets Json serialization indentation.
+            </summary>
+        </member>
+        <member name="P:MBrace.CsPickler.JsonSerializer.OmitHeader">
+            <summary>
+                Gets or sets whether FsPickler metadata should be read at the Json header.
+            </summary>
+        </member>
+        <member name="T:MBrace.CsPickler.CsPicklerTextSerializer">
+            <summary>
+                Provides basic functionality for text-based serialization.
+            </summary>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPicklerTextSerializer.#ctor(MBrace.FsPickler.FsPicklerTextSerializer)">
+            <summary>
+                Wraps an FsPickler instance in a CsPickler facade.
+            </summary>
+            <param name="textSerializer">FsPickler instance.</param>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPicklerTextSerializer.Serialize``1(System.IO.TextWriter,``0,System.Object,System.Boolean)">
+            <summary>
+                Serializes given value to stream.
+            </summary>
+            <typeparam name="T">serialized value type.</typeparam>
+            <param name="writer">target text writer.</param>
+            <param name="value">serialized value.</param>
+            <param name="streamingContext">payload object for StreamingContext; defaults to null.</param>
+            <param name="leaveOpen">leave stream open; defaults to false.</param>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPicklerTextSerializer.Deserialize``1(System.IO.TextReader,System.Object,System.Boolean)">
+            <summary>
+                Deserializes given type from stream.
+            </summary>
+            <typeparam name="T">deserialized value type.</typeparam>
+            <param name="reader">source text reader.</param>
+            <param name="streamingContext">payload object for StreamingContext; defaults to null.</param>
+            <param name="leaveOpen">leave stream open; defaults to false.</param>
+            <returns>deserialized value.</returns>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPicklerTextSerializer.PickleToString``1(``0,System.Object)">
+            <summary>
+                Creates a string pickle out of a given value.
+            </summary>
+            <typeparam name="T">serialized value type.</typeparam>
+            <param name="value">serialized value.</param>
+            <param name="streamingContext">payload object for StreamingContext; defaults to null.</param>
+            <returns>binary pickle for object.</returns>
+        </member>
+        <member name="M:MBrace.CsPickler.CsPicklerTextSerializer.UnPickleOfString``1(System.String,System.Object)">
+            <summary>
+                Instantiates a new object out of a string pickle.
+            </summary>
+            <typeparam name="T">type of value to be unpickled.</typeparam>
+            <param name="pickle">text pickle of value.</param>
+            <param name="streamingContext">payload object for StreamingContext; defaults to null.</param>
+            <returns>unpickled instance.</returns>
+        </member>
+        <member name="T:MBrace.CsPickler.XmlSerializer">
+            <summary>
+                Defines an Xml serializer instance.
+            </summary>
+        </member>
+        <member name="M:MBrace.CsPickler.XmlSerializer.Create(System.Boolean)">
+            <summary>
+                Creates a new XmlPickler instance.
+            </summary>
+            <param name="indent">indent xml serializations; defaults to false.</param>
+        </member>
+        <member name="P:MBrace.CsPickler.XmlSerializer.Indent">
+            <summary>
+                Gets or sets indentation of Xml serializations.
+            </summary>
+        </member>
+    </members>
+</doc>

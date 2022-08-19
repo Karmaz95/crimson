@@ -67,7 +67,7 @@ def check_backup_file(urls, extensions, cookies, headers):
     s.headers.update(headers)
     for url in tqdm(urls):
         try:
-            r1 = s.get(url, allow_redirects=True, verify=False, timeout=3)
+            r1 = s.get(url, allow_redirects=True, verify=False, timeout=2)
         except KeyboardInterrupt:
             sys.exit()
         except:
@@ -75,7 +75,7 @@ def check_backup_file(urls, extensions, cookies, headers):
         for ext in extensions:
             backup = url + ext
             try:
-                r2 = s.get(backup, allow_redirects=True, verify=False, timeout=3)
+                r2 = s.get(backup, allow_redirects=True, verify=False, timeout=2)
                 # Check if r2 is not permanently redirected, if not send r1.
                 # If status code of r2 is equal 200 step into next check.
                 # If Content-Length or the r2 is not the same as r1 step ino next check.

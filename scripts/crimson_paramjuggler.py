@@ -23,7 +23,9 @@ import webbrowser
 import sys
 import time
 import getopt
-import urlparse
+#import urlparse
+from urllib.parse import urlparse
+from urllib.parse import urlunparse
 
 ### OPTIONS ---
 full_cmd_arguments = sys.argv
@@ -39,7 +41,8 @@ except getopt.error as err:
 
 ### REPLACE PARAMS WITH PAYLOAD => print value to stdout
 def paramjuggler(url,payload):
-    parsed=urlparse.urlparse(url)
+    #parsed=urlparse.urlparse(url)
+    parsed=urlparse(url)
     #Extract queries table
     queries=parsed.query.split("&")
     for i,query in enumerate(queries):
@@ -52,7 +55,8 @@ def paramjuggler(url,payload):
         new_param=param+payload
         new_queries[i] = new_param
         new_parsed = parsed._replace(query="&".join(new_queries))
-        result.append(urlparse.urlunparse(new_parsed))
+        #result.append(urlparse.urlunparse(new_parsed))
+        result.append(urlunparse(new_parsed))
         print("".join(result).rstrip())
 
 
