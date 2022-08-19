@@ -68,7 +68,7 @@ crimson_recon -d "domain.com"
                 -v # Virtual host discovering
                 -b # Third-level subdomain brute-forcing
                 -y # Proxy urls.txt and live.txt to Burp (127.0.0.1:8080)
-                -j \"burp.collaborator.domain\" # Scan for log4j vulnerability on all URLs & live domains
+                -j "burp.collaborator.domain" # Scan for log4j vulnerability on all URLs & live domains
 ```
 
  
@@ -114,13 +114,13 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
         https://target?param=asd
 
         # Optional flags are shown below:
-        -c \"Cookie: auth1=123;\"
+        -c "Cookie: auth1=123;"
         -i 123.123.123.123 # IP for OAST testing - run the below commands on the VPS server
                               # > start: sudo tcpdump -i eth0 icmp
                               # > start: sudo python3 -m http.server 80
         -d domain.burp.com # DOMAIN for OAST testing
                               # > You can use Burp collaborator server
-        -x '/root/wordlist'# Fuzzing all.txt with a given wordlist
+        -x "/root/wordlist"# Fuzzing all.txt with a given wordlist
                               # > Use '' for a default one /root/tools/crimson/words/bug
         -n                 # Turn on NUCLEI scan on all URLs
         -o                 # Test open redirection vulnerabilities on all URLs
