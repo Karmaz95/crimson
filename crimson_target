@@ -177,7 +177,7 @@ gospider_enum() {
     ### GOSPIDER
     anchor_check "${FUNCNAME[0]}" || return 0
     echo -e "\033[0;31m [+]\033[0m SPIDER [1]"
-    echo "$domain" | httpx -silent | gospider -c 10 -q -r -w -a --sitemap --robots --subs -H "$cookie" | grep http | sed "s/^.*http/http/g" >> urls.txt
+    echo "$domain" | httpx -silent | gospider -c 10 -q -w -a --sitemap --robots --subs -H "$cookie" | grep http | sed "s/^.*http/http/g" >> urls.txt
 }
 
 paramspider_enum() {

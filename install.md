@@ -458,7 +458,7 @@ mkdir -p "$HOME/tools/" && cd "$HOME/tools/" && apt update && apt install -y kal
 
 ### ALL PIP3
 ```bash
-pip3 install --upgrade PyCryptodome PyYAML argparse arjun censys certifi chardet colorama cprint fake_useragent future fuzzywuzzy git+https://github.com/rthalley/dnspython.git idna mailspoof py-altdns pyOpenSSL pycryptodomex pycurl  pydig pyvis pywhat requests s3scanner selenium semgrep ssh-audit tabulate termcolor terminaltables tld tqdm urllib3 wfuzz yq
+pip3 install --upgrade PyCryptodome PyYAML argparse arjun censys certifi chardet colorama cprint fake_useragent future fuzzywuzzy git+https://github.com/rthalley/dnspython.git idna mailspoof py-altdns pyOpenSSL pycryptodomex pycurl pydig pyvis pywhat requests s3scanner selenium semgrep ssh-audit tabulate termcolor terminaltables tld tqdm urllib3 wfuzz yq
 ```
 
 ### ALL GO

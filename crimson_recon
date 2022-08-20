@@ -60,8 +60,7 @@ clear_log() {
     ### CLEARING STUFF
     rm resolvers.txt 2>/dev/null
     rm error_requests.txt 2>/dev/null
-    find . -type d -empty -print -delete -o -type f -empty -print -delete
-    rm -rf nuclei-templates
+    find . -type d -empty -print -delete -o -type f -empty -print -delete >/dev/null 2>&1
     rm urls_and_live.txt 2>/dev/null
     ### REMOVING LOG IF PROGRAM EXIT NORMALLY
     if [ -f "$HOME/bounty/$DOMAIN/anchor.log" ]; then
