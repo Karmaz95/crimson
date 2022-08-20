@@ -57,7 +57,7 @@ crimson_IPcon -i IPADDRESS
         -b                      # BRUTE FORCE
 ```
 ## :diamonds: crimson_recon :diamonds:
-### :diamonds: First module needs `domain name` :diamonds:
+#### :diamonds: First module needs `domain name` :diamonds:
 ```bash
 # The most optimal use (-x for domain bruteforcing):
 c_1 -d "DOMAIN" -v -x
@@ -74,7 +74,7 @@ crimson_recon -d "domain.com"
 ```
 
 ## :diamonds: crimson_target :diamonds:
-###  :diamonds: Second module needs `subdomain name` :diamonds:
+####  :diamonds: Second module needs `subdomain name` :diamonds:
 ```bash
 # The most optimal use:
 c_2 -d "DOMAIN" -c "Cookie: auth1=123;" -a -v -h
@@ -96,7 +96,7 @@ crimson_target -d "example.domain.com"
                 -n # Use this option to skip the directory brute-forcing phase."
 ```
 ## :diamonds: crimson_exploit :diamonds:
-###  :diamonds: Third module needs `subdomain name` with your `collaborator` and `vps ip` :diamonds:
+####  :diamonds: Third module needs `subdomain name` with your `collaborator` and `vps ip` :diamonds:
 
 ```bash
 # The most optimal use - go to "exp" directory and run:
@@ -128,7 +128,7 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
         -o                 # Test open redirection vulnerabilities on all URLs
 ```
 
-### :diamonds: Before starting third module, run the listener on your vps machine on port 80 `python -m http.server 80` and for ping payloads `tcpdump -i eth0 icmp` :diamonds:
+#### :diamonds: Before starting third module, run the listener on your vps machine on port 80 `python -m http.server 80` and for ping payloads `tcpdump -i eth0 icmp` :diamonds:
 
 # Usage - modules description
 
