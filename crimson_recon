@@ -143,9 +143,10 @@ bruteforce_dns_1() {
 check_for_live_1() {
     ### DNSX
     anchor_check "${FUNCNAME[0]}" || return 0
-    echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE SUBDOMAINS"
     echo -e "\033[0;31m==================================\033[0m"
-    cat subdomains.txt | dnsx -t 100 -silent -r resolvers.txt -o dnsx1.txt
+    echo -e "\033[0;31m [+]\033[0m CHECKING FOR LIVE SUBDOMAINS"
+    cat subdomains.txt | dnsx -t 100 -silent -r resolvers.txt -o dnsx1.txt > /dev/null 2>&1
+    echo -e "\033[0;31m [+]\033[0m CHECKING FOR WILDCARD SUBDOMAINS"
     dns-wildcard-removal --domain "$DOMAIN" --input dnsx1.txt -r resolvers.txt --output real.txt > /dev/null 2>&1
     cat real.txt | cut -d " " -f1 | sed "s/.$//" | sort -u > live1.txt
     rm dnsx1.txt && rm real.txt

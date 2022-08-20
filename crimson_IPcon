@@ -179,7 +179,7 @@ enum_hosts() {
         echo -e "\033[0;31m[+][+]\033[0m FOUND HOST NAMES FOR $ip"
     cat nessus_hosthunter | tr "," "\n" | sed "s/ //g" | grep -a "\[$ip\]" |sed "s/\[$ip\]//g" | tee -a crimson_"$ip"/hostnames.txt
     done < IP_to_test.txt
-    rm nessus_hosthunter webapps_hosthunter hosthunter
+    rm nessus_hosthunter webapps_hosthunter hosthunter 2>/dev/null
 }
 
     # Enumerate hostnames of the all IPs

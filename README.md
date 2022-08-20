@@ -72,6 +72,7 @@ crimson_recon -d "domain.com"
                 -y # Proxy urls.txt and live.txt to Burp (127.0.0.1:8080)
                 -j "burp.collaborator.domain" # Scan for log4j vulnerability on all URLs & live domains
 ```
+* Check the [MEDIUM ARTICLE](https://karol-mazurek95.medium.com/crimson-appsec-firearm-i-bc242a2a910), which explains the `crimson_recon` module deeper. 
 
 ## :diamonds: crimson_target :diamonds:
 ####  :diamonds: Second module needs `subdomain name` :diamonds:

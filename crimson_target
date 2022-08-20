@@ -185,7 +185,7 @@ paramspider_enum() {
     anchor_check "${FUNCNAME[0]}" || return 0
     echo -e "\033[0;31m [+]\033[0m SPIDER [2]"
     python3 "$HOME"/tools/ParamSpider/paramspider.py -d "$domain" --output ./paramspider.txt --level high > /dev/null 2>&1
-    cat paramspider.txt | grep http | sort -u | grep "$domain" >> urls.txt
+    cat paramspider.txt | grep http | sort -u | grep "$domain" >> urls.txt 2>/dev/null
     cat ../paramspider.txt | grep http | sort -u | grep "$domain" | anew urls.txt > /dev/null
 }
 
@@ -226,7 +226,7 @@ galer_enum_and_merging() {
     ### MERGE SPIDERS AND DELETE DUPLICATES >> urls.txt
     echo -e "\033[0;31m [+]\033[0m MERGING SPIDERS RESULTS"
     grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" ../urls.txt | grep "$domain" | anew urls.txt 2>/dev/null
-    cat urls.txt | qsreplace -a >  temp1.txt 
+    cat urls.txt | qsreplace -a > temp1.txt 2>/dev/null
 }
 
 check_live_urls_and_make_custom_wordlist() {
@@ -557,6 +557,8 @@ then
 else
     https_on=0
 fi
+### CMS SCAN >> recon.txt
+cmseek_enum
 echo "----------------------------------------------------------------" >> recon.txt 
 echo "SCANNING START: $(date +'[%m-%d %H:%M:%S]')" >> recon.txt    
 echo "----------------------------------------------------------------" >> recon.txt 
@@ -570,8 +572,6 @@ check_waf
 whatweb_enum
 ### SSL CHECK
 check_ssl
-### CMS SCAN >> recon.txt
-cmseek_enum
 ### TEST WP IF FOUND >> 
 test_wordpress_if_exists
 ### TEST JWT IF EXISTS > jwt.txt
