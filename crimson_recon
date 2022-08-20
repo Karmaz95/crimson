@@ -62,7 +62,7 @@ clear_log() {
     rm error_requests.txt 2>/dev/null
     find . -type d -empty -print -delete -o -type f -empty -print -delete
     rm -rf nuclei-templates
-    rm urls_and_live.txt
+    rm urls_and_live.txt 2>/dev/null
     ### REMOVING LOG IF PROGRAM EXIT NORMALLY
     if [ -f "$HOME/bounty/$DOMAIN/anchor.log" ]; then
             rm "$HOME/bounty/$DOMAIN/anchor.log"
@@ -317,6 +317,7 @@ nuclei_scan_all() {
     nuclei -ut -silent
     nuclei -l live_with_protocol.txt -fr -mhe 300 -headless -stats -silent -et "token-spray,misconfiguration/http-missing-security-headers.yaml" | tee -a nuclei.txt
     mv *.png screenshots/
+    cat nuclei.txt | grep ^http | grep ".*/.*\.$DOMAIN/" | httpx -silent  -fc 404 >> urls.txt
 }
 
 log4j_scan() {

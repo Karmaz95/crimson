@@ -162,6 +162,7 @@ nuclei_scan_domain(){
 	nuclei -u http://"$domain" -fr -mhe 300 -headless -silent -et "token-spray,misconfiguration/http-missing-security-headers.yaml" -H "$cookie" | tee -a nuclei.txt
 	mkdir screenshots/
     mv ./*.png screenshots/
+    cat nuclei.txt | grep ^http | grep ".*/.*\.$DOMAIN/" | httpx -silent  -fc 404 >> urls.txt
 }
 
 nikto_enum() {
