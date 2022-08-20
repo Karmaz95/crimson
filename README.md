@@ -96,7 +96,7 @@ crimson_target -d "example.domain.com"
                 -n # Use this option to skip the directory brute-forcing phase."
 ```
 ## :diamonds: crimson_exploit :diamonds:
-####  :diamonds: Third module needs two files in the current directory `dirs.txt` and `paramst.txt` :diamonds:
+####  :diamonds: The third module needs two files in the current directory, `dirs.txt` and `paramst.txt`. These files are created by the `crimson_target` module in the exp directory :diamonds:
 ```bash
 # The most optimal use - go to "exp" directory and run:
 c_3 -d "BURP_DOMAIN" -i "VPS_IP"  
