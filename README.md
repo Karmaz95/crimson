@@ -36,7 +36,7 @@ docker cp crimson:/root/bounty/domain.name LOCAL_DEST_PATH
 # Usage
 > Commands issued inside a docker container.
 ## :diamonds: crimson_IPcon :diamonds:
-### :diamonds: Module zero needs `IP ADDRESS` or `list_with_ip.txt` :diamonds:
+#### :diamonds: Module zero needs `IP ADDRESS` or `list_with_ip.txt` :diamonds:
 ```bash
 # The most optimal use:
 c_0 -l ip.txt -t -u -p -k '' -v -b
