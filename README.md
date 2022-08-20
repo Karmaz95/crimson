@@ -35,7 +35,8 @@ docker cp crimson:/root/bounty/domain.name LOCAL_DEST_PATH
 
 # Usage
 > Commands issued inside a docker container.
-##### :diamonds: Module zero needs `IP ADDRESS` or `list_with_ip.txt` :diamonds:
+## :diamonds: crimson_IPcon :diamonds:
+### :diamonds: Module zero needs `IP ADDRESS` or `list_with_ip.txt` :diamonds:
 ```bash
 # The most optimal use:
 c_0 -l ip.txt -t -u -p -k '' -v -b
@@ -55,7 +56,8 @@ crimson_IPcon -i IPADDRESS
         -v                      # VULNERABILITY SCANNING
         -b                      # BRUTE FORCE
 ```
-##### :diamonds: First module needs `domain name` :diamonds:
+## :diamonds: crimson_recon :diamonds:
+### :diamonds: First module needs `domain name` :diamonds:
 ```bash
 # The most optimal use (-x for domain bruteforcing):
 c_1 -d "DOMAIN" -v -x
@@ -71,8 +73,8 @@ crimson_recon -d "domain.com"
                 -j "burp.collaborator.domain" # Scan for log4j vulnerability on all URLs & live domains
 ```
 
- 
-##### :diamonds: Second module needs `subdomain name` :diamonds:
+## :diamonds: crimson_target :diamonds:
+###  :diamonds: Second module needs `subdomain name` :diamonds:
 ```bash
 # The most optimal use:
 c_2 -d "DOMAIN" -c "Cookie: auth1=123;" -a -v -h
@@ -93,8 +95,8 @@ crimson_target -d "example.domain.com"
                    # Can take a few hours...
                 -n # Use this option to skip the directory brute-forcing phase."
 ```
-
-##### :diamonds: Third module needs `subdomain name` with your `collaborator` and `vps ip` :diamonds:
+## :diamonds: crimson_exploit :diamonds:
+###  :diamonds: Third module needs `subdomain name` with your `collaborator` and `vps ip` :diamonds:
 
 ```bash
 # The most optimal use - go to "exp" directory and run:
@@ -126,7 +128,7 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
         -o                 # Test open redirection vulnerabilities on all URLs
 ```
 
-##### :diamonds: Before starting third module, run the listener on your vps machine on port 80 `python -m http.server 80` and for ping payloads `tcpdump -i eth0 icmp` :diamonds:
+### :diamonds: Before starting third module, run the listener on your vps machine on port 80 `python -m http.server 80` and for ping payloads `tcpdump -i eth0 icmp` :diamonds:
 
 # Usage - modules description
 
