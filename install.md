@@ -11,7 +11,7 @@ echo "IyMjIFBBVEhTIApleHBvcnQgR09ST09UPS91c3IvbGliL2dvCmV4cG9ydCBHT1BBVEg9JEhPTU
 ```
 3. PULLING THE IMAGE
 ```bash
-docker CONTAINER_ID commit crimson karmaz95/crimson:v3
+docker container commit crimson karmaz95/crimson:v3
 docker push karmaz95/crimson:v3
 ```
 # CRIMSON .BASHRC ADDITION
