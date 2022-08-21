@@ -439,7 +439,7 @@ vhost_brute() {
     echo -e "\033[0;31m [+]\033[0m BRUTEFORCING VIRTUAL HOSTNAMES "
     ip=$(dig +short "$domain")
     cat "$HOME"/tools/crimson/words/vhosts.txt | sed "s/$/.$DOMAIN/" > vhosts.txt
-    cat ../subdomains.txt >> vhosts.txt
+    cat ../subdomains.txt >> vhosts.txt 2>/dev/null
     sed -i '/_/d' ./vhosts.txt
 
     echo "[VHOSTS] ---------------------------------------------------------" | tee -a recon.txt

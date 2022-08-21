@@ -96,7 +96,7 @@ crimson_target -d "example.domain.com"
                 -b # Check backup files on all live URLs (status code != 404) 
                    # Can take a few hours...
                 -n # Use this option to skip the directory brute-forcing phase
-                -k # Test HTTP inseated of HTTPS"
+                -k # Test HTTP inseated of HTTPS
 ```
 ## :diamonds: crimson_exploit :diamonds:
 ####  :diamonds: The third module needs two files in the current directory, `dirs.txt` and `paramst.txt`. These files are created by the `crimson_target` module in the exp directory :diamonds:
