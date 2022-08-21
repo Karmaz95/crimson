@@ -209,7 +209,7 @@ gau_get_urls() {
     cat gau.txt | unfurl -u domains > subs_gau.txt
     sort -u subs_gau.txt live.txt > live2.txt
     mv live2.txt live.txt
-    rm subs_gau.txt
+    rm subs_gau.txt 2>/dev/null
 }
 
 waybackurls_get_urls() {
@@ -219,17 +219,17 @@ waybackurls_get_urls() {
     cat waybackurls.txt | unfurl -u domains > subs_waybackurls.txt
     sort -u subs_waybackurls.txt live.txt > live2.txt
     mv live2.txt live.txt
-    rm subs_waybackurls.txt
+    rm subs_waybackurls.txt 2>/dev/null
 }
 
 merging_spiders_in_one_big_list() {
     ### -
     anchor_check "${FUNCNAME[0]}" || return 0
     cat waybackurls.txt | qsreplace -a >> urls.txt
-    cat gau.txt | qsreplace -a | anew urls.txt > /dev/null
-    cat paramspider.txt | qsreplace -a | anew urls.txt > /dev/null
+    cat gau.txt | qsreplace -a | anew urls.txt >/dev/null
+    cat paramspider.txt | qsreplace -a | anew urls.txt >/dev/null
     sed -i '/^$/d' urls.txt
-    rm waybackurls.txt paramspider.txt gau.txt
+    rm waybackurls.txt paramspider.txt gau.txt 2>/dev/null
 }
 
 check_for_live_urls() {

@@ -346,7 +346,7 @@ check_new_endpoints_status() {
     # WFUZZ
     anchor_check "${FUNCNAME[0]}" || return 0
     echo -e "\033[0;31m [+]\033[0m CHECKING STATUS CODE OF NEW PATHS"
-    wfuzz -f status_new_endpoints.txt,raw -L -Z -z file,new_endpoints.txt -z file,"$HOME"/tools/crimson/words/blank -H "$cookie" FUZZFUZ2Z > /dev/null 2>&1
+    wfuzz --conn-delay 2 --req-delay 3 -f status_new_endpoints.txt,raw -L -Z -z file,new_endpoints.txt -z file,"$HOME"/tools/crimson/words/blank -H "$cookie" FUZZFUZ2Z 
     rm new_endpoints.txt
     ### REMOVE 400 && 404 RESPONSES
     cat status_new_endpoints.txt | grep "http" | grep -E "C=400  |C=404  " -v | grep -v "Pycurl" | cut -s -d "\"" -f2 > filtered_new_endpoints.txt
@@ -479,10 +479,14 @@ arjun_on=0
 vhost_on=0
 backup_on=0
 no_brute_on=0
-while getopts "c:vd:ayphbn" OPTION; do
+test_http=0
+while getopts "c:j:vd:ayphbnk" OPTION; do
     case $OPTION in
     c)
         cookie=$OPTARG
+        ;;
+    j)
+        collaborator_domain=$OPTARG
         ;;
     v)
         vhost_on=1
@@ -508,6 +512,9 @@ while getopts "c:vd:ayphbn" OPTION; do
     n)
         no_brute_on=1
         ;;
+    k)
+        test_http=1
+        ;;
     *)
         echo "Incorrect options provided"
         exit 1
@@ -521,22 +528,21 @@ echo "crimson_target -d \"example.domain.com\"
                 
                 # Optional flags are shown below:
                 -c \"Cookie: auth1=123;\"
+                -j \"burp.collaborator.domain\" # SSRF check with quickpress
                 -v # Virtual host discovering
                 -a # Without this flag, you have to manually check for false-positives after bruteforcing
                 -y # Proxy urls.txt and ffuf.txt to Burp (host.docker.internal:8080)
                 -p # Parameter bruteforcing with Arjun (WARNING - it takes a lot of time, better use Burp Param Miner)
                 -h # Test HOP-BY-HOP header deletion at the end
                 -b # Check backup files (can take a few hours of time)
-                -n # Use this option to skip directory bruteforcing phase"
+                -n # Use this option to skip directory bruteforcing phase
+                -k # Test HTTP inseated of HTTPS"
 exit 1
 else
 ### PREPARE DIRECTORIES AND VARIABLES
 echo -e "\033[0;31m [+]\033[0m PREPARING DIRECTORIES AND VARIABLES"
-export domain
 DOMAIN=$(tldextract "$domain" | cut -s -d " " -f 2-3 | sed "s/\ /\./")
-export DOMAIN
 TARGET=$(dig +short "$domain" | tr "\n" ",")
-export TARGET
 mkdir "$HOME"/bounty/"$DOMAIN"/"$domain"/temp -p 2>/dev/null
 mkdir "$HOME"/bounty/"$DOMAIN"/"$domain"/exp 2>/dev/null
 mkdir "$HOME"/bounty/"$DOMAIN"/"$domain"/all_source_code 2>/dev/null
@@ -550,12 +556,17 @@ else
 fi
 
 ### CHECK IF THERE IS SSL
-ssl_check=$(echo "$domain" | httpx -silent | grep https -o)
-if [  "$ssl_check" == "https" ]
+if [  "$test_http" == 0 ]
 then
-    https_on=1
-else
     https_on=0
+else
+    ssl_check=$(echo "$domain" | httpx -silent | grep https -o)
+    if [  "$ssl_check" == "https" ]
+    then
+        https_on=1
+    else
+        https_on=0
+    fi
 fi
 ### CMS SCAN >> recon.txt
 cmseek_enum

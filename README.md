@@ -87,6 +87,7 @@ crimson_target -d "example.domain.com"
                 
                 # Optional flags are shown below:
                 -c "Cookie: auth1=123;"
+                -j "burp.collaborator.domain" # SSRF check with quickpress
                 -v # Virtual host discovering
                 -a # Without this flag, you have to check for false-positives after brute-forcing manually
                 -y # Proxy urls.txt and ffuf.txt to Burp (host.docker.internal:8080)
@@ -94,7 +95,8 @@ crimson_target -d "example.domain.com"
                 -h # Test HOP-BY-HOP header deletion at the end
                 -b # Check backup files on all live URLs (status code != 404) 
                    # Can take a few hours...
-                -n # Use this option to skip the directory brute-forcing phase."
+                -n # Use this option to skip the directory brute-forcing phase
+                -k # Test HTTP inseated of HTTPS"
 ```
 ## :diamonds: crimson_exploit :diamonds:
 ####  :diamonds: The third module needs two files in the current directory, `dirs.txt` and `paramst.txt`. These files are created by the `crimson_target` module in the exp directory :diamonds:
@@ -254,14 +256,14 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
 # 3) status_params.txt  - STATUS CODES OF urls.txt
 # 4) ffuf.txt           - DIR BRUTEFORCING OUTPUT
 # 5) status_dir.txt     - STATUS CODE OF ffuf.txt
-# 9) exp/params.txt     - FILE PREPARED FOR crimson_exploit WITH PARAMS
-# 10) exp/dirs.txt      - FILE PREPARED FOR crimson_exploit WITH DIRECTORIES
-# 11) backups.txt       - POTENTIALLY BACKUP FILES 
-# 12) arjun.txt         - FILE WITH BRUTEFORCED PARAMETERS
-# 13) all_source_code/  - DIRECTORY WITH JS SOURCE CODES
-# 14) testssl.txt       - OUTPUT FROM testssl
-# 15) jwt.txt           - OUTPUT FROM jwt_tool
-# 16) wp/               - DIRECTORY WITH OUTPUT FROM WordPress tools
+# 6) exp/params.txt     - FILE PREPARED FOR crimson_exploit WITH PARAMS
+# 7) exp/dirs.txt      - FILE PREPARED FOR crimson_exploit WITH DIRECTORIES
+# 8) backups.txt       - POTENTIALLY BACKUP FILES 
+# 9) arjun.txt         - FILE WITH BRUTEFORCED PARAMETERS
+# 10) all_source_code/  - DIRECTORY WITH JS SOURCE CODES
+# 11) testssl.txt       - OUTPUT FROM testssl
+# 12) jwt.txt           - OUTPUT FROM jwt_tool
+# 13) wp/               - DIRECTORY WITH OUTPUT FROM WordPress tools
 #
 ## WORKFLOW
 #
