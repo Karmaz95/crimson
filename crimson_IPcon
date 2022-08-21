@@ -553,7 +553,7 @@ brute_kerbrute() {
 
 clear_log() {
 	### CLEARING STUFF - deleting empty files
-    find . -type d -empty -print -delete -o -type f -empty -print -delete
+    find . -type d -empty -print -delete -o -type f -empty -print -delete >/dev/null 2>&1
 	### REMOVING LOG IF PROGRAM EXIT NORMALLY
 	if [ -f "$output_directory/anchor.log" ]; then
 			rm "$output_directory/anchor.log"
