@@ -98,6 +98,8 @@ crimson_target -d "example.domain.com"
                 -n # Use this option to skip the directory brute-forcing phase
                 -k # Test HTTP inseated of HTTPS
 ```
+* Check the [MEDIUM ARTICLE](https://karol-mazurek95.medium.com/crimson-appsec-firearm-ii-ef37cbff7ac3), which explains the `crimson_target` module deeper. 
+
 ## :diamonds: crimson_exploit :diamonds:
 ####  :diamonds: The third module needs two files in the current directory, `dirs.txt` and `paramst.txt`. These files are created by the `crimson_target` module in the exp directory :diamonds:
 ```bash
@@ -129,8 +131,8 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
         -n                 # Turn on NUCLEI scan on all URLs
         -o                 # Test open redirection vulnerabilities on all URLs
 ```
-
 #### :diamonds: Before starting third module, run the listener on your vps machine on port 80 `python -m http.server 80` and for ping payloads `tcpdump -i eth0 icmp` :diamonds:
+* Check the [MEDIUM ARTICLE](https://karol-mazurek95.medium.com/crimson-appsec-firearm-iii-80f9b40e0dad), which explains the `crimson_exploit` module deeper. 
 
 # Usage - modules description
 
