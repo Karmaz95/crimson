@@ -56,6 +56,8 @@ crimson_IPcon -i IPADDRESS
         -v                      # VULNERABILITY SCANNING
         -b                      # BRUTE FORCE
 ```
+* Check the [MEDIUM ARTICLE](https://karol-mazurek95.medium.com/crimson-appsec-firearm-iv-6bca2dd2e80d), which explains the `crimson_IPcon` module deeper. 
+
 ## :diamonds: crimson_recon :diamonds:
 #### :diamonds: First module needs `domain name` :diamonds:
 ```bash
