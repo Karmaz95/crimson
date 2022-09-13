@@ -457,14 +457,17 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
 
 
 ### :diamonds: Burp Suite extensions:
-* [ActiveScan++](https://portswigger.net/bappstore/3123d5b5f25c4128894d97ea1acc4976)
-* [Anonymous Cloud, Configuration and Subdomain Takeover Scanner](https://portswigger.net/bappstore/ea60f107b25d44ddb59c1aee3786c6a1)
 * [Attack Surface Detector](https://portswigger.net/bappstore/47027b96525d4353aea5844781894fb1)
 * [Auth Analyzer](https://portswigger.net/bappstore/7db49799266c4f85866f54d9eab82c89)
+
 * [AWS Security Checks](https://portswigger.net/bappstore/f078b9254eab40dc8c562177de3d3b2d)
+* [Anonymous Cloud, Configuration and Subdomain Takeover Scanner](https://portswigger.net/bappstore/ea60f107b25d44ddb59c1aee3786c6a1)
+* [Cloud Storage Tester](https://portswigger.net/bappstore/04adbe101f544c88b2497a9a25ffaab4)
+
+* [ActiveScan++](https://portswigger.net/bappstore/3123d5b5f25c4128894d97ea1acc4976)
 * [Backslash Powered Scanner](https://portswigger.net/bappstore/9cff8c55432a45808432e26dbb2b41d8)
 * [Burp Bounty Pro](https://burpbounty.net/)
-* [Cloud Storage Tester](https://portswigger.net/bappstore/04adbe101f544c88b2497a9a25ffaab4)
+
 * [Collaborator Everywhere](https://portswigger.net/bappstore/2495f6fb364d48c3b6c984e226c02968)
 * [CSRF Scanner](https://portswigger.net/bappstore/60f172f27a9b49a1b538ed414f9f27c3)
 * [Detect Dynamic JS](https://portswigger.net/bappstore/4a657674ebe3410b92280613aa512304)
@@ -490,6 +493,8 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
 * [Web Cache Deception Scanner](https://portswigger.net/bappstore/7c1ca94a61474d9e897d307c858d52f0)
 * [Hackvertor](https://portswigger.net/bappstore/65033cbd2c344fbabe57ac060b5dd100)
 * [burp-copy-as-ffuf](https://github.com/d3k4z/burp-copy-as-ffuf)
+
+* [meth0dman]()
 
 
 # HISTORY

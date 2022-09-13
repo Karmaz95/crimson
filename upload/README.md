@@ -77,3 +77,8 @@
 * :small_red_triangle_down: test.aspx
 
 > Upload it through the web interface and attempt to access it manually or using file bruteforcing.
+
+* :small_red_triangle_down: jku_attack.json
+
+> Use Burp Suite to generate RSA key, replace it in the template and host it on your server. 
+> Then replace KID, add JKU and modify payload in the JWT and sign the token using this RSA key.
