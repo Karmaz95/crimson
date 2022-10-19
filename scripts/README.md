@@ -178,3 +178,12 @@ python crimson_mass_nmap
 ## :small_red_triangle_down:crimson_faker
 
 > Template for generating fake data for API testing.
+
+## :small_red_triangle_down:crimson_redirector
+
+> Generate a wordlist for Open Redirection testing.
+
+### Usage example:
+```bash
+crimson_redirectOR.py whitelisted.com afine.com 123.123.123.123 redirect_uri
+```

@@ -1,0 +1,5 @@
+http:
+https:
+
+http%3a
+https%3a
