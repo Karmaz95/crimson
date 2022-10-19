@@ -26,3 +26,5 @@ javascript:alert(1);
 javascript:confirm(1)
 javascript:prompt(1)
 ";alert(0);//
+localhost
+127.0.0.1
