@@ -496,6 +496,7 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
 * [OAuth Scan](https://github.com/portswigger/oauth-scan)
 * [PHP Object Injection Check](https://github.com/portswigger/php-object-injection-check)
 * [Param Miner](https://github.com/portswigger/param-miner)
+* [pMDetector](https://github.com/Karmaz95/crimson/blob/master/scripts/BURP/PostMessageDetector.py)
 * [Reflected Parameters](https://github.com/portswigger/reflected-parameters)
 * [Retire.js](https://github.com/portswigger/retire-js)
 * [SRI Check](https://github.com/portswigger/sri-check)
