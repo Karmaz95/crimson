@@ -493,7 +493,7 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
 * [meth0dman](https://github.com/portswigger/meth0d-man)
 * [NGINX Alias Traversal](https://github.com/portswigger/nginx-alias-traversal)
 * [NoSQLi Scanner](https://github.com/portswigger/nosqli-scanner)
-* [JSON Web Tokens](https://github.com/portswigger/oauth-scan)
+* [OAuth Scan](https://github.com/portswigger/oauth-scan)
 * [PHP Object Injection Check](https://github.com/portswigger/php-object-injection-check)
 * [Padding Oracle Hunter](https://github.com/portswigger/padding-oracle-hunter)
 * [Param Miner](https://github.com/portswigger/param-miner)
