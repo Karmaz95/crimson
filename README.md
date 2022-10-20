@@ -495,7 +495,6 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
 * [NoSQLi Scanner](https://github.com/portswigger/nosqli-scanner)
 * [OAuth Scan](https://github.com/portswigger/oauth-scan)
 * [PHP Object Injection Check](https://github.com/portswigger/php-object-injection-check)
-* [Padding Oracle Hunter](https://github.com/portswigger/padding-oracle-hunter)
 * [Param Miner](https://github.com/portswigger/param-miner)
 * [Reflected Parameters](https://github.com/portswigger/reflected-parameters)
 * [Retire.js](https://github.com/portswigger/retire-js)
