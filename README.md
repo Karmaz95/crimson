@@ -489,7 +489,7 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
 * [JSON Web Token Attacker](https://github.com/portswigger/json-web-token-attacker)
 * [JSON Web Tokens](https://github.com/portswigger/json-web-tokens)
 * [JWT Editor](https://github.com/portswigger/jwt-editor)
-* [JWT heartbreaker]()
+* [JWT heartbreaker](https://github.com/wallarm/jwt-heartbreaker/releases/tag/0.1)
 * [Java Deserialization Scanner](https://github.com/portswigger/java-deserialization-scanner)
 * [Log4Shell Scanner](https://github.com/portswigger/log4shell-scanner)
 * [meth0dman](https://github.com/portswigger/meth0d-man)
