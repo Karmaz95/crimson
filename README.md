@@ -504,6 +504,7 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
 * [SRI Check](https://github.com/portswigger/sri-check)
 * [SSL Scanner](https://github.com/portswigger/ssl-scanner)
 * [SameSite Reporter](https://github.com/portswigger/samesite-reporter)
+* [SAML Raider](https://github.com/portswigger/saml-raider)
 * [Similar Request Excluder](https://github.com/portswigger/similar-request-excluder)
 * [Software Version Reporter](https://github.com/portswigger/software-version-reporter)
 * [Software Vulnerability Scanner](https://github.com/portswigger/software-vulnerability-scanner)
