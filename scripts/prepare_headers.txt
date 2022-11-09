@@ -1,0 +1,41 @@
+import sys
+
+def ip_iterator(filename):
+    '''Iterate from 1-255 and change 127.0.j.i to 127.0.1-255.1-255.'''
+    i = 1
+    j = 0
+    with open(filename) as f:
+        for line in f:
+            if i==255:
+                j+=1
+                i=1
+            print(line.rstrip().replace("127.0.0.1","127.0.%d.%d" % (j,i)))
+            i+=1
+            
+
+def ip_to_collab(filename,domain_collab):
+    '''Swap the 127.0.0.1 with a custom domain_collab.'''
+    i=0
+    with open(filename) as f:
+        for line in f:
+            print(line.rstrip().replace("127.0.0.1",str(i)+"."+domain_collab))
+            i+=1
+
+
+def main():
+    if len(sys.argv) == 2:
+        filename = sys.argv[1]
+        ip_iterator(filename)
+    elif len(sys.argv) == 3:
+        filename = sys.argv[1]
+        domain_collab =  sys.argv[2]
+        ip_to_collab(filename,domain_collab)
+    else:
+        print("The scritp needs the file with headers in format: HEADER: 127.0.0.1.")
+        print("The IP needs to be set to '127.0.0.1' as a placeholder")
+        print("If you use 2 args, you will get the domains instead of the IP addresses with nmber prefix: 1.afine.com")
+        print("(+) Usage: %s FILE_WITH_HEADERS (optional - domain_collab)" % sys.argv[0])
+
+
+if __name__ == "__main__":
+    main()
