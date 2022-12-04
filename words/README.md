@@ -30,6 +30,10 @@
 
 > This is wordlist for /js/vendor path bruteforcing
 
+* :small_red_triangle_down: quick.txt
+
+> This is wordlist for common file bruteforcing, creds to https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/quickhits.txt.
+
 * :small_red_triangle_down: dns
 
 > This is wordlist for the subdomain brute-forcing
