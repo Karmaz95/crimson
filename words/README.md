@@ -26,6 +26,10 @@
 
 > This is wordlist for directory brute-forcing.
 
+* :small_red_triangle_down: npm_names_10000.txt and npm_names_1mln.txt
+
+> This is wordlist for /js/vendor path bruteforcing
+
 * :small_red_triangle_down: dns
 
 > This is wordlist for the subdomain brute-forcing
