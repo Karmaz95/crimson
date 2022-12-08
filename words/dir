@@ -136935,3 +136935,14 @@ _framework/_bin/WebAssembly.Bindings.dll
 .well-known/enterprise-transport-security
 .well-known/nfv-oauth-server-configuration
 .well-known/apple-developer-merchantid-domain-association
+changepwd
+chpasswd
+chpwd
+dirb
+docnote
+dologin
+phpinfos
+servicelist
+sessionlist
+staffs
+xmlrpc_server
