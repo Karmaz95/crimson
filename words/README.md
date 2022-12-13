@@ -32,7 +32,7 @@
 
 * :small_red_triangle_down: quick.txt
 
-> This is wordlist for common file bruteforcing, creds to https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/quickhits.txt.
+> This is wordlist for common directory bruteforcing
 
 * :small_red_triangle_down: dns
 
