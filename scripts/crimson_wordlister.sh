@@ -5,6 +5,8 @@ mv temp123 custom
 ### SPLIT QUERIES
 sort -u custom | sed "s/=/\n/g" | sort -u > temp123
 mv temp123 custom
+sort -u custom | sed "s/?/\n/g" | sort -u > temp123
+mv temp123 custom
 
 ### DETELE FIRST SLASH ( / )
 #sort -u custom | sed "s/^\///" > temp123
