@@ -62,8 +62,8 @@ mv temp123 custom
 sort -u custom | grep -v "[0-9][0-9][0-9]" > temp123
 mv temp123 custom
 
-### DELETE ALL LINES WITH 2 “_” IN A STRING
-sort -u custom | grep -v "^.*_.*_" > temp123
+### DELETE ALL LINES WITH 3 “_” IN A STRING
+sort -u custom | grep -v "^.*_.*_.*_" > temp123
 mv temp123 custom
 
 ### SORT BY LENGTH
