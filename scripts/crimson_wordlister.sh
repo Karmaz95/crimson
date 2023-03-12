@@ -8,7 +8,7 @@
 ###
 
 ### CLEAR TRASH WORDS
-sort -u custom | grep -i -v "chuj\|kurwa\|szmata\|pizda\|dziwka\|gay\|lesbi\|porn\|fuck\|shit\|sex\|asshole\|bastard\|bitch\|bollock\|christ\|jesus\|cock\|nigga\|prick\|piss\|slut\|whore\|fetish\|bdsm\|dildo\|penis\|anus\|fellatio\|blowjob\|suck\|booty\|castration\|orgasm\|orgazm\|dick\|ciota\|condom\|kondom\|elakulat\|ejaculation\|sperma\|sperm\|jizz\|seemen\|erotic\|eroty\|erekcja\|erection\|eunuch\|eunich\|facesi\|facial\|spust\|philia\|hustler\|prostitute\|prostytu\|jerk\|kinky\|latex\|libido\|lube\|lubricant\|lubrykant\|sochism\|mastur\|onani\|orgy\|orgia\|penet\|rimmin\|transves\|viagra\|vibrat\|wibrat\|wiagra\|venerea\|vasectomy\|wazektomia\|xxx\|xvideo" | > temp123
+sort -u custom | grep -i -v "chuj\|kurwa\|szmata\|pizda\|dziwka\|gay\|lesbi\|porn\|fuck\|shit\|sex\|asshole\|bastard\|bitch\|bollock\|christ\|jesus\|cock\|nigga\|prick\|piss\|slut\|whore\|fetish\|bdsm\|dildo\|penis\|anus\|fellatio\|blowjob\|suck\|booty\|castration\|orgasm\|orgazm\|dick\|ciota\|condom\|kondom\|elakulat\|ejaculation\|sperma\|sperm\|jizz\|seemen\|erotic\|eroty\|erekcja\|erection\|eunuch\|eunich\|facesi\|facial\|spust\|philia\|hustler\|prostitute\|prostytu\|jerk\|kinky\|latex\|libido\|lube\|lubricant\|lubrykant\|sochism\|mastur\|onani\|orgy\|orgia\|penet\|rimmin\|transves\|viagra\|vibrat\|wibrat\|wiagra\|venerea\|vasectomy\|wazektomia\|xxx\|xvideo" > temp123
 mv temp123 custom
 
 ### CLEAR DIRECTORY DEPTH +2 ( asd/asd/ )
