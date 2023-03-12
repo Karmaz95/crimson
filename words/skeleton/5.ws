@@ -47,7 +47,6 @@ wsgw
 wsil
 xmethods
 .asmx
-.asmx?wsdl
 .aspx
 .atom
 .disco
@@ -55,15 +54,12 @@ xmethods
 .java
 .jsp
 .jws
-.jws?wsdl
 .php
 .pl
 .py
 .rss
 .svc
 .wsdl
-?disco
-?wsdl
 auditevents
 autoconfig
 beans
