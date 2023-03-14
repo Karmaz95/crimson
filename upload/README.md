@@ -82,3 +82,8 @@
 
 > Use Burp Suite to generate RSA key, replace it in the template and host it on your server. 
 > Then replace KID, add JKU and modify payload in the JWT and sign the token using this RSA key.
+
+* :small_red_triangle_down: pil_ghost.png
+
+> Replace COMMAND_PLACEHOLDER with your command, for example "touch /tmp/pwn.txt" , "ping 127.0.0.1" or "sleep 10".
+> You can change the extension (The default should be .eps)
