@@ -202,3 +202,14 @@ python3 pol_jpg_js_gif_gen.py jpg -H 250 -W 250 -p 'document.location.href="http
 ```js
 <script charset="ISO-8859-1" src="/upload/file"></script>
 ```
+
+## :small_red_triangle_down: internal_addr_disclosure.py
+
+> Send a raw 'GET / HTTP/1.0' request to a server and prints the response (handy for checking the Location for the internal IP leak).
+
+### Usage example:
+```bash
+python3 internal_addr_disclosure.py -d afine.com -p 443 --ssl
+python3 internal_addr_disclosure.py -d afine.com -p 80
+python3 internal_addr_disclosure.py -d afine.com -p 80 -o internal_addr_disclosure_test_afine_com_80.log
+```
