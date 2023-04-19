@@ -210,6 +210,7 @@ python3 pol_jpg_js_gif_gen.py jpg -H 250 -W 250 -p 'document.location.href="http
 ### Usage example:
 ```bash
 python3 internal_addr_disclosure.py -d afine.com -p 443 --ssl
-python3 internal_addr_disclosure.py -d afine.com -p 80 -m POST -e /test
+python3 internal_addr_disclosure.py -d afine.com -p 80 -m POST -e /test -v 'HTTP/1.0'
+python3 internal_addr_disclosure.py -d afine.com -p 80 -v 'HTTP/1.1'
 python3 internal_addr_disclosure.py -d afine.com -p 80 -o internal_addr_disclosure_test_afine_com_80.log
 ```
