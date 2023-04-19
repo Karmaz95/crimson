@@ -36,7 +36,7 @@ def send_request(domain, port, ssl_enabled, method, endpoint, log_file=None):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Send a raw HTTP request to a server and check the Location for the internal IP leak.')
+    parser = argparse.ArgumentParser(description='Send a raw GET / HTTP/1.0 request to a server without the "Host" header.')
     parser.add_argument('-d', '--domain', required=True, help='The domain or IP address of the server')
     parser.add_argument('-p', '--port', required=True, type=int, help='The port number to connect to')
     parser.add_argument('-s', '--ssl', action='store_true', help='Use SSL for HTTPS requests')
