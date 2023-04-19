@@ -22,7 +22,12 @@ def send_request(domain, port, ssl_enabled, method, endpoint, http_version, log_
     client_socket.sendall(request)
 
     # receive the response from the server
-    response = client_socket.recv(4096)
+    response = b''  # initialize an empty bytes object to store the response
+    while True:
+        chunk = client_socket.recv(1024)  # receive up to 1024 bytes at a time
+        if not chunk:  # if the server has finished sending the response, exit the loop
+            break
+        response += chunk  # append the received data to the response bytes object
 
     # close the socket connection
     client_socket.close()
