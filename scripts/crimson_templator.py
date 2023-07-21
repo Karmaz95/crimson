@@ -15,6 +15,7 @@
 #   b) {{7/0}}
 #   c) <%= 7/0 %>
 #   d) ``
+#   e) ${{<%[%'"}}%\.
 ###
 #
 # USAGE EXAMPLE:
@@ -118,7 +119,8 @@ def check_ssti_error_based(urls, cookies, headers):
     "${7/0}",
     "{{7/0}}",
     "<%= 7/0 %>",
-    "``"
+    "``",
+    "${{<%[%'\"}}%\."
     ]
 
     s = requests.Session()
