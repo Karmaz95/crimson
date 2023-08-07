@@ -22,6 +22,9 @@ https://domain_collab
 //domain_collab
 domain_collab
 \\domain_collab\C$
+\\domain_collab\crimson
+\\\\domain_collab\\crimson
+//domain_collab/crimson
 file://vps_ip
 gopher://vps_ip
 ftp://vps_ip
@@ -46,3 +49,6 @@ https://vps_ip
 //vps_ip
 vps_ip
 \\vps_ip\C$
+\\vps_ip\crimson
+\\\\vps_ip\\crimson
+//vps_ip/crimson
