@@ -46,6 +46,9 @@
 
 > First use "Battering ram" with first 200 lines. Then whole list with sniper as username(admin|your_account), then password(Pa$$P0licy_baby123).
 
+* :small_red_triangle_down: common_TCP_ports.txt
+
+> Top 1,000 TCP Ports: nmap -sT --top-ports 1000 -v -oG -
 
 ## ALIAS
 ```bash
