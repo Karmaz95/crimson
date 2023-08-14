@@ -27,3 +27,4 @@ vps_ip
 simplessrf.domain_collab
 169.254.169.254
 100.100.100.200
+①②⑦.⓪.⓪.①
