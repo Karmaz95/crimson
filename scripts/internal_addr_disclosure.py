@@ -52,8 +52,10 @@ def main():
     parser.add_argument('-v', '--version', default='HTTP/1.0', help='The HTTP version to use')
 
     args = parser.parse_args()
-
-    send_request(args.domain, args.port, args.ssl, args.method, args.endpoint, args.version, args.output)
+    try:
+        send_request(args.domain, args.port, args.ssl, args.method, args.endpoint, args.version, args.output)
+    except Exception as e:
+        print("An error occurred:", e)
 
 
 if __name__ == '__main__':
