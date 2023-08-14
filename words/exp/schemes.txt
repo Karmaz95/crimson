@@ -24,6 +24,7 @@ https://
 dns://
 smb://
 php://
+git://
 \\
 \\\\
 //
