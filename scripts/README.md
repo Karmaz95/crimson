@@ -214,3 +214,12 @@ python3 internal_addr_disclosure.py -d afine.com -p 80 -m POST -e /test -v 'HTTP
 python3 internal_addr_disclosure.py -d afine.com -p 80 -v 'HTTP/1.1'
 python3 internal_addr_disclosure.py -d afine.com -p 80 -o internal_addr_disclosure_test_afine_com_80.log
 ```
+
+## :small_red_triangle_down: combiner.py
+
+> Combines each line of file_1 with each line of file_2.
+
+### Usage example:
+```bash
+python combine.py --file_1 CRLF --file_2 OOB --out combined.txt
+```
