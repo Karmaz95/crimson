@@ -14,6 +14,10 @@ C:/Windows/win.ini
 <data>&file;</data>
 
 <!--?xml version="1.0" ?-->
+<!DOCTYPE foo [<!ENTITY % file SYSTEM "/etc/hosts"> ]>
+<data>&file;</data>
+
+<!--?xml version="1.0" ?-->
 <!DOCTYPE foo [<!ENTITY file SYSTEM "file:///etc/hosts"> ]>
 <data>&file;</data>
 
