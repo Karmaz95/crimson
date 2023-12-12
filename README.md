@@ -346,12 +346,12 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
 > Especially check `Burp Suite extensions` because all gathered resources are proxied to Burp Suite, where they are further tested.
 
 
-### :diamonds: OSINT:
+### OSINT:
 * [spiderfoot](https://github.com/smicallef/spiderfoot.git)
 * [theHarvester](https://github.com/laramies/theHarvester.git)
 
 
-### :diamonds: IP && ports:
+### IP && ports:
 * [nmap](https://github.com/nmap/nmap)
 * [masscan](https://github.com/robertdavidgraham/masscan)
 * [rustscan](https://github.com/RustScan/RustScan.git)
@@ -361,7 +361,7 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
 * [BruteSpray](https://github.com/x90skysn3k/brutespray)
 
 
-### :diamonds: Domains enumeration:
+### Domains enumeration:
 * [Amass](https://github.com/OWASP/Amass)
 * [subfinder](https://github.com/projectdiscovery/subfinder)
 * [massdns](https://github.com/blechschmidt/massdns)
@@ -376,7 +376,7 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
 * [DNSRecon](https://github.com/darkoperator/dnsrecon)
 
 
-### :diamonds: URLs:
+### URLs:
 * [waybackurls](https://github.com/tomnomnom/waybackurls)
 * [Paramspider](https://github.com/devanshbatham/ParamSpider)
 * [getallurls](https://github.com/lc/gau)
@@ -394,14 +394,14 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
 * [cariddi](https://github.com/edoardottt/cariddi)
 
 
-### :diamonds: Target visualisation:
+### Target visualisation:
 * [WhatWeb](https://github.com/urbanadventurer/WhatWeb)
 * [gowitness](https://github.com/sensepost/gowitness)
 * [wafw00f](https://github.com/EnableSecurity/wafw00f)
 * [Ultimate Nmap Parser](https://github.com/shifty0g/ultimate-nmap-parser)
 
 
-### :diamonds: Bug finding:
+### Bug finding:
 * [nikto](https://github.com/sullo/nikto)
 * [CorsMe](https://github.com/Shivangx01b/CorsMe)
 * [subjack](https://github.com/haccer/subjack)
@@ -430,14 +430,14 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
 * [INQL](https://github.com/doyensec/inql.git)
 
 
-### :diamonds: WordPress tools:
+### WordPress tools:
 * [wpscan](https://github.com/wpscanteam/wpscan)
 * [WPluginScanner](https://github.com/linoskoczek/WPluginScanner)
 * [quickpress](https://github.com/pownx/quickpress)
 * [wpBullet](https://github.com/webarx-security/wpbullet)
 
 
-### :diamonds: Additional tools:
+### Additional tools:
 * [qsreplace](https://github.com/tomnomnom/qsreplace)
 * [anew](https://github.com/tomnomnom/anew.git)
 * [unfurl](https://github.com/tomnomnom/unfurl)
@@ -450,13 +450,13 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
 * [Ciphey](https://github.com/Ciphey/Ciphey)
 
 
-### :diamonds: Wordlists:
+### Wordlists:
 * [SecLists](https://github.com/danielmiessler/SecLists)
 * [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
 * [fresh-resolvers](https://raw.githubusercontent.com/BonJarber/fresh-resolvers/)
 
 
-### :diamonds: Burp Suite extensions:
+### Burp Suite extensions:
 * [.NET Beautifier](https://github.com/portswigger/dotnet-beautifier)
 * [403 Bypasser](https://github.com/portswigger/403-bypasser)
 * [AWS Security Checks](https://github.com/portswigger/aws-security-checks)
@@ -513,7 +513,8 @@ Usage: prepare two files in the current directory and use the crimson_exploit co
 * [UploadScanner](https://github.com/portswigger/upload-scanner)
 * [Web Cache Deception Scanner](https://github.com/portswigger/web-cache-deception-scanner)
 
-
+# LEARNING MATERIALS
+> Check out the AppSec Tales series on [My Blog](https://medium.com/@karol-mazurek95/list/appsec-tales-c709435a44d0).
 
 # HISTORY
 > If you are curious how it all started:
