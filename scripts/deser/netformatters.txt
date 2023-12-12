@@ -1,0 +1,13 @@
+BinaryFormatter
+LosFormatter
+NetDataContractSerializer
+ObjectStateFormatter
+SoapFormatter
+DataContractSerializer
+FastJson
+FsPickler
+JavaScriptSerializer
+Json.Net
+Xaml
+XmlSerializer
+YamlDotNet
