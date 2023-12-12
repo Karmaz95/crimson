@@ -2,15 +2,15 @@
 This collection contains various tools for generating serialized payloads in different programming languages.
 
 ## TOOLS
-* [Java - ysoserial](https://github.com/frohoff/ysoserial)
+* [Java - ysoserial.jar](https://github.com/frohoff/ysoserial)
     * [jargadgets.txt]()
-* [C# - ysoserial.net](https://github.com/pwntester/ysoserial.net/)
+* [C# - ysoserial.exe](https://github.com/pwntester/ysoserial.net/)
     * [RunYsoserial.ps1]() - Wrapper around ysoserial.net using all possible gadgets and formatters.
     * [netgadgets.txt]()
     * [netformatters.txt]()
 * [Python - python_deser.py](PLACEHOLDER)
     * (Modified [Peas](https://github.com/j0lt-github/python-deserialization-attack-payload-generator))
-* [Ruby - ruby_deser_vx](PLACEHOLDER)
+* [Ruby - ruby_deser_vx.rb](PLACEHOLDER)
     * ([deser-ruby](https://github.com/klezVirus/deser-ruby) is an alternative tool for Ruby v3 which also supports YAML generation)
 * [PHP - phpggc](https://github.com/ambionics/phpggc)
     * [php_deser.sh]() - Wrapper around phpggc that generates payloads from all possible gadgets in base64 format. 
