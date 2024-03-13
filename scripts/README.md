@@ -223,3 +223,13 @@ python3 internal_addr_disclosure.py -d afine.com -p 80 -o internal_addr_disclosu
 ```bash
 python combine.py --file_1 CRLF --file_2 OOB --out combined.txt
 ```
+
+## :small_red_triangle_down: proxy_fuzer.py
+
+> [Article](https://karol-mazurek.medium.com/proxy-fuzzing-4dc77968cfd8?sk=v2%2F5799b46b-6440-4d29-9aec-6736fa5eddc1)
+
+### Usage example:
+```bash
+echo "<script>alert(1)</script>" > payload.bin
+python proxy_fuzzer.py
+```
